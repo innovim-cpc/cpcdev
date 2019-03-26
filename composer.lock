@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "74c4532ede127eeaee83a670c07112b5",
+    "content-hash": "1035a7fc04e4158595f1979f33a8a682",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1470,6 +1470,152 @@
             "time": "2018-07-27T10:07:07+00:00"
         },
         {
+            "name": "drupal/admin_toolbar",
+            "version": "1.26.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/admin_toolbar",
+                "reference": "8.x-1.26"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/admin_toolbar-8.x-1.26.zip",
+                "reference": "8.x-1.26",
+                "shasum": "7be9f91008bf17cf49b43d1c8e2211e7a8e40ce4"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.26",
+                    "datestamp": "1549559402",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Wilfrid Roze (eme)",
+                    "homepage": "https://www.drupal.org/u/eme",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Romain Jarraud (romainj)",
+                    "homepage": "https://www.drupal.org/u/romainj",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Adrian Cid Almaguer (adriancid)",
+                    "homepage": "https://www.drupal.org/u/adriancid",
+                    "email": "adriancid@gmail.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Mohamed Anis Taktak (matio89)",
+                    "homepage": "https://www.drupal.org/u/matio89",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "fethi.krout",
+                    "homepage": "https://www.drupal.org/user/3206765"
+                },
+                {
+                    "name": "matio89",
+                    "homepage": "https://www.drupal.org/user/2320090"
+                },
+                {
+                    "name": "romainj",
+                    "homepage": "https://www.drupal.org/user/370706"
+                }
+            ],
+            "description": "Provides a drop-down menu interface to the core Drupal Toolbar.",
+            "homepage": "http://drupal.org/project/admin_toolbar",
+            "keywords": [
+                "Drupal",
+                "Toolbar"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/admin_toolbar",
+                "issues": "https://www.drupal.org/project/issues/admin_toolbar"
+            }
+        },
+        {
+            "name": "drupal/backup_migrate",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/backup_migrate",
+                "reference": "8.x-4.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/backup_migrate-8.x-4.0.zip",
+                "reference": "8.x-4.0",
+                "shasum": "9f91ae24b0862a1e9403b87090453f9c7c48ffea"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-4.x": "4.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-4.0",
+                    "datestamp": "1522330983",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Ronan Dowling",
+                    "homepage": "https://www.drupal.org/u/ronan",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "DamienMcKenna",
+                    "homepage": "https://www.drupal.org/user/108450"
+                },
+                {
+                    "name": "dgorton",
+                    "homepage": "https://www.drupal.org/user/19044"
+                },
+                {
+                    "name": "ikit-claw",
+                    "homepage": "https://www.drupal.org/user/3285813"
+                },
+                {
+                    "name": "ronan",
+                    "homepage": "https://www.drupal.org/user/72815"
+                }
+            ],
+            "description": "Backup and Migrate Drupal Module",
+            "homepage": "https://www.drupal.org/project/backup_migrate",
+            "support": {
+                "source": "http://cgit.drupalcode.org/backup_migrate",
+                "issues": "https://www.drupal.org/project/issues/backup_migrate"
+            }
+        },
+        {
             "name": "drupal/console",
             "version": "1.8.0",
             "source": {
@@ -1962,6 +2108,542 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "time": "2018-11-07T14:45:40+00:00"
+        },
+        {
+            "name": "drupal/devel",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/devel",
+                "reference": "8.x-2.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/devel-8.x-2.0.zip",
+                "reference": "8.x-2.0",
+                "shasum": "cf5fb816f767f3cac4f2e170ab39e982d5e0698b"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "symfony/var-dumper": "~2.7|^3"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.0",
+                    "datestamp": "1548799380",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Moshe Weitzman",
+                    "homepage": "https://github.com/weitzman",
+                    "email": "weitzman@tejasa.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Hans Salvisberg",
+                    "homepage": "https://www.drupal.org/u/salvis",
+                    "email": "drupal@salvisberg.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Luca Lusso",
+                    "homepage": "https://www.drupal.org/u/lussoluca",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Marco (willzyx)",
+                    "homepage": "https://www.drupal.org/u/willzyx",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "See contributors",
+                    "homepage": "https://www.drupal.org/node/3236/committers"
+                },
+                {
+                    "name": "salvis",
+                    "homepage": "https://www.drupal.org/user/82964"
+                },
+                {
+                    "name": "willzyx",
+                    "homepage": "https://www.drupal.org/user/1043862"
+                }
+            ],
+            "description": "Various blocks, pages, and functions for developers.",
+            "homepage": "http://drupal.org/project/devel",
+            "support": {
+                "source": "http://cgit.drupalcode.org/devel",
+                "issues": "http://drupal.org/project/devel",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
+            "name": "drupal/entity_reference_revisions",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/entity_reference_revisions",
+                "reference": "8.x-1.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/entity_reference_revisions-8.x-1.6.zip",
+                "reference": "8.x-1.6",
+                "shasum": "82d515de04d3a75fb677ed82241a6aff3f54ab47"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "require-dev": {
+                "drupal/diff": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.6",
+                    "datestamp": "1539588781",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Frans",
+                    "homepage": "https://www.drupal.org/user/514222"
+                },
+                {
+                    "name": "jeroen.b",
+                    "homepage": "https://www.drupal.org/user/1853532"
+                },
+                {
+                    "name": "miro_dietiker",
+                    "homepage": "https://www.drupal.org/user/227761"
+                }
+            ],
+            "description": "Adds a Entity Reference field type with revision support.",
+            "homepage": "https://www.drupal.org/project/entity_reference_revisions",
+            "support": {
+                "source": "http://cgit.drupalcode.org/entity_reference_revisions"
+            }
+        },
+        {
+            "name": "drupal/geofield",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/geofield",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/geofield-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "8eab2aa14e806d467e32de4d55040d604650299f"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "phayes/geophp": "^1.2"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1548102780",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Brandon Morrison",
+                    "homepage": "https://www.drupal.org/u/brandonian",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Pablo López",
+                    "homepage": "https://www.drupal.org/u/plopesc",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Italo Mairo",
+                    "homepage": "https://www.drupal.org/u/itamair",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "davidseth",
+                    "homepage": "https://www.drupal.org/user/254857"
+                },
+                {
+                    "name": "itamair",
+                    "homepage": "https://www.drupal.org/user/1179076"
+                },
+                {
+                    "name": "phayes",
+                    "homepage": "https://www.drupal.org/user/47098"
+                },
+                {
+                    "name": "plopesc",
+                    "homepage": "https://www.drupal.org/user/282415"
+                },
+                {
+                    "name": "zzolo",
+                    "homepage": "https://www.drupal.org/user/147331"
+                }
+            ],
+            "description": "Stores geographic and location data (points, lines, and polygons).",
+            "homepage": "https://www.drupal.org/project/geofield",
+            "support": {
+                "source": "http://git.drupal.org/project/geofield.git",
+                "issues": "https://www.drupal.org/project/issues/geofield",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
+            "name": "drupal/leaflet",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/leaflet",
+                "reference": "8.x-1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/leaflet-8.x-1.4.zip",
+                "reference": "8.x-1.4",
+                "shasum": "70ae22535b67a2f0370ec1ad0d7285a4c0528650"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "drupal/geofield": "^1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.4",
+                    "datestamp": "1551757985",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Italo Mairo",
+                    "homepage": "https://www.drupal.org/u/itamair",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Peter Vanhee (pvhee)",
+                    "homepage": "https://www.drupal.org/u/pvhee",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Rik de Boer (RdeBoer)",
+                    "homepage": "https://www.drupal.org/u/rdeboer",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Gabriel Carleton-Barnes (gcb)",
+                    "homepage": "https://www.drupal.org/u/gcb",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Lev Tsypin (levelos)",
+                    "homepage": "https://www.drupal.org/u/levelos",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Sean Larkin (seanberto)",
+                    "homepage": "https://www.drupal.org/u/seanberto",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Integration with the Leaflet map scripting library.",
+            "homepage": "https://www.drupal.org/project/leaflet",
+            "support": {
+                "source": "http://cgit.drupalcode.org/leaflet",
+                "issues": "https://www.drupal.org/project/issues/leaflet"
+            }
+        },
+        {
+            "name": "drupal/module_filter",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/module_filter",
+                "reference": "8.x-3.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/module_filter-8.x-3.1.zip",
+                "reference": "8.x-3.1",
+                "shasum": "39d627ce60280ae54bcf9beae217b85cce1969e4"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-3.x": "3.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-3.1",
+                    "datestamp": "1507650844",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "greenSkin",
+                    "homepage": "https://www.drupal.org/user/173855"
+                },
+                {
+                    "name": "realityloop",
+                    "homepage": "https://www.drupal.org/user/139189"
+                },
+                {
+                    "name": "shumushin",
+                    "homepage": "https://www.drupal.org/user/22093"
+                }
+            ],
+            "description": "Filter the modules list.",
+            "homepage": "https://www.drupal.org/project/module_filter",
+            "support": {
+                "source": "http://cgit.drupalcode.org/module_filter"
+            }
+        },
+        {
+            "name": "drupal/paragraphs",
+            "version": "1.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/paragraphs",
+                "reference": "8.x-1.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/paragraphs-8.x-1.8.zip",
+                "reference": "8.x-1.8",
+                "shasum": "a40849233de8403f5488c20c5b81ab4877373f65"
+            },
+            "require": {
+                "drupal/core": "~8",
+                "drupal/entity_reference_revisions": "~1.3"
+            },
+            "require-dev": {
+                "drupal/block_field": "~1.0",
+                "drupal/ctools": "3.x-dev",
+                "drupal/diff": "~1.0",
+                "drupal/entity_browser": "2.x-dev",
+                "drupal/entity_usage": "2.x-dev",
+                "drupal/field_group": "~1.0",
+                "drupal/inline_entity_form": "~1.0",
+                "drupal/paragraphs-paragraphs_library": "*",
+                "drupal/replicate": "~1.0",
+                "drupal/search_api": "~1.0",
+                "drupal/search_api_db": "*"
+            },
+            "suggest": {
+                "drupal/entity_browser": "Recommended for an improved user experience when using the Paragraphs library module"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.8",
+                    "datestamp": "1553618281",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Berdir",
+                    "homepage": "https://www.drupal.org/user/214652"
+                },
+                {
+                    "name": "Frans",
+                    "homepage": "https://www.drupal.org/user/514222"
+                },
+                {
+                    "name": "Primsi",
+                    "homepage": "https://www.drupal.org/user/282629"
+                },
+                {
+                    "name": "jeroen.b",
+                    "homepage": "https://www.drupal.org/user/1853532"
+                },
+                {
+                    "name": "miro_dietiker",
+                    "homepage": "https://www.drupal.org/user/227761"
+                }
+            ],
+            "description": "Enables the creation of Paragraphs entities.",
+            "homepage": "https://www.drupal.org/project/paragraphs",
+            "support": {
+                "source": "http://cgit.drupalcode.org/paragraphs"
+            }
+        },
+        {
+            "name": "drupal/twig_field_value",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/twig_field_value",
+                "reference": "8.x-1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/twig_field_value-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "dd5bfb64bc455ca262b3bdc6b489fdb08b2b8538"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.2",
+                    "datestamp": "1549817580",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Sutharsan",
+                    "homepage": "https://www.drupal.org/user/73854"
+                }
+            ],
+            "description": "Twig filters for value(s) and label.",
+            "homepage": "https://www.drupal.org/project/twig_field_value",
+            "support": {
+                "source": "http://cgit.drupalcode.org/twig_field_value"
+            }
+        },
+        {
+            "name": "drupal/twig_tweak",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/twig_tweak",
+                "reference": "8.x-2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/twig_tweak-8.x-2.1.zip",
+                "reference": "8.x-2.1",
+                "shasum": "ce1534d3270d916b55902c686057c0b5038d6b1d"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "suggest": {
+                "symfony/var-dumper": "better dump() function for debugging Twig variables"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.1",
+                    "datestamp": "1531889025",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Chi",
+                    "homepage": "https://www.drupal.org/user/556138"
+                }
+            ],
+            "description": "A Twig extension with some useful functions and filters for Drupal development.",
+            "homepage": "https://www.drupal.org/project/twig_tweak",
+            "keywords": [
+                "Drupal",
+                "Twig"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/twig_tweak",
+                "issues": "https://www.drupal.org/project/issues/twig_tweak"
+            }
         },
         {
             "name": "drush/drush",
@@ -2842,6 +3524,42 @@
                 "random"
             ],
             "time": "2019-01-03T20:59:08+00:00"
+        },
+        {
+            "name": "phayes/geophp",
+            "version": "1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phayes/geoPHP.git",
+                "reference": "015404e85b602e0df1f91441f8db0f9e98f7e567"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phayes/geoPHP/zipball/015404e85b602e0df1f91441f8db0f9e98f7e567",
+                "reference": "015404e85b602e0df1f91441f8db0f9e98f7e567",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "geoPHP.inc"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2 or New-BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Patrick Hayes"
+                }
+            ],
+            "description": "GeoPHP is a open-source native PHP library for doing geometry operations. It is written entirely in PHP and can therefore run on shared hosts. It can read and write a wide variety of formats: WKT (including EWKT), WKB (including EWKB), GeoJSON, KML, GPX, GeoRSS). It works with all Simple-Feature geometries (Point, LineString, Polygon, GeometryCollection etc.) and can be used to get centroids, bounding-boxes, area, and a wide variety of other useful information.",
+            "homepage": "https://github.com/phayes/geoPHP",
+            "time": "2014-12-02T06:11:22+00:00"
         },
         {
             "name": "psr/container",
@@ -6585,6 +7303,7 @@
                 "mock",
                 "xunit"
             ],
+            "abandoned": true,
             "time": "2018-08-09T05:50:03+00:00"
         },
         {
