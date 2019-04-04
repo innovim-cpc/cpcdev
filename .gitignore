@@ -14,6 +14,9 @@
 # Ignore Drupal's file directory
 /web/sites/*/files/
 
+# Ignore node_modules dependency directories
+node_modules/
+
 # Ignore SimpleTest multi-site environment.
 /web/sites/simpletest
 
