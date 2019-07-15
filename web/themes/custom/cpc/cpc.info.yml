@@ -1,0 +1,33 @@
+name: Climate Prediction Center 1.0
+type: theme
+description: 'A Twig/Sass theme informed by USWDS'
+core: 8.x
+libraries:
+  - cpc/global
+  - cpc/uswds
+base theme: classy
+regions:
+  header_top: 'Above Header'
+  header: 'Header'
+  button_content: 'Button Content'
+  site_branding: 'Site Branding'
+  primary_menu: 'Primary Menu'
+  secondary_menu: 'Secondary Menu'
+  breadcrumb: 'Breadcrumb'
+  title: 'Page Title'
+  content_top: 'Content Top'
+  content: 'Content'
+  content_bottom: 'Content Bottom'
+  sidebar_first: 'Sidebar Left'
+  sidebar_second: 'Sidebar Right'
+  footer: 'Footer'
+  disabled: 'Disabled'
+  page_top: 'Page Top'
+  page_bottom: 'Page Bottom'
+  frontpage_outlooks_hero: 'Frontpage Outlooks Hero'
+  frontpage_block_01: 'Frontpage First Block'
+  frontpage_block_02: 'Frontpage Second Block'
+  footer_menu: 'Footer Menu'
+  footer: 'Primary Footer'
+  footer_secondary: 'Secondary Footer'
+  footer_requirements: 'Bottom Footer menu (required links)'

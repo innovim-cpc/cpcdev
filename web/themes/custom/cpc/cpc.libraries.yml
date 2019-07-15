@@ -1,0 +1,17 @@
+uswds:
+  version: 1.0.0
+  css:
+    theme:
+      assets/css/uswds.css: {}
+  js:
+    assets/js/uswds.min.js: {}
+global:
+  css:
+    theme:
+      css/style.css: {}
+      #css/flexboxgrid.min.css: {}
+  js:
+    js/scripts.min.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
