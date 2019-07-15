@@ -4,7 +4,6 @@ description: 'A Twig/Sass theme informed by USWDS'
 core: 8.x
 libraries:
   - cpc/global
-  - cpc/uswds
 base theme: classy
 regions:
   header_top: 'Above Header'
