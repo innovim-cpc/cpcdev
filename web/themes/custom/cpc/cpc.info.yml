@@ -6,7 +6,7 @@ libraries:
   - cpc/global
 base theme: classy
 regions:
-  header_top: 'Above Header'
+  gov_banner: 'Government Banner'
   header: 'Header'
   button_content: 'Button Content'
   site_branding: 'Site Branding'
