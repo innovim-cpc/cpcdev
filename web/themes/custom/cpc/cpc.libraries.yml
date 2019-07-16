@@ -1,0 +1,10 @@
+global:
+  css:
+    theme:
+      css/styles.css: {}
+      #css/flexboxgrid.min.css: {}
+  js:
+    js/uswds.min.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

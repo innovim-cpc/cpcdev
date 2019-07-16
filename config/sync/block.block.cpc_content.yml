@@ -1,0 +1,22 @@
+uuid: 54f527eb-dc3f-4355-8e2b-f862062362fe
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - cpc
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: cpc_content
+theme: cpc
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,22 @@
+uuid: f5b11b61-9630-4fed-a588-d6a22022c548
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - cpc
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: cpc_help
+theme: cpc
+region: content
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

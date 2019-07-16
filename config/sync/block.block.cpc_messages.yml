@@ -1,0 +1,22 @@
+uuid: 06921d6d-27c9-49fb-b4fe-9a5dc838ce13
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - cpc
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: cpc_messages
+theme: cpc
+region: header
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }
