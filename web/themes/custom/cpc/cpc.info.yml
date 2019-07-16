@@ -6,7 +6,7 @@ libraries:
   - cpc/global
 base theme: classy
 regions:
-  gov_banner: 'Government Banner'
+  #gov_banner: 'Government Banner'
   header: 'Header'
   button_content: 'Button Content'
   site_branding: 'Site Branding'
@@ -19,14 +19,13 @@ regions:
   content_bottom: 'Content Bottom'
   sidebar_first: 'Sidebar Left'
   sidebar_second: 'Sidebar Right'
-  footer: 'Footer'
-  disabled: 'Disabled'
   page_top: 'Page Top'
   page_bottom: 'Page Bottom'
   frontpage_outlooks_hero: 'Frontpage Outlooks Hero'
   frontpage_block_01: 'Frontpage First Block'
   frontpage_block_02: 'Frontpage Second Block'
   footer_menu: 'Footer Menu'
-  footer: 'Primary Footer'
+  footer: 'Footer'
   footer_secondary: 'Secondary Footer'
   footer_requirements: 'Bottom Footer menu (required links)'
+  disabled: 'Disabled'
