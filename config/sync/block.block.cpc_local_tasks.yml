@@ -1,0 +1,22 @@
+uuid: 06d7f88a-7e3d-43cb-8f31-42662612d59a
+langcode: en
+status: true
+dependencies:
+  theme:
+    - cpc
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: cpc_local_tasks
+theme: cpc
+region: content
+weight: -40
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }
