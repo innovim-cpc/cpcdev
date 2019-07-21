@@ -24,105 +24,22 @@
         // Add Esri World Topo basemap via Esri Leaflet plugin
         L.esri.basemapLayer('Topographic').addTo(hazardsmap);
 
-        var currentLayer;
+        // Get link to 8-14 day precipitation KML file found at https://www.cpc.ncep.noaa.gov/products/predictions/threats/threats.php
+        const prcp814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/prcp_D8_14.kml";
 
-        // Pull in WMS layers using Leaflet's native WMS layer support
-        var temp610Layer = L.tileLayer.wms('https://idpgis.ncep.noaa.gov/arcgis/services/NWS_Climate_Outlooks/cpc_6_10_day_outlk/MapServer/WMSServer?', {
-  		    layers: '1',
-          format: 'image/png',
-          transparent: true,
-          opacity: 0.6
-  		  });
-        var temp814Layer = L.tileLayer.wms('https://idpgis.ncep.noaa.gov/arcgis/services/NWS_Climate_Outlooks/cpc_8_14_day_outlk/MapServer/WMSServer?', {
-  		    layers: '1',
-          format: 'image/png',
-          transparent: true,
-          opacity: 0.6
-  		  });
-        var tempMonthlyLayer = L.tileLayer.wms('https://idpgis.ncep.noaa.gov/arcgis/services/NWS_Climate_Outlooks/cpc_mthly_temp_outlk/MapServer/WMSServer?', {
-  		    layers: '0',
-          format: 'image/png',
-          transparent: true,
-          opacity: 0.6
-  		  });
-        var temp05SeasonalLayer = L.tileLayer.wms('https://idpgis.ncep.noaa.gov/arcgis/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/WMSServer?', {
-  		    layers: '12',
-          format: 'image/png',
-          transparent: true,
-          opacity: 0.6
-  		  });
-        var temp15SeasonalLayer = L.tileLayer.wms('https://idpgis.ncep.noaa.gov/arcgis/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/WMSServer?', {
-  		    layers: '11',
-          format: 'image/png',
-          transparent: true,
-          opacity: 0.6
-  		  });
-        var temp25SeasonalLayer = L.tileLayer.wms('https://idpgis.ncep.noaa.gov/arcgis/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/WMSServer?', {
-  		    layers: '10',
-          format: 'image/png',
-          transparent: true,
-          opacity: 0.6
-  		  });
-        var temp35SeasonalLayer = L.tileLayer.wms('https://idpgis.ncep.noaa.gov/arcgis/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/WMSServer?', {
-  		    layers: '9',
-          format: 'image/png',
-          transparent: true,
-          opacity: 0.6
-  		  });
-        var temp45SeasonalLayer = L.tileLayer.wms('https://idpgis.ncep.noaa.gov/arcgis/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/WMSServer?', {
-  		    layers: '8',
-          format: 'image/png',
-          transparent: true,
-          opacity: 0.6
-  		  });
-        var temp55SeasonalLayer = L.tileLayer.wms('https://idpgis.ncep.noaa.gov/arcgis/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/WMSServer?', {
-  		    layers: '7',
-          format: 'image/png',
-          transparent: true,
-          opacity: 0.6
-  		  });
-        var temp65SeasonalLayer = L.tileLayer.wms('https://idpgis.ncep.noaa.gov/arcgis/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/WMSServer?', {
-  		    layers: '6',
-          format: 'image/png',
-          transparent: true,
-          opacity: 0.6
-  		  });
-        var temp75SeasonalLayer = L.tileLayer.wms('https://idpgis.ncep.noaa.gov/arcgis/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/WMSServer?', {
-  		    layers: '5',
-          format: 'image/png',
-          transparent: true,
-          opacity: 0.6
-  		  });
-        var temp85SeasonalLayer = L.tileLayer.wms('https://idpgis.ncep.noaa.gov/arcgis/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/WMSServer?', {
-  		    layers: '4',
-          format: 'image/png',
-          transparent: true,
-          opacity: 0.6
-  		  });
-        var temp95SeasonalLayer = L.tileLayer.wms('https://idpgis.ncep.noaa.gov/arcgis/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/WMSServer?', {
-  		    layers: '3',
-          format: 'image/png',
-          transparent: true,
-          opacity: 0.6
-  		  });
-        var temp105SeasonalLayer = L.tileLayer.wms('https://idpgis.ncep.noaa.gov/arcgis/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/WMSServer?', {
-  		    layers: '2',
-          format: 'image/png',
-          transparent: true,
-          opacity: 0.6
-  		  });
-        var temp115SeasonalLayer = L.tileLayer.wms('https://idpgis.ncep.noaa.gov/arcgis/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/WMSServer?', {
-  		    layers: '1',
-          format: 'image/png',
-          transparent: true,
-          opacity: 0.6
-  		  });
-        var temp125SeasonalLayer = L.tileLayer.wms('https://idpgis.ncep.noaa.gov/arcgis/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/WMSServer?', {
-  		    layers: '0',
-          format: 'image/png',
-          transparent: true,
-          opacity: 0.6
-  		  });
+        // We need to use the direct URL to the KML files (instead of downloading them to a directory in our module) because they're automatically updated. Using the direct URL produces errors on a development site, however, so we have to append it to a proxy URL
+        const proxyurl = "https://cors-anywhere.herokuapp.com/";
+
+        // Create the layer based on the URL and proxy URL
+        var prcp814kmlLayer = new L.KML(proxyurl + prcp814kml, {async: true});
+
+        /*prcp814kmlLayer.on("loaded", function(e) {
+           hazardsmap.fitBounds(e.target.getBounds());
+        });*/
+
+        hazardsmap.addLayer(prcp814kmlLayer);
+
+        var currentLayer;
 
 
         // Set up automatic date duration calculator functions
@@ -140,7 +57,7 @@
         currentLayer.on('loading', function (event) {
           $('.loader').fadeIn("fast");
         });
-        currentLayer.addTo(hazardsmap);
+        //currentLayer.addTo(hazardsmap);
         currentLayer.on('load', function (event) {
           $('.loader').fadeOut("fast");
         });
