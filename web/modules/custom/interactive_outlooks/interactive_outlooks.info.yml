@@ -3,5 +3,5 @@ type: module
 description: Interactive outlooks on CPC's home page
 core: 8.x
 package: CPC Custom
-dependencies:
-  - leaflet:leaflet
+#dependencies:
+#  - leaflet:leaflet

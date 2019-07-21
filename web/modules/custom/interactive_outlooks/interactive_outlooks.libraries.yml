@@ -41,10 +41,8 @@ hazards:
   js:
     js/hazards-map.js: {}
   dependencies:
-    - core/drupal
     - core/jquery
-    - core/jquery.once
-    - core/drupalSettings
+    - core/drupal
     - interactive_outlooks/leaflet
     - interactive_outlooks/esri-leaflet
 
