@@ -17,7 +17,17 @@ esri-leaflet:
     name: Apache-2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   js:
-    /libraries/esri-leaflet/dist/esri-leaflet.js: { }
+    /libraries/esri-leaflet/dist/esri-leaflet.js: {}
+
+leaflet-kml:
+  remote: https://github.com/windycom/leaflet-kml
+  version: 1.0.1
+  license:
+    name: MIT
+    url: https://github.com/windycom/leaflet-kml/blob/master/README.md
+    gpl-compatible: true
+  js:
+    /libraries/leaflet-kml/L.KML.js: {}
 
 drought:
   version: 1.x
@@ -45,6 +55,7 @@ hazards:
     - core/drupal
     - interactive_outlooks/leaflet
     - interactive_outlooks/esri-leaflet
+    - interactive_outlooks/leaflet-kml
 
 precipitation:
   version: 1.x

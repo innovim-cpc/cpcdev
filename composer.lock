@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fb425061c57b866fb13183a8b1a341bc",
+    "content-hash": "b4252ed2cc72d4bd4e774d8ca1de9bb3",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4085,6 +4085,18 @@
             "type": "npm-asset",
             "license": [
                 "BSD-2-Clause"
+            ]
+        },
+        {
+            "name": "npm-asset/leaflet-kml",
+            "version": "1.0.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/leaflet-kml/-/leaflet-kml-1.0.1.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
             ]
         },
         {

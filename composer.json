@@ -40,6 +40,7 @@
         "npm-asset/a11y-accordion-tabs": "^0.5.0",
         "npm-asset/esri-leaflet": "2.3.0",
         "npm-asset/leaflet": "1.5.1",
+        "npm-asset/leaflet-kml": "1.0.1",
         "oomphinc/composer-installers-extender": "^1.1",
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
