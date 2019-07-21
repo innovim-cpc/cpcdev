@@ -19,15 +19,15 @@ esri-leaflet:
   js:
     /libraries/esri-leaflet/dist/esri-leaflet.js: {}
 
-leaflet-kml:
-  remote: https://github.com/windycom/leaflet-kml
-  version: 1.0.1
+leaflet-plugins:
+  remote: https://github.com/shramov/leaflet-plugins
+  version: 3.2.0
   license:
     name: MIT
-    url: https://github.com/windycom/leaflet-kml/blob/master/README.md
+    url: https://github.com/shramov/leaflet-plugins/blob/master/README.md
     gpl-compatible: true
   js:
-    /libraries/leaflet-kml/L.KML.js: {}
+    /libraries/leaflet-plugins/layer/vector/KML.js: {}
 
 drought:
   version: 1.x
@@ -55,7 +55,7 @@ hazards:
     - core/drupal
     - interactive_outlooks/leaflet
     - interactive_outlooks/esri-leaflet
-    - interactive_outlooks/leaflet-kml
+    - interactive_outlooks/leaflet-plugins
 
 precipitation:
   version: 1.x

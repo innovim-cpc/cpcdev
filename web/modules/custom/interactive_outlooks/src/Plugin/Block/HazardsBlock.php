@@ -7,14 +7,6 @@
 
 namespace Drupal\interactive_outlooks\Plugin\Block;
 use Drupal\Core\Block\Blockbase;
-//use Drupal\Core\Access\AccessResult;
-//use Drupal\Modules\contrib\leaflet;
-
-//namespace Drupal\interactive_outlooks\Plugin\Block;
-//use Drupal\Core\Access\AccessResult;
-//use Drupal\Core\Block\BlockBase;
-//use Drupal\Core\Form\FormStateInterface;
-//use Drupal\Core\Session\AccountInterface;
 
 /**
  * Provides a 'Hazards Outlook' block
@@ -43,12 +35,5 @@ class HazardsBlock extends Blockbase {
     ];
 
   }
-
-  /**
-   * {@inheritdoc}
-   */
-  /*protected function blockAccess(AccountInterface $account) {
-    return AccessResult::allowedIfHasPermission($account, 'access content');
-  }*/
 
 }
