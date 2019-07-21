@@ -1,0 +1,141 @@
+#temp-outlook h2,
+#precip-outlook h2 {
+  margin-bottom: 0;
+  margin-top: .7em;
+  padding-left: .2em;
+}
+#temp-outlook p.outlook-date,
+#precip-outlook p.outlook-date {
+  font-size: 1.2em; margin-top: 0; padding-left: .3em; }
+#temp-outlook button,
+#precip-outlook button {
+  margin-top: 1em; }
+#hazards-map,
+#temp-outlooks-map,
+#precip-outlooks-map { height: 420px; }
+.opacity-slider {
+  display: inline-block;
+  padding: 1em .5em;
+  text-align: center;
+}
+.opacity-slider label {
+  display: inline-block;
+  margin: 0 auto .5em;
+  width: 110px;
+}
+.opacity-slider .opacity-slider__range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 10px;
+  border-radius: 10px;
+  border-width: 0;
+  background: transparent;
+  display: inline-block;
+  outline: none;
+  padding: 0;
+  vertical-align: middle;
+  width: 350px;
+}
+
+.opacity-slider .opacity-slider__range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border-width: 0;
+  background: #0071bc;
+  cursor: pointer;
+  margin-top: -6px;
+}
+
+.opacity-slider .opacity-slider__range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #0071bc;
+  cursor: pointer;
+}
+.opacity-slider .opacity-slider__range::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background: #aeb0b5;
+  border-radius: 5px;
+  border: 0;
+}
+.opacity-slider .opacity-slider__range::-moz-range-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background: #aeb0b5;
+  border-radius: 5px;
+  border: 0;
+}
+.opacity-slider .opacity-slider__range::-ms-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+.opacity-slider .opacity-slider__range::-ms-fill-lower {
+  background: #aeb0b5;
+  border-radius: 5px;
+}
+.opacity-slider .opacity-slider__range::-ms-fill-upper {
+  background: #aeb0b5;
+  border-radius: 5px;
+}
+.duration-form label { margin-top: 0; }
+.loader {
+  border: 5px solid #d6d7d9; /* Light gray */
+  border-top: 5px solid #3498db; /* Dark gray */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
+@-ms-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.temp-map-view,
+.precip-map-view {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 5px 0 0 7px;
+}
+.temp-map-view ul,
+.precip-map-view ul {
+  float: right;
+}
+.temp-map-view ul li,
+.precip-map-view ul li {
+  float: left;
+}
+.temp-map-view ul li:last-of-type,
+.precip-map-view ul li:last-of-type {
+  padding-left: 1.8rem;
+}
+.temp-map-view input[type=radio],
+.precip-map-view input[type=radio] {
+  margin-left: 0;
+  max-width: 10rem;
+}

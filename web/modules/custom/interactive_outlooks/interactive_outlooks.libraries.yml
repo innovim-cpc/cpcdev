@@ -1,0 +1,77 @@
+leaflet:
+  remote: https://leaflet.js.com
+  version: 1.5.1
+  license:
+    name: BSD-2-Clause
+    url: https://github.com/Leaflet/Leaflet/blob/master/LICENSE
+  css:
+    theme:
+      /libraries/leaflet/dist/leaflet.css: {}
+  js:
+    /libraries/leaflet/dist/leaflet.js: {}
+
+esri-leaflet:
+  remote: https://esri.github.io/esri-leaflet/
+  version: 2.2.3
+  license:
+    name: Apache-2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  js:
+    /libraries/esri-leaflet/dist/esri-leaflet.js: { }
+
+drought:
+  version: 1.x
+  css:
+    theme:
+      css/outlooks.css: {}
+  js:
+    js/drought-map.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupalSettings
+    - interactive_outlooks/leaflet
+    - interactive_outlooks/esri-leaflet
+
+hazards:
+  version: 1.x
+  css:
+    theme:
+      css/outlooks.css: {}
+  js:
+    js/hazards-map.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
+    - core/drupalSettings
+    - interactive_outlooks/leaflet
+    - interactive_outlooks/esri-leaflet
+
+precipitation:
+  version: 1.x
+  css:
+    theme:
+      css/outlooks.css: {}
+  js:
+    js/precip-map.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupalSettings
+    - interactive_outlooks/leaflet
+    - interactive_outlooks/esri-leaflet
+
+temperature:
+  version: 1.x
+  css:
+    theme:
+      css/outlooks.css: {}
+  js:
+    js/temp-map.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupalSettings
+    - interactive_outlooks/leaflet
+    - interactive_outlooks/esri-leaflet

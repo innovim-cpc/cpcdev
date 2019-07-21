@@ -1,0 +1,20 @@
+<?php
+
+
+
+function interactive_outlooks_theme($existing, $type, $theme, $path) {
+  return [
+    'drought_map' => [
+      'variables' => ['map' => NULL],
+    ],
+    'hazards_map' => [
+      'variables' => ['map' => NULL],
+    ],
+    'temp_map' => [
+      'variables' => ['map' => NULL],
+    ],
+    'precip_map' => [
+      'variables' => ['map' => NULL],
+    ],
+  ];
+}

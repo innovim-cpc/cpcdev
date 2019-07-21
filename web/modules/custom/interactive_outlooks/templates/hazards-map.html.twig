@@ -1,0 +1,41 @@
+<div  id="map-container" class="grid-container">
+  <div class="grid-row">
+
+    <div class="tablet:grid-col-8">
+        <h2>U.S. Week 2 Hazards Outlook</h2>
+        <div id="valid-dates">Dynamically generated valid date will appear here</div>
+       <div id="hazards-map"></div>
+    </div>
+
+    <div class="tablet:grid-col-4">
+      <table class="usa-table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Days 8&ndash;14</th>
+            <th scope="col">Probabilistic <br>Days 8&ndash;14</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Precipitation</th>
+            <td><input class="usa-checkbox__input" id="precip-hazards-814" type="checkbox" name="hazards" value="precip-hazards-814" checked></td>
+            <td><input class="usa-checkbox__input" id="precip-probabilistic-814" type="checkbox" name="hazards" value="precip-probabilistic-814" checked></td>
+          </tr>
+          <tr>
+            <th scope="row">Temperature</th>
+            <td><input class="usa-checkbox__input" id="temp-hazards-814" type="checkbox" name="hazards" value="temp-hazards-814" checked></td>
+            <td><input class="usa-checkbox__input" id="temp-probabilistic-814" type="checkbox" name="hazards" value="temp-probabilistic-814" checked></td>
+          </tr>
+          <tr>
+            <th scope="row">Wind</th>
+            <td><input class="usa-checkbox__input" id="wind-hazards-814" type="checkbox" name="hazards" value="wind-hazards-814" checked></td>
+            <td><input class="usa-checkbox__input" id="wind-probabilistic-814" type="checkbox" name="hazards" value="wind-probabilistic-814" checked></td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="usa-button">Default</button>
+      <button class="usa-button">Default</button>
+    </div>
+
+  </div>
