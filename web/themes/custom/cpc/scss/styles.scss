@@ -30,7 +30,15 @@
 
 @import 'uswds';
 
+
+// -------------------------------------
+// Import Font Awesome
+
+@import 'fontawesome/fontawesome.scss';
+@import 'fontawesome/solid.scss';
+@import 'fontawesome/brands.scss';
+
 // -------------------------------------
 // Import theme custom styles
 
-@import 'uswds-theme-custom-styles';
+@import 'cpc-uswds-theme-custom-styles';
