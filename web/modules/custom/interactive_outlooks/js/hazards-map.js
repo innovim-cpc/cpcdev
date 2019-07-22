@@ -24,29 +24,34 @@
         // Add Esri World Topo basemap via Esri Leaflet plugin
         L.esri.basemapLayer('Topographic').addTo(hazardsmap);
 
-        // Get link to 8-14 day precipitation KML file found at https://www.cpc.ncep.noaa.gov/products/predictions/threats/threats.php
+        // Get link to 8-14 day KML files found at https://www.cpc.ncep.noaa.gov/products/predictions/threats/threats.php
         const prcp814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/prcp_D8_14.kml";
+        const temp814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/temp_D8_14.kml";
+        const wind814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/wind_D8_14.kml";
+        const probPrcp814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/prcp_prob_D8_14.kml";
+        const probTemp814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/temp_prob_D8_14.kml";
+        const probWind814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/wind_prob_D8_14.kml";
 
         // We need to use the direct URL to the KML files (instead of downloading them to a directory in our module) because they're automatically updated. Using the direct URL produces errors on a development site, however, so we have to append it to a proxy URL
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
-        // Create the layer based on the URL and proxy URL
+        // Create the layers based on the URL and proxy URL
         var prcp814kmlLayer = new L.KML(proxyurl + prcp814kml, {async: true});
+        var temp814kmlLayer = new L.KML(proxyurl + temp814kml, {async: true});
+        var wind814kmlLayer = new L.KML(proxyurl + wind814kml, {async: true});
+        var probPrcp814kmlLayer = new L.KML(proxyurl + probPrcp814kml, {async: true});
+        var probTemp814kmlLayer = new L.KML(proxyurl + probTemp814kml, {async: true});
+        var probWind814kmlLayer = new L.KML(proxyurl + probWind814kml, {async: true});
 
-        /*prcp814kmlLayer.on("loaded", function(e) {
-           hazardsmap.fitBounds(e.target.getBounds());
-        });*/
-
+        // Add the layers to the map
         hazardsmap.addLayer(prcp814kmlLayer);
+        hazardsmap.addLayer(temp814kmlLayer);
+        hazardsmap.addLayer(wind814kmlLayer);
+        hazardsmap.addLayer(probPrcp814kmlLayer);
+        hazardsmap.addLayer(probTemp814kmlLayer);
+        hazardsmap.addLayer(probWind814kmlLayer);
 
         var currentLayer;
-
-
-        // Set up automatic date duration calculator functions
-        function dates610day() {
-
-        }
-
 
         // Set and add initial WMS layer to map
         currentLayer = temp610Layer;
@@ -61,56 +66,23 @@
         currentLayer.on('load', function (event) {
           $('.loader').fadeOut("fast");
         });
+        $('.myCheckbox').prop('checked', true);
+        $('.myCheckbox').prop('checked', false);
 
-        // Set up case statements for layer switch based on duration selection
-        $('.duration-form', context).once('duration-select', function(e) {
-
-          $(this).on('submit', function(e) {
-            e.preventDefault();
-
-            var selection = $('#temp-options').val();
-            var duration = ["610", "814", "monthly", "seasonal"];
-
-            switch(selection) {
-              case '610':
-                $('#temp-seasonal-options').hide();
-                removePrevLayer();
-                currentLayer = temp610Layer;
-                $('#temp-outlook h2 span').html('6 to 10 Day');
-                $('.outlook-date').html('Monday October 16 &ndash; Friday October 20');
-                addNewLayer();
-                break;
-              case '814':
-                $('#temp-seasonal-options').hide();
-                removePrevLayer();
-                currentLayer = temp814Layer;
-                $('#temp-outlook h2 span').html('8 to 14 Day');
-                $('.outlook-date').html('Wednesday October 18 &ndash; Tuesday October 24');
-                addNewLayer();
-                break;
-              case 'monthly':
-                $('#temp-seasonal-options').hide();
-                removePrevLayer();
-                currentLayer = tempMonthlyLayer;
-                $('#temp-outlook h2 span').html('Monthly');
-                $('.outlook-date').html('October 2017');
-                addNewLayer();
-                break;
-              case 'seasonal':
-                removePrevLayer();
-                $('#temp-seasonal-options').show();
-                currentLayer = temp05SeasonalLayer;
-                $('#temp-outlook h2 span').html('Seasonal');
-                seasonalSelection();
-                $('.outlook-date').html('October 2017 &ndash; December 2017');
-                addNewLayer();
-                break;
-              default:
-                currentLayer = temp610Layer;
-                addNewLayer();
-            }
-          });
+        var allLayers = { '.precip-hazards-814': 'prcp814kmlLayer',
+                          '.temp-hazards-814': 'temp814kmlLayer',
+                          '.wind-hazards-814': 'wind814kmlLayer'
+                        };
+        $.each(allLayers, function(outlook, layer) {
+          if ($(outlook).is(':checked')) {
+            console.log(outlook, layer);
+            hazardsmap.addLayer(layer);
+          } else if ($(outlook).not(':checked')) {
+            hazardsmap.removeLayer(layer);
+          }
         });
+
+
 
         // Function to remove any existing layers
         function removePrevLayer() {
@@ -135,108 +107,21 @@
           });
         };
 
-        function seasonalSelection() {
-          var seasonalSelect = $('#temp-seasonal-options').val();
-          switch(seasonalSelect) {
-            case '0.5mn':
-              removePrevLayer();
-              currentLayer = temp05SeasonalLayer;
-              $('.outlook-date').html('');
-              addNewLayer();
-              break;
-            case '1.5mn':
-              removePrevLayer();
-              currentLayer = temp15SeasonalLayer;
-              $('.outlook-date').html('');
-              addNewLayer();
-              break;
-            case '2.5mn':
-              removePrevLayer();
-              currentLayer = temp25SeasonalLayer;
-              $('.outlook-date').html('');
-              addNewLayer();
-              break;
-            case '3.5mn':
-              removePrevLayer();
-              currentLayer = temp35SeasonalLayer;
-              $('.outlook-date').html('');
-              addNewLayer();
-              break;
-            case '4.5mn':
-              removePrevLayer();
-              currentLayer = temp45SeasonalLayer;
-              $('.outlook-date').html('');
-              addNewLayer();
-              break;
-            case '5.5mn':
-              removePrevLayer();
-              currentLayer = temp55SeasonalLayer;
-              $('.outlook-date').html('');
-              addNewLayer();
-              break;
-            case '6.5mn':
-              removePrevLayer();
-              currentLayer = temp65SeasonalLayer;
-              $('.outlook-date').html('');
-              addNewLayer();
-              break;
-            case '7.5mn':
-              removePrevLayer();
-              currentLayer = temp75SeasonalLayer;
-              $('.outlook-date').html('');
-              addNewLayer();
-              break;
-            case '8.5mn':
-              removePrevLayer();
-              currentLayer = temp85SeasonalLayer;
-              $('.outlook-date').html('');
-              addNewLayer();
-              break;
-            case '9.5mn':
-              removePrevLayer();
-              currentLayer = temp95SeasonalLayer;
-              $('.outlook-date').html('');
-              addNewLayer();
-              break;
-            case '10.5mn':
-              removePrevLayer();
-              currentLayer = temp105SeasonalLayer;
-              $('.outlook-date').html('');
-              addNewLayer();
-              break;
-            case '11.5mn':
-              removePrevLayer();
-              currentLayer = temp115SeasonalLayer;
-              $('.outlook-date').html('');
-              addNewLayer();
-              break;
-            case '12.5mn':
-              removePrevLayer();
-              currentLayer = temp125SeasonalLayer;
-              $('.outlook-date').html('');
-              addNewLayer();
-              break;
-            default:
-              currentLayer = temp05SeasonalLayer;
-              addNewLayer();
-          }
-        }
-
         // Switch between CONUS view and Alaska view
         // based on radio button selection
-        $(".temp-map-view", context).once('change-view', function() {
+        $(".hazards-map-view", context).once('change-view', function() {
           $(this).on('click', function() {
-            var viewSelect = $('input[name=temp-map-view]:checked').val();
+            var viewSelect = $('input[name=hazards-map-view]:checked').val();
 
             switch (viewSelect) {
               case 'conus':
-                map.setView([39, -96]);
+                hazardsmap.setView([39, -96]);
                 break;
               case 'alaska':
-                map.setView([64, -153]);
+                hazardsmap.setView([64, -153]);
                 break;
               default:
-                map.setView([39, -96]);
+                hazardsmap.setView([39, -96]);
             }
           });
         });
