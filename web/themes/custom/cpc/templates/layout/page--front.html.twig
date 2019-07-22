@@ -141,12 +141,19 @@
 
 <main id="main-content">
 
-  {% if is_front %}
 
     {% if page.frontpage_outlooks_hero %}
       <section class="usa-hero">
         <div class="grid-container">
           {{ page.frontpage_outlooks_hero }}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if page.frontpage_news %}
+      <section class="usa-hero">
+        <div class="grid-container">
+          {{ page.frontpage_news }}
         </div>
       </section>
     {% endif %}
@@ -188,79 +195,12 @@
     </div>
   </section>
 
-  {% else %}
-
-  <div class="usa-section">
-    <div class="{{ main_class }}">
-      <div class="grid-row grid-gap">
-        <div class="grid-col-12">
-          {{ page.breadcrumb }}
-          {{ page.highlighted }}
-
-          {% if page.help|render|trim %}
-            <div class="usa-alert usa-alert--info">
-              <div class="usa-alert__body">
-                <p class="usa-alert__text">
-                  {{ page.help }}
-                </p>
-              </div>
-            </div>
-          {% endif %}
-
-       </div>
-      </div>
-
-      <div class="grid-row grid-gap">
-
-       {% if page.sidebar_first %}
-         <aside class="tablet:grid-col-3">
-           {{ page.sidebar_first }}
-         </aside>
-       {% endif %}
-
-        <div class="region-content {{ content_class }}">
-          {{ page.content }}
-        </div>
-
-       {% if page.sidebar_second %}
-         <aside class="tablet:grid-col-3">
-           {{ page.sidebar_second }}
-         </aside>
-       {% endif %}
-
-     </div>
-    </div>
-   </div>
-
-  {% endif %}
-
 </main>
 
 <footer class="usa-footer" role="contentinfo">
-  <div class="grid-container usa-footer__return-to-top">
-    <a href="#">Return to top</a>
-  </div>
-  <div class="usa-footer__primary-section">
-    <nav class="usa-footer__nav">
-      <ul class="add-list-reset grid-row grid-gap">
-        <li class="mobile-lg:grid-col-4 desktop:grid-col-2 usa-footer__primary-content">
-          <a class="usa-footer__primary-link" href="javascript:void(0);">Primary link</a>
-        </li>
-        <li class="mobile-lg:grid-col-4 desktop:grid-col-2 usa-footer__primary-content">
-          <a class="usa-footer__primary-link" href="javascript:void(0);">Primary link</a>
-        </li>
-        <li class="mobile-lg:grid-col-4 desktop:grid-col-2 usa-footer__primary-content">
-          <a class="usa-footer__primary-link" href="javascript:void(0);">Primary link</a>
-        </li>
-        <li class="mobile-lg:grid-col-4 desktop:grid-col-2 usa-footer__primary-content">
-          <a class="usa-footer__primary-link" href="javascript:void(0);">Primary link</a>
-        </li>
-        <li class="mobile-lg:grid-col-4 desktop:grid-col-2 usa-footer__primary-content">
-          <a class="usa-footer__primary-link" href="javascript:void(0);">Primary link</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
+
+  {{ page.footer_menu }}
+  {{ page.footer }}
 
   <div class="usa-footer__secondary-section">
     <div class="grid-container">
