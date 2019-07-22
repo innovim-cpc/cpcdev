@@ -1,4 +1,17 @@
-#block-interactive-hazards { color: #1b1b1b; }
+.map-data-column {
+  padding-left: 2rem;
+}
+table.hazards-data {
+  margin-top: 0;
+}
+table.hazards-data th {
+  font-weight: bold;
+}
+#hazards-map,
+#temp-outlooks-map,
+#precip-outlooks-map {
+  height: 360px;
+}
 #temp-outlook h2,
 #precip-outlook h2 {
   margin-bottom: 0;
@@ -11,9 +24,7 @@
 #temp-outlook button,
 #precip-outlook button {
   margin-top: 1em; }
-#hazards-map,
-#temp-outlooks-map,
-#precip-outlooks-map { height: 420px; }
+
 .opacity-slider {
   display: inline-block;
   padding: 1em .5em;

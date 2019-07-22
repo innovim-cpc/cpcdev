@@ -1,24 +1,25 @@
   <div class="grid-row">
     <div class="tablet:grid-col-12">
       <h2>U.S. Week 2 Hazards Outlook</h2>
-      <div id="valid-dates">Dynamically generated valid date will appear here</div>
+      <h3 class="valid-dates">Dynamically generated valid date will appear here</h3>
     </div>
   </div>
 
   <div class="grid-row">
-    <div class="tablet:grid-col-8">
+    <div class="tablet:grid-col-8 map-column">
        <div id="hazards-map"></div>
     </div>
-    <div class="tablet:grid-col-4">
-      <table class="usa-table">
+    <div class="tablet:grid-col-4 map-data-column">
+      <form class="usa-form">
+      <table class="usa-table usa-table--borderless font-sans-3xs hazards-data">
         <thead>
-          <tr>
+          <tr class="line-height-sans-1">
             <th scope="col"></th>
-            <th scope="col">Days 8&ndash;14</th>
+            <th scope="col">Days <br>8&ndash;14</th>
             <th scope="col">Probabilistic <br>Days 8&ndash;14</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="font-lang-2xs">
           <tr>
             <th scope="row">Precipitation</th>
             <td><input class="usa-checkbox__input" id="precip-hazards-814" type="checkbox" name="hazards" value="precip-hazards-814" checked></td>
@@ -36,7 +37,7 @@
           </tr>
         </tbody>
       </table>
-      <button class="usa-button">Default</button>
-      <button class="usa-button">Default</button>
+    </form>
+      <button class="usa-button font-sans-3xs">Hazards Outlook Discussion</button>
     </div>
   </div>

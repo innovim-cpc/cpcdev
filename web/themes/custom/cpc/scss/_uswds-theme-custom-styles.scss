@@ -19,6 +19,28 @@ i.e.
 @include u-padding-right('05');
 ----------------------------------------
 */
+
+.usa-button {
+  padding: .5rem 1rem;
+}
 .usa-hero {
   background-image: none;
+  padding: 1rem 0 3rem;
+  .region-frontpage-outlooks-hero {
+    color: color('base-darkest');
+    h2 {
+      margin: .5em 0 0;
+    }
+    h3 {
+      font-weight: normal;
+      margin: -.25em 0 .5em;
+    }
+  }
+  .usa-button {
+    background-color: color('accent-warm');
+  }
+}
+.usa-checkbox__input,
+.usa-radio__input {
+  @include not-sr-only;
 }
