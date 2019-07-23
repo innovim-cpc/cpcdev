@@ -62,14 +62,14 @@
 
 <header class="usa-header usa-header--extended" role="banner"><div class="usa-navbar">
   <div class="usa-logo" id="extended-mega-logo">
-    <em class="usa-logo__text"><a href="/" title="Home" aria-label="Home">Climate Prediction Center</a></em>
+    <em class="usa-logo__text"><a href="/" title="Home" aria-label="Home"><img src="{{ active_theme_path() }}/images/cpc-logo.png"></a></em>
   </div>
   <button class="usa-menu-btn">Menu</button>
 </div>
 <nav role="navigation" class="usa-nav">
     <div class="usa-nav__inner"><button class="usa-nav__close"><img src="/assets/img/close.svg" alt="close"></button>
 <ul class="usa-nav__primary usa-accordion"><li class="usa-nav__primary-item">
-    <button class="usa-accordion__button usa-nav__link  usa-current" aria-expanded="false" aria-controls="extended-mega-nav-section-one"><span>Current section</span></button>
+    <button class="usa-accordion__button usa-nav__link  usa-current" aria-expanded="false" aria-controls="extended-mega-nav-section-one"><span>Outlooks</span></button>
     <div id="extended-mega-nav-section-one" class="usa-nav__submenu usa-megamenu"><div class="grid-row grid-gap-4"><div class="desktop:grid-col-3">
               <ul class="usa-nav__submenu-list"><li class="usa-nav__submenu-item">
                     <a href="#">Navigation link</a>
@@ -95,7 +95,7 @@
                     <a href="#">Navigation link</a>
                   </li></ul>
             </div></div></div></li><li class="usa-nav__primary-item">
-    <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-mega-nav-section-two"><span>Section</span></button>
+    <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-mega-nav-section-two"><span>Observations</span></button>
     <div id="extended-mega-nav-section-two" class="usa-nav__submenu usa-megamenu"><div class="grid-row grid-gap-4"><div class="desktop:grid-col-3">
               <ul class="usa-nav__submenu-list"><li class="usa-nav__submenu-item">
                     <a href="#">Navigation link</a>
@@ -121,7 +121,7 @@
                     <a href="#">Navigation link</a>
                   </li></ul>
             </div></div></div></li><li class="usa-nav__primary-item">
-    <a class="usa-nav__link" href="javascript:void(0)"><span>Simple link</span></a>
+    <a class="usa-nav__link" href="javascript:void(0)"><span>Climate Phenomena</span></a>
     </li></ul><div class="usa-nav__secondary">
   <ul class="usa-nav__secondary-links"><li class="usa-nav__secondary-item">
       <a href="">National Weather Service</a>
@@ -290,4 +290,23 @@
       </div>
     </div>
   </div>
+
+  <div class="usa-footer__copyright-disclaimers">
+    <div class="grid-container">
+      <div class="grid-row">
+          <div class="usa-footer__copyright mobile-lg:grid-col-3">
+            {{ 'now'|date('Y') }}
+          </div>
+          <div class="usa-footer__disclaimer-links mobile-lg:grid-col-9">
+            <ul class="menu">
+              <li><a href="http://www.weather.gov/disclaimer" target="_blank">Disclaimer</a></li>
+              <li><a href="http://www.weather.gov/privacy" target="_blank">Privacy Policy</a></li>
+              <li><a href="http://www.cio.noaa.gov/services_programs/info_quality.html" target="_blank">Information Quality</a></li>
+              <li><a href="http://www.noaa.gov/foia-freedom-of-information-act" target="_blank">Freedom of Information Act</a></li>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+
 </footer>

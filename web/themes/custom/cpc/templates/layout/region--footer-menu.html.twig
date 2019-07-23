@@ -18,33 +18,25 @@
     'region-' ~ region|clean_class,
   ]
 %}
-{% if content %}
-  <div{{ attributes.addClass(classes) }}>
-    {{ content }}
-  </div>
-{% endif %}
+{# if content #}
+  <!--<div{# attributes.addClass(classes) #}>
+    {# content #}
+  </div>-->
+{# endif #}
 
 <div class="grid-container usa-footer__return-to-top">
-  <a href="#">Return to top</a>
+  <a href="#"><i class="fas fa-chevron-circle-up"></i> Return to top</a>
 </div>
+
 <div class="usa-footer__primary-section">
-  <nav class="usa-footer__nav">
-    <ul class="add-list-reset grid-row grid-gap">
-      <li class="mobile-lg:grid-col-4 desktop:grid-col-2 usa-footer__primary-content">
-        <a class="usa-footer__primary-link" href="javascript:void(0);">Outlooks</a>
-      </li>
-      <li class="mobile-lg:grid-col-4 desktop:grid-col-2 usa-footer__primary-content">
-        <a class="usa-footer__primary-link" href="javascript:void(0);">Primary link</a>
-      </li>
-      <li class="mobile-lg:grid-col-4 desktop:grid-col-2 usa-footer__primary-content">
-        <a class="usa-footer__primary-link" href="javascript:void(0);">Primary link</a>
-      </li>
-      <li class="mobile-lg:grid-col-4 desktop:grid-col-2 usa-footer__primary-content">
-        <a class="usa-footer__primary-link" href="javascript:void(0);">Primary link</a>
-      </li>
-      <li class="mobile-lg:grid-col-4 desktop:grid-col-2 usa-footer__primary-content">
-        <a class="usa-footer__primary-link" href="javascript:void(0);">Primary link</a>
-      </li>
-    </ul>
-  </nav>
+  <div class="grid-container">
+    <nav class="grid-row grid-gap">
+      <div class="tablet:grid-col-2">{{ drupal_menu('footer-outlooks-menu') }}</div>
+      <div class="tablet:grid-col-2">{{ drupal_menu('footer-observations-menu') }}</div>
+      <div class="tablet:grid-col-2">{{ drupal_menu('footer-climate-phenom-menu') }}</div>
+      <div class="tablet:grid-col-2">{{ drupal_menu('footer-international-menu') }}</div>
+      <div class="tablet:grid-col-2">{{ drupal_menu('footer-data-menu') }}</div>
+      <div class="tablet:grid-col-2">{{ drupal_menu('footer-about-us-menu') }}</div>
+    </nav>
+  </div>
 </div>
