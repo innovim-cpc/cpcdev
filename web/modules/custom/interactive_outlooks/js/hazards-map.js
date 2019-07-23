@@ -29,6 +29,7 @@
         const temp814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/temp_D8_14.kml";
         const wind814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/wind_D8_14.kml";
         const probPrcp814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/prcp_prob_D8_14.kml";
+        const probExcessheat814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/excess_heat_prob_D8_14.kml";
         const probTemp814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/temp_prob_D8_14.kml";
         const probWind814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/wind_prob_D8_14.kml";
 
@@ -40,6 +41,7 @@
         var temp814kmlLayer = new L.KML(proxyurl + temp814kml, {async: true});
         var wind814kmlLayer = new L.KML(proxyurl + wind814kml, {async: true});
         var probPrcp814kmlLayer = new L.KML(proxyurl + probPrcp814kml, {async: true});
+        var probExcessheat814kmlLayer = new L.KML(proxyurl + probExcessheat814kml, {async: true});
         var probTemp814kmlLayer = new L.KML(proxyurl + probTemp814kml, {async: true});
         var probWind814kmlLayer = new L.KML(proxyurl + probWind814kml, {async: true});
 
@@ -48,6 +50,7 @@
         hazardsmap.addLayer(temp814kmlLayer);
         hazardsmap.addLayer(wind814kmlLayer);
         hazardsmap.addLayer(probPrcp814kmlLayer);
+        hazardsmap.addLayer(probExcessheat814kmlLayer);
         hazardsmap.addLayer(probTemp814kmlLayer);
         hazardsmap.addLayer(probWind814kmlLayer);
 
