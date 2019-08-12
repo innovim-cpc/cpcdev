@@ -1,3 +1,13 @@
+.map-column .usa-checkbox__input,
+.map-column .usa-radio__input {
+  position: absolute !important;
+}
+.map-column .usa-radio__label {
+  display: inline-block;
+}
+#hazards-map__view-controls {
+  padding-top: 1rem;
+}
 .map-data-column {
   padding-left: 2rem;
 }
