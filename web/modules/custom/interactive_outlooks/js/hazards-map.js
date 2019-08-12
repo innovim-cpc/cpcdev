@@ -54,6 +54,28 @@
         hazardsmap.addLayer(probTemp814kmlLayer);
         hazardsmap.addLayer(probWind814kmlLayer);
 
+        //
+        $("input[id=precip-hazards-814]").on('change', function() {
+          if(this.checked) {
+            hazardsmap.addLayer(prcp814kmlLayer)
+          } else {
+            hazardsmap.removeLayer(prcp814kmlLayer)
+          }
+        });
+
+        /*document.querySelector("input[id=precip-hazards-814]").addEventListener('change', function() {
+          if(this.checked) hazardsmap.addLayer(prcp814kmlLayer)
+            else hazardsmap.removeLayer(prcp814kmlLayer)
+          })*/
+
+        $("input[id=temp-probabilistic-814]").on('change', function() {
+          if(this.checked) {
+            hazardsmap.addLayer(temp814kmlLayer)
+          } else {
+            hazardsmap.removeLayer(temp814kmlLayer)
+          }
+        });
+
         var currentLayer;
 
         // Set and add initial WMS layer to map
@@ -69,8 +91,6 @@
         currentLayer.on('load', function (event) {
           $('.loader').fadeOut("fast");
         });
-        $('.myCheckbox').prop('checked', true);
-        $('.myCheckbox').prop('checked', false);
 
         var allLayers = { '.precip-hazards-814': 'prcp814kmlLayer',
                           '.temp-hazards-814': 'temp814kmlLayer',
@@ -84,8 +104,6 @@
             hazardsmap.removeLayer(layer);
           }
         });
-
-
 
         // Function to remove any existing layers
         function removePrevLayer() {
@@ -157,11 +175,5 @@
           // Add marker to map at click location
           var newMarker = new L.marker(e.latlng).addTo(map);
         }
-
-        // Pull in WMS layers using leaflet.wms plugin {Does not work...yet}
-        //var options = {'transparent': true};
-        //var source = L.WMS.source("https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_6_10_day_outlk/MapServer", options);
-        //source.addSubLayer('1');
-        //source.addTo(map);
 
 })(jQuery);
