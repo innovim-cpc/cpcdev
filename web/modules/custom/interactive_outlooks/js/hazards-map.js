@@ -23,6 +23,7 @@
         // Get link to 8-14 day KML files found at https://www.cpc.ncep.noaa.gov/products/predictions/threats/threats.php
         const prcp814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/prcp_D8_14.kml";
         const temp814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/temp_D8_14.kml";
+        const excessHeat814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/excess_heat_D8_14.kml";
         const wind814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/wind_D8_14.kml";
         const probPrcp814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/prcp_prob_D8_14.kml";
         const probExcessHeat814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/excess_heat_prob_D8_14.kml";
@@ -35,6 +36,7 @@
         // Create the layers based on the URL and proxy URL
         var prcp814kmlLayer = new L.KML(proxyurl + prcp814kml, {async: true});
         var temp814kmlLayer = new L.KML(proxyurl + temp814kml, {async: true});
+        var excessHeat814kmlLayer = new L.KML(proxyurl + excessHeat814kml, {async: true});
         var wind814kmlLayer = new L.KML(proxyurl + wind814kml, {async: true});
         var probPrcp814kmlLayer = new L.KML(proxyurl + probPrcp814kml, {async: true});
         var probExcessHeat814kmlLayer = new L.KML(proxyurl + probExcessHeat814kml, {async: true});
@@ -44,6 +46,7 @@
         // Add the layers to the map
         hazardsmap.addLayer(prcp814kmlLayer);
         hazardsmap.addLayer(temp814kmlLayer);
+        hazardsmap.addLayer(excessHeat814kmlLayer);
         hazardsmap.addLayer(wind814kmlLayer);
         hazardsmap.addLayer(probPrcp814kmlLayer);
         hazardsmap.addLayer(probExcessHeat814kmlLayer);
@@ -59,11 +62,47 @@
           }
         });
 
-        $("input[id=temp-probabilistic-814]").on('change', function() {
+        $("input[id=precip-probabilistic-814]").on('change', function() {
+          if(this.checked) {
+            hazardsmap.addLayer(probPrcp814kmlLayer)
+          } else {
+            hazardsmap.removeLayer(probPrcp814kmlLayer)
+          }
+        });
+
+        $("input[id=temp-hazards-814]").on('change', function() {
           if(this.checked) {
             hazardsmap.addLayer(temp814kmlLayer)
+            hazardsmap.addLayer(excessHeat814kmlLayer)
           } else {
             hazardsmap.removeLayer(temp814kmlLayer)
+            hazardsmap.removeLayer(excessHeat814kmlLayer)
+          }
+        });
+
+        $("input[id=temp-probabilistic-814]").on('change', function() {
+          if(this.checked) {
+            hazardsmap.addLayer(probTemp814kmlLayer)
+            hazardsmap.addLayer(probExcessHeat814kmlLayer)
+          } else {
+            hazardsmap.removeLayer(probTemp814kmlLayer)
+            hazardsmap.removeLayer(probExcessHeat814kmlLayer)
+          }
+        });
+
+        $("input[id=wind-hazards-814]").on('change', function() {
+          if(this.checked) {
+            hazardsmap.addLayer(wind814kmlLayer)
+          } else {
+            hazardsmap.removeLayer(wind814kmlLayer)
+          }
+        });
+
+        $("input[id=wind-probabilistic-814]").on('change', function() {
+          if(this.checked) {
+            hazardsmap.addLayer(probWind814kmlLayer)
+          } else {
+            hazardsmap.removeLayer(probWind814kmlLayer)
           }
         });
 
