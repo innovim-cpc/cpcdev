@@ -12,7 +12,7 @@
 //  	  $('#map-container', context).once('hazards-map', function() {
   		  // Set up map
         var hazardsmap = L.map('hazards-map', {
-          center: [39, -96],
+          center: [38, -96],
           zoom: 4,
           minZoom: 4
         });
