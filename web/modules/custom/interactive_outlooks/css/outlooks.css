@@ -5,7 +5,8 @@
 .map-column .usa-radio__label {
   display: inline-block;
 }
-#hazards-map__view-controls {
+#hazards-map__view-controls,
+#droughts-map__view-controls {
   padding-top: 1rem;
 }
 .map-data-column {
@@ -18,6 +19,7 @@ table.hazards-data th {
   font-weight: bold;
 }
 #hazards-map,
+#droughts-map,
 #temp-outlooks-map,
 #precip-outlooks-map {
   height: 360px;

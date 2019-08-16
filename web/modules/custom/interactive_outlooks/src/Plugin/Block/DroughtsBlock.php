@@ -2,18 +2,18 @@
 
 /**
  * @file
- * Contains \Drupal\interactive_outlooks\Plugin\Block\HazardsBlock.
+ * Contains \Drupal\interactive_outlooks\Plugin\Block\DroughtsBlock.
  */
 
 namespace Drupal\interactive_outlooks\Plugin\Block;
 use Drupal\Core\Block\Blockbase;
 
 /**
- * Provides a 'Hazards Outlook' block
+ * Provides a 'Drought Outlook' block
  *
  * @Block(
- *  id = "interactive_hazards_outlooks",
- *  admin_label = @Translation("Interactive Hazards outlooks"),
+ *  id = "interactive_droughts_outlooks",
+ *  admin_label = @Translation("Interactive Droughts outlooks"),
  *  category = @Translation("CPC Outlooks"),
  * )
  */

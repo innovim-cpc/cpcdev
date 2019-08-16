@@ -29,19 +29,19 @@ leaflet-plugins:
   js:
     /libraries/leaflet-plugins/layer/vector/KML.js: {}
 
-drought:
+droughts:
   version: 1.x
   css:
     theme:
       css/outlooks.css: {}
   js:
-    js/drought-map.js: {}
+    js/droughts-map.js: {}
   dependencies:
     - core/jquery
-    - core/jquery.once
-    - core/drupalSettings
+    - core/drupal
     - interactive_outlooks/leaflet
     - interactive_outlooks/esri-leaflet
+    - interactive_outlooks/leaflet-plugins
 
 hazards:
   version: 1.x
@@ -56,31 +56,3 @@ hazards:
     - interactive_outlooks/leaflet
     - interactive_outlooks/esri-leaflet
     - interactive_outlooks/leaflet-plugins
-
-precipitation:
-  version: 1.x
-  css:
-    theme:
-      css/outlooks.css: {}
-  js:
-    js/precip-map.js: {}
-  dependencies:
-    - core/jquery
-    - core/jquery.once
-    - core/drupalSettings
-    - interactive_outlooks/leaflet
-    - interactive_outlooks/esri-leaflet
-
-temperature:
-  version: 1.x
-  css:
-    theme:
-      css/outlooks.css: {}
-  js:
-    js/temp-map.js: {}
-  dependencies:
-    - core/jquery
-    - core/jquery.once
-    - core/drupalSettings
-    - interactive_outlooks/leaflet
-    - interactive_outlooks/esri-leaflet
