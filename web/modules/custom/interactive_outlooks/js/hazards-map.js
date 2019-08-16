@@ -14,7 +14,7 @@
         var hazardsmap = L.map('hazards-map', {
           center: [38, -96],
           zoom: 4,
-          minZoom: 4
+          minZoom: 3.6
         });
 
         // Add Esri World Topo basemap via Esri Leaflet plugin
@@ -52,7 +52,7 @@
         hazardsmap.addLayer(probExcessHeat814kmlLayer);
         hazardsmap.addLayer(probTemp814kmlLayer);
         hazardsmap.addLayer(probWind814kmlLayer);
-      
+
         // Checkbox functionality
         $("input[id=precip-hazards-814]").on('change', function() {
           if(this.checked) {
@@ -105,8 +105,8 @@
             hazardsmap.removeLayer(probWind814kmlLayer)
           }
         });
-        
-        
+
+
 
         /*document.querySelector("input[id=precip-hazards-814]").addEventListener('change', function() {
           if(this.checked) hazardsmap.addLayer(prcp814kmlLayer)
