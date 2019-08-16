@@ -1,47 +1,47 @@
-<div class="grid-row">
-  <div class="tablet:grid-col-12">
-    <h2>U.S. Monthly and Seasonal Drought Outlook</h2>
-    <h3 class="valid-dates">Dynamically generated valid date will appear here</h3>
-  </div>
-</div>
-
-<div class="grid-row">
-  <div class="tablet:grid-col-8 map-column">
-    <div class="grid-row">
-      <div class="tablet:grid-col-12">
-        <div id="droughts-map"></div>
-      </div>
+  <div class="grid-row">
+    <div class="tablet:grid-col-12">
+      <h2>U.S. Monthly and Seasonal Drought Outlook</h2>
+      <h3 class="valid-dates">Dynamically generated valid date will appear here</h3>
     </div>
-    <div class="grid-row" id="droughts-map__view-controls">
-      <div class="tablet:grid-col-8">
-      </div>
-      <div class="tablet:grid-col-4" id="droughts-map__view-select">
-        <fieldset class="usa-fieldset">
-          <legend class="usa-sr-only">Map View</legend>
-          <div class="usa-radio">
-            <input class="usa-radio__input" id="conus" type="radio" checked name="droughts-map-view" value="conus">
-            <label class="usa-radio__label" for="conus">CONUS</label>
-            <input class="usa-radio__input" id="alaska" type="radio" name="droughts-map-view" value="alaska">
-            <label class="usa-radio__label" for="alaska">Alaska</label>
-          </div>
-        </fieldset>
-      </div>
-    </div>
-
-  </div><!-- end map-column-->
-
-  <div class="tablet:grid-col-4 map-data-column">
-    <form class="usa-form droughts-form">
-      <label for="droughts-outlook-duration">Select duration:</label>
-      <select id="droughts-outlook-duration">
-        <option value="monthly">Monthly Drought Outlook</option>
-        <option value="seasonal">Seasonal Drought Outlook</option>
-      </select>
-      {# <button type="submit" name="droughts-duration-submit" class="usa-button font-sans-3xs">Select</button>       #}
-    </form>
-    <br>
-    <a href="https://droughtmonitor.unl.edu/" target="">See the U.S. Drought Monitor<i class="fas fa-external-link-alt"></i></a>
-    <br><br>
-    <button class="usa-button font-sans-3xs">Drought Outlook Discussion</button>
   </div>
-</div>
+
+  <div class="grid-row">
+    <div class="tablet:grid-col-8 map-column">
+      <div class="grid-row">
+        <div class="tablet:grid-col-12">
+          <div id="droughts-map"></div>
+        </div>
+      </div>
+      <div class="grid-row" id="droughts-map__view-controls">
+        <div class="tablet:grid-col-8">
+        </div>
+        <div class="tablet:grid-col-4" id="droughts-map__view-select">
+          <fieldset class="usa-fieldset">
+            <legend class="usa-sr-only">Map View</legend>
+            <div class="usa-radio">
+              <input class="usa-radio__input" id="conus" type="radio" checked name="droughts-map-view" value="conus">
+              <label class="usa-radio__label" for="conus">CONUS</label>
+              <input class="usa-radio__input" id="alaska" type="radio" name="droughts-map-view" value="alaska">
+              <label class="usa-radio__label" for="alaska">Alaska</label>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+
+    </div><!-- end map-column-->
+
+    <div class="tablet:grid-col-4 map-data-column">
+      <form class="usa-form droughts-form">
+        <label for="droughts-outlook-duration">Select duration:</label>
+        <select name="droughts-outlook-duration" id="droughts-outlook-duration">
+          <option value="monthly">Monthly Drought Outlook</option>
+          <option value="seasonal">Seasonal Drought Outlook</option>
+        </select>
+        {# <button type="submit" name="droughts-duration-submit" class="usa-button font-sans-3xs">Select</button>       #}
+      </form>
+      <br>
+      <a href="https://droughtmonitor.unl.edu/" target="">See the U.S. Drought Monitor<i class="fas fa-external-link-alt"></i></a>
+      <br><br>
+      <button class="usa-button font-sans-3xs">Drought Outlook Discussion</button>
+    </div>
+  </div>

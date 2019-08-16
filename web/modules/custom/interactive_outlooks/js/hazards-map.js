@@ -106,6 +106,16 @@
           }
         });
 
+        //change the map to the correct area
+        $('input[type=radio][name=hazards-map-view]').change(function() {
+            if (this.value == 'conus') {
+              hazardsmap.setView(new L.LatLng(38, -96), 4)
+            }
+            else if (this.value == 'alaska') {
+              hazardsmap.setView(new L.LatLng(64.2,-149.4), 4)
+            }
+        });
+
 
 
         /*document.querySelector("input[id=precip-hazards-814]").addEventListener('change', function() {
