@@ -20,21 +20,25 @@
         // Add Esri World Topo base map via Esri Leaflet plugin
         L.esri.basemapLayer('Topographic').addTo(droughtsmap);
 
-        // Get link to 8-14 day KML files found at https://www.cpc.ncep.noaa.gov/products/predictions/threats/threats.php
-        const monthlyDrought = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/prcp_D8_14.kml";
-        const seasonalDrought = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/prcp_prob_D8_14.kml";
+        // Get link to layer data
+        const monthlyDrought = "https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_drought_outlk/MapServer/0/";
+        const seasonalDrought = "https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_drought_outlk/MapServer/1/";
+        //
+        // We need to use the direct URL to the KML files
+        //(instead of downloading them to a directory in our module) because they're automatically updated.
+        //Using the direct URL produces errors on a development site, however, so we have to append it to a proxy URL
+         const proxyurl = "https://cors-anywhere.herokuapp.com";
 
-        // We need to use the direct URL to the KML files (instead of downloading them to a directory in our module) because they're automatically updated. Using the direct URL produces errors on a development site, however, so we have to append it to a proxy URL
-        const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        //Add monhtly drought layer to map
+        var monthlyDroughtLayer = L.esri.featureLayer({
+         url: (proxyurl + "/" + monthlyDrought)
+        }).addTo(droughtsmap);
 
-        // Create the layers based on the URL and proxy URL
-        var monthlyDroughtLayer = new L.KML(proxyurl + monthlyDrought, {async: true});
-        var seasonalDroughtLayer = new L.KML(proxyurl + seasonalDrought, {async: true});
-
-        // Add the layers to the map
-        droughtsmap.addLayer(monthlyDroughtLayer);
-        droughtsmap.addLayer(seasonalDroughtLayer);
-
+        //Add seasonal drought layer to map
+        var seasonalDroughtLayer = L.esri.featureLayer({
+         url: (proxyurl + "/" + seasonalDrought)
+        }).addTo(droughtsmap);
+      
         //change the layers of the map to Monthly or Seasonal based on the dropdown list
         $('select[name=droughts-outlook-duration]').change(function() {
              alert("test");
