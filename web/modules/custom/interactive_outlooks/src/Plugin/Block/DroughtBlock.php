@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\interactive_outlooks\Plugin\Block\DroughtsBlock.
+ * Contains \Drupal\interactive_outlooks\Plugin\Block\DroughtBlock.
  */
 
 namespace Drupal\interactive_outlooks\Plugin\Block;
@@ -12,13 +12,13 @@ use Drupal\Core\Block\Blockbase;
  * Provides a 'Drought Outlook' block
  *
  * @Block(
- *  id = "interactive_droughts_outlooks",
- *  admin_label = @Translation("Interactive Droughts outlooks"),
+ *  id = "interactive_drought_outlooks",
+ *  admin_label = @Translation("Interactive Drought outlooks"),
  *  category = @Translation("CPC Outlooks"),
  * )
  */
 
-class DroughtsBlock extends Blockbase {
+class DroughtBlock extends Blockbase {
 
   /**
    * {@inheritdoc}
@@ -26,10 +26,10 @@ class DroughtsBlock extends Blockbase {
   public function build() {
     //Fetch data
     return [
-      '#theme' => 'droughts_map',
+      '#theme' => 'drought_map',
       '#attached' => [
         'library' => [
-          'interactive_outlooks/droughts',
+          'interactive_outlooks/drought',
         ],
       ],
     ];

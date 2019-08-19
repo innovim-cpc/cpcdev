@@ -4,7 +4,7 @@
 
 function interactive_outlooks_theme($existing, $type, $theme, $path) {
   return [
-    'droughts_map' => [
+    'drought_map' => [
       'variables' => ['map' => NULL],
     ],
     'hazards_map' => [

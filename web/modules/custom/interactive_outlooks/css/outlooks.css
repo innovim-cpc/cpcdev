@@ -6,7 +6,7 @@
   display: inline-block;
 }
 #hazards-map__view-controls,
-#droughts-map__view-controls {
+#drought-map__view-controls {
   padding-top: 1rem;
 }
 .map-data-column {
@@ -19,7 +19,7 @@ table.hazards-data th {
   font-weight: bold;
 }
 #hazards-map,
-#droughts-map,
+#drought-map,
 #temp-outlooks-map,
 #precip-outlooks-map {
   height: 360px;

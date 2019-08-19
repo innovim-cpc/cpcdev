@@ -29,13 +29,13 @@ leaflet-plugins:
   js:
     /libraries/leaflet-plugins/layer/vector/KML.js: {}
 
-droughts:
+drought:
   version: 1.x
   css:
     theme:
       css/outlooks.css: {}
   js:
-    js/droughts-map.js: {}
+    js/drought-map.js: {}
   dependencies:
     - core/jquery
     - core/drupal
