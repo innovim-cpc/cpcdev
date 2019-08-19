@@ -3,7 +3,7 @@
  * Build the map(s)
  *
  */
-(function (Drupal, $) {
+(function ($) {
   "use strict";
 
   // Drupal.behaviors.createDroughtMap = {
@@ -48,18 +48,18 @@
         monthlyDroughtLayer.removeFrom(droughtmap);
         
 
-        // //change the layers of the map to Monthly or Seasonal based on the dropdown list
-        // $('select[name=drought-outlook-duration]').change(function() {
-        //      alert("test");
-        // });
+        //change the layers of the map to Monthly or Seasonal based on the dropdown list
+        $('input[name=drought-outlook-duration]').change(function() {
+             alert("test");
+        });
 
 
         //change the map to the correct area
         $('input[type=radio][name=drought-map-view]').on('change',function() {
-            if (this.value == 'droughtconus') {
+            if (this.value == 'conus') {
               droughtmap.setView(new L.LatLng(38, -96), 4)
             }
-            else if (this.value == 'droughtalaska') {
+            else if (this.value == 'alaska') {
               droughtmap.setView(new L.LatLng(64.2,-149.4), 4)
             }
         });
