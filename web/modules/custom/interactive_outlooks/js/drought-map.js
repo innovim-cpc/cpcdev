@@ -25,32 +25,43 @@
         // Get link to layer data
         const monthlyDrought = "https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_drought_outlk/MapServer/0/";
         const seasonalDrought = "https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_drought_outlk/MapServer/1/";
-        //
-        // We need to use the direct URL to the KML files
-        //(instead of downloading them to a directory in our module) because they're automatically updated.
-        //Using the direct URL produces errors on a development site, however, so we have to append it to a proxy URL
-        const proxyurl = "https://cors-anywhere.herokuapp.com";
-
+  
         // create monhtly drought layer
         var monthlyDroughtLayer = new L.esri.featureLayer({
-          url: (proxyurl + "/" + monthlyDrought)
+          url: monthlyDrought
         });
         
         //create seasonal drought layer
         var seasonalDroughtLayer = new L.esri.featureLayer({
-         url: (proxyurl + "/" + seasonalDrought)
+         url: seasonalDrought
         });
         
         //Add layer to map
         monthlyDroughtLayer.addTo(droughtmap);
-        seasonalDroughtLayer.addTo(droughtmap);
         
-        monthlyDroughtLayer.removeFrom(droughtmap);
+        var validmonth = "August 2019";
+        var releasemonth = "July 31, 2019";
+        var seasonalstartdate = "August 15";
+        var seasonalenddate = "November, 30, 2019";
+        var releaseseasonal = "August 15";
         
+        //default the page to show the monthly dates
+        $('#valid-dates').text("Valid for " + validmonth + "  Released " + releasemonth);
 
         //change the layers of the map to Monthly or Seasonal based on the dropdown list
-        $('input[name=drought-outlook-duration]').change(function() {
-             alert("test");
+        $('input[name=drought-map-duration]').on('change', function() {
+             if (this.value == 'monthly') {
+               seasonalDroughtLayer.removeFrom(droughtmap);
+               monthlyDroughtLayer.addTo(droughtmap); 
+               $('#title').text("U.S. Monthly Drought Outlook");
+               $('#valid-dates').text("Valid for " + validmonth + "  Released " + releasemonth);
+             }
+             else if (this.value == 'seasonal') {
+               monthlyDroughtLayer.removeFrom(droughtmap);
+               seasonalDroughtLayer.addTo(droughtmap);
+               $('#title').text("U.S. Seasonal Drought Outlook");
+               $('#valid-dates').text("Valid for " + seasonalstartdate + " - " + seasonalenddate + "  Released " + releaseseasonal);
+             }               
         });
 
 

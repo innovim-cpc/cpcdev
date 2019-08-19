@@ -1,7 +1,7 @@
   <div class="grid-row">
     <div class="tablet:grid-col-12">
-      <h2>U.S. Monthly and Seasonal Drought Outlook</h2>
-      <h3 class="valid-dates">Dynamically generated valid date will appear here</h3>
+      <h2 id="title">U.S. Monthly Drought Outlook</h2>
+      <h3 id="valid-dates"></h3>
     </div>
   </div>
 
@@ -43,9 +43,9 @@
         <fieldset class="usa-fieldset">
           <legend class="usa-sr-only">Map View</legend>
           <div class="usa-radio">
-            <input class="usa-radio__input" id="monthly" type="radio" checked name="drought-map-view2" value="monthly">
+            <input class="usa-radio__input" id="monthly" type="radio" checked name="drought-map-duration" value="monthly">
             <label class="usa-radio__label" for="monthly">Monthly</label>
-            <input class="usa-radio__input" id="seasonal" type="radio" name="drought-map-view2" value="seasonal">
+            <input class="usa-radio__input" id="seasonal" type="radio" name="drought-map-duration" value="seasonal">
             <label class="usa-radio__label" for="seasonal">Seasonal</label>
           </div>
         </fieldset>
