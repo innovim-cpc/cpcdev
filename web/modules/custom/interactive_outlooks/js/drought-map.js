@@ -20,8 +20,6 @@
         // Add Esri World Topo base map via Esri Leaflet plugin
         L.esri.basemapLayer('Topographic').addTo(droughtmap);
         
-        
-
         // Get link to layer data
         const monthlyDrought = "https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_drought_outlk/MapServer/0/";
         const seasonalDrought = "https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_drought_outlk/MapServer/1/";
@@ -39,14 +37,34 @@
         //Add layer to map
         monthlyDroughtLayer.addTo(droughtmap);
         
-        var validmonth = "August 2019";
-        var releasemonth = "July 31, 2019";
-        var seasonalstartdate = "August 15";
-        var seasonalenddate = "November, 30, 2019";
-        var releaseseasonal = "August 15";
+        var validmonth = "";
+        var releasemonth = "";
+        var seasonalstartdate = "";
+        var seasonalenddate = "";
+        var releaseseasonal = "";
         
+        monthlyDroughtLayer.query()        
+        .run(function(error, featureCollection){      
+          console.log(featureCollection);          
+          validmonth = featureCollection.features[0].properties.target;
+          releasemonth = featureCollection.features[0].properties.fcst_date;   
+          $('#valid-dates').text("Valid for " + validmonth + "  Released " + releasemonth);       
+        });
+        
+        seasonalDroughtLayer.query()        
+        .run(function(error, featureCollection){
+          console.log(featureCollection);          
+          seasonalstartdate = featureCollection.features[0].properties.fcst_date;
+          seasonalenddate = featureCollection.features[0].properties.target;
+          releaseseasonal = featureCollection.features[0].properties.fcst_date;          
+        });
+        
+                
+        // monthlyDroughtLayer.run(function(error, featureCollection, response){
+        //   alert(featureCollection.features[0].properties.targer);
+      
         //default the page to show the monthly dates
-        $('#valid-dates').text("Valid for " + validmonth + "  Released " + releasemonth);
+        
 
         //change the layers of the map to Monthly or Seasonal based on the dropdown list
         $('input[name=drought-map-duration]').on('change', function() {
@@ -55,12 +73,15 @@
                monthlyDroughtLayer.addTo(droughtmap); 
                $('#title').text("U.S. Monthly Drought Outlook");
                $('#valid-dates').text("Valid for " + validmonth + "  Released " + releasemonth);
+                          
              }
              else if (this.value == 'seasonal') {
                monthlyDroughtLayer.removeFrom(droughtmap);
                seasonalDroughtLayer.addTo(droughtmap);
                $('#title').text("U.S. Seasonal Drought Outlook");
                $('#valid-dates').text("Valid for " + seasonalstartdate + " - " + seasonalenddate + "  Released " + releaseseasonal);
+               
+               
              }               
         });
 
