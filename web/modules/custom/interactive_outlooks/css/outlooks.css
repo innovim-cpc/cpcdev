@@ -163,3 +163,24 @@ table.hazards-data th {
   margin-left: 0;
   max-width: 10rem;
 }
+.persistSquare{
+  height: 10px;
+  width: 10px;
+  background-color: #9B634A;
+}
+.improveSquare{
+  height: 10px;
+  width: 10px;
+  background-color: #DED2BC;
+}
+.removeSquare{
+  height: 10px;
+  width: 10px;
+  background-color: #B2AD69;
+}
+.developSquare{
+  height: 10px;
+  width: 10px;
+  background-color: #FFDE63
+}
+  
