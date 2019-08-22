@@ -1,7 +1,7 @@
   <div class="grid-row">
     <div class="tablet:grid-col-12">
       <h2>U.S. Week 2 Hazards Outlook</h2>
-      <h3 class="valid-dates">Dynamically generated valid date will appear here</h3>
+      <h3 id="valid-dates"></h3>
     </div>
   </div>
 
@@ -21,7 +21,7 @@
             <div class="usa-radio">
               <input class="usa-radio__input" id="conus" type="radio" checked name="hazards-map-view" value="conus">
               <label class="usa-radio__label" for="conus">CONUS</label>
-              <input class="usa-radio__input" id="alaska" type="radio" checked name="hazards-map-view" value="alaska">
+              <input class="usa-radio__input" id="alaska" type="radio" name="hazards-map-view" value="alaska">
               <label class="usa-radio__label" for="alaska">Alaska</label>
             </div>
           </fieldset>
@@ -60,5 +60,9 @@
       </table>
     </form>
       <button class="usa-button font-sans-3xs">Hazards Outlook Discussion</button>
+      <br>
+      <a href="https://www.cpc.ncep.noaa.gov/products/predictions/threats/hazards_d8_14_contours.png" target="">See chart as image<i class="fas fa-external-link-alt"></i></a>
+      <br><br>
     </div>
+    <div id="hazards-legend"></div>
   </div>
