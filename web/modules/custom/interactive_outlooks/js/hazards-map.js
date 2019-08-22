@@ -52,6 +52,27 @@
         hazardsmap.addLayer(probExcessHeat814kmlLayer);
         hazardsmap.addLayer(probTemp814kmlLayer);
         hazardsmap.addLayer(probWind814kmlLayer);
+        
+        var validmonth = "";
+        var releasemonth = "";        
+                
+        $.ajax({
+            type     : "GET",
+            url      : proxyurl + temp814kml,
+            dataType : "xml",
+            success  : getValidDates,
+            error    : function(){
+            console.log("Could not retrieve XML file.");
+            }
+          });
+
+        function getValidDates(xml) {
+        const dateInfo = $(xml).find("Document").first().attr("id");
+        console.log(dateInfo);
+        const validDates = dateInfo.substring(dateInfo.indexOf("Valid"));
+        console.log(validDates);
+        $("#valid-dates").append(validDates).text();
+        }
 
         // Checkbox functionality
         $("input[id=precip-hazards-814]").on('change', function() {
