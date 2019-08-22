@@ -61,25 +61,21 @@
           monthlyDroughtLayer.eachFeature(function(layer){
             if (layer.feature.properties.fid_dev){
               layer.setStyle({
-                fillColor : '#FFDE63',
                 color: '#FFDE63'
               })
             }
             if (layer.feature.properties.fid_improv){
               layer.setStyle({
-                fillColor :'#DED2BC', 
                 color: '#DED2BC'
               })
             }
             if (layer.feature.properties.fid_persis){
               layer.setStyle({
-                fillColor :'#9B634A',
                 color: '#9B634A'
               })
             }
             if (layer.feature.properties.fid_remove){
               layer.setStyle({
-                fillColor :'#B2AD69',
                 color: '#B2AD69'
               })
             }
@@ -128,25 +124,21 @@
           seasonalDroughtLayer.eachFeature(function(layer){
             if (layer.feature.properties.fid_dev){
               layer.setStyle({
-                fillColor : '#FFDE63',
                 color: '#FFDE63'
               })
             }
             if (layer.feature.properties.fid_improv){
               layer.setStyle({
-                fillColor :'#DED2BC', 
                 color: '#DED2BC'
               })
             }
             if (layer.feature.properties.fid_persis){
               layer.setStyle({
-                fillColor :'#9B634A',
                 color: '#9B634A'
               })
             }
             if (layer.feature.properties.fid_remove){
               layer.setStyle({
-                fillColor :'#B2AD69',
                 color: '#B2AD69'
               })
             }
