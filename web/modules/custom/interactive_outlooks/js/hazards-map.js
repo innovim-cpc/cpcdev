@@ -52,10 +52,10 @@
         hazardsmap.addLayer(probExcessHeat814kmlLayer);
         hazardsmap.addLayer(probTemp814kmlLayer);
         hazardsmap.addLayer(probWind814kmlLayer);
-        
+
         var validmonth = "";
-        var releasemonth = "";        
-                
+        var releasemonth = "";
+
         $.ajax({
             type     : "GET",
             url      : proxyurl + temp814kml,
@@ -67,7 +67,7 @@
           });
 
         function getValidDates(xml) {
-        const dateInfo = $(xml).find("Document").first().attr("id");
+        const dateInfo = $(xml).find("name").first().text();
         console.log(dateInfo);
         const validDates = dateInfo.substring(dateInfo.indexOf("Valid"));
         console.log(validDates);
