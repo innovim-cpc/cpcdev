@@ -145,10 +145,7 @@
           }
           if(!remove){
             $('#remove').hide();
-          }
-          
-          
-          
+          }          
           });
         
         //show info when a
@@ -165,41 +162,56 @@
               layer.setStyle({
                 color: '#FFDE63'
               })
+              //add tooltip to map
+              layer.bindTooltip("Drought development likely");
+              // log that the layer has this category and we will need to show it in the legend
+              develop = true;
             }
             if (layer.feature.properties.fid_improv){
               layer.setStyle({
                 color: '#DED2BC'
               })
+              layer.bindTooltip("Drought remains but improves");
+              // log that the layer has this category and we will need to show it in the legend
+              improve = true;
             }
             if (layer.feature.properties.fid_persis){
               layer.setStyle({
                 color: '#9B634A'
               })
+              //add tooltip to map
+              layer.bindTooltip("Drought persists");
+              // log that the layer has this category and we will need to show it in the legend
+              persist = true;
             }
             if (layer.feature.properties.fid_remove){
               layer.setStyle({
                 color: '#B2AD69'
               })
+              //add tooltip to map
+              layer.bindTooltip("Drought removal likely");
+              // log that the layer has this category and we will need to show it in the legend
+              remove = true;
             }
             });
           
           
             //build the legend
             //loop through all the features to see which items we need to show
-            for (var i = 0; i < featureCollection.features.length; i++) {
-              if (featureCollection.features[i].properties.fid_dev){
-                develop = true;            
-              }
-              if (featureCollection.features[i].properties.fid_improv){
-                improve = true;            
-              }
-              if (featureCollection.features[i].properties.fid_persis){
-                persist = true;            
-              }
-              if (featureCollection.features[i].properties.fid_remove){
-                remove = true;
-              }
-            }
+            // for (var i = 0; i < featureCollection.features.length; i++) {
+            //   if (featureCollection.features[i].properties.fid_dev){
+            //     develop = true;            
+            //   }
+            //   if (featureCollection.features[i].properties.fid_improv){
+            //     improve = true;            
+            //   }
+            //   if (featureCollection.features[i].properties.fid_persis){
+            //     persist = true;            
+            //   }
+            //   if (featureCollection.features[i].properties.fid_remove){
+            //     remove = true;
+            //   }
+            // }
             //hide the legend item if there are no layers for that item
             if (!develop){
               $('#develop').hide();
