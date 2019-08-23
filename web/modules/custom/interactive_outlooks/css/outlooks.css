@@ -36,7 +36,9 @@ table.hazards-data th {
 #temp-outlook button,
 #precip-outlook button {
   margin-top: 1em; }
-
+#hazards-map {
+  background: transparent url("https://www.cpc.ncep.noaa.gov/products/predictions/threats/hazards_d8_14_contours.png") no-repeat fixed center;
+}
 .opacity-slider {
   display: inline-block;
   padding: 1em .5em;
@@ -183,4 +185,3 @@ table.hazards-data th {
   width: 10px;
   background-color: #FFDE63
 }
-  
