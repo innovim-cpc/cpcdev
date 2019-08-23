@@ -29,9 +29,7 @@
         "drupal/config_update": "^1.6",
         "drupal/console": "^1.0.2",
         "drupal/core": "~8.6.0",
-        "drupal/devel": "^2.0",
         "drupal/entity_browser": "^2.1",
-        "drupal/environment_indicator": "^3.6",
         "drupal/leaflet": "^1.4",
         "drupal/module_filter": "^3.1",
         "drupal/paragraphs": "^1.8",
@@ -52,6 +50,8 @@
         "webmozart/path-util": "^2.3"
     },
     "require-dev": {
+        "drupal/devel": "^2.1",
+        "drupal/module_missing_message_fixer": "^1.1",
         "webflo/drupal-core-require-dev": "~8.6.0"
     },
     "conflict": {
