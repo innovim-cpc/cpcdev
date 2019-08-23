@@ -41,6 +41,22 @@
         seasonalDroughtLayer.removeFrom(droughtmap);
         
         
+        // monthlyDroughtLayer.on('mouse-over', function(e) {
+        //   if (droughtmap) {
+        //     layerPopup = L.popup()
+        //     .setContent('Popup for' + e.layer.feature.properties.name)
+        //     .openOn(droughtmap);
+        //   }
+        // });
+        // 
+        // monthlyDroughtLayer.on('mouse-out', function(e) {
+        //   if (layerPopup && droughtmap) {
+        //     map.closePopup(layerPopup);
+        //     layerPopup = null;
+        //   }
+        // });
+        
+        
         var validmonth = "";
         var releasemonth = "";
         var seasonalstartdate = "";
@@ -56,48 +72,67 @@
           validmonth = featureCollection.features[0].properties.target;
           releasemonth = featureCollection.features[0].properties.fcst_date;   
           $('#valid-dates').text("Valid for " + validmonth + "  Released " + releasemonth);       
-                    
+                              
           ///set the colors of the layers
           monthlyDroughtLayer.eachFeature(function(layer){
+            
+                
             if (layer.feature.properties.fid_dev){
               layer.setStyle({
                 color: '#FFDE63'
               })
+              //add tooltip to map
+              layer.bindTooltip("Drought development likely");
+              // log that the layer has this category and we will need to show it in the legend
+              develop = true;
             }
             if (layer.feature.properties.fid_improv){
               layer.setStyle({
                 color: '#DED2BC'
               })
+              //add tooltip to map
+              layer.bindTooltip("Drought remains but improves");
+              // log that the layer has this category and we will need to show it in the legend
+              improve = true;
             }
             if (layer.feature.properties.fid_persis){
               layer.setStyle({
                 color: '#9B634A'
               })
+              //add tooltip to map
+              layer.bindTooltip("Drought persists");
+              // log that the layer has this category and we will need to show it in the legend
+              persist = true;
             }
             if (layer.feature.properties.fid_remove){
               layer.setStyle({
                 color: '#B2AD69'
               })
+              //add tooltip to map
+              layer.bindTooltip("Drought removal likely");
+              // log that the layer has this category and we will need to show it in the legend
+              remove = true;
             }
+            
+            
             });
-          
           
           //build the legend
           //loop through all the features to see which items we need to show
-          for (var i = 0; i < featureCollection.features.length; i++) {
-            if (featureCollection.features[i].properties.fid_dev){
-              develop = true;            
-            }
-            if (featureCollection.features[i].properties.fid_improv){
-              improve = true;            
-            }
-            if (featureCollection.features[i].properties.fid_persis){
-              persist = true;            
-            }
-            if (featureCollection.features[i].properties.fid_remove){
-              remove = true;
-            }
-          }
+          // for (var i = 0; i < featureCollection.features.length; i++) {
+          //   if (featureCollection.features[i].properties.fid_dev){
+          //     develop = true;            
+          //   }
+          //   if (featureCollection.features[i].properties.fid_improv){
+          //     improve = true;            
+          //   }
+          //   if (featureCollection.features[i].properties.fid_persis){
+          //     persist = true;            
+          //   }
+          //   if (featureCollection.features[i].properties.fid_remove){
+          //     remove = true;
+          //   }
+          // }
           //hide the legend item if there are no layers for that item
           if (!develop){
             $('#develop').hide();
@@ -112,7 +147,11 @@
             $('#remove').hide();
           }
           
+          
+          
           });
+        
+        //show info when a
         
         seasonalDroughtLayer.query()        
         .run(function(error, featureCollection){
