@@ -15,7 +15,7 @@
       <div class="grid-row" id="drought-map__view-controls">
         <div class="tablet:grid-col-8">
         </div>
-        <div class="tablet:grid-col-4" id="drought-map__view-select">
+        <div class="tablet:grid-col-4">
           <fieldset class="usa-fieldset">
             <legend class="usa-sr-only">Map View</legend>
             <div class="usa-radio">
@@ -31,17 +31,10 @@
     </div><!-- end map-column-->
 
     <div class="tablet:grid-col-4 map-data-column">
-      {# <form class="usa-form droughts-form">
-        <label for="droughts-outlook-duration">Select duration:</label>
-        <select name="droughts-outlook-duration" id="droughts-outlook-duration">
-          <option value="monthly">Monthly Drought Outlook</option>
-          <option value="seasonal">Seasonal Drought Outlook</option>
-        </select>
-        <button type="submit" name="droughts-duration-submit" class="usa-button font-sans-3xs">Select</button>
-      </form> #}
-      <div class="tablet:grid-col-4" id="drought-map__view-select">
+
+      <div class="tablet:grid-col-12" id="drought-map__view-select">
         <fieldset class="usa-fieldset">
-          <legend class="usa-sr-only">Map View</legend>
+          <legend class="usa-sr-only">Outlook Duration</legend>
           <div class="usa-radio">
             <input class="usa-radio__input" id="monthly" type="radio" checked name="drought-map-duration" value="monthly">
             <label class="usa-radio__label" for="monthly">Monthly</label>
@@ -50,27 +43,21 @@
           </div>
         </fieldset>
       </div>
-      <br>
-      <a href="https://droughtmonitor.unl.edu/" target="">See the U.S. Drought Monitor<i class="fas fa-external-link-alt"></i></a>
-      <br><br>
+
+      <p><a href="https://droughtmonitor.unl.edu/" target="">See the U.S. Drought Monitor<i class="fas fa-external-link-alt"></i></a></p>
+
       <button class="usa-button font-sans-3xs">Drought Outlook Discussion</button>
-      <br><br>
-      <div class="tablet:grid-col-12">Legend</div>
-        <div id="persist" class="tablet:grid-col-12">
-          <div class="persistSquare"></div>
-          Drought persists
-        </div>
-        <div id="improve" class="tablet:grid-col-12">
-          <div class="improveSquare"></div>
-          Drought remains but improves
-        </div>
-        <div id="remove" class="tablet:grid-col-8">
-          <div class="removeSquare"></div>
-          Drought removal likely
-        </div>
-        <div id="develop"  class="tablet:grid-col-8">
-          <div class="developSquare"></div>
-          Drought development likely
-        </div>
+
+      <div class="tablet:grid-col-12 drought-map-legend">
+        <p>Legend</p>
+        <ul>
+          <li><span class="persists-color"></span> Drought persists</li>
+          <li><span class="improves-color"></span> Drought remains but improves</li>
+          <li><span class="removal-color"></span> Drought removal likely</li>
+          <li><span class="development-color"></span> Drought development likely</li>
+        </ul>
+      </div>
+      
     </div>
+
   </div>
