@@ -119,3 +119,23 @@ i.e.
 .usa-radio__input {
   @include not-sr-only;
 }
+.usa-radio__input {
+  position: absolute !important;
+}
+.fa-external-link-alt {
+  font-size: 60%;
+  margin-left: 3px;
+  margin-top: 3px;
+  vertical-align: text-top;
+}
+#main-content a {
+  color: color('primary');
+  text-decoration: none;
+  &:hover {
+    color: color('primary-vivid');
+    text-decoration: underline;
+  }
+  &:visited {
+    color: color('primary-dark');
+  }
+}
