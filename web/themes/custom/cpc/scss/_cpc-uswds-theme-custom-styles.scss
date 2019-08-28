@@ -112,8 +112,10 @@ i.e.
       margin: -.25em 0 .5em;
     }
   }
-  .usa-button {
-    background-color: color('accent-warm');
+  .map-data-column {
+    .usa-button {
+      background-color: color('accent-warm');
+    }
   }
 }
 .usa-checkbox__input,
@@ -139,4 +141,23 @@ i.e.
   &:visited {
     color: color('primary-dark');
   }
+}
+.outlooks-selector-container {
+  right: 0;
+  top: 10px;
+  z-index: 500;
+}
+#outlooks-selector {
+  .usa-label {
+    display: none;
+  }
+  select {
+    cursor: pointer;
+    float: left;
+    height: 2.1rem;
+    margin-right: .5rem;
+    width: auto;
+    line-height: 1;
+  }
+  .usa-button { margin-top: 10px; }
 }
