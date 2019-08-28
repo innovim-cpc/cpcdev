@@ -19,9 +19,9 @@
   ]
 %}
 {# if content #}
-  <!--<div{# attributes.addClass(classes) #}>
+  <div{# attributes.addClass(classes) #}>
     {# content #}
+    {{ drupal_block('interactive_drought_outlooks') }}
+    {{ drupal_block('interactive_hazards_outlooks') }}
   </div>-->
 {# endif #}
-
-{{ drupal_block('interactive_hazards_outlooks') }}
