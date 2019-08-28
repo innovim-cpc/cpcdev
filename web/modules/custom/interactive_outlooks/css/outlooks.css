@@ -5,6 +5,11 @@
 .map-column .usa-radio__label {
   display: inline-block;
 }
+#drought-map-header .valid-dates,
+#hazards-map-header .valid-dates {
+  color: #71767a;
+  font-size: 1em;
+}
 .map-data-column {
   padding-left: 2rem;
 }
