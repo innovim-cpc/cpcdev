@@ -70,8 +70,9 @@
         function getValidDates(xml) {
           const dateInfo = $(xml).find("name").first().text();
           console.log(dateInfo);
-          const validDates = dateInfo.substring(dateInfo.indexOf("Valid"));
-          console.log(validDates);
+          const validDatesString = dateInfo.substring(dateInfo.indexOf("Valid"));
+          console.log(validDatesString);
+          const validDates = validDatesString.replace('No Hazards Posted', '');
           $("#hazards-map-header .valid-dates").append(validDates).text();
         }
 
