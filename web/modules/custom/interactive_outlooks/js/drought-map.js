@@ -177,6 +177,15 @@
           }
         });
 
+        var monthlyChecked = $('#drought-map__view-select input[type=radio][id=monthly]:checked');
+        var seasonalChecked = $('#drought-map__view-select input[type=radio][id=seasonal]:checked');
+
+        if (monthlyChecked) {
+          $('.drought-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
+        } else if (seasonalChecked) {
+          $('.drought-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/season_drought.png');
+        }
+
         //change the layers of the map to Monthly or Seasonal based on the dropdown list
         $('input[name=drought-map-duration]').on('change', function() {
           if (this.value == 'monthly') {
@@ -184,12 +193,14 @@
            monthlyDroughtLayer.addTo(droughtmap);
            $('#drought-map-header .title').text("U.S. Monthly Drought Outlook");
            $('#drought-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('.drought-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
           else if (this.value == 'seasonal') {
            monthlyDroughtLayer.removeFrom(droughtmap);
            seasonalDroughtLayer.addTo(droughtmap);
            $('#drought-map-header .title').text("U.S. Seasonal Drought Outlook");
            $('#drought-map-header .valid-dates').text("Valid for " + seasonalstartdate + " - " + seasonalenddate + ", Released " + releaseseasonal);
+           $('.drought-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/season_drought.png');
           }
         });
 
