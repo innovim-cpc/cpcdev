@@ -13,8 +13,9 @@
   		  // Create the map
         var droughtmap = L.map('drought-map', {
           center: [38, -96],
-          zoom: 4,
-          minZoom: 4
+          zoomSnap: 0.1,
+          zoom: 3.9,
+          minZoom: 3.9
         });
 
         // Add Esri World Topo base map via Esri Leaflet plugin
@@ -40,7 +41,7 @@
         //Add seasonal map on load (then remove it) or the layer styles won't be applied
         seasonalDroughtLayer.addTo(droughtmap);
         seasonalDroughtLayer.removeFrom(droughtmap);
-  
+
         var validmonth = "";
         var releasemonth = "";
         var seasonalstartdate = "";
@@ -195,10 +196,10 @@
         //change the map to the correct area
         $('input[type=radio][name=drought-map-view]').on('change',function() {
           if (this.value == 'conus') {
-            droughtmap.setView(new L.LatLng(38, -96), 4)
+            droughtmap.setView(new L.LatLng(38, -96), 3.9)
           }
           else if (this.value == 'alaska') {
-            droughtmap.setView(new L.LatLng(64.2,-149.4), 4)
+            droughtmap.setView(new L.LatLng(64.2,-149.4), 3.9)
           }
         });
 

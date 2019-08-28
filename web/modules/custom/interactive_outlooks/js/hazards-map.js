@@ -13,8 +13,9 @@
   		  // Set up map
         var hazardsmap = L.map('hazards-map', {
           center: [38, -96],
-          zoom: 4,
-          minZoom: 3.6
+          zoomSnap: 0.1,
+          zoom: 3.9,
+          minZoom: 3.9
         });
 
         // Add Esri World Topo basemap via Esri Leaflet plugin
@@ -130,10 +131,10 @@
         //change the map to the correct area
         $('input[type=radio][name=hazards-map-view]').change(function() {
           if (this.value == 'conus') {
-            hazardsmap.setView(new L.LatLng(38, -96), 4)
+            hazardsmap.setView(new L.LatLng(38, -96), 3.9)
           }
           else if (this.value == 'alaska') {
-            hazardsmap.setView(new L.LatLng(64.2,-149.4), 4)
+            hazardsmap.setView(new L.LatLng(64.2,-149.4), 3.9)
           }
         });
 
