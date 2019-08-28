@@ -29,6 +29,20 @@ leaflet-plugins:
   js:
     /libraries/leaflet-plugins/layer/vector/KML.js: {}
 
+selector:
+  version: 1.x
+  css:
+    theme:
+      css/outlooks.css: {}
+  js:
+    js/outlooks-selector.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - interactive_outlooks/leaflet
+    - interactive_outlooks/esri-leaflet
+    - interactive_outlooks/leaflet-plugins
+
 drought:
   version: 1.x
   css:
