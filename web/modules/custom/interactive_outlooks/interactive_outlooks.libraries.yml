@@ -28,6 +28,10 @@ leaflet-plugins:
     gpl-compatible: true
   js:
     /libraries/leaflet-plugins/layer/vector/KML.js: {}
+    
+omnivore:
+  js: 
+    /libraries/omnivore/leaflet-omnivore.min.js: {}
 
 drought:
   version: 1.x
@@ -56,3 +60,4 @@ hazards:
     - interactive_outlooks/leaflet
     - interactive_outlooks/esri-leaflet
     - interactive_outlooks/leaflet-plugins
+    - interactive_outlooks/leaflet-omnivore.min.js

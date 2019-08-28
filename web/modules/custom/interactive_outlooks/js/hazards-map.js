@@ -48,39 +48,41 @@
 
         // Get link to 8-14 day KML files found at https://www.cpc.ncep.noaa.gov/products/predictions/threats/threats.php
         const prcp814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/prcp_D8_14.kml";
-        const temp814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/temp_D8_14.kml";
-        // const excessHeat814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/excess_heat_D8_14.kml";
-        const wind814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/wind_D8_14.kml";
         const probPrcp814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/prcp_prob_D8_14.kml";
-        const probExcessHeat814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/excess_heat_prob_D8_14.kml";
+        const temp814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/temp_D8_14.kml";
         const probTemp814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/temp_prob_D8_14.kml";
+        
+        
+        // const excessHeat814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/excess_heat_D8_14.kml";
+        const wind814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/wind_D8_14.kml";        
+        const probExcessHeat814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/excess_heat_prob_D8_14.kml";        
         const probWind814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/wind_prob_D8_14.kml";
 
         // We need to use the direct URL to the KML files (instead of downloading them to a directory in our module) because they're automatically updated. Using the direct URL produces errors on a development site, however, so we have to append it to a proxy URL
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
         // Create the layers based on the URL and proxy URL
-        var prcp814kmlLayer = new L.KML(proxyurl + prcp814kml, {async: true});
-        var temp814kmlLayer = new L.KML(proxyurl + temp814kml, {async: true});
+        var prcp814kmlLayer = omnivore.kml((proxyurl + prcp814kml));
+        var probPrcp814kmlLayer = omnivore.kml((proxyurl + probPrcp814kml));
+        var temp814kmlLayer = omnivore.kml((proxyurl + temp814kml));
+        var probTemp814kmlLayer = omnivore.kml((proxyurl + probTemp814kml));
         // var excessHeat814kmlLayer = new L.KML(proxyurl + excessHeat814kml, {async: true});
-        var wind814kmlLayer = new L.KML(proxyurl + wind814kml, {async: true});
-        var probPrcp814kmlLayer = new L.KML(proxyurl + probPrcp814kml, {async: true});
-        var probExcessHeat814kmlLayer = new L.KML(proxyurl + probExcessHeat814kml, {async: true});
-        var probTemp814kmlLayer = new L.KML(proxyurl + probTemp814kml, {async: true});
-        var probWind814kmlLayer = new L.KML(proxyurl + probWind814kml, {async: true});
+        var probExcessHeat814kmlLayer = omnivore.kml((proxyurl + probExcessHeat814kml));
+        var wind814kmlLayer = omnivore.kml((proxyurl + wind814kml));         
+        var probWind814kmlLayer = omnivore.kml((proxyurl + probWind814kml));
 
         // Add the layers to the map
         hazardsmap.addLayer(prcp814kmlLayer);
-        hazardsmap.addLayer(temp814kmlLayer);
-        // hazardsmap.addLayer(excessHeat814kmlLayer);
-        hazardsmap.addLayer(wind814kmlLayer);
         hazardsmap.addLayer(probPrcp814kmlLayer);
+        hazardsmap.addLayer(temp814kmlLayer);
+        hazardsmap.addLayer(probTemp814kmlLayer);
+        // hazardsmap.addLayer(excessHeat814kmlLayer);
         hazardsmap.addLayer(probExcessHeat814kmlLayer);
-        hazardsmap.addLayer(probTemp814kmlLayer);        
+        hazardsmap.addLayer(wind814kmlLayer);
         hazardsmap.addLayer(probWind814kmlLayer);
         
         
-        
+        var probTemp814chkBox = "";
                 
         $.ajax({
             type     : "GET",
@@ -109,7 +111,10 @@
             switch(x) {
               case "High Risk of Heavy Precipitation":
                 $('#high-risk-precip').show();
-                break;                
+                break;  
+              case "Heavy Precipitation":
+                $('#high-risk-precip').show();
+                break;               
               case "Moderate Risk of Heavy Precipitation":
                 $('#moderate-risk-precip').show();
                 break;              
@@ -125,14 +130,64 @@
               }
           });
           
-          // temp814kmlLayer.eachLayer(function(layer){
-          //   if (layer.options.fillColor === "#a80000") {
-          //     layer.bindPopup("High Risk of Excessive Heat");
-          //   }
-          //   // layer.bindPopup(layer.options.id);
-          //   // console.log(layer.options.fillColor);
-          //   // console.log(layer);
-          // });      
+          prcp814kmlLayer.eachLayer(function(layer){            
+            layer.bindPopup(layer.feature.properties.name);
+            console.log(layer);
+            switch(layer.feature.properties.name){
+              case "High Risk of Heavy Precipitation":
+                layer.setStyle({
+                  fillColor: '#879B57',
+                  fillOpacity: 1,
+                  color: 'black', 
+                  opacity: .7,
+                  weight: 1                  
+                })
+                break;
+              case "Heavy Precipitation":
+                layer.setStyle({
+                  fillColor: '#C4EC74',
+                  fillOpacity: 1, 
+                  color: 'black', 
+                  opacity: .7, 
+                  weight: 1
+                })
+                break;
+            case "Moderate Risk of Heavy Precipitation":
+                layer.setStyle({                  
+                  fillColor: '#C4EC74',
+                  fillOpacity: 1, 
+                  color: 'black', 
+                  opacity: .7, 
+                  weight: 1
+                })
+                break;            
+              case "Slight Risk of Heavy Precipitation":              
+                layer.setStyle({
+                  fillColor: '#E4FCA8',   
+                  fillOpacity: .7,
+                  color: 'black', 
+                  opacity: .7, 
+                  weight: 1               
+                })
+              break;
+              case "Frozen Precipitation":
+                layer.setStyle({
+                  fillColor: '#5DA7BF',   
+                  fillOpacity: .7,
+                  color: 'black', 
+                  opacity: .7, 
+                  weight: 1               
+                })
+              case "Flooding Possible":
+                layer.setStyle({
+                  fillColor: '#F1E1FD',   
+                  fillOpacity: .7,
+                  color: 'black', 
+                  opacity: .7, 
+                  weight: 1               
+                })
+            }
+          });      
         }
         
         $.ajax({
@@ -163,7 +218,10 @@
             switch(x) {
               case "High Risk of Heavy Precipitation":
                 $('#high-risk-precip').show();
-                break;                
+                break; 
+              case "Heavy Precipitation":
+                $('#moderate-risk-precip').show();
+                break;               
               case "Moderate Risk of Heavy Precipitation":
                 $('#moderate-risk-precip').show();
                 break;              
@@ -179,16 +237,63 @@
               }
           });
           
-          // probPrcp814kmlLayer.eachLayer(function(layer){            
-          //   if (layer.options.fillColor === "#a80000") {
-          // 
-          //     layer.bindPopup("High Risk of Excessive Heat");
-          //   }
-          //   layer.bindPopup("Slight Risk of Heavy Precipitation");
-          //   // layer.bindPopup(layer.options.id);
-          //   // console.log(layer.options.fillColor);
-          //   // console.log(layer);
-          // });      
+          probPrcp814kmlLayer.eachLayer(function(layer){            
+            layer.bindPopup(layer.feature.properties.name);
+            switch(layer.feature.properties.name){
+              case "High Risk of Heavy Precipitation":
+                layer.setStyle({
+                  fillColor: '#879B57',
+                  fillOpacity: 1,
+                  color: 'black', 
+                  opacity: .7, 
+                  weight: 1
+                })
+                break;
+              case "Heavy Precipitation":
+                layer.setStyle({
+                  fillColor: '#C4EC74',
+                  fillOpacity: 1, 
+                  color: 'black', 
+                  opacity: .7, 
+                  weight: 1
+                })
+                break;
+              case "Moderate Risk of Heavy Precipitation":
+                layer.setStyle({                  
+                  fillColor: '#C4EC74',
+                  fillOpacity: 1, 
+                  color: 'black', 
+                  opacity: .7, 
+                  weight: 1
+                })
+                break;            
+              case "Slight Risk of Heavy Precipitation":              
+                layer.setStyle({
+                  fillColor: '#E4FCA8',   
+                  fillOpacity: .7,
+                  color: 'black', 
+                  opacity: .7, 
+                  weight: 1               
+                })
+              break;
+              case "Frozen Precipitation":
+                layer.setStyle({
+                  fillColor: '#5DA7BF',   
+                  fillOpacity: .7,
+                  color: 'black', 
+                  opacity: .7, 
+                  weight: 1               
+                })
+              case "Flooding Possible":
+                layer.setStyle({
+                  fillColor: '#F1E1FD',   
+                  fillOpacity: .7,
+                  color: 'black', 
+                  opacity: .7, 
+                  weight: 1               
+                })
+            }
+          });      
           
         }
       
@@ -240,20 +345,67 @@
               case "Slight Risk of Much Below Normal Temperatures":
                  $('#slight-risk-much-below-normal-temperature').show();
                 break;
-              
               }
-          });
-          
-          
-          temp814kmlLayer.eachLayer(function(layer){
-            if (layer.options.fillColor === "#a80000") {
-              layer.bindPopup("High Risk of Excessive Heat");
-            }
-            // layer.bindPopup(layer.options.id);
-            // console.log(layer.options.fillColor);
-            // console.log(layer);
-          });      
-          
+              
+              temp814kmlLayer.eachLayer(function(layer){            
+                layer.bindPopup(layer.feature.properties.name);
+                switch(layer.feature.properties.name){
+                  case "High Risk of Much Above Normal Temperatures":
+                    layer.setStyle({
+                      fillColor: '#B95550',
+                      fillOpacity: 1,
+                      color: 'black', 
+                      opacity: .7, 
+                      weight: 1
+                    })
+                    break;
+                  case "Moderate Risk of Much Above Normal Temperatures":
+                    layer.setStyle({
+                      fillColor: '#E35A52',
+                      fillOpacity: 1, 
+                      color: 'black', 
+                      opacity: .7, 
+                      weight: 1
+                    })
+                    break;
+                  case "Slight Risk of Much Above Normal Temperatures":
+                    layer.setStyle({                  
+                      fillColor: '#F7A9A7',
+                      fillOpacity: 1, 
+                      color: 'black', 
+                      opacity: .7, 
+                      weight: 1
+                    })
+                    break;            
+                    case "High Risk of Much Below Normal Temperatures":
+                      layer.setStyle({
+                        fillColor: '#4F6899',
+                        fillOpacity: 1,
+                        color: 'black', 
+                        opacity: .7, 
+                        weight: 1
+                      })
+                      break;
+                    case "Moderate Risk of Much Below Normal Temperatures":
+                      layer.setStyle({
+                        fillColor: '#538FE8',
+                        fillOpacity: 1, 
+                        color: 'black', 
+                        opacity: .7, 
+                        weight: 1
+                      })
+                      break;
+                    case "Slight Risk of Much Below Normal Temperatures":
+                      layer.setStyle({                  
+                        fillColor: '#A2C9FB',
+                        fillOpacity: 1, 
+                        color: 'black', 
+                        opacity: .7, 
+                        weight: 1
+                      })
+                }
+              });   
+          }); 
         }
         
         $.ajax({
@@ -265,18 +417,19 @@
               console.log("Could not retrieve XML file.");
             }
           });
-
+          
         function getDataProbTemp814kml(xml) {               
           const dateInfo = $(xml).find("Document").first().attr("id");
           const noHazards = dateInfo.substring(dateInfo.indexOf("No_Hazards_Posted"));
           if (noHazards === "No_Hazards_Posted")
           {
             //hide checkbox and display No Hazards            
-            $('#temp-probabilistic-814-chkbox').hide();           
+            // $('#temp-probabilistic-814-chkbox').hide();           
           }
           else
           {
-            $('#temp-probabilistic-814-no-hazards').hide();
+            probTemp814chkBox = true;
+            // $('#temp-probabilistic-814-no-hazards').hide();
           }
           
           $(xml).find("Placemark").each(function(){     
@@ -300,16 +453,67 @@
               case "Slight Risk of Much Below Normal Temperatures":
                  $('#slight-risk-much-below-normal-temperature').show();
                 break;
-              
               }
+                            
+              probTemp814kmlLayer.eachLayer(function(layer){            
+                layer.bindPopup(layer.feature.properties.name);
+                switch(layer.feature.properties.name){
+                  case "High Risk of Much Above Normal Temperatures":
+                    layer.setStyle({
+                      fillColor: '#B95550',
+                      fillOpacity: 1,
+                      color: 'black', 
+                      opacity: .7, 
+                      weight: 1
+                    })
+                    break;
+                  case "Moderate Risk of Much Above Normal Temperatures":
+                    layer.setStyle({
+                      fillColor: '#E35A52',
+                      fillOpacity: 1, 
+                      color: 'black', 
+                      opacity: .7, 
+                      weight: 1
+                    })
+                    break;
+                  case "Slight Risk of Much Above Normal Temperatures":
+                    layer.setStyle({                  
+                      fillColor: '#F7A9A7',
+                      fillOpacity: 1, 
+                      color: 'black', 
+                      opacity: .7, 
+                      weight: 1
+                    })
+                    break;            
+                    case "High Risk of Much Below Normal Temperatures":
+                      layer.setStyle({
+                        fillColor: '#4F6899',
+                        fillOpacity: 1,
+                        color: 'black', 
+                        opacity: .7, 
+                        weight: 1
+                      })
+                      break;
+                    case "Moderate Risk of Much Below Normal Temperatures":
+                      layer.setStyle({
+                        fillColor: '#538FE8',
+                        fillOpacity: 1, 
+                        color: 'black', 
+                        opacity: .7, 
+                        weight: 1
+                      })
+                      break;
+                    case "Slight Risk of Much Below Normal Temperatures":
+                      layer.setStyle({                  
+                        fillColor: '#A2C9FB',
+                        fillOpacity: 1, 
+                        color: 'black', 
+                        opacity: .7, 
+                        weight: 1
+                      })
+                }
+              });   
           });
-          
-          probTemp814kmlLayer.eachLayer(function(layer){            
-            if (layer.options.fillColor === "#73b2ff") {
-              layer.bindPopup("Slight Risk of Much Below Normal Temperatures");
-            }            
-            
-          });      
           
         }
         
@@ -325,7 +529,23 @@
             }
           });
 
-        function getDataExcessHeat(xml) {           
+        function getDataExcessHeat(xml) {   
+          const dateInfo = $(xml).find("Document").first().attr("id");
+          const noHazards = dateInfo.substring(dateInfo.indexOf("No_Hazards_Posted"));
+          if (noHazards === "No_Hazards_Posted")
+          {
+            //hide checkbox and display No Hazards            
+            // $('#temp-probabilistic-814-chkbox').hide();           
+          }
+          else
+          {
+            probTemp814chkBox = true;
+            // $('#temp-probabilistic-814-no-hazards').hide();
+          }
+          if (probTemp814chkBox){
+            $('#temp-probabilistic-814-no-hazards').hide();
+          }
+          
           $(xml).find("Placemark").each(function(){     
             var x = $(this).find("name").text();       
             switch(x) {
@@ -340,18 +560,40 @@
                 break;              
               }
           });
-                        
-          probExcessHeat814kmlLayer.eachLayer(function(layer){
-            // console.log(probExcessHeat814kmlLayer);
-            layer.bindPopup("Slight Risk of Excessive Heat");
-            if (layer.options.fillColor === "#a80000") {
-              // layer.bindPopup("High Risk of Excessive Heat");
-            }
-            if (layer.options.fillColor === "#73b2ff") {
-              layer.bindPopup("Slight Risk of Much Below Normal Temperatures");
-            }            
-            
-          });      
+              
+          probExcessHeat814kmlLayer.eachLayer(function(layer){            
+            layer.bindPopup(layer.feature.properties.name);
+            switch(layer.feature.properties.name){
+              case "High Risk of Excessive Heat":
+                layer.setStyle({
+                  fillColor: '#96524F',
+                  fillOpacity: 1,
+                  color: 'black', 
+                  opacity: .7, 
+                  weight: 1
+                })
+                break;
+              case "Moderate Risk of Excessive Heat":
+                layer.setStyle({
+                  fillColor: '#B95550',
+                  fillOpacity: 1, 
+                  color: 'black', 
+                  opacity: .7, 
+                  weight: 1
+                })
+                break;
+              case "Slight Risk of Excessive Heat":
+                layer.setStyle({                  
+                  fillColor: '#C57554',
+                  fillOpacity: 1, 
+                  color: 'black', 
+                  opacity: .7, 
+                  weight: 1
+                })
+                break;
+              }
+          });             
+                                  
           
         }
         
@@ -391,11 +633,28 @@
           });
                  
           wind814kmlLayer.eachLayer(function(layer){            
-              
-            if (layer.options.fillColor === "#73b2ff") {
-              layer.bindPopup("Slight Risk of Much Below Normal Temperatures");
-            }      
-          });      
+            layer.bindPopup(layer.feature.properties.name);
+            switch(layer.feature.properties.name){
+              case "Moderate Risk of High Winds":
+                layer.setStyle({
+                  fillColor: '#986951',
+                  fillOpacity: 1,
+                  color: 'black', 
+                  opacity: .7, 
+                  weight: 1
+                })
+                break;
+              case "Slight Risk of High Winds":
+                layer.setStyle({
+                  fillColor: '#DAC499',
+                  fillOpacity: 1, 
+                  color: 'black', 
+                  opacity: .7, 
+                  weight: 1
+                })
+                break;              
+              }
+          });       
         }
         
         $.ajax({
@@ -432,12 +691,30 @@
                 break;              
               }
           });
+          
           probWind814kmlLayer.eachLayer(function(layer){            
-            if (layer.options.fillColor === "#73b2ff") {
-              layer.bindPopup("Slight Risk of Much Below Normal Temperatures");
-            }            
-            
-          });      
+            layer.bindPopup(layer.feature.properties.name);
+            switch(layer.feature.properties.name){
+              case "Moderate Risk of High Winds":
+                layer.setStyle({
+                  fillColor: '#986951',
+                  fillOpacity: 1,
+                  color: 'black', 
+                  opacity: .7, 
+                  weight: 1
+                })
+                break;
+              case "Slight Risk of High Winds":
+                layer.setStyle({
+                  fillColor: '#DAC499',
+                  fillOpacity: 1, 
+                  color: 'black', 
+                  opacity: .7, 
+                  weight: 1
+                })
+                break;              
+              }
+          });       
           
         }
         
