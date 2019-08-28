@@ -1,0 +1,22 @@
+uuid: 9ff4bb5f-64eb-43fc-a2c0-d0c84142930e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.precipitation_outlook
+  module:
+    - text
+id: node.precipitation_outlook.body
+field_name: body
+entity_type: node
+bundle: precipitation_outlook
+label: Discussion
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

@@ -1,0 +1,8 @@
+uuid: 88a38471-020d-44c2-b40f-7568ed887d6d
+langcode: en
+status: true
+dependencies: {  }
+id: footer-outlooks-menu
+label: 'Footer Outlooks Menu'
+description: ''
+locked: false

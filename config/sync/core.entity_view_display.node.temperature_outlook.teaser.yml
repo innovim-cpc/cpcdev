@@ -1,0 +1,30 @@
+uuid: 08928255-6657-4593-9001-1dc2da97ad01
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.temperature_outlook.body
+    - node.type.temperature_outlook
+  module:
+    - text
+    - user
+id: node.temperature_outlook.teaser
+targetEntityType: node
+bundle: temperature_outlook
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

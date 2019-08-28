@@ -1,0 +1,30 @@
+uuid: 6641508f-481e-4565-86dc-9739f8f8fefb
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.precipitation_outlook.body
+    - node.type.precipitation_outlook
+  module:
+    - text
+    - user
+id: node.precipitation_outlook.teaser
+targetEntityType: node
+bundle: precipitation_outlook
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }
