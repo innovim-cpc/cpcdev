@@ -33,7 +33,7 @@
         // We need to use the direct URL to the KML files (instead of downloading them to a directory in our module) because they're automatically updated. Using the direct URL produces errors on a development site, however, so we have to append it to a proxy URL
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
-        // Create the layers based on the URL and proxy URL
+        // Reference the layers based on the URL and proxy URL
         var prcp814kmlLayer = new L.KML(proxyurl + prcp814kml, {async: true});
         var temp814kmlLayer = new L.KML(proxyurl + temp814kml, {async: true});
         var excessHeat814kmlLayer = new L.KML(proxyurl + excessHeat814kml, {async: true});
@@ -52,26 +52,26 @@
         hazardsmap.addLayer(probExcessHeat814kmlLayer);
         hazardsmap.addLayer(probTemp814kmlLayer);
         hazardsmap.addLayer(probWind814kmlLayer);
-        
+
         var validmonth = "";
-        var releasemonth = "";        
-                
+        var releasemonth = "";
+
         $.ajax({
-            type     : "GET",
-            url      : proxyurl + temp814kml,
-            dataType : "xml",
-            success  : getValidDates,
-            error    : function(){
+          type     : "GET",
+          url      : proxyurl + temp814kml,
+          dataType : "xml",
+          success  : getValidDates,
+          error    : function(){
             console.log("Could not retrieve XML file.");
-            }
-          });
+          }
+        });
 
         function getValidDates(xml) {
-        const dateInfo = $(xml).find("Document").first().attr("id");
-        console.log(dateInfo);
-        const validDates = dateInfo.substring(dateInfo.indexOf("Valid"));
-        console.log(validDates);
-        $("#valid-dates").append(validDates).text();
+          const dateInfo = $(xml).find("name").first().text();
+          console.log(dateInfo);
+          const validDates = dateInfo.substring(dateInfo.indexOf("Valid"));
+          console.log(validDates);
+          $("#hazards-map-header .valid-dates").append(validDates).text();
         }
 
         // Checkbox functionality
@@ -129,19 +129,12 @@
 
         //change the map to the correct area
         $('input[type=radio][name=hazards-map-view]').change(function() {
-            if (this.value == 'conus') {
-              hazardsmap.setView(new L.LatLng(38, -96), 4)
-            }
-            else if (this.value == 'alaska') {
-              hazardsmap.setView(new L.LatLng(64.2,-149.4), 4)
-            }
+          if (this.value == 'conus') {
+            hazardsmap.setView(new L.LatLng(38, -96), 4)
+          }
+          else if (this.value == 'alaska') {
+            hazardsmap.setView(new L.LatLng(64.2,-149.4), 4)
+          }
         });
-
-
-
-        /*document.querySelector("input[id=precip-hazards-814]").addEventListener('change', function() {
-          if(this.checked) hazardsmap.addLayer(prcp814kmlLayer)
-            else hazardsmap.removeLayer(prcp814kmlLayer)
-          })*/
 
 })(jQuery);

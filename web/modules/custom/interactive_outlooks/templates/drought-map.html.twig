@@ -1,12 +1,13 @@
   <div class="grid-row">
-    <div class="tablet:grid-col-12">
-      <h2 id="title">U.S. Monthly Drought Outlook</h2>
-      <h3 id="valid-dates"></h3>
-    </div>
+    <header class="tablet:grid-col-12" id="drought-map-header">
+      <h2 class="title"></h2>
+      <h3 class="valid-dates"></h3>
+    </header>
   </div>
 
   <div class="grid-row">
     <div class="tablet:grid-col-8 map-column">
+
       <div class="grid-row">
         <div class="tablet:grid-col-12">
           <div id="drought-map"></div>
@@ -15,62 +16,67 @@
       <div class="grid-row" id="drought-map__view-controls">
         <div class="tablet:grid-col-8">
         </div>
-        <div class="tablet:grid-col-4" id="drought-map__view-select">
+        <div class="tablet:grid-col-4">
           <fieldset class="usa-fieldset">
             <legend class="usa-sr-only">Map View</legend>
             <div class="usa-radio">
-              <input class="usa-radio__input" id="conus" type="radio" checked name="drought-map-view" value="conus">
-              <label class="usa-radio__label" for="conus">CONUS</label>
-              <input class="usa-radio__input" id="alaska" type="radio" name="drought-map-view" value="alaska">
-              <label class="usa-radio__label" for="alaska">Alaska</label>
+              <input class="usa-radio__input" id="drought-conus" type="radio" checked name="drought-map-view" value="conus">
+              <label class="usa-radio__label" for="drought-conus">CONUS</label>
+              <input class="usa-radio__input" id="drought-alaska" type="radio" name="drought-map-view" value="alaska">
+              <label class="usa-radio__label" for="drought-alaska">Alaska</label>
             </div>
           </fieldset>
         </div>
       </div>
 
-    </div><!-- end map-column-->
+    </div><!-- end .map-column-->
 
     <div class="tablet:grid-col-4 map-data-column">
-      {# <form class="usa-form droughts-form">
-        <label for="droughts-outlook-duration">Select duration:</label>
-        <select name="droughts-outlook-duration" id="droughts-outlook-duration">
-          <option value="monthly">Monthly Drought Outlook</option>
-          <option value="seasonal">Seasonal Drought Outlook</option>
-        </select>
-        <button type="submit" name="droughts-duration-submit" class="usa-button font-sans-3xs">Select</button>
-      </form> #}
-      <div class="tablet:grid-col-4" id="drought-map__view-select">
-        <fieldset class="usa-fieldset">
-          <legend class="usa-sr-only">Map View</legend>
-          <div class="usa-radio">
-            <input class="usa-radio__input" id="monthly" type="radio" checked name="drought-map-duration" value="monthly">
-            <label class="usa-radio__label" for="monthly">Monthly</label>
-            <input class="usa-radio__input" id="seasonal" type="radio" name="drought-map-duration" value="seasonal">
-            <label class="usa-radio__label" for="seasonal">Seasonal</label>
-          </div>
-        </fieldset>
-      </div>
-      <br>
-      <a href="https://droughtmonitor.unl.edu/" target="">See the U.S. Drought Monitor<i class="fas fa-external-link-alt"></i></a>
-      <br><br>
-      <button class="usa-button font-sans-3xs">Drought Outlook Discussion</button>
-      <br><br>
-      <div class="tablet:grid-col-12">Legend</div>
-        <div id="persist" class="tablet:grid-col-12">
-          <div class="persistSquare"></div>
-          Drought persists
+
+      <div class="grid-row">
+        <div class="tablet:grid-col-12" id="drought-map__view-select">
+          <h4>Period</h4>
+          <fieldset class="usa-fieldset">
+            <legend class="usa-sr-only">Outlook Duration</legend>
+            <div class="usa-radio">
+              <input class="usa-radio__input" id="monthly" type="radio" checked name="drought-map-duration" value="monthly">
+              <label class="usa-radio__label" for="monthly">Monthly</label>
+              <input class="usa-radio__input" id="seasonal" type="radio" name="drought-map-duration" value="seasonal">
+              <label class="usa-radio__label" for="seasonal">Seasonal</label>
+            </div>
+          </fieldset>
+          <p class="drought-monitor-link"><a href="https://droughtmonitor.unl.edu/" target="_blank">U.S. Drought Monitor<i class="fas fa-external-link-alt"></i></a></p>
         </div>
-        <div id="improve" class="tablet:grid-col-12">
-          <div class="improveSquare"></div>
-          Drought remains but improves
+      </div><!-- end .grid-row -->
+
+      <div class="grid-row">
+        <div class="tablet:grid-col-12 discussion-button">
+          <button class="usa-button font-sans-3xs">Drought Outlook Discussion</button>
         </div>
-        <div id="remove" class="tablet:grid-col-8">
-          <div class="removeSquare"></div>
-          Drought removal likely
+      </div><!-- end .grid-row -->
+
+      <div class="grid-row">
+        <div class="tablet:grid-col-12 image-links">
+          <h4>Images</h4>
+          <ul>
+            <li><a href="">View larger image</a></li>
+          </ul>
         </div>
-        <div id="develop"  class="tablet:grid-col-8">
-          <div class="developSquare"></div>
-          Drought development likely
+      </div><!-- end .grid-row -->
+
+      <div class="grid-row">
+        <div class="tablet:grid-col-12 drought-map-legend">
+          <h4>Legend</h4>
+          <ul>
+            <li class="persists"><span></span> Drought persists</li>
+            <li class="improves"><span></span> Drought remains but improves</li>
+            <li class="removal"><span></span> Drought removal likely</li>
+            <li class="development"><span></span> Drought development likely</li>
+          </ul>
         </div>
-    </div>
-  </div>
+      </div><!-- end .grid-row -->
+
+
+    </div><!-- end .map-data-column -->
+
+  </div><!-- end outer .grid-row for .map-column and .map-data-column -->

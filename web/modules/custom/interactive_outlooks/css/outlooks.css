@@ -5,14 +5,48 @@
 .map-column .usa-radio__label {
   display: inline-block;
 }
+.map-data-column {
+  padding-left: 2rem;
+}
+.map-data-column .grid-row {
+  margin-bottom: 1.25em;
+}
+.map-data-column .drought-monitor-link {
+  margin: 0;
+  padding-left: 2px;
+}
+.map-data-column h4 {
+  margin-top: 0;
+  margin-bottom: .75em;
+}
+.map-data-column h4 + ul {
+  list-style-type: none;
+  margin-top: -.3em;
+}
+.image-links h4 + ul {
+  margin-top: -.5em;
+}
+.map-data-column ul {
+  margin-bottom: 0;
+  padding-left: 0;
+}
+.drought-map-legend ul {
+  padding-left: 1px;
+}
 #hazards-map__view-controls,
 #drought-map__view-controls {
   padding-top: 1rem;
 }
-.map-data-column {
-  padding-left: 2rem;
+@media (min-width: 64em) {
+  .map-column .usa-radio__label:first-of-type {
+    margin-right: 1em;
+  }
+}
+#hazards-map__view-select .usa-radio {
+  padding-left: 1rem;
 }
 table.hazards-data {
+  margin-bottom: 0;
   margin-top: 0;
 }
 table.hazards-data th {
@@ -36,7 +70,12 @@ table.hazards-data th {
 #temp-outlook button,
 #precip-outlook button {
   margin-top: 1em; }
-
+#drought-map {
+  background: transparent url("https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png") no-repeat center/contain;
+}
+#hazards-map {
+  background: transparent url("https://www.cpc.ncep.noaa.gov/products/predictions/threats/hazards_d8_14_contours.png") no-repeat center/contain;
+}
 .opacity-slider {
   display: inline-block;
   padding: 1em .5em;
@@ -163,24 +202,28 @@ table.hazards-data th {
   margin-left: 0;
   max-width: 10rem;
 }
-.persistSquare{
-  height: 10px;
-  width: 10px;
-  background-color: #9B634A;
+.drought-map-legend p {
+  font-weight: bold;
+  margin-bottom: .5em;
 }
-.improveSquare{
-  height: 10px;
-  width: 10px;
-  background-color: #DED2BC;
+.persists span,
+.improves span,
+.removal span,
+.development span {
+  display: inline-block;
+  margin-right: .25em;
+  height: 12px;
+  width: 12px;
 }
-.removeSquare{
-  height: 10px;
-  width: 10px;
-  background-color: #B2AD69;
+.persists span {
+  background-color: #9b634a;
 }
-.developSquare{
-  height: 10px;
-  width: 10px;
-  background-color: #FFDE63
+.improves span {
+  background-color: #ded2bc;
 }
-  
+.removal span {
+  background-color: #b2ad69;
+}
+.development span {
+  background-color: #ffde63
+}

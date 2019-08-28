@@ -1,12 +1,13 @@
   <div class="grid-row">
-    <div class="tablet:grid-col-12">
-      <h2>U.S. Week 2 Hazards Outlook</h2>
-      <h3 id="valid-dates"></h3>
-    </div>
+    <header class="tablet:grid-col-12" id="hazards-map-header">
+      <h2 class="title">U.S. Week 2 Hazards Outlook</h2>
+      <h3 class="valid-dates"></h3>
+    </header>
   </div>
 
   <div class="grid-row">
     <div class="tablet:grid-col-8 map-column">
+
       <div class="grid-row">
         <div class="tablet:grid-col-12">
           <div id="hazards-map"></div>
@@ -19,10 +20,10 @@
           <fieldset class="usa-fieldset">
             <legend class="usa-sr-only">Map View</legend>
             <div class="usa-radio">
-              <input class="usa-radio__input" id="conus" type="radio" checked name="hazards-map-view" value="conus">
-              <label class="usa-radio__label" for="conus">CONUS</label>
-              <input class="usa-radio__input" id="alaska" type="radio" name="hazards-map-view" value="alaska">
-              <label class="usa-radio__label" for="alaska">Alaska</label>
+              <input class="usa-radio__input" id="hazards-conus" type="radio" checked name="hazards-map-view" value="conus">
+              <label class="usa-radio__label" for="hazards-conus">CONUS</label>
+              <input class="usa-radio__input" id="hazards-alaska" type="radio" name="hazards-map-view" value="alaska">
+              <label class="usa-radio__label" for="hazards-alaska">Alaska</label>
             </div>
           </fieldset>
         </div>
@@ -31,38 +32,67 @@
     </div><!-- end map-column-->
 
     <div class="tablet:grid-col-4 map-data-column">
-      <form class="usa-form hazards-form">
-      <table class="usa-table usa-table--borderless font-sans-3xs hazards-data">
-        <thead>
-          <tr class="line-height-sans-1">
-            <th scope="col"></th>
-            <th scope="col">Days <br>8&ndash;14</th>
-            <th scope="col">Probabilistic <br>Days 8&ndash;14</th>
-          </tr>
-        </thead>
-        <tbody class="font-lang-2xs">
-          <tr>
-            <th scope="row">Precipitation</th>
-            <td><input class="usa-checkbox__input" id="precip-hazards-814" type="checkbox" name="hazards" value="precip-hazards-814" checked></td>
-            <td><input class="usa-checkbox__input" id="precip-probabilistic-814" type="checkbox" name="hazards" value="precip-probabilistic-814" checked></td>
-          </tr>
-          <tr>
-            <th scope="row">Temperature</th>
-            <td><input class="usa-checkbox__input" id="temp-hazards-814" type="checkbox" name="hazards" value="temp-hazards-814" checked></td>
-            <td><input class="usa-checkbox__input" id="temp-probabilistic-814" type="checkbox" name="hazards" value="temp-probabilistic-814" checked></td>
-          </tr>
-          <tr>
-            <th scope="row">Wind</th>
-            <td><input class="usa-checkbox__input" id="wind-hazards-814" type="checkbox" name="hazards" value="wind-hazards-814" checked></td>
-            <td><input class="usa-checkbox__input" id="wind-probabilistic-814" type="checkbox" name="hazards" value="wind-probabilistic-814" checked></td>
-          </tr>
-        </tbody>
-      </table>
-    </form>
-      <button class="usa-button font-sans-3xs">Hazards Outlook Discussion</button>
-      <br>
-      <a href="https://www.cpc.ncep.noaa.gov/products/predictions/threats/hazards_d8_14_contours.png" target="">See chart as image<i class="fas fa-external-link-alt"></i></a>
-      <br><br>
-    </div>
-    <div id="hazards-legend"></div>
-  </div>
+
+      <div class="grid-row">
+        <div class="tablet:grid-col-12" id="hazards-map__layers-table">
+          <form class="usa-form hazards-form">
+            <fieldset class="usa-fieldset">
+            <table class="usa-table usa-table--borderless font-sans-3xs hazards-data">
+              <thead>
+                <tr class="line-height-sans-1">
+                  <th scope="col"></th>
+                  <th scope="col">Categorical <br>Days 8&ndash;14</th>
+                  <th scope="col">Probabilistic <br>Days 8&ndash;14</th>
+                </tr>
+              </thead>
+              <tbody class="font-lang-2xs">
+                <tr>
+                  <th scope="row">Precipitation</th>
+                  <td><input class="usa-checkbox__input" id="precip-hazards-814" type="checkbox" name="hazards" value="precip-hazards-814" checked></td>
+                  <td><input class="usa-checkbox__input" id="precip-probabilistic-814" type="checkbox" name="hazards" value="precip-probabilistic-814" checked></td>
+                </tr>
+                <tr>
+                  <th scope="row">Temperature</th>
+                  <td><input class="usa-checkbox__input" id="temp-hazards-814" type="checkbox" name="hazards" value="temp-hazards-814" checked></td>
+                  <td><input class="usa-checkbox__input" id="temp-probabilistic-814" type="checkbox" name="hazards" value="temp-probabilistic-814" checked></td>
+                </tr>
+                <tr>
+                  <th scope="row">Wind</th>
+                  <td><input class="usa-checkbox__input" id="wind-hazards-814" type="checkbox" name="hazards" value="wind-hazards-814" checked></td>
+                  <td><input class="usa-checkbox__input" id="wind-probabilistic-814" type="checkbox" name="hazards" value="wind-probabilistic-814" checked></td>
+                </tr>
+              </tbody>
+            </table>
+            </fieldset>
+          </form>
+        </div>
+      </div><!-- end .grid-row -->
+
+      <div class="grid-row">
+        <div class="tablet:grid-col-12 discussion-button">
+          <button class="usa-button font-sans-3xs">Hazards Outlook Discussion</button>
+        </div>
+      </div><!-- end .grid-row -->
+
+      <div class="grid-row">
+        <div class="tablet:grid-col-12 image-links">
+          <h4>Images</h4>
+          <ul>
+            <li><a href="">Categorical 8&ndash;14 hazards</a></li>
+            <li><a href="">Probabilistic 8&ndash;14 temperature hazards</a></li>
+            <li><a href="">Probabilistic 8&ndash;14 precipitation hazards</a></li>
+            <li><a href="">Probabilistic 8&ndash;14 wind hazards</a></li>
+          </ul>
+        </div>
+      </div><!-- end .grid-row -->
+
+      <div class="grid-row">
+        <div class="tablet:grid-col-12">
+          <div id="hazards-legend"></div>
+        </div>
+      </div><!-- end .grid-row -->
+
+
+    </div><!-- end .map-data-column -->
+
+  </div><!-- end outer .grid-row for .map-column and .map-data-column -->
