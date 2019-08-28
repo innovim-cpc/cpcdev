@@ -37,12 +37,10 @@
         //Add initial layer to map
         monthlyDroughtLayer.addTo(droughtmap);
 
-
         //Add seasonal map on load (then remove it) or the layer styles won't be applied
         seasonalDroughtLayer.addTo(droughtmap);
         seasonalDroughtLayer.removeFrom(droughtmap);
-
-
+  
         var validmonth = "";
         var releasemonth = "";
         var seasonalstartdate = "";
@@ -53,7 +51,8 @@
         var persist;
         var remove;
 
-        monthlyDroughtLayer.query().run(function(error, featureCollection){
+        monthlyDroughtLayer.query()
+          .run(function(error, featureCollection){
           validmonth = featureCollection.features[0].properties.target;
           releasemonth = featureCollection.features[0].properties.fcst_date;
           // Set initial title and valid period for monthly drought outlook
@@ -66,41 +65,41 @@
               layer.setStyle({
                 color: '#FFDE63'
               })
+              //add tooltip to map
+              layer.bindTooltip("Drought development likely");
+              // log that the layer has this category and we will need to show it in the legend
+              develop = true;
             }
             if (layer.feature.properties.fid_improv){
               layer.setStyle({
                 color: '#DED2BC'
               })
+              //add tooltip to map
+              layer.bindTooltip("Drought remains but improves");
+              // log that the layer has this category and we will need to show it in the legend
+              improve = true;
             }
             if (layer.feature.properties.fid_persis){
               layer.setStyle({
                 color: '#9B634A'
               })
+              //add tooltip to map
+              layer.bindTooltip("Drought persists");
+              // log that the layer has this category and we will need to show it in the legend
+              persist = true;
             }
             if (layer.feature.properties.fid_remove){
               layer.setStyle({
                 color: '#B2AD69'
               })
-            }
-          });
-
-
-          //build the legend
-          //loop through all the features to see which items we need to show
-          for (var i = 0; i < featureCollection.features.length; i++) {
-            if (featureCollection.features[i].properties.fid_dev){
-              develop = true;
-            }
-            if (featureCollection.features[i].properties.fid_improv){
-              improve = true;
-            }
-            if (featureCollection.features[i].properties.fid_persis){
-              persist = true;
-            }
-            if (featureCollection.features[i].properties.fid_remove){
+              //add tooltip to map
+              layer.bindTooltip("Drought removal likely");
+              // log that the layer has this category and we will need to show it in the legend
               remove = true;
             }
-          }
+
+          });
+
           //hide the legend item if there are no layers for that item
           if (!develop){
             $('.development').hide();
@@ -115,7 +114,7 @@
             $('.removal').hide();
           }
 
-          });
+        });
 
         seasonalDroughtLayer.query()
           .run(function(error, featureCollection){
@@ -129,54 +128,52 @@
               layer.setStyle({
                 color: '#FFDE63'
               })
+              //add tooltip to map
+              layer.bindTooltip("Drought development likely");
+              // log that the layer has this category and we will need to show it in the legend
+              develop = true;
             }
             if (layer.feature.properties.fid_improv){
               layer.setStyle({
                 color: '#DED2BC'
               })
+              layer.bindTooltip("Drought remains but improves");
+              // log that the layer has this category and we will need to show it in the legend
+              improve = true;
             }
             if (layer.feature.properties.fid_persis){
               layer.setStyle({
                 color: '#9B634A'
               })
+              //add tooltip to map
+              layer.bindTooltip("Drought persists");
+              // log that the layer has this category and we will need to show it in the legend
+              persist = true;
             }
             if (layer.feature.properties.fid_remove){
               layer.setStyle({
                 color: '#B2AD69'
               })
+              //add tooltip to map
+              layer.bindTooltip("Drought removal likely");
+              // log that the layer has this category and we will need to show it in the legend
+              remove = true;
             }
-            });
+          });
 
-
-            //build the legend
-            //loop through all the features to see which items we need to show
-            for (var i = 0; i < featureCollection.features.length; i++) {
-              if (featureCollection.features[i].properties.fid_dev){
-                develop = true;
-              }
-              if (featureCollection.features[i].properties.fid_improv){
-                improve = true;
-              }
-              if (featureCollection.features[i].properties.fid_persis){
-                persist = true;
-              }
-              if (featureCollection.features[i].properties.fid_remove){
-                remove = true;
-              }
-            }
-            //hide the legend item if there are no layers for that item
-            if (!develop){
-              $('.development').hide();
-            }
-            if(!improve){
-              $('.improves').hide();
-            }
-            if(!persist){
-              $('.persists').hide();
-            }
-            if(!remove){
-              $('.removal').hide();
-            }
+          //hide the legend item if there are no layers for that item
+          if (!develop){
+            $('.development').hide();
+          }
+          if(!improve){
+            $('.improves').hide();
+          }
+          if(!persist){
+            $('.persists').hide();
+          }
+          if(!remove){
+            $('.removal').hide();
+          }
         });
 
         //change the layers of the map to Monthly or Seasonal based on the dropdown list
