@@ -6,10 +6,11 @@
 (function ($) {
   "use strict";
 
-  // Drupal.behaviors.createDroughtMap = {
-  // 	attach:function (context, settings) {
-  //
-  // 	  $('#drought-outlooks-map', context).once('drought-outlooks-map', function() {
+   //Drupal.behaviors.createDroughtMap = {
+   	//attach:function (context, settings) {
+
+   	  //$('#drought-outlooks-map', context).once('#drought-map', function() {
+
   		  // Create the map
         var droughtmap = L.map('drought-map', {
           center: [38, -96],
@@ -213,5 +214,9 @@
             droughtmap.setView(new L.LatLng(64.2,-149.4), 3.9)
           }
         });
+
+    //  }); // .once
+  //  } // attach
+  //}; // behaviors
 
 })(jQuery);
