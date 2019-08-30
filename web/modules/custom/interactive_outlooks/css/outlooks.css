@@ -232,3 +232,90 @@ table.hazards-data th {
 .development span {
   background-color: #ffde63
 }
+
+.high-risk-excessive-heat-square{
+  height: 10px;
+  width: 10px;
+  background-color: #96524F
+}
+.moderate-risk-excessive-heat-square{
+  height: 10px;
+  width: 10px;
+  background-color: #B95550
+}
+.slight-risk-excessive-heat-square{
+  height: 10px;
+  width: 10px;
+  background-color: #C57554
+}
+
+
+.high-risk-much-above-normal-temperature-square{
+  height: 10px;
+  width: 10px;
+  background-color: #B95550
+}
+.moderate-risk-much-above-normal-temperature-square{
+  height: 10px;
+  width: 10px;
+  background-color: #E35A52
+}
+.slight-risk-much-above-normal-temperature-square{
+  height: 10px;
+  width: 10px;
+  background-color: #F7A9A7
+}
+
+
+.high-risk-much-below-normal-temperature-square{
+  height: 10px;
+  width: 10px;
+  background-color: #4F6899
+}
+.moderate-risk-much-below-normal-temperature-square{
+  height: 10px;
+  width: 10px;
+  background-color: #538FE8
+}
+.slight-risk-much-below-normal-temperature-square{
+  height: 10px;
+  width: 10px;
+  background-color: #A2C9FB
+}
+
+.high-precip-square{
+  height: 10px;
+  width: 10px;
+  background-color: #879B57
+}
+.moderate-precip-square{
+  height: 10px;
+  width: 10px;
+  background-color: #C4EC74
+}
+.slight-precip-square{
+  height: 10px;
+  width: 10px;
+  background-color: #E4FCA8
+}
+.frozen-precip-square{
+  height: 10px;
+  width: 10px;
+  background-color: #5DA7BF
+}
+.flooding-possible-square{
+  height: 10px;
+  width: 10px;
+  background-color: #F1E1FD
+}
+
+.moderate-risk-high-winds-square{
+  height: 10px;
+  width: 10px;
+  background-color: #986951
+}
+.slight-risk-high-winds-square{
+  height: 10px;
+  width: 10px;
+  background-color: #DAC499
+}
