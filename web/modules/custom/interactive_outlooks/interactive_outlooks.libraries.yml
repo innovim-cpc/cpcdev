@@ -19,6 +19,16 @@ esri-leaflet:
   js:
     /libraries/esri-leaflet/dist/esri-leaflet.js: {}
 
+leaflet-omnivore:
+  remote: https://github.com/mapbox/leaflet-omnivore
+  version: 0.3.1
+  license:
+    name: Mapbox, Michael Bostock (TopoJSON)
+    url: https://github.com/mapbox/leaflet-omnivore/blob/master/LICENSE
+    gpl-compatible: true
+  js:
+    https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js: { type: external, minified: true }
+
 leaflet-plugins:
   remote: https://github.com/shramov/leaflet-plugins
   version: 3.2.0
@@ -69,4 +79,5 @@ hazards:
     - core/drupal
     - interactive_outlooks/leaflet
     - interactive_outlooks/esri-leaflet
+    - interactive_outlooks/leaflet-omnivore
     - interactive_outlooks/leaflet-plugins
