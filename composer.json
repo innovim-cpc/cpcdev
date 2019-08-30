@@ -30,6 +30,8 @@
         "drupal/console": "^1.0.2",
         "drupal/core": "~8.6.0",
         "drupal/entity_browser": "^2.1",
+        "drupal/entity_usage": "^2.0@beta",
+        "drupal/environment_indicator": "^3.6",
         "drupal/leaflet": "^1.4",
         "drupal/module_filter": "^3.1",
         "drupal/paragraphs": "^1.8",
