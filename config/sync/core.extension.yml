@@ -26,8 +26,6 @@ module:
   editor: 0
   entity_reference_revisions: 0
   entity_usage: 0
-  environment_indicator: 0
-  environment_indicator_ui: 0
   field: 0
   field_ui: 0
   file: 0
@@ -46,7 +44,6 @@ module:
   module_missing_message_fixer: 0
   node: 0
   options: 0
-  outlooks: 0
   page_cache: 0
   paragraphs_library: 0
   paragraphs_type_permissions: 0
