@@ -1,0 +1,20 @@
+uuid: a244cf6c-f54e-4c44-bc55-94c189ec4bf7
+langcode: en
+status: true
+dependencies:
+  module:
+    - interactive_outlooks
+  theme:
+    - cpc
+id: interactive_hazards
+theme: cpc
+region: frontpage_outlooks_hero
+weight: 0
+provider: null
+plugin: interactive_hazards_outlooks
+settings:
+  id: interactive_hazards_outlooks
+  label: 'Interactive Hazards outlooks'
+  provider: interactive_outlooks
+  label_display: '0'
+visibility: {  }

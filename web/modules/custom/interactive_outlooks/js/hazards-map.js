@@ -309,9 +309,12 @@
           });
 
         function getValidDates(xml) {
-          const dateInfo = $(xml).find("Document").first().attr("id");
-          const validDates = dateInfo.substring(dateInfo.indexOf("Valid"));
-          $("#valid-dates").append(validDates).text();
+          const dateInfo = $(xml).find("name").first().text();
+          console.log(dateInfo);
+          const validDatesString = dateInfo.substring(dateInfo.indexOf("Valid"));
+          console.log(validDatesString);
+          const validDates = validDatesString.replace('No Hazards Posted', '');
+          $("#hazards-map-header .valid-dates").append(validDates).text();
 
           const noHazards = dateInfo.substring(dateInfo.indexOf("No_Hazards_Posted"));
           if (noHazards === "No_Hazards_Posted")
@@ -779,5 +782,5 @@
               hazardsmap.setView(new L.LatLng(64.2,-149.4), 4)
             }
         });
-        
+
 })(jQuery);

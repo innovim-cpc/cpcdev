@@ -101,7 +101,8 @@ i.e.
 .usa-hero {
   background-image: none;
   padding: 1rem 0 3rem;
-  .region-frontpage-outlooks-hero {
+  .region-frontpage-outlooks-hero,
+  .block-interactive-outlooks {
     color: color('base-darkest');
     h2 {
       margin: .5em 0 0;
@@ -111,11 +112,52 @@ i.e.
       margin: -.25em 0 .5em;
     }
   }
-  .usa-button {
-    background-color: color('accent-warm');
+  .map-data-column {
+    .usa-button {
+      background-color: color('accent-warm');
+    }
   }
 }
 .usa-checkbox__input,
 .usa-radio__input {
   @include not-sr-only;
+}
+.usa-radio__input {
+  position: absolute !important;
+}
+.fa-external-link-alt {
+  font-size: 60%;
+  margin-left: 3px;
+  margin-top: 3px;
+  vertical-align: text-top;
+}
+#main-content a {
+  color: color('primary');
+  text-decoration: none;
+  &:hover {
+    color: color('primary-vivid');
+    text-decoration: underline;
+  }
+  &:visited {
+    color: color('primary-dark');
+  }
+}
+.outlooks-selector-container {
+  right: 0;
+  top: 10px;
+  z-index: 500;
+}
+#outlooks-selector {
+  .usa-label {
+    display: none;
+  }
+  select {
+    cursor: pointer;
+    float: left;
+    height: 2.1rem;
+    margin-right: .5rem;
+    width: auto;
+    line-height: 1;
+  }
+  .usa-button { margin-top: 10px; }
 }

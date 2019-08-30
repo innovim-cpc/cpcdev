@@ -26,16 +26,21 @@
         "drupal/a11y_paragraphs_tabs": "^1.8",
         "drupal/admin_toolbar": "^1.26",
         "drupal/backup_migrate": "^4.0",
+        "drupal/config_update": "^1.6",
         "drupal/console": "^1.0.2",
         "drupal/core": "~8.6.0",
-        "drupal/devel": "^2.0",
         "drupal/entity_browser": "^2.1",
+        "drupal/entity_usage": "^2.0@beta",
         "drupal/environment_indicator": "^3.6",
         "drupal/leaflet": "^1.4",
         "drupal/module_filter": "^3.1",
         "drupal/paragraphs": "^1.8",
+        "drupal/pathauto": "^1.4",
         "drupal/twig_field_value": "^1.2",
         "drupal/twig_tweak": "^2.1",
+        "drupal/viewfield": "^3.0@beta",
+        "drupal/views_bulk_operations": "^3.2",
+        "drupal/webform": "^5.4",
         "drush/drush": "^9.0.0",
         "npm-asset/a11y-accordion-tabs": "^0.5.0",
         "npm-asset/esri-leaflet": "2.3.0",
@@ -47,6 +52,8 @@
         "webmozart/path-util": "^2.3"
     },
     "require-dev": {
+        "drupal/devel": "^2.1",
+        "drupal/module_missing_message_fixer": "^1.1",
         "webflo/drupal-core-require-dev": "~8.6.0"
     },
     "conflict": {

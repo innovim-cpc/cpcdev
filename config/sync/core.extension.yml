@@ -12,14 +12,20 @@ module:
   color: 0
   comment: 0
   config: 0
+  config_update: 0
+  config_update_ui: 0
   contact: 0
   contextual: 0
+  ctools: 0
+  ctools_block: 0
+  ctools_views: 0
   datetime: 0
   dblog: 0
   devel: 0
   dynamic_page_cache: 0
   editor: 0
   entity_reference_revisions: 0
+  entity_usage: 0
   field: 0
   field_ui: 0
   file: 0
@@ -28,16 +34,21 @@ module:
   help: 0
   history: 0
   image: 0
+  interactive_outlooks: 0
   kint: 0
   leaflet: 0
   leaflet_views: 0
   link: 0
   menu_ui: 0
   module_filter: 0
+  module_missing_message_fixer: 0
   node: 0
   options: 0
   page_cache: 0
+  paragraphs_library: 0
+  paragraphs_type_permissions: 0
   path: 0
+  pathauto: 0
   quickedit: 0
   rdf: 0
   search: 0
@@ -45,6 +56,7 @@ module:
   system: 0
   taxonomy: 0
   text: 0
+  token: 0
   toolbar: 0
   tour: 0
   twig_field_value: 0

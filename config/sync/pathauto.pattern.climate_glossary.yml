@@ -1,0 +1,22 @@
+uuid: 1d844d48-99e2-406e-a877-290a09a13386
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: climate_glossary
+label: 'Climate Glossary'
+type: 'canonical_entities:node'
+pattern: 'knowledge-center/climate-glossary/[node:title]'
+selection_criteria:
+  7c8201ae-4452-4de4-b172-b6c99a9a573d:
+    id: node_type
+    bundles:
+      climate_glossary: climate_glossary
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 7c8201ae-4452-4de4-b172-b6c99a9a573d
+selection_logic: and
+weight: -5
+relationships: {  }

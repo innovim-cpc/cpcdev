@@ -1,12 +1,13 @@
   <div class="grid-row">
-    <div class="tablet:grid-col-12">
-      <h2>U.S. Week 2 Hazards Outlook</h2>
-      {# <h3 id="valid-dates"></h3> #}
-    </div>
+    <header class="tablet:grid-col-12" id="hazards-map-header">
+      <h2 class="title">U.S. Week 2 Hazards Outlook</h2>
+      <h3 class="valid-dates"></h3>
+    </header>
   </div>
 
   <div class="grid-row">
     <div class="tablet:grid-col-8 map-column">
+
       <div class="grid-row">
         <div class="tablet:grid-col-12">
           <div id="hazards-map"></div>
@@ -19,10 +20,10 @@
           <fieldset class="usa-fieldset">
             <legend class="usa-sr-only">Map View</legend>
             <div class="usa-radio">
-              <input class="usa-radio__input" id="conus" type="radio" checked name="hazards-map-view" value="conus">
-              <label class="usa-radio__label" for="conus">CONUS</label>
-              <input class="usa-radio__input" id="alaska" type="radio" name="hazards-map-view" value="alaska">
-              <label class="usa-radio__label" for="alaska">Alaska</label>
+              <input class="usa-radio__input" id="hazards-conus" type="radio" checked name="hazards-map-view" value="conus">
+              <label class="usa-radio__label" for="hazards-conus">CONUS</label>
+              <input class="usa-radio__input" id="hazards-alaska" type="radio" name="hazards-map-view" value="alaska">
+              <label class="usa-radio__label" for="hazards-alaska">Alaska</label>
             </div>
           </fieldset>
         </div>
@@ -31,16 +32,20 @@
     </div><!-- end map-column-->
 
     <div class="tablet:grid-col-4 map-data-column">
-      <form class="usa-form hazards-form">
-      <table class="usa-table usa-table--borderless font-sans-3xs hazards-data">
-        <thead>
-          <tr class="line-height-sans-1">
-            <th scope="col"></th>
-            <th scope="col">Days <br>8&ndash;14</th>
-            <th scope="col">Probabilistic <br>Days 8&ndash;14</th>
-          </tr>
-        </thead>
-        <tbody class="font-lang-2xs">
+
+      <div class="grid-row">
+        <div class="tablet:grid-col-12" id="hazards-map__layers-table">
+          <form class="usa-form hazards-form">
+            <fieldset class="usa-fieldset">
+            <table class="usa-table usa-table--borderless font-sans-3xs hazards-data">
+              <thead>
+                <tr class="line-height-sans-1">
+                  <th scope="col"></th>
+                  <th scope="col">Categorical <br>Days 8&ndash;14</th>
+                  <th scope="col">Probabilistic <br>Days 8&ndash;14</th>
+                </tr>
+              </thead>
+              <tbody class="font-lang-2xs">
           <tr>
             <th scope="row">Precipitation</th>
             <td id='precip-hazards-814-chkbox'><input class="usa-checkbox__input" id="precip-hazards-814" type="checkbox" name="hazards" value="precip-hazards-814" checked></td>
@@ -66,85 +71,37 @@
             <td id="wind-probabilistic-814-no-hazards">No Hazards</td>
           </tr>
         </tbody>
-      </table>
-    </form>
-      <button class="usa-button font-sans-3xs">Hazards Outlook Discussion</button>
-      <br>
-      <a href="https://www.cpc.ncep.noaa.gov/products/predictions/threats/hazards_d8_14_contours.png" target="">See chart as image<i class="fas fa-external-link-alt"></i></a>
-      <br><br>
-      <div class="tablet:grid-col-12">Legend</div>
-        <div id="high-risk-excessive-heat" class="tablet:grid-col-12">
-          <div class="high-risk-excessive-heat-square "></div>
-          High Risk of Excessive Heat
+            </table>
+            </fieldset>
+          </form>
         </div>
-        <div id="moderate-risk-excessive-heat" class="tablet:grid-col-12">
-          <div class="moderate-risk-excess-heat-square"></div>
-          Moderate Risk of Excessive Heat
-        </div>
-        <div id="slight-risk-excessive-heat" class="tablet:grid-col-8">
-          <div class="slight-risk-excessive-heat-square"></div>
-          Slight Risk of Excessive Heat
-        </div>
+      </div><!-- end .grid-row -->
 
-        <div id="high-risk-much-above-normal-temperature"  class="tablet:grid-col-8">
-          <div class="high-risk-much-above-normal-temperature-square"></div>
-          High Risk of Much Above Normal Temperatures
+      <div class="grid-row">
+        <div class="tablet:grid-col-12 discussion-button">
+          <button class="usa-button font-sans-3xs">Hazards Outlook Discussion</button>
         </div>
-        <div id="moderate-risk-much-above-normal-temperature"  class="tablet:grid-col-8">
-          <div class="moderate-risk-much-above-normal-temperature-square"></div>
-          Moderate Risk of Much Above Normal Temperatures
-        </div>
-        <div id="slight-risk-much-above-normal-temperature"  class="tablet:grid-col-8">
-          <div class="slight-risk-much-above-normal-temperature-square"></div>
-          Slight Risk of Much Above Normal Temperatures
-        </div>
-        <div id="high-risk-much-below-normal-temperature"  class="tablet:grid-col-8">
-          <div class="high-risk-much-below-normal-temperature-square"></div>
-          High Risk of Much Below Normal Temperatures
-        </div>
-        <div id="moderate-risk-much-below-normal-temperature"  class="tablet:grid-col-8">
-          <div class="moderate-risk-much-below-normal-temperature-square"></div>
-          Moderate Risk of Much Below Temperatures
-        </div>
-        <div id="slight-risk-much-below-normal-temperature"  class="tablet:grid-col-8">
-          <div class="slight-risk-much-below-normal-temperature-square"></div>
-          Slight Risk of Much Below Temperatures
-        </div>
+      </div><!-- end .grid-row -->
 
-        <div id="high-risk-precip"  class="tablet:grid-col-8">
-          <div class="high-precip-square"></div>
-          High Risk of Heavy Precipitation
+      <div class="grid-row">
+        <div class="tablet:grid-col-12 image-links">
+          <h4>Images</h4>
+          <ul>
+            <li><a href="https://www.cpc.ncep.noaa.gov/products/predictions/threats/hazards_d8_14_contours.png">Categorical 8&ndash;14 hazards</a></li>
+            <li><a href="https://www.cpc.ncep.noaa.gov/products/predictions/threats/temp_probhazards_d8_14_contours.png">Probabilistic 8&ndash;14 temperature hazards</a></li>
+            <li><a href="https://www.cpc.ncep.noaa.gov/products/predictions/threats/precip_probhazards_d8_14_contours.png">Probabilistic 8&ndash;14 precipitation hazards</a></li>
+            <li><a href="https://www.cpc.ncep.noaa.gov/products/predictions/threats/wind_probhazards_d8_14_contours.png">Probabilistic 8&ndash;14 wind hazards</a></li>
+          </ul>
         </div>
-        <div id="moderate-risk-precip"  class="tablet:grid-col-8">
-          <div class="moderate-precip-square"></div>
-          Moderate Risk of Heavy Precipitation
-        </div>
-        <div id="slight-risk-precip"  class="tablet:grid-col-8" display.style:"none">
-          <div class="slight-precip-square"></div>
-          Slight Risk of Heavy Precipitation
-        </div>
+      </div><!-- end .grid-row -->
 
-        <div id="frozen-precip"  class="tablet:grid-col-8">
-          <div class="frozen-precip-square"></div>
-          Frozen Precipitation
+      <div class="grid-row">
+        <div class="tablet:grid-col-12">
+          <div id="hazards-legend"></div>
         </div>
-        <div id="flooding-possible"  class="tablet:grid-col-8">
-          <div class="flooding-possible-square"></div>
-          Flooding Possible
-        </div>
+      </div><!-- end .grid-row -->
 
-        <div id="moderate-risk-high-winds"  class="tablet:grid-col-8">
-          <div class="moderate-risk-high-winds-square"></div>
-          Moderate Risk of High Winds
-        </div>
-        <div id="slight-risk-high-winds"  class="tablet:grid-col-8">
-          <div class="slight-risk-high-winds-square"></div>
-          Slight Risk of High Winds
-        </div>
-      </div>
 
-    </div>
+    </div><!-- end .map-data-column -->
 
-  </div>
-
-  <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
+  </div><!-- end outer .grid-row for .map-column and .map-data-column -->

@@ -1,0 +1,8 @@
+uuid: d0332230-a090-40f5-a6e7-b96ca591859e
+langcode: en
+status: true
+dependencies: {  }
+id: footer-climate-phenom-menu
+label: 'Footer Climate Phenomena Menu'
+description: ''
+locked: false

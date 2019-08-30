@@ -1,0 +1,28 @@
+uuid: 5453e4a8-1ca7-4a54-be0f-0d885531cf26
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.climate_glossary.body
+    - node.type.climate_glossary
+  module:
+    - text
+    - user
+id: node.climate_glossary.default
+targetEntityType: node
+bundle: climate_glossary
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

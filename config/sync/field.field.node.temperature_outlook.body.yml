@@ -1,0 +1,22 @@
+uuid: ba8fd701-4a3c-4663-ba45-1e4581726538
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.temperature_outlook
+  module:
+    - text
+id: node.temperature_outlook.body
+field_name: body
+entity_type: node
+bundle: temperature_outlook
+label: Discussion
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

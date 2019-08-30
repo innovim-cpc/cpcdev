@@ -1,0 +1,27 @@
+uuid: 23da0519-317a-479f-af87-1345ec8cb1a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data
+    - node.type.precipitation_outlook
+  module:
+    - file
+id: node.precipitation_outlook.field_data
+field_name: field_data
+entity_type: node
+bundle: precipitation_outlook
+label: Data
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: data/outlooks/precipitation
+  file_extensions: 'txt kml kmz zip tar'
+  max_filesize: '1 MB'
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

@@ -1,0 +1,27 @@
+uuid: 51659775-7f4e-49c7-a914-3edb787b417e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data
+    - node.type.temperature_outlook
+  module:
+    - file
+id: node.temperature_outlook.field_data
+field_name: field_data
+entity_type: node
+bundle: temperature_outlook
+label: Data
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: data/outlooks/temperature
+  file_extensions: 'txt kml kmz zip tar'
+  max_filesize: '1 MB'
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

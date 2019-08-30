@@ -1,0 +1,8 @@
+uuid: 9abc7bef-8104-4d20-8376-f809baabd4f3
+langcode: en
+status: true
+dependencies: {  }
+id: footer-observations-menu
+label: 'Footer Observations Menu'
+description: ''
+locked: false
