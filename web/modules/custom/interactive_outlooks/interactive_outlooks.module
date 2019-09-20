@@ -10,7 +10,7 @@ function interactive_outlooks_theme($existing, $type, $theme, $path) {
     'hazards_map' => [
       'variables' => ['map' => NULL],
     ],
-    'temp_map' => [
+    'six10day_map' => [
       'variables' => ['map' => NULL],
     ],
     'precip_map' => [

@@ -6,6 +6,7 @@
   display: inline-block;
 }
 #drought-map-header .valid-dates,
+#six10day-map-header .valid-dates,
 #hazards-map-header .valid-dates {
   color: #71767a;
   font-size: 1em;
@@ -39,6 +40,7 @@
   padding-left: 1px;
 }
 #hazards-map__view-controls,
+#six10day-map__view-controls,
 #drought-map__view-controls {
   padding-top: 1rem;
 }
@@ -59,6 +61,7 @@ table.hazards-data th {
 }
 #hazards-map,
 #drought-map,
+#six10day-map,
 #temp-outlooks-map,
 #precip-outlooks-map {
   height: 360px;
@@ -80,6 +83,9 @@ table.hazards-data th {
 }
 #hazards-map {
   background: transparent url("https://www.cpc.ncep.noaa.gov/products/predictions/threats/hazards_d8_14_contours.png") no-repeat center/contain;
+}
+#six10day-map {
+  background: transparent url("https://www.cpc.ncep.noaa.gov/products/predictions/610day/610temp.new.gif") no-repeat center/contain;
 }
 .opacity-slider {
   display: inline-block;
@@ -318,4 +324,34 @@ table.hazards-data th {
   height: 10px;
   width: 10px;
   background-color: #DAC499
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 30%;
+  height: 15px;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
 }

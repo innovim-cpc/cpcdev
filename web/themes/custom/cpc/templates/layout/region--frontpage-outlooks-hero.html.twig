@@ -31,6 +31,7 @@
           <option value>- Select an Outlook -</option>
           <option value="hazards">U.S. Hazards Outlook</option>
           <option value="drought">U.S. Drought Outlook</option>
+          <option value="six10day">U.S. 6-10 Day Outlook</option>
         </select>
         <input class="usa-button" type="submit" value="Select">
       </form>
@@ -44,6 +45,9 @@
   </div><!-- end .drought -->
   <div class="tablet:grid-col-12 hazards">
     {{ drupal_block('interactive_hazards_outlooks') }}
-  </div><!-- end .drought -->
+  </div><!-- end .hazard -->
+  <div class="tablet:grid-col-12 six10day">
+    {{ drupal_block('interactive_six10day_outlooks') }}
+  </div><!-- end .six10day -->
 </div><!-- end outer .grid-row .outlooks -->
 {# endif #}

@@ -81,3 +81,18 @@ hazards:
     - interactive_outlooks/esri-leaflet
     - interactive_outlooks/leaflet-omnivore
     - interactive_outlooks/leaflet-plugins
+    
+six10day:
+  version: 1.x
+  css:
+    theme:
+      css/outlooks.css: {}
+  js:
+    js/six10day-map.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - interactive_outlooks/leaflet
+    - interactive_outlooks/esri-leaflet
+    - interactive_outlooks/leaflet-omnivore
+    - interactive_outlooks/leaflet-plugins
