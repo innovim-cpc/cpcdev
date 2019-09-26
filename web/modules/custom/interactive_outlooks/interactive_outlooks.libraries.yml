@@ -39,6 +39,16 @@ leaflet-plugins:
   js:
     /libraries/leaflet-plugins/layer/vector/KML.js: {}
 
+google: 
+  remote: https://developers.google.com/chart/
+  version: 44
+  license: 
+    name: Google
+    url: https://developers.google.com/chart/
+    gpl-compatible: true
+  js:
+    https://www.gstatic.com/charts/loader.js: {}
+    
 selector:
   version: 1.x
   css:
@@ -96,6 +106,7 @@ temp:
     - interactive_outlooks/esri-leaflet
     - interactive_outlooks/leaflet-omnivore
     - interactive_outlooks/leaflet-plugins
+    - interactive_outlooks/google
     
 precip:
   version: 1.x
@@ -111,3 +122,4 @@ precip:
     - interactive_outlooks/esri-leaflet
     - interactive_outlooks/leaflet-omnivore
     - interactive_outlooks/leaflet-plugins
+    - interactive_outlooks/google
