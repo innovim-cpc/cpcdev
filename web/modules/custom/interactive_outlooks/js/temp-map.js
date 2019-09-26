@@ -6,13 +6,13 @@
 (function ($) {
   "use strict";
 
-   //Drupal.behaviors.createsix10dayMap = {
+   //Drupal.behaviors.createtempMap = {
    	//attach:function (context, settings) {
 
-   	  //$('#six10day-outlooks-map', context).once('#six10day-map', function() {
+   	  //$('#temp-outlooks-map', context).once('#temp-map', function() {
 
   		  // Create the map
-        var six10daymap = L.map('six10day-map', {
+        var tempmap = L.map('temp-map', {
           center: [38, -96],
           zoomSnap: 0.1,
           zoom: 3.9,
@@ -20,7 +20,7 @@
         });
 
         // Add Esri World Topo base map via Esri Leaflet plugin
-        L.esri.basemapLayer('Topographic').addTo(six10daymap);
+        L.esri.basemapLayer('Topographic').addTo(tempmap);
 
         // Get link to layer data
         const temp = "https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_6_10_day_outlk/MapServer/0/";
@@ -30,18 +30,31 @@
         var tempLayer = new L.esri.featureLayer({
           url: temp
         });
+        // var tempLayer = new L.tileLayer.wms('https://idpgis.ncep.noaa.gov/arcgis/services/NWS_Climate_Outlooks/cpc_6_10_day_outlk/MapServer/WMSServer?',{
+        //   layers: '1',
+        //   format: 'image/png',
+        //   transparent: true,
+        //   opacity: 0.6
+        // });
         
         //create precip drought layer
-        var precipLayer = new L.esri.featureLayer({
-         url: precip
+        // var precipLayer = new L.esri.featureLayer({
+        //  url: precip
+        // })
+        var precipLayer = new L.tileLayer.wms('https://idpgis.ncep.noaa.gov/arcgis/services/NWS_Climate_Outlooks/cpc_6_10_day_outlk/MapServer/WMSServer?',{
+          layers: '0',
+          format: 'image/png',
+          transparent: true,
+          opacity: 0.6
         });
+        
 
         //Add initial layer to map
-        tempLayer.addTo(six10daymap);
+        tempLayer.addTo(tempmap);
         
         //Add precip map on load (then remove it) or the layer styles won't be applied
-        precipLayer.addTo(six10daymap);
-        precipLayer.removeFrom(six10daymap);
+        precipLayer.addTo(tempmap);
+        precipLayer.removeFrom(tempmap);
         
         
         var validmonth = "";
@@ -53,12 +66,11 @@
         
         tempLayer.query()
           .run(function(error, featureCollection){
-            console.log(featureCollection);
-          validmonth = featureCollection.features[0].properties.end_date;
+          validmonth = featureCollection.features[0].properties.start_date;
           releasemonth = featureCollection.features[0].properties.fcst_date;
           // Set initial title and valid period for monthly drought outlook
-          $('#six10day-map-header .title').text("U.S. 6 to 10 Day Temperature Outlook");
-          $('#six10day-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+          $('#temp-map-header .title').text("U.S. 6 to 10 Day Temperature Outlook");
+          $('#temp-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
 
           ///set the colors of the layers
           tempLayer.eachFeature(function(layer){            
@@ -180,40 +192,40 @@
         });
         
         
-        var tempChecked = $('#six10day-map__view-select input[type=radio][id=temp]:checked');
-        var precipChecked = $('#six10day-map__view-select input[type=radio][id=precip]:checked');
+        var tempChecked = $('#temp-map__view-select input[type=radio][id=temp]:checked');
+        var precipChecked = $('#temp-map__view-select input[type=radio][id=precip]:checked');
         
         if (tempChecked) {
-          $('.six10day-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
+          $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
         } else if (precipChecked) {
-          $('.six10day-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/season_drought.png');
+          $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/season_drought.png');
         }
         
         //change the layers of the map to Monthly or precip based on the dropdown list
-        $('input[name=six10day-map-category]').on('change', function() {
+        $('input[name=temp-map-category]').on('change', function() {
           if (this.value == 'temp') {
-           precipLayer.removeFrom(six10daymap);
-           tempLayer.addTo(six10daymap);
-           $('#six10day-map-header .title').text("U.S. 6 to 10 Day Temperature Outlook");
-           $('#six10day-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
-           $('.six10day-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
+           precipLayer.removeFrom(tempmap);
+           tempLayer.addTo(tempmap);
+           $('#temp-map-header .title').text("U.S. 6 to 10 Day Temperature Outlook");
+           $('#temp-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
           else if (this.value == 'precip') {
-           tempLayer.removeFrom(six10daymap);
-           precipLayer.addTo(six10daymap);
-           $('#six10day-map-header .title').text("U.S. 6 to 10 Day Precipitation Outlook");
-           $('#six10day-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
-           $('.six10day-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/season_drought.png');
+           tempLayer.removeFrom(tempmap);
+           precipLayer.addTo(tempmap);
+           $('#temp-map-header .title').text("U.S. 6 to 10 Day Precipitation Outlook");
+           $('#temp-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/season_drought.png');
           }
         });
         
         //change the map to the correct area
-        $('input[type=radio][name=six10day-map-view]').on('change',function() {
+        $('input[type=radio][name=temp-map-view]').on('change',function() {
           if (this.value == 'conus') {
-            six10daymap.setView(new L.LatLng(38, -96), 3.9)
+            tempmap.setView(new L.LatLng(38, -96), 3.9)
           }
           else if (this.value == 'alaska') {
-            six10daymap.setView(new L.LatLng(64.2,-149.4), 3.9)
+            tempmap.setView(new L.LatLng(64.2,-149.4), 3.9)
           }
         });
         

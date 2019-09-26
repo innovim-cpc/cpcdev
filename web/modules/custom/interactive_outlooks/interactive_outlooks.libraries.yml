@@ -82,13 +82,28 @@ hazards:
     - interactive_outlooks/leaflet-omnivore
     - interactive_outlooks/leaflet-plugins
     
-six10day:
+temp:
   version: 1.x
   css:
     theme:
       css/outlooks.css: {}
   js:
-    js/six10day-map.js: {}
+    js/temp-map.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - interactive_outlooks/leaflet
+    - interactive_outlooks/esri-leaflet
+    - interactive_outlooks/leaflet-omnivore
+    - interactive_outlooks/leaflet-plugins
+    
+precip:
+  version: 1.x
+  css:
+    theme:
+      css/outlooks.css: {}
+  js:
+    js/precip-map.js: {}
   dependencies:
     - core/jquery
     - core/drupal

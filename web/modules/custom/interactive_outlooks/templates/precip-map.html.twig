@@ -1,0 +1,84 @@
+  <div class="grid-row">
+    <header class="tablet:grid-col-12" id="precip-map-header">
+      <h2 class="precip-title">whats wrong with this</h2>
+      <h3 class="precip-valid-dates"></h3>
+      <div class="slidecontainer">
+        <p>Opacity: <span id="precipSliderValue"></span>%</p>
+        <input type="range" min="1" max="100" value="60" class="precipSlider" id="precipmyRange">
+      
+    </div>
+    </header>
+  </div>
+
+  <div class="grid-row">
+    <div class="tablet:grid-col-8 map-column">
+
+      <div class="grid-row">
+        <div class="tablet:grid-col-12">
+          <div id="precip-map"></div>
+        </div>
+      </div>
+      <div class="grid-row" id="precip-map__view-controls">
+        <div class="tablet:grid-col-8">
+        </div>
+        <div class="tablet:grid-col-4">
+          <fieldset class="usa-fieldset">
+            <legend class="usa-sr-only">Map View</legend>
+            <div class="usa-radio">
+              <input class="usa-radio__input" id="precip-conus" type="radio" checked name="precip-map-view" value="conus">
+              <label class="usa-radio__label" for="precip-conus">CONUS</label>
+              <input class="usa-radio__input" id="precip-alaska" type="radio" name="precip-map-view" value="alaska">
+              <label class="usa-radio__label" for="precip-alaska">Alaska</label>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+
+    </div><!-- end .map-column-->
+
+    <div class="tablet:grid-col-4 map-data-column">
+
+      <div class="grid-row">
+        <div class="tablet:grid-col-12" id="precip-map__view-select">
+          <h4>Duration</h4>
+          <fieldset class="usa-fieldset">
+            <legend class="usa-sr-only">Outlook Duration</legend>
+            <div class="usa-radio">
+              <input class="usa-radio__input" id="precip610day" type="radio" checked name="precip-map-duration" value="precip610day">
+              <label class="usa-radio__label" for="precip610day">6 - 10 Day</label>
+              <input class="usa-radio__input" id="precip814day" type="radio" name="precip-map-duration" value="precip814day">
+              <label class="usa-radio__label" for="precip814day">8 - 14 Day</label>
+            </div>
+          </fieldset>
+          {# <p class="precip-monitor-link"><a href="https://droughtmonitor.unl.edu/" target="_blank">U.S. Drought Monitor<i class="fas fa-external-link-alt"></i></a></p> #}
+        </div>
+      </div><!-- end .grid-row -->
+
+      {# <div class="grid-row">
+        <div class="tablet:grid-col-12 discussion-button">
+          <button class="usa-button font-sans-3xs">6-10 Day Outlook Discussion</button>
+        </div>
+      </div><!-- end .grid-row --> #}
+
+      <div class="grid-row">
+        <div class="tablet:grid-col-12 precip-image image-links">
+          <h4>Images</h4>
+          <ul>
+            <li><a href="">View larger image</a></li>
+          </ul>
+        </div>
+      </div><!-- end .grid-row -->
+
+      <div class="grid-row">
+        <div class="tablet:grid-col-12 precip-map-legend">
+          <h4>Legend</h4>
+          <ul>
+            {# <li class="test"><span></span> Drought persists</li>           #}
+          </ul>
+        </div>
+      </div><!-- end .grid-row -->
+
+
+    </div><!-- end .map-data-column -->
+
+  </div><!-- end outer .grid-row for .map-column and .map-data-column -->

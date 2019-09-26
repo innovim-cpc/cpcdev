@@ -31,7 +31,8 @@
           <option value>- Select an Outlook -</option>
           <option value="hazards">U.S. Hazards Outlook</option>
           <option value="drought">U.S. Drought Outlook</option>
-          <option value="six10day">U.S. 6-10 Day Outlook</option>
+          <option value="temp">U.S. Temperature Outlook</option>
+          <option value="precip">U.S. Precipitation Outlook</option>
         </select>
         <input class="usa-button" type="submit" value="Select">
       </form>
@@ -46,8 +47,12 @@
   <div class="tablet:grid-col-12 hazards">
     {{ drupal_block('interactive_hazards_outlooks') }}
   </div><!-- end .hazard -->
-  <div class="tablet:grid-col-12 six10day">
-    {{ drupal_block('interactive_six10day_outlooks') }}
-  </div><!-- end .six10day -->
+  <div class="tablet:grid-col-12 temp">
+    {{ drupal_block('interactive_temp_outlooks') }}
+  </div><!-- end .temp -->
+  <div class="tablet:grid-col-12 precip">
+    {{ drupal_block('interactive_precip_outlooks') }}
+  </div><!-- end .precip -->
+  
 </div><!-- end outer .grid-row .outlooks -->
 {# endif #}

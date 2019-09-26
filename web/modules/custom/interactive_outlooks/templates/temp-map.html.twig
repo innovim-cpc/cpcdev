@@ -1,5 +1,5 @@
   <div class="grid-row">
-    <header class="tablet:grid-col-12" id="six10day-map-header">
+    <header class="tablet:grid-col-12" id="temp-map-header">
       <h2 class="title"></h2>
       <h3 class="valid-dates"></h3>
       <div class="slidecontainer">
@@ -15,20 +15,20 @@
 
       <div class="grid-row">
         <div class="tablet:grid-col-12">
-          <div id="six10day-map"></div>
+          <div id="temp-map"></div>
         </div>
       </div>
-      <div class="grid-row" id="six10day-map__view-controls">
+      <div class="grid-row" id="temp-map__view-controls">
         <div class="tablet:grid-col-8">
         </div>
         <div class="tablet:grid-col-4">
           <fieldset class="usa-fieldset">
             <legend class="usa-sr-only">Map View</legend>
             <div class="usa-radio">
-              <input class="usa-radio__input" id="six10day-conus" type="radio" checked name="six10day-map-view" value="conus">
-              <label class="usa-radio__label" for="six10day-conus">CONUS</label>
-              <input class="usa-radio__input" id="six10day-alaska" type="radio" name="six10day-map-view" value="alaska">
-              <label class="usa-radio__label" for="six10day-alaska">Alaska</label>
+              <input class="usa-radio__input" id="temp-conus" type="radio" checked name="temp-map-view" value="conus">
+              <label class="usa-radio__label" for="temp-conus">CONUS</label>
+              <input class="usa-radio__input" id="temp-alaska" type="radio" name="temp-map-view" value="alaska">
+              <label class="usa-radio__label" for="temp-alaska">Alaska</label>
             </div>
           </fieldset>
         </div>
@@ -39,18 +39,18 @@
     <div class="tablet:grid-col-4 map-data-column">
 
       <div class="grid-row">
-        <div class="tablet:grid-col-12" id="six10day-map__view-select">
+        <div class="tablet:grid-col-12" id="temp-map__view-select">
           <h4>Category</h4>
           <fieldset class="usa-fieldset">
             <legend class="usa-sr-only">Outlook Category</legend>
             <div class="usa-radio">
-              <input class="usa-radio__input" id="temp" type="radio" checked name="six10day-map-category" value="temp">
+              <input class="usa-radio__input" id="temp" type="radio" checked name="temp-map-category" value="temp">
               <label class="usa-radio__label" for="temp">Temperature</label>
-              <input class="usa-radio__input" id="precip" type="radio" name="six10day-map-category" value="precip">
+              <input class="usa-radio__input" id="precip" type="radio" name="temp-map-category" value="precip">
               <label class="usa-radio__label" for="precip">Precipitation</label>
             </div>
           </fieldset>
-          {# <p class="six10day-monitor-link"><a href="https://droughtmonitor.unl.edu/" target="_blank">U.S. Drought Monitor<i class="fas fa-external-link-alt"></i></a></p> #}
+          {# <p class="temp-monitor-link"><a href="https://droughtmonitor.unl.edu/" target="_blank">U.S. Drought Monitor<i class="fas fa-external-link-alt"></i></a></p> #}
         </div>
       </div><!-- end .grid-row -->
 
@@ -61,7 +61,7 @@
       </div><!-- end .grid-row -->
 
       <div class="grid-row">
-        <div class="tablet:grid-col-12 six10day-image image-links">
+        <div class="tablet:grid-col-12 temp-image image-links">
           <h4>Images</h4>
           <ul>
             <li><a href="">View larger image</a></li>
@@ -70,7 +70,7 @@
       </div><!-- end .grid-row -->
 
       <div class="grid-row">
-        <div class="tablet:grid-col-12 six10day-map-legend">
+        <div class="tablet:grid-col-12 temp-map-legend">
           <h4>Legend</h4>
           <ul>
             {# <li class="test"><span></span> Drought persists</li>           #}

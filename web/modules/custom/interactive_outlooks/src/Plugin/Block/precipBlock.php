@@ -2,23 +2,23 @@
 
 /**
  * @file
- * Contains \Drupal\interactive_outlooks\Plugin\Block\six10dayBlock.
+ * Contains \Drupal\interactive_outlooks\Plugin\Block\precipBlock.
  */
 
 namespace Drupal\interactive_outlooks\Plugin\Block;
 use Drupal\Core\Block\Blockbase;
 
 /**
- * Provides a '6-10 day Outlook' block
+ * Provides a 'Precipitation Outlook' block
  *
  * @Block(
- *  id = "interactive_six10day_outlooks",
- *  admin_label = @Translation("Interactive 6-10 day outlooks"),
+ *  id = "interactive_precip_outlooks",
+ *  admin_label = @Translation("Interactive Precipitation outlooks"),
  *  category = @Translation("CPC Outlooks"),
  * )
  */
 
-class six10dayBlock extends Blockbase {
+class precipBlock extends Blockbase {
 
   /**
    * {@inheritdoc}
@@ -26,10 +26,10 @@ class six10dayBlock extends Blockbase {
   public function build() {
     //Fetch data
     return [
-      '#theme' => 'six10day_map',
+      '#theme' => 'precip_map',
       '#attached' => [
         'library' => [
-          'interactive_outlooks/six10day',
+          'interactive_outlooks/precip',
         ],
       ],
     ];
