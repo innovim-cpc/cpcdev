@@ -5,7 +5,7 @@
       <div class="slidecontainer">
         <p>Opacity: <span id="sliderValue"></span>%</p>
         <input type="range" min="1" max="100" value="60" class="slider" id="myRange">
-      
+
     </div>
     </header>
   </div>
@@ -41,14 +41,18 @@
 
       <div class="grid-row">
         <div class="tablet:grid-col-12" id="temp-map__view-select">
-          <h4>Category</h4>
+          <h4>Duration</h4>
           <fieldset class="usa-fieldset">
-            <legend class="usa-sr-only">Outlook Category</legend>
+            <legend class="usa-sr-only">Outlook Duration</legend>
             <div class="usa-radio">
-              <input class="usa-radio__input" id="temp" type="radio" checked name="temp-map-category" value="temp">
-              <label class="usa-radio__label" for="temp">Temperature</label>
-              <input class="usa-radio__input" id="precip" type="radio" name="temp-map-category" value="precip">
-              <label class="usa-radio__label" for="precip">Precipitation</label>
+              <input class="usa-radio__input" id="temp610day" type="radio" checked name="temp-map-duration" value="temp610day">
+              <label class="usa-radio__label" for="temp610day">6 - 10 Day</label>
+              <input class="usa-radio__input" id="temp814day" type="radio" name="temp-map-duration" value="temp814day">
+              <label class="usa-radio__label" for="temp814day">8 - 14 Day</label>
+              <input class="usa-radio__input" id="tempmonthly" type="radio" name="temp-map-duration" value="tempmonthly">
+              <label class="usa-radio__label" for="tempmonthly">Monthly</label>
+              <input class="usa-radio__input" id="tempseasonal" type="radio" name="temp-map-duration" value="tempseasonal">
+              <label class="usa-radio__label" for="tempseasonal">Seasonal</label>
             </div>
           </fieldset>
           {# <p class="temp-monitor-link"><a href="https://droughtmonitor.unl.edu/" target="_blank">U.S. Drought Monitor<i class="fas fa-external-link-alt"></i></a></p> #}

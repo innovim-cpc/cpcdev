@@ -1,6 +1,6 @@
   <div class="grid-row">
     <header class="tablet:grid-col-12" id="precip-map-header">
-      <h2 class="precip-title">whats wrong with this</h2>
+      <h2 class="precip-title"></h2>
       <h3 class="precip-valid-dates"></h3>
       <div class="slidecontainer">
         <p>Opacity: <span id="precipSliderValue"></span>%</p>
@@ -16,6 +16,7 @@
       <div class="grid-row">
         <div class="tablet:grid-col-12">
           <div id="precip-map"></div>
+          <div id="precip-chart"></div>
         </div>
       </div>
       <div class="grid-row" id="precip-map__view-controls">
@@ -48,6 +49,10 @@
               <label class="usa-radio__label" for="precip610day">6 - 10 Day</label>
               <input class="usa-radio__input" id="precip814day" type="radio" name="precip-map-duration" value="precip814day">
               <label class="usa-radio__label" for="precip814day">8 - 14 Day</label>
+              <input class="usa-radio__input" id="precipmonthly" type="radio" name="precip-map-duration" value="precipmonthly">
+              <label class="usa-radio__label" for="precipmonthly">Monthly</label>
+              <input class="usa-radio__input" id="precipseasonal" type="radio" name="precip-map-duration" value="precipseasonal">
+              <label class="usa-radio__label" for="precipseasonal">Seasonal</label>
             </div>
           </fieldset>
           {# <p class="precip-monitor-link"><a href="https://droughtmonitor.unl.edu/" target="_blank">U.S. Drought Monitor<i class="fas fa-external-link-alt"></i></a></p> #}

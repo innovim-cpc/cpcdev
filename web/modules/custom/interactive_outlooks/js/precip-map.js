@@ -48,14 +48,12 @@
           transparent: true,
           opacity: 0.6
         });
-        var precip814dayLayer = new L.tileLayer.wms('https://idpgis.ncep.noaa.gov/arcgis/services/NWS_Climate_Outlooks/cpc_6_10_day_outlk/MapServer/WMSServer?',{
+        var precip814dayLayer = new L.tileLayer.wms('https://idpgis.ncep.noaa.gov/arcgis/services/NWS_Climate_Outlooks/cpc_8_14_day_outlk/MapServer/WMSServer?',{
           layers: '0',
           format: 'image/png',
           transparent: true,
           opacity: 0.6
         });
-        console.log(precip610dayLayer);
-        console.log(precipmap);
         
         //Add initial layer to map
         precip610dayLayer.addTo(precipmap);
@@ -65,12 +63,13 @@
         precip814dayLayer.removeFrom(precipmap);
         
         
-        var validmonth = "oh hi";
-        var releasemonth = "well hello";
+        var validmonth = "";
+        var releasemonth = "";
+        $('#precip-map-header .precip-title').text("U.S. 6 to 10 Day Precipitation Outlook");
+        $('#precip-map-header .precip-valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
         
         // tempLayer.query()
         //   .run(function(error, featureCollection){
-        //     console.log(featureCollection);
         //   validmonth = featureCollection.features[0].properties.start_date;
         //   releasemonth = featureCollection.features[0].properties.fcst_date;
         //   // Set initial title and valid period for monthly drought outlook
@@ -214,7 +213,6 @@
            $('#precip-map-header .precip-title').text("U.S. 6 to 10 Day Precipitation Outlook");
            $('#precip-map-header .precip-valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
-           console.log("no worky?");
           }
           else if (this.value == 'precip814day') {
            precip610dayLayer.removeFrom(precipmap);
@@ -249,6 +247,39 @@
           //   });
           // });
         }
+        
+        
+        // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Category');
+        data.addColumn('number', 'Count');
+        data.addRows([
+          ['Above Average', 3],
+          ['Below Average', 1],
+          ['Near Normal', 1]
+        ]);
+
+        // Set chart options
+        var options = {'title':'Three Category Preciptation Outlook',
+                       'width':400,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('precip-chart'));
+        chart.draw(data, options);
+      }
+
 
 
 

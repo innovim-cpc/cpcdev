@@ -6,9 +6,9 @@ leaflet:
     url: https://github.com/Leaflet/Leaflet/blob/master/LICENSE
   css:
     theme:
-      /libraries/leaflet/dist/leaflet.css: {}
+      https://unpkg.com/leaflet@1.3.1/dist/leaflet.css: {}
   js:
-    /libraries/leaflet/dist/leaflet.js: {}
+    https://unpkg.com/leaflet: {}
 
 esri-leaflet:
   remote: https://esri.github.io/esri-leaflet/
@@ -17,7 +17,16 @@ esri-leaflet:
     name: Apache-2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   js:
-    /libraries/esri-leaflet/dist/esri-leaflet.js: {}
+    https://unpkg.com/esri-leaflet: {}
+    
+leaflet-renderer:
+  remote: https://github.com/Esri/esri-leaflet-renderers
+  version: 1.x
+  license:
+    name: Apache-2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0
+  js:
+    https://unpkg.com/esri-leaflet-renderers@2.0.6: {}
 
 leaflet-omnivore:
   remote: https://github.com/mapbox/leaflet-omnivore
@@ -107,6 +116,7 @@ temp:
     - interactive_outlooks/leaflet-omnivore
     - interactive_outlooks/leaflet-plugins
     - interactive_outlooks/google
+    - interactive_outlooks/leaflet-renderer
     
 precip:
   version: 1.x

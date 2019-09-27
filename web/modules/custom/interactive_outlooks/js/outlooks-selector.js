@@ -13,8 +13,8 @@
 
       $('.grid-row.outlooks .drought').hide();
       $('.grid-row.outlooks .hazards').hide();
-      $('.grid-row.outlooks .temp').hide();
-      $('.grid-row.outlooks .precip').show();
+      $('.grid-row.outlooks .temp').show();
+      $('.grid-row.outlooks .precip').hide();
 
       $("#outlooks-selector").on('submit', function(e) {
         var selectedVal = $("#outlook-options").val();
