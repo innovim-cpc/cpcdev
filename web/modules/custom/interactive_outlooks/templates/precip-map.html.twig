@@ -5,7 +5,7 @@
       <div class="slidecontainer">
         <p>Opacity: <span id="precipSliderValue"></span>%</p>
         <input type="range" min="1" max="100" value="60" class="precipSlider" id="precipmyRange">
-      
+
     </div>
     </header>
   </div>
@@ -16,7 +16,7 @@
       <div class="grid-row">
         <div class="tablet:grid-col-12">
           <div id="precip-map"></div>
-          <div id="precip-chart"></div>
+
         </div>
       </div>
       <div class="grid-row" id="precip-map__view-controls">
@@ -32,7 +32,7 @@
               <label class="usa-radio__label" for="precip-alaska">Alaska</label>
             </div>
           </fieldset>
-        </div>
+        </div>        
       </div>
 
     </div><!-- end .map-column-->
@@ -49,15 +49,43 @@
               <label class="usa-radio__label" for="precip610day">6 - 10 Day</label>
               <input class="usa-radio__input" id="precip814day" type="radio" name="precip-map-duration" value="precip814day">
               <label class="usa-radio__label" for="precip814day">8 - 14 Day</label>
-              <input class="usa-radio__input" id="precipmonthly" type="radio" name="precip-map-duration" value="precipmonthly">
-              <label class="usa-radio__label" for="precipmonthly">Monthly</label>
-              <input class="usa-radio__input" id="precipseasonal" type="radio" name="precip-map-duration" value="precipseasonal">
-              <label class="usa-radio__label" for="precipseasonal">Seasonal</label>
+              <input class="usa-radio__input" id="precip-monthly" type="radio" name="precip-map-duration" value="precip-monthly">
+              <label class="usa-radio__label" for="precip-monthly">Monthly</label>
+              <input class="usa-radio__input" id="precip-3month" type="radio" name="precip-map-duration" value="precip-3month">
+              <label class="usa-radio__label" for="precip-3month">3 Month</label>
             </div>
           </fieldset>
           {# <p class="precip-monitor-link"><a href="https://droughtmonitor.unl.edu/" target="_blank">U.S. Drought Monitor<i class="fas fa-external-link-alt"></i></a></p> #}
         </div>
       </div><!-- end .grid-row -->
+
+      <div class="grid-row">
+        <div class="tablet:grid-col-12">
+        </div>
+        <div class="tablet:grid-col-12">
+          <div class="lead-selector-container">
+            <form class="usa-form" id="lead-selector-precip">
+              <label class="usa-label" for="lead-options-precip">Select a Lead</label>
+              <select class="usa-select" name="lead-options-precip" id="lead-options-precip">
+                <option value="precip-lead-1">Lead 1</option>
+                <option value="precip-lead-2">Lead 2</option>
+                <option value="precip-lead-3">Lead 3</option>
+                <option value="precip-lead-4">Lead 4</option>
+                <option value="precip-lead-5">Lead 5</option>
+                <option value="precip-lead-6">Lead 6</option>
+                <option value="precip-lead-7">Lead 7</option>
+                <option value="precip-lead-8">Lead 8</option>
+                <option value="precip-lead-9">Lead 9</option>
+                <option value="precip-lead-10">Lead 10</option>
+                <option value="precip-lead-11">Lead 11</option>
+                <option value="precip-lead-12">Lead 12</option>
+                <option value="precip-lead-13">Lead 13</option>
+              </select>
+              {# <input class="usa-button" type="submit" value="Select Lead"> #}
+            </form>
+          </div>
+        </div>
+      </div>
 
       {# <div class="grid-row">
         <div class="tablet:grid-col-12 discussion-button">
@@ -74,16 +102,21 @@
         </div>
       </div><!-- end .grid-row -->
 
-      <div class="grid-row">
+      {# <div class="grid-row">
         <div class="tablet:grid-col-12 precip-map-legend">
           <h4>Legend</h4>
           <ul>
-            {# <li class="test"><span></span> Drought persists</li>           #}
+            <li class="test"><span></span> Drought persists</li>           
           </ul>
         </div>
-      </div><!-- end .grid-row -->
+      </div><!-- end .grid-row --> #}
 
 
     </div><!-- end .map-data-column -->
+    <div class="tablet:grid-col-8">
+      <div class="tablet:grid-col-8" id="location-container-precip"></div>
+      <div class="tablet:grid-col-8" id="chart-div-precip-label"></div>
+      <div id="precip-chart"></div>
+    </div>
 
   </div><!-- end outer .grid-row for .map-column and .map-data-column -->
