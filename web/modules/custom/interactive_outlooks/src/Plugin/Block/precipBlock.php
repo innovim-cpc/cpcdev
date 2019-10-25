@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\interactive_outlooks\Plugin\Block\precipBlock.
+ * Contains \Drupal\interactive_outlooks\Plugin\Block\PrecipBlock.
  */
 
 namespace Drupal\interactive_outlooks\Plugin\Block;
@@ -18,7 +18,7 @@ use Drupal\Core\Block\Blockbase;
  * )
  */
 
-class precipBlock extends Blockbase {
+class PrecipBlock extends Blockbase {
 
   /**
    * {@inheritdoc}

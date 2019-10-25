@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\interactive_outlooks\Plugin\Block\tempBlock.
+ * Contains \Drupal\interactive_outlooks\Plugin\Block\TempBlock.
  */
 
 namespace Drupal\interactive_outlooks\Plugin\Block;
@@ -18,7 +18,7 @@ use Drupal\Core\Block\Blockbase;
  * )
  */
 
-class tempBlock extends Blockbase {
+class TempBlock extends Blockbase {
 
   /**
    * {@inheritdoc}
