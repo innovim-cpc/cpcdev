@@ -18,8 +18,8 @@ esri-leaflet:
     url: https://www.apache.org/licenses/LICENSE-2.0
   js:
     https://unpkg.com/esri-leaflet: {}
-    
-leaflet-renderer:
+
+leaflet-renderers:
   remote: https://github.com/Esri/esri-leaflet-renderers
   version: 1.x
   license:
@@ -27,7 +27,7 @@ leaflet-renderer:
     url: http://www.apache.org/licenses/LICENSE-2.0
   js:
     https://unpkg.com/esri-leaflet-renderers@2.0.6: {}
-    
+
 esri-leaflet-geocoder:
   remote: https://github.com/Esri/esri-leaflet-geocoder
   version: 1.x
@@ -38,7 +38,7 @@ esri-leaflet-geocoder:
     theme:
       https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css: {}
   js:
-    https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js: {}
+    https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js: { type: external }
 
 leaflet-omnivore:
   remote: https://github.com/mapbox/leaflet-omnivore
@@ -60,16 +60,16 @@ leaflet-plugins:
   js:
     /libraries/leaflet-plugins/layer/vector/KML.js: {}
 
-google: 
+google:
   remote: https://developers.google.com/chart/
   version: 44
-  license: 
+  license:
     name: Google
     url: https://developers.google.com/chart/
     gpl-compatible: true
   js:
-    https://www.gstatic.com/charts/loader.js: {}
-    
+    https://www.gstatic.com/charts/loader.js: { type: external }
+
 selector:
   version: 1.x
   css:
@@ -97,7 +97,7 @@ drought:
     - interactive_outlooks/leaflet
     - interactive_outlooks/esri-leaflet
     - interactive_outlooks/leaflet-plugins
-    - interactive_outlooks/leaflet-renderer
+    - interactive_outlooks/leaflet-renderers
 
 hazards:
   version: 1.x
@@ -113,8 +113,8 @@ hazards:
     - interactive_outlooks/esri-leaflet
     - interactive_outlooks/leaflet-omnivore
     - interactive_outlooks/leaflet-plugins
-    - interactive_outlooks/leaflet-renderer
-    
+    - interactive_outlooks/leaflet-renderers
+
 temp:
   version: 1.x
   css:
@@ -130,9 +130,9 @@ temp:
     - interactive_outlooks/leaflet-omnivore
     - interactive_outlooks/leaflet-plugins
     - interactive_outlooks/google
-    - interactive_outlooks/leaflet-renderer
-    - interactive_outlooks/esri-leaflet-geocoder 
-    
+    - interactive_outlooks/leaflet-renderers
+    - interactive_outlooks/esri-leaflet-geocoder
+
 precip:
   version: 1.x
   css:
@@ -148,5 +148,5 @@ precip:
     - interactive_outlooks/leaflet-omnivore
     - interactive_outlooks/leaflet-plugins
     - interactive_outlooks/google
-    - interactive_outlooks/leaflet-renderer
+    - interactive_outlooks/leaflet-renderers
     - interactive_outlooks/esri-leaflet-geocoder
