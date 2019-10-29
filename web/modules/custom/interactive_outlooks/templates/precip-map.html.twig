@@ -2,11 +2,6 @@
     <header class="tablet:grid-col-12" id="precip-map-header">
       <h2 class="precip-title"></h2>
       <h3 class="precip-valid-dates"></h3>
-      <div class="slidecontainer">
-        <p>Opacity: <span id="precipSliderValue"></span>%</p>
-        <input type="range" min="1" max="100" value="60" class="precipSlider" id="precipmyRange">
-
-    </div>
     </header>
   </div>
 
@@ -21,6 +16,10 @@
       </div>
       <div class="grid-row" id="precip-map__view-controls">
         <div class="tablet:grid-col-8">
+          <div class="opacity-slider">
+            <input type="range" min="0.0" max="1.0" value="0.6" step="0.1" class="precip-opacity-slider__range" id="precip-opacity-level" name="precip-opacity-level">
+            <label for="precip-opacity-level">Opacity: <span class="precip-opacity-slider__value"></span>%</label>
+          </div>
         </div>
         <div class="tablet:grid-col-4">
           <fieldset class="usa-fieldset">
@@ -32,8 +31,17 @@
               <label class="usa-radio__label" for="precip-alaska">Alaska</label>
             </div>
           </fieldset>
-        </div>        
+        </div>
       </div>
+
+      <div class="grid-row">
+        <div class="tablet:grid-col-12 precip-image image-links">
+          <h4>Images</h4>
+          <ul>
+            <li><a href="">View larger image</a></li>
+          </ul>
+        </div>
+      </div><!-- end .grid-row -->
 
     </div><!-- end .map-column-->
 
@@ -56,11 +64,6 @@
             </div>
           </fieldset>
           {# <p class="precip-monitor-link"><a href="https://droughtmonitor.unl.edu/" target="_blank">U.S. Drought Monitor<i class="fas fa-external-link-alt"></i></a></p> #}
-        </div>
-      </div><!-- end .grid-row -->
-
-      <div class="grid-row">
-        <div class="tablet:grid-col-12">
         </div>
         <div class="tablet:grid-col-12">
           <div class="lead-selector-container">
@@ -85,7 +88,7 @@
             </form>
           </div>
         </div>
-      </div>
+      </div><!-- end .grid-row -->
 
       {# <div class="grid-row">
         <div class="tablet:grid-col-12 discussion-button">
@@ -94,29 +97,24 @@
       </div><!-- end .grid-row --> #}
 
       <div class="grid-row">
-        <div class="tablet:grid-col-12 precip-image image-links">
-          <h4>Images</h4>
-          <ul>
-            <li><a href="">View larger image</a></li>
-          </ul>
-        </div>
-      </div><!-- end .grid-row -->
+        <div class="tablet:grid-col-12" id="location-container-precip"></div>
+        <div class="tablet:grid-col-12" id="chart-div-precip-label"></div>
+        <div id="precip-chart"></div>
+      </div>
+
+
 
       {# <div class="grid-row">
         <div class="tablet:grid-col-12 precip-map-legend">
           <h4>Legend</h4>
           <ul>
-            <li class="test"><span></span> Drought persists</li>           
+            <li class="test"><span></span> Drought persists</li>
           </ul>
         </div>
       </div><!-- end .grid-row --> #}
 
 
     </div><!-- end .map-data-column -->
-    <div class="tablet:grid-col-8">
-      <div class="tablet:grid-col-8" id="location-container-precip"></div>
-      <div class="tablet:grid-col-8" id="chart-div-precip-label"></div>
-      <div id="precip-chart"></div>
-    </div>
+
 
   </div><!-- end outer .grid-row for .map-column and .map-data-column -->

@@ -2,11 +2,6 @@
     <header class="tablet:grid-col-12" id="temp-map-header">
       <h2 class="title"></h2>
       <h3 class="valid-dates"></h3>
-      <div class="slidecontainer">
-        <p>Opacity: <span id="sliderValue"></span>%</p>
-        <input type="range" min="1" max="100" value="60" class="slider" id="myRange">
-
-    </div>
     </header>
   </div>
 
@@ -20,6 +15,10 @@
       </div>
       <div class="grid-row" id="temp-map__view-controls">
         <div class="tablet:grid-col-8">
+          <div class="opacity-slider">
+            <input type="range" min="0.0" max="1.0" value="0.6" step="0.1" class="opacity-slider__range" id="opacity-level" name="opacity-level">
+            <label for="opacity-level">Opacity: <span class="opacity-slider__value"></span>%</label>
+          </div>
         </div>
         <div class="tablet:grid-col-4">
           <fieldset class="usa-fieldset">
@@ -33,6 +32,16 @@
           </fieldset>
         </div>
       </div>
+
+      <div class="grid-row">
+        <div class="tablet:grid-col-12 temp-image image-links">
+          <h4>Images</h4>
+          <ul>
+            <li><a href="">View larger image</a></li>
+          </ul>
+        </div>
+      </div><!-- end .grid-row -->
+
     </div><!-- end .map-column-->
 
     <div class="tablet:grid-col-4 map-data-column">
@@ -54,18 +63,6 @@
             </div>
           </fieldset>
           {# <p class="temp-monitor-link"><a href="https://droughtmonitor.unl.edu/" target="_blank">U.S. Drought Monitor<i class="fas fa-external-link-alt"></i></a></p> #}
-        </div>
-      </div><!-- end .grid-row -->
-
-
-      <div class="grid-row">
-        <div class="tablet:grid-col-12 discussion-button">
-          <button class="usa-button font-sans-3xs">6-10 Day Outlook Discussion</button>
-        </div>
-      </div><!-- end .grid-row -->
-
-      <div class="grid-row">
-        <div class="tablet:grid-col-12">
         </div>
         <div class="tablet:grid-col-12">
           <div class="lead-selector-container">
@@ -90,16 +87,25 @@
             </form>
           </div>
         </div>
+      </div><!-- end .grid-row -->
+
+
+      {#<div class="grid-row">
+        <div class="tablet:grid-col-12 discussion-button">
+          <button class="usa-button font-sans-3xs">6-10 Day Outlook Discussion</button>
+        </div>
+      </div><!-- end .grid-row -->#}
+
+      <div class="grid-row">
+
       </div>
 
       <div class="grid-row">
-        <div class="tablet:grid-col-12 temp-image image-links">
-          <h4>Images</h4>
-          <ul>
-            <li><a href="">View larger image</a></li>
-          </ul>
-        </div>
-      </div><!-- end .grid-row -->
+        <div class="tablet:grid-col-12" id="location-container"></div>
+        <div class="tablet:grid-col-12" id="chart_div_temp_label_max"></div>
+        <div class="tablet:grid-col-12" id="chart_div_temp_label_min"></div>
+        <div id="temp-chart"></div>
+      </div>
 
       {# <div class="grid-row">
         <div class="tablet:grid-col-12 temp-map-legend">
@@ -111,12 +117,7 @@
       </div><!-- end .grid-row --> #}
 
     </div><!-- end .map-data-column -->
-    <div class="tablet:grid-col-8">
-      <div class="tablet:grid-col-8" id="location-container"></div>
-      <div class="tablet:grid-col-8" id="chart_div_temp_label_max"></div>
-      <div class="tablet:grid-col-8" id="chart_div_temp_label_min"></div>
-      <div id="temp-chart"></div>
-    </div>
+
 
   </div><!-- end outer .grid-row for .map-column and .map-data-column -->
 

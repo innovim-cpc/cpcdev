@@ -76,7 +76,7 @@
         var precip3MonthLead13Layer = new L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_precip_outlk/MapServer/12'
         });
-        
+
         //search by address
         // create the geocoding control and add it to the map
        var searchControl = L.esri.Geocoding.geosearch().addTo(precipmap);
@@ -174,6 +174,17 @@
           });
         }
 
+        precip610dayLayer.query()
+          .run(function(error, featureCollection){
+          validmonth = featureCollection.features[0].properties.start_date;
+          releasemonth = featureCollection.features[0].properties.fcst_date;
+
+          // Set initial title and valid period for monthly drought outlook
+          $('#precip-map-header .title').text("U.S. 6 to 10 Day Precipitation Outlook");
+          $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
+        });
+
+
         var precip610dayChecked = $('#precip-map__view-select input[type=radio][id=precip610day]:checked');
         var precip814dayChecked = $('#precip-map__view-select input[type=radio][id=precip610day]:checked');
 
@@ -194,7 +205,7 @@
             $('#lead-selector-precip').hide();
             $('#precip-map-header .precip-title').text("U.S. 6 to 10 Day Precipitation Outlook");
             $('#precip-map-header .precip-valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
-            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
+            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/610day/610prcp.new.gif');
           }
           else if (this.value == 'precip814day') {
             removePrevLayer();
@@ -205,7 +216,7 @@
             $('#lead-selector-precip').hide();
             $('#precip-map-header .precip-title').text("U.S. 8 to 14 Day Precipitation Outlook");
             $('#precip-map-header .precip-valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
-            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/season_drought.png');
+            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/814day/814prcp.new.gif');
           }
           else if (this.value == 'precip-monthly') {
             removePrevLayer();
@@ -217,7 +228,7 @@
             $('#lead-selector-precip').hide();
             $('#precip-map-header .title').text("U.S. Monthly Precipitation Outlook");
             $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
-            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/season_drought.png');
+            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead14/off14_prcp.gif');
           }
           else if (this.value == 'precip-3month') {
             removePrevLayer();
@@ -228,7 +239,7 @@
             $('#lead-selector-precip').show();
             $('#precip-map-header .title').text("U.S. 3 Month Preciptation Outlook");
             $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
-            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/season_drought.png');
+            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead01/off01_prcp.gif');
           }
         });
 
@@ -249,17 +260,23 @@
           }
         });
 
-        var precipSlider = $('#precipmyRange')[0];
+        var precipSlider = $('#precip-opacity-level')[0];
         // var output = document.getElementById("sliderValue");
-        var precipOutput = $('#precipSliderValue')[0];
-        precipOutput.innerHTML = precipSlider.value;
+        var precipOutput = $('.precip-opacity-slider__value')[0];
 
+        var opacityVal = $('.precip-opacity-slider__range').val();
+        // Convert opacity decimal value to percent
+        var percent = Math.round(opacityVal * 100);
+        // Write percent value in html label area
+        $('.precip-opacity-slider__value').html(percent);
+
+        precipOutput.innerHTML = precipSlider.value;
         precipSlider.oninput = function() {
           precipOutput.innerHTML = this.value;
 
           currentLayer.eachFeature(function(layer){
             layer.setStyle({
-              fillOpacity: (precipSlider.value / 120)
+              fillOpacity: (precipSlider.value)
             });
           });
         }
@@ -383,11 +400,11 @@
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
         });
-        
+
         var pcpn_norm;
         var precip_abv;
         var precip_blo;
-        var precip_norm;        
+        var precip_norm;
         var coord;
         var region;
 
@@ -466,12 +483,12 @@
           //locate the closest town/city within 160 miles
           getForecast(e);
           //create tables onClick
-          //reset the variables before loading new data, prevents old data from being displayed if the pie chart loads before the new data refreshes    
+          //reset the variables before loading new data, prevents old data from being displayed if the pie chart loads before the new data refreshes
           pcpn_norm = null;
           precip_abv = null;
           precip_blo = null;
           precip_norm =  null;
-          
+
           if (region == "AK"){
             getPrecipHandlerAlaska(coord);
           }
@@ -616,7 +633,7 @@
   	  return xmlHttp;
   	 }
 
-        
+
 
 
 
