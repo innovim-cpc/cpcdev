@@ -29,10 +29,10 @@
         <label class="usa-label" for="outlook-options">Select an Outlook</label>
         <select class="usa-select" name="outlook-options" id="outlook-options">
           <option value>- Select an Outlook -</option>
-          <option value="hazards">U.S. Hazards Outlook</option>
-          <option value="drought">U.S. Drought Outlook</option>
           <option value="temp">U.S. Temperature Outlook</option>
           <option value="precip">U.S. Precipitation Outlook</option>
+          <option value="hazards">U.S. Hazards Outlook</option>
+          <option value="drought">U.S. Drought Outlook</option>
         </select>
         <input class="usa-button" type="submit" value="Select">
       </form>
@@ -41,18 +41,19 @@
 </div>
 
 <div class="grid-row outlooks">
-  <div class="tablet:grid-col-12 drought">
-    {{ drupal_block('interactive_drought_outlooks') }}
-  </div><!-- end .drought -->
-  <div class="tablet:grid-col-12 hazards">
-    {{ drupal_block('interactive_hazards_outlooks') }}
-  </div><!-- end .hazard -->
+
   <div class="tablet:grid-col-12 temp">
     {{ drupal_block('interactive_temp_outlooks') }}
   </div><!-- end .temp -->
   <div class="tablet:grid-col-12 precip">
     {{ drupal_block('interactive_precip_outlooks') }}
   </div><!-- end .precip -->
-  
+  <div class="tablet:grid-col-12 hazards">
+    {{ drupal_block('interactive_hazards_outlooks') }}
+  </div><!-- end .hazard -->
+  <div class="tablet:grid-col-12 drought">
+    {{ drupal_block('interactive_drought_outlooks') }}
+  </div><!-- end .drought -->
+
 </div><!-- end outer .grid-row .outlooks -->
 {# endif #}
