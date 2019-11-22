@@ -12,7 +12,7 @@
    	  //$('#precip-outlooks-map', context).once('#precip-map', function() {
 
   		  // Create the map
-        var precipmap = L.map('precip-map', {
+        const precipmap = L.map('precip-map', {
           center: [38, -96],
           zoomSnap: 0.1,
           zoom: 3.9,
@@ -102,8 +102,8 @@
 
         var validmonth = "";
         var releasemonth = "";
-        $('#precip-map-header .precip-title').text("U.S. 6 to 10 Day Precipitation Outlook");
-        $('#precip-map-header .precip-valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
+        $('#precip-map-header .title').text("U.S. 6 to 10 Day Precipitation Outlook");
+        $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
         $('#lead-selector-precip').hide();
 
         function iterateFeatures () {
@@ -189,9 +189,9 @@
         var precip814dayChecked = $('#precip-map__view-select input[type=radio][id=precip610day]:checked');
 
         if (precip610dayChecked) {
-          $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
+          $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/610day/610prcp.new.gif');
         } else if (precip814dayChecked) {
-          $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/season_drought.png');
+          $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/814day/814prcp.new.gif');
         }
 
         //change the layers of the map to Monthly or precip based on the dropdown list
@@ -203,8 +203,8 @@
             currentLayer.on('load', iterateFeatures);
             //hide Select a Lead
             $('#lead-selector-precip').hide();
-            $('#precip-map-header .precip-title').text("U.S. 6 to 10 Day Precipitation Outlook");
-            $('#precip-map-header .precip-valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+            $('#precip-map-header .title').text("U.S. 6 to 10 Day Precipitation Outlook");
+            $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
             $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/610day/610prcp.new.gif');
           }
           else if (this.value == 'precip814day') {
@@ -214,8 +214,8 @@
             currentLayer.on('load', iterateFeatures);
             //hide Select a Lead
             $('#lead-selector-precip').hide();
-            $('#precip-map-header .precip-title').text("U.S. 8 to 14 Day Precipitation Outlook");
-            $('#precip-map-header .precip-valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+            $('#precip-map-header .title').text("U.S. 8 to 14 Day Precipitation Outlook");
+            $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
             $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/814day/814prcp.new.gif');
           }
           else if (this.value == 'precip-monthly') {
@@ -266,13 +266,13 @@
 
         var opacityVal = $('.precip-opacity-slider__range').val();
         // Convert opacity decimal value to percent
-        var percent = Math.round(opacityVal * 100);
+        var percent = Math.round(precipSlider.value * 100);
         // Write percent value in html label area
         $('.precip-opacity-slider__value').html(percent);
 
-        precipOutput.innerHTML = precipSlider.value;
+        precipOutput.innerHTML = percent;
         precipSlider.oninput = function() {
-          precipOutput.innerHTML = this.value;
+          precipOutput.innerHTML = Math.round(this.value * 100);
 
           currentLayer.eachFeature(function(layer){
             layer.setStyle({
@@ -287,8 +287,8 @@
             currentLayer = precip3MonthLead1Layer;
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .precip-title').text("U.S. 3 Month Precipitation Outlook - Lead 1");
-           $('#precip-map-header .precip-valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 1");
+           $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
           else if (this.value == 'precip-lead-2') {
@@ -296,8 +296,8 @@
             currentLayer = precip3MonthLead2Layer;
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .precip-title').text("U.S. 3 Month Precipitation Outlook - Lead 2");
-           $('#precip-map-header .precip-valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 2");
+           $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
           else if (this.value == 'precip-lead-3') {
@@ -305,8 +305,8 @@
             currentLayer = precip3MonthLead3Layer;
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .precip-title').text("U.S. 3 Month Precipitation Outlook - Lead 3");
-           $('#precip-map-header .precip-valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 3");
+           $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
           else if (this.value == 'precip-lead-4') {
@@ -314,8 +314,8 @@
             currentLayer = precip3MonthLead4Layer;
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .precip-title').text("U.S. 3 Month Precipitation Outlook - Lead 4");
-           $('#precip-map-header .precip-valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 4");
+           $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
           else if (this.value == 'precip-lead-5') {
@@ -323,8 +323,8 @@
             currentLayer = precip3MonthLead5Layer;
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .precip-title').text("U.S. 3 Month Precipitation Outlook - Lead 5");
-           $('#precip-map-header .precip-valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 5");
+           $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
           else if (this.value == 'precip-lead-6') {
@@ -332,8 +332,8 @@
             currentLayer = precip3MonthLead6Layer;
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .precip-title').text("U.S. 3 Month Precipitation Outlook - Lead 6");
-           $('#precip-map-header .precip-valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 6");
+           $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
           else if (this.value == 'precip-lead-7') {
@@ -341,8 +341,8 @@
             currentLayer = precip3MonthLead7Layer;
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .precip-title').text("U.S. 3 Month Precipitation Outlook - Lead 7");
-           $('#precip-map-header .precip-valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 7");
+           $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
           else if (this.value == 'precip-lead-8') {
@@ -350,8 +350,8 @@
             currentLayer = precip3MonthLead8Layer;
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .precip-title').text("U.S. 3 Month Precipitation Outlook - Lead 8");
-           $('#precip-map-header .precip-valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 8");
+           $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
           else if (this.value == 'precip-lead-9') {
@@ -359,8 +359,8 @@
             currentLayer = precip3MonthLead9Layer;
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .precip-title').text("U.S. 3 Month Precipitation Outlook - Lead 9");
-           $('#precip-map-header .precip-valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 9");
+           $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
           else if (this.value == 'precip-lead-10') {
@@ -368,8 +368,8 @@
             currentLayer = precip3MonthLead10Layer;
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .precip-title').text("U.S. 3 Month Precipitation Outlook - Lead 10");
-           $('#precip-map-header .precip-valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 10");
+           $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
           else if (this.value == 'precip-lead-11') {
@@ -377,8 +377,8 @@
             currentLayer = precip3MonthLead11Layer;
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .precip-title').text("U.S. 3 Month Precipitation Outlook - Lead 11");
-           $('#precip-map-header .precip-valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 11");
+           $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
           else if (this.value == 'precip-lead-12') {
@@ -386,8 +386,8 @@
             currentLayer = precip3MonthLead12Layer;
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .precip-title').text("U.S. 3 Month Precipitation Outlook - Lead 12");
-           $('#precip-map-header .precip-valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 12");
+           $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
           else if (this.value == 'precip-lead-13') {
@@ -395,8 +395,8 @@
             currentLayer = precip3MonthLead13Layer;
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .precip-title').text("U.S. 3 Month Precipitation Outlook - Lead 13");
-           $('#precip-map-header .precip-valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 13");
+           $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
         });
@@ -633,8 +633,8 @@
   	  return xmlHttp;
   	 }
 
-
-
+     precipmap.invalidateSize();
+     //export { precipmap };
 
 
     //  }); // .once

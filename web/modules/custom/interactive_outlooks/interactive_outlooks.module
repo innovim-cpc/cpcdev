@@ -16,5 +16,49 @@ function interactive_outlooks_theme($existing, $type, $theme, $path) {
     'precip_map' => [
       'variables' => ['map' => NULL],
     ],
+    'outlook_selector' => [
+      'render element' => 'form',
+    ],
   ];
+}
+
+/**
+* Implements hook_form_alter().
+*/
+function interactive_outlooks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
+
+  if ($form_id == 'interactive_outlooks_selector') {
+    // Attach javascript to form
+    $form['#attached']['library'][] = 'interactive_outlooks/selector';
+    //Pass even variable from this function to JS settings
+    //$form['#attached']['drupalSettings']['interactive_outlooks']['<route_name>'] ['variable'] = 'PHP Value To JS';
+    $form['#attributes']['class'][] = 'usa-form';
+  }
+
+  return $form;
+}
+
+function interactive_outlooks_preprocess_form(&$variables) {
+  //dump($variables);
+  $element = $variables['element'];
+  if ($element['#form_id'] == 'interactive_outlooks_selector') {
+    //$variables['attributes'] = $variables['outlooks_select']['#form_attributes'];
+  }
+}
+
+function interactive_outlooks_preprocess_form_element_label(&$variables) {
+  //dump($variables);
+  $element = $variables['element'];
+  if (isset($element['#label_attributes'])) {
+   $variables['label']['#attributes'] = array(
+     $variables['attributes'],
+     $element['#label_attributes']
+   );
+  }
+}
+
+function interactive_outlooks_preprocess_form_element(&$variables) {
+  //dump($variables);
+  $element = $variables['element'];
+
 }

@@ -23,16 +23,17 @@
         L.esri.basemapLayer('Topographic').addTo(droughtmap);
 
         // Get link to layer data
-        const monthlyDrought = "https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_drought_outlk/MapServer/0/";
-        const seasonalDrought = "https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_drought_outlk/MapServer/1/";
+        var monthlyDrought = "https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_drought_outlk/MapServer/0";
+        var seasonalDrought = "https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_drought_outlk/MapServer/1/";
 
-        // create monhtly drought layer
-        var monthlyDroughtLayer = new L.esri.featureLayer({
+        // create monthly drought layer
+        var monthlyDroughtLayer = L.esri.featureLayer({
           url: monthlyDrought
         });
+        console.log(monthlyDroughtLayer.fcst_date);
 
-        //create seasonal drought layer
-        var seasonalDroughtLayer = new L.esri.featureLayer({
+        // create seasonal drought layer
+        var seasonalDroughtLayer = L.esri.featureLayer({
          url: seasonalDrought
         });
 
@@ -182,26 +183,26 @@
         var seasonalChecked = $('#drought-map__view-select input[type=radio][id=seasonal]:checked');
 
         if (monthlyChecked) {
-          $('.drought-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
+          $('.drought-image li a').attr({href: "https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png", target: "_blank"});
         } else if (seasonalChecked) {
-          $('.drought-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/season_drought.png');
+          $('.drought-image li a').attr({href: "https://www.cpc.ncep.noaa.gov/products/expert_assessment/season_drought.png", target: "_blank"});
         }
 
-        //change the layers of the map to Monthly or Seasonal based on the dropdown list
+        //change the layers of the map to Monthly or Seasonal based on selected radio button
         $('input[name=drought-map-duration]').on('change', function() {
           if (this.value == 'monthly') {
            seasonalDroughtLayer.removeFrom(droughtmap);
            monthlyDroughtLayer.addTo(droughtmap);
            $('#drought-map-header .title').text("U.S. Monthly Drought Outlook");
            $('#drought-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
-           $('.drought-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
+           $('.drought-image li a').attr({href: "https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png", target: "_blank"});
           }
           else if (this.value == 'seasonal') {
            monthlyDroughtLayer.removeFrom(droughtmap);
            seasonalDroughtLayer.addTo(droughtmap);
            $('#drought-map-header .title').text("U.S. Seasonal Drought Outlook");
            $('#drought-map-header .valid-dates').text("Valid for " + seasonalstartdate + " - " + seasonalenddate + ", Released " + releaseseasonal);
-           $('.drought-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/season_drought.png');
+           $('.drought-image li a').attr({href: "https://www.cpc.ncep.noaa.gov/products/expert_assessment/season_drought.png", target: "_blank"});
           }
         });
 
@@ -214,6 +215,10 @@
             droughtmap.setView(new L.LatLng(64.2,-149.4), 3.9)
           }
         });
+
+        droughtmap.invalidateSize();
+
+        //export { droughtmap };
 
     //  }); // .once
   //  } // attach

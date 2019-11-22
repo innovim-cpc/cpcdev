@@ -11,7 +11,7 @@
 
 //  	  $('#map-container', context).once('hazards-map', function() {
   		  // Set up map
-        var hazardsmap = L.map('hazards-map', {
+        const hazardsmap = L.map('hazards-map', {
           center: [38, -96],
           zoom: 4,
           minZoom: 3.6
@@ -131,9 +131,10 @@
           });
 
           prcp814kmlLayer.eachLayer(function(layer){
-            layer.bindPopup(layer.feature.properties.description);
+            //layer.bindPopup(layer.feature.properties.description);
             switch(layer.feature.properties.name){
               case "High Risk of Heavy Precipitation":
+                layer.bindTooltip(layer.feature.properties.name);
                 layer.setStyle({
                   fillColor: '#879B57',
                   fillOpacity: .7,
@@ -143,6 +144,7 @@
                 })
                 break;
               case "Heavy Precipitation":
+                layer.bindTooltip(layer.feature.properties.name);
                 layer.setStyle({
                   fillColor: '#C4EC74',
                   fillOpacity: .7,
@@ -151,7 +153,8 @@
                   weight: 1
                 })
                 break;
-            case "Moderate Risk of Heavy Precipitation":
+              case "Moderate Risk of Heavy Precipitation":
+                layer.bindTooltip(layer.feature.properties.name);
                 layer.setStyle({
                   fillColor: '#C4EC74',
                   fillOpacity: .7,
@@ -161,6 +164,7 @@
                 })
                 break;
               case "Slight Risk of Heavy Precipitation":
+                layer.bindTooltip(layer.feature.properties.name);
                 layer.setStyle({
                   fillColor: '#E4FCA8',
                   fillOpacity: .7,
@@ -170,6 +174,7 @@
                 })
               break;
               case "Frozen Precipitation":
+                layer.bindTooltip(layer.feature.properties.name);
                 layer.setStyle({
                   fillColor: '#5DA7BF',
                   fillOpacity: .7,
@@ -178,6 +183,7 @@
                   weight: 1
                 })
               case "Flooding Possible":
+                layer.bindTooltip(layer.feature.properties.name);
                 layer.setStyle({
                   fillColor: '#F1E1FD',
                   fillOpacity: .7,
@@ -237,9 +243,10 @@
           });
 
           probPrcp814kmlLayer.eachLayer(function(layer){
-            layer.bindPopup(layer.feature.properties.description);
+            //layer.bindPopup(layer.feature.properties.description);
             switch(layer.feature.properties.name){
               case "High Risk of Heavy Precipitation":
+                layer.bindTooltip(layer.feature.properties.name);
                 layer.setStyle({
                   fillColor: '#879B57',
                   fillOpacity: .7,
@@ -249,6 +256,7 @@
                 })
                 break;
               case "Heavy Precipitation":
+                layer.bindTooltip(layer.feature.properties.name);
                 layer.setStyle({
                   fillColor: '#C4EC74',
                   fillOpacity: .7,
@@ -258,6 +266,7 @@
                 })
                 break;
               case "Moderate Risk of Heavy Precipitation":
+                layer.bindTooltip(layer.feature.properties.name);
                 layer.setStyle({
                   fillColor: '#C4EC74',
                   fillOpacity: .7,
@@ -267,6 +276,7 @@
                 })
                 break;
               case "Slight Risk of Heavy Precipitation":
+                layer.bindTooltip(layer.feature.properties.name);
                 layer.setStyle({
                   fillColor: '#E4FCA8',
                   fillOpacity: .7,
@@ -276,6 +286,7 @@
                 })
               break;
               case "Frozen Precipitation":
+                layer.bindTooltip(layer.feature.properties.name);
                 layer.setStyle({
                   fillColor: '#5DA7BF',
                   fillOpacity: .7,
@@ -284,6 +295,7 @@
                   weight: 1
                 })
               case "Flooding Possible":
+                layer.bindTooltip(layer.feature.properties.name);
                 layer.setStyle({
                   fillColor: '#F1E1FD',
                   fillOpacity: .7,
@@ -348,9 +360,10 @@
               }
 
               temp814kmlLayer.eachLayer(function(layer){
-                layer.bindPopup(layer.feature.properties.description);
+                //layer.bindPopup(layer.feature.properties.description);
                 switch(layer.feature.properties.name){
                   case "High Risk of Much Above Normal Temperatures":
+                    layer.bindTooltip(layer.feature.properties.name);
                     layer.setStyle({
                       fillColor: '#B95550',
                       fillOpacity: .7,
@@ -360,6 +373,7 @@
                     })
                     break;
                   case "Moderate Risk of Much Above Normal Temperatures":
+                    layer.bindTooltip(layer.feature.properties.name);
                     layer.setStyle({
                       fillColor: '#E35A52',
                       fillOpacity: .7,
@@ -369,6 +383,7 @@
                     })
                     break;
                   case "Slight Risk of Much Above Normal Temperatures":
+                    layer.bindTooltip(layer.feature.properties.name);
                     layer.setStyle({
                       fillColor: '#F7A9A7',
                       fillOpacity: .7,
@@ -378,6 +393,7 @@
                     })
                     break;
                     case "High Risk of Much Below Normal Temperatures":
+                      layer.bindTooltip(layer.feature.properties.name);
                       layer.setStyle({
                         fillColor: '#4F6899',
                         fillOpacity: .7,
@@ -387,6 +403,7 @@
                       })
                       break;
                     case "Moderate Risk of Much Below Normal Temperatures":
+                      layer.bindTooltip(layer.feature.properties.name);
                       layer.setStyle({
                         fillColor: '#538FE8',
                         fillOpacity: .7,
@@ -396,6 +413,7 @@
                       })
                       break;
                     case "Slight Risk of Much Below Normal Temperatures":
+                      layer.bindTooltip(layer.feature.properties.name);
                       layer.setStyle({
                         fillColor: '#A2C9FB',
                         fillOpacity: .7,
@@ -424,12 +442,11 @@
           if (noHazards === "No_Hazards_Posted")
           {
             //hide checkbox and display No Hazards
-            // $('#temp-probabilistic-814-chkbox').hide();
+            $('#temp-probabilistic-814-chkbox').hide();
           }
           else
           {
-            probTemp814chkBox = true;
-            // $('#temp-probabilistic-814-no-hazards').hide();
+            $('#temp-probabilistic-814-no-hazards').hide();
           }
 
           $(xml).find("Placemark").each(function(){
@@ -456,9 +473,10 @@
               }
 
               probTemp814kmlLayer.eachLayer(function(layer){
-                layer.bindPopup(layer.feature.properties.description);
+                //layer.bindPopup(layer.feature.properties.description);
                 switch(layer.feature.properties.name){
                   case "High Risk of Much Above Normal Temperatures":
+                    layer.bindTooltip(layer.feature.properties.name);
                     layer.setStyle({
                       fillColor: '#B95550',
                       fillOpacity: .7,
@@ -468,6 +486,7 @@
                     })
                     break;
                   case "Moderate Risk of Much Above Normal Temperatures":
+                    layer.bindTooltip(layer.feature.properties.name);
                     layer.setStyle({
                       fillColor: '#E35A52',
                       fillOpacity: .7,
@@ -477,6 +496,7 @@
                     })
                     break;
                   case "Slight Risk of Much Above Normal Temperatures":
+                    layer.bindTooltip(layer.feature.properties.name);
                     layer.setStyle({
                       fillColor: '#F7A9A7',
                       fillOpacity: .7,
@@ -486,6 +506,7 @@
                     })
                     break;
                     case "High Risk of Much Below Normal Temperatures":
+                      layer.bindTooltip(layer.feature.properties.name);
                       layer.setStyle({
                         fillColor: '#4F6899',
                         fillOpacity: .7,
@@ -495,6 +516,7 @@
                       })
                       break;
                     case "Moderate Risk of Much Below Normal Temperatures":
+                      layer.bindTooltip(layer.feature.properties.name);
                       layer.setStyle({
                         fillColor: '#538FE8',
                         fillOpacity: .7,
@@ -504,6 +526,7 @@
                       })
                       break;
                     case "Slight Risk of Much Below Normal Temperatures":
+                      layer.bindTooltip(layer.feature.properties.name);
                       layer.setStyle({
                         fillColor: '#A2C9FB',
                         fillOpacity: .7,
@@ -562,9 +585,10 @@
           });
 
           probExcessHeat814kmlLayer.eachLayer(function(layer){
-            layer.bindPopup(layer.feature.properties.description);
+            //layer.bindPopup(layer.feature.properties.description);
             switch(layer.feature.properties.name){
               case "High Risk of Excessive Heat":
+                layer.bindTooltip(layer.feature.properties.name);
                 layer.setStyle({
                   fillColor: '#96524F',
                   fillOpacity: .7,
@@ -574,6 +598,7 @@
                 })
                 break;
               case "Moderate Risk of Excessive Heat":
+                layer.bindTooltip(layer.feature.properties.name);
                 layer.setStyle({
                   fillColor: '#B95550',
                   fillOpacity: .7,
@@ -583,6 +608,7 @@
                 })
                 break;
               case "Slight Risk of Excessive Heat":
+                layer.bindTooltip(layer.feature.properties.name);
                 layer.setStyle({
                   fillColor: '#C57554',
                   fillOpacity: .7,
@@ -633,9 +659,10 @@
           });
 
           wind814kmlLayer.eachLayer(function(layer){
-            layer.bindPopup(layer.feature.properties.description);
+            //layer.bindPopup(layer.feature.properties.description);
             switch(layer.feature.properties.name){
               case "Moderate Risk of High Winds":
+                layer.bindTooltip(layer.feature.properties.name);
                 layer.setStyle({
                   fillColor: '#986951',
                   fillOpacity: .7,
@@ -645,6 +672,7 @@
                 })
                 break;
               case "Slight Risk of High Winds":
+                layer.bindTooltip(layer.feature.properties.name);
                 layer.setStyle({
                   fillColor: '#DAC499',
                   fillOpacity: .7,
@@ -693,9 +721,10 @@
           });
 
           probWind814kmlLayer.eachLayer(function(layer){
-            layer.bindPopup(layer.feature.properties.description);
+            //layer.bindPopup(layer.feature.properties.description);
             switch(layer.feature.properties.name){
               case "Moderate Risk of High Winds":
+                layer.bindTooltip(layer.feature.properties.name);
                 layer.setStyle({
                   fillColor: '#986951',
                   fillOpacity: .7,
@@ -705,6 +734,7 @@
                 })
                 break;
               case "Slight Risk of High Winds":
+                layer.bindTooltip(layer.feature.properties.name);
                 layer.setStyle({
                   fillColor: '#DAC499',
                   fillOpacity: .7,
@@ -779,5 +809,8 @@
               hazardsmap.setView(new L.LatLng(64.2,-149.4), 4)
             }
         });
+
+        hazardsmap.invalidateSize();
+        //export { hazardsmap };
 
 })(jQuery);

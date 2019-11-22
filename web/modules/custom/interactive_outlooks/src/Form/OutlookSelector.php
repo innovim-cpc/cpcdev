@@ -16,7 +16,7 @@ class OutlookSelector extends FormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'outlooks_selector';
+    return 'interactive_outlooks_selector';
   }
 
   /**
@@ -35,8 +35,16 @@ class OutlookSelector extends FormBase {
         'hazards' => $this->t('Hazards Outlook'),
         'drought' => $this->t('Drought Outlook'),
       ],
+      '#form_attributes' => [
+        'class' => 'usa-form',
+        //'for' => 'outlook-options',
+      ],
+      '#label_attributes' => [
+        'class' => 'usa-label',
+        'for' => 'outlook-options',
+      ],
     ];
-
+    $form['#theme'] = 'outlook_selector';
     // Create the submit button.
     $form['submit'] = [
       '#type' => 'submit',
@@ -60,16 +68,52 @@ class OutlookSelector extends FormBase {
    * {@inheritdoc}
    */
   public function changeOutlook(array &$form, FormStateInterface $form_state) {
+    $temp_map = [
+      '#theme' => 'temp_map',
+      //'#test_var' => 'test variable',
+    ];
+    $precip_map = [
+      '#theme' => 'precip_map',
+      //'#test_var' => 'test variable',
+    ];
+    $hazards_map = [
+      '#theme' => 'hazards_map',
+      //'#test_var' => 'test variable',
+    ];
+    $drought_map = [
+      '#theme' => 'drought_map',
+      //'#test_var' => 'test variable',
+    ];
+
+    $response = new AjaxResponse();
     // Check if the select field has a selected option.
     if ($selectedValue = $form_state->getValue('outlooks_select')) {
       // Get the text of the selected option.
-      $selectedText = $form['outlooks_select']['#options'][$selectedValue];
-      if ($selectedValue = '// TEMP: '){
-        
+      //$selectedText = $form['outlooks_select']['#options'][$selectedValue];
+      if ($selectedValue = 'temp'){
+
+      }
+      switch ($selectedValue) {
+        case 'temp':
+          $rendered = \Drupal::service('renderer')->render($temp_map);
+          $response->addCommand(new ReplaceCommand($rendered));
+          break;
+        case 'precip':
+          //
+          break;
+        case 'hazards':
+          //code
+          break;
+        case 'drought':
+          //
+          break;
+        default:
+          // show temp block
       }
       // Place the text of the selected option in our textfield.
       //$form['output']['#value'] = $selectedText;
     }
+    return $response;
   }
 
 

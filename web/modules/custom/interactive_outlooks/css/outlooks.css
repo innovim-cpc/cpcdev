@@ -374,3 +374,11 @@ table.hazards-data th {
   background: #4CAF50;
   cursor: pointer;
 }
+.block-interactive-outlooks {
+  margin-top: 20px;
+}
+.outlooks-selector-container {
+  position: absolute;
+  left: 650px;
+  top: 40px !important;
+}

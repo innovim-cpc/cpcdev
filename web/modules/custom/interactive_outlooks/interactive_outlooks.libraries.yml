@@ -70,20 +70,6 @@ google:
   js:
     https://www.gstatic.com/charts/loader.js: { type: external }
 
-selector:
-  version: 1.x
-  css:
-    theme:
-      css/outlooks.css: {}
-  js:
-    js/outlooks-selector.js: {}
-  dependencies:
-    - core/jquery
-    - core/drupal
-    - interactive_outlooks/leaflet
-    - interactive_outlooks/esri-leaflet
-    - interactive_outlooks/leaflet-plugins
-
 drought:
   version: 1.x
   css:
@@ -150,3 +136,18 @@ precip:
     - interactive_outlooks/google
     - interactive_outlooks/leaflet-renderers
     - interactive_outlooks/esri-leaflet-geocoder
+
+selector:
+  version: 1.x
+  css:
+    theme:
+      css/outlooks.css: {}
+  js:
+    js/outlooks-selector.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - interactive_outlooks/temp
+    - interactive_outlooks/precip
+    - interactive_outlooks/hazards
+    - interactive_outlooks/drought

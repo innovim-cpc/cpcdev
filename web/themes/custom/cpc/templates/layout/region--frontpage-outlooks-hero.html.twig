@@ -20,10 +20,9 @@
 %}
 {{ attach_library('interactive_outlooks/selector') }}
 {# if content #}
-<div class="grid-row">
-  <div class="tablet:grid-col-8">
-  </div>
-  <div class="tablet:grid-col-4">
+<div class="grid-row" style="position:relative;">
+
+  <div class="tablet:grid-col-5">
     <div class="outlooks-selector-container">
       <form class="usa-form" id="outlooks-selector">
         <label class="usa-label" for="outlook-options">Select an Outlook</label>
@@ -40,7 +39,7 @@
   </div>
 </div>
 
-<div class="grid-row outlooks">
+<div class="grid-row outlooks" style="clear:both;min-height:650px;">
 
   <div class="tablet:grid-col-12 temp">
     {{ drupal_block('interactive_temp_outlooks') }}
