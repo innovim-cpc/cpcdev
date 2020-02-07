@@ -92,8 +92,10 @@
            }
        });
 
-        var validmonth = "";
-        var releasemonth = "";
+        var validmonth;
+        var validMonthEnd;
+        var releasemonth;
+        var validSeason;
 
         var currentLayer = temp610dayLayer;
         var previousLayer = "";
@@ -103,8 +105,17 @@
 
         function iterateFeatures () {
           currentLayer.eachFeature(function(layer) {
-            validmonth = layer.feature.properties.start_date;
-            releasemonth = layer.feature.properties.fcst_date;
+            // validmonth = layer.feature.properties.start_date;
+            // releasemonth = layer.feature.properties.fcst_date;
+            validmonth = new Date(layer.feature.properties.start_date);
+            validMonthEnd = new Date(layer.feature.properties.end_date);
+            releasemonth = new Date(layer.feature.properties.fcst_date); 
+            validSeason = layer.feature.properties.valid_seas;  
+            var validMonthFormat = (validmonth.getMonth() + 1) + '-' +  validmonth.getDate()   + '-' + validmonth.getFullYear();            
+            var validMonthEndFormat = (validMonthEnd.getMonth() + 1) + '-' +  validMonthEnd.getDate()   + '-' + validMonthEnd.getFullYear();      
+            var releaseMonthFormat = (releasemonth.getMonth() + 1) + '-' +  releasemonth.getDate()   + '-' + releasemonth.getFullYear();            
+            validmonth = validMonthFormat + ' - ' + validMonthEndFormat;
+            releasemonth = releaseMonthFormat;
             layer.setStyle({
                fillOpacity: 0.6
             });
@@ -173,12 +184,19 @@
 
         temp610dayLayer.query()
           .run(function(error, featureCollection){
-          validmonth = featureCollection.features[0].properties.start_date;
-          releasemonth = featureCollection.features[0].properties.fcst_date;
+            validmonth = new Date(featureCollection.features[0].properties.start_date);
+            validMonthEnd = new Date(featureCollection.features[0].properties.end_date);
+            releasemonth = new Date(featureCollection.features[0].properties.fcst_date);
+            var validMonthFormat = (validmonth.getMonth() + 1) + '-' +  validmonth.getDate()   + '-' + validmonth.getFullYear();            
+            var validMonthEndFormat = (validMonthEnd.getMonth() + 1) + '-' +  validMonthEnd.getDate()   + '-' + validMonthEnd.getFullYear();      
+            var releaseMonthFormat = (releasemonth.getMonth() + 1) + '-' +  releasemonth.getDate()   + '-' + releasemonth.getFullYear();            
+            validmonth = validMonthFormat + ' - ' + validMonthEndFormat;
+            releasemonth = releaseMonthFormat;
 
-          // Set initial title and valid period for monthly drought outlook
-          $('#temp-map-header .title').text("U.S. 6 to 10 Day Temperature Outlook");
-          $('#temp-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
+
+            // Set initial title and valid period for monthly drought outlook
+            $('#temp-map-header .title').text("U.S. 6 to 10 Day Temperature Outlook");
+            $('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
         });
         var temp610dayChecked = $('#temp-map__view-select input[type=radio][id=temp610day]:checked');
         var temp814dayChecked = $('#temp-map__view-select input[type=radio][id=temp814day]:checked');
@@ -186,7 +204,7 @@
         if (temp610dayChecked) {
           $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/610day/610temp.new.gif');
         }
-        else if (temp814Checked) {
+        else if (temp814dayChecked) {
           $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/814day/814temp.new.gif');
         }
 
@@ -201,7 +219,7 @@
             //hide Select a Lead
             $('#lead-selector').hide();
             $('#temp-map-header .title').text("U.S. 6 to 10 Day Temperature Outlook");
-            $('#temp-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
+            $('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
             $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/610day/610temp.new.gif');
           }
           else if (this.value == 'temp814day') {
@@ -214,7 +232,7 @@
             $('#lead-selector').hide();
 
             $('#temp-map-header .title').text("U.S. 8 to 14 Day Temperature Outlook");
-            $('#temp-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
+            $('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
             $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/814day/814temp.new.gif');
           }
           else if (this.value == 'tempmonthly') {
@@ -227,7 +245,7 @@
             $('#lead-selector').hide();
 
             $('#temp-map-header .title').text("U.S. Monthly Temperature Outlook");
-            $('#temp-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
+            $('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
             $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead14/off14_temp.gif');
           }
           else if (this.value == 'temp3month') {
@@ -239,7 +257,7 @@
             //Show Select a Lead
             $('#lead-selector').show();
             $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook");
-            $('#temp-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
+            $('#temp-map-header .valid-dates').html("Valid: " + validSeason + "<br> Released: " + releasemonth);
             $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead01/off01_temp.gif');
           }
         });
@@ -290,7 +308,7 @@
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 1");
-           $('#temp-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#temp-map-header .valid-dates').html("Valid: " + validSeason + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead01/off01_temp.gif');
           }
           else if (this.value == 'temp-lead-2') {
@@ -299,7 +317,7 @@
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 2");
-           $('#temp-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#temp-map-header .valid-dates').html("Valid: " + validSeason + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead02/off02_temp.gif');
           }
           else if (this.value == 'temp-lead-3') {
@@ -308,7 +326,7 @@
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 3");
-           $('#temp-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#temp-map-header .valid-dates').html("Valid: " + validSeason + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead03/off03_temp.gif');
           }
           else if (this.value == 'temp-lead-4') {
@@ -317,7 +335,7 @@
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 4");
-           $('#temp-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#temp-map-header .valid-dates').html("Valid: " + validSeason + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead04/off04_temp.gif');
           }
           else if (this.value == 'temp-lead-5') {
@@ -326,7 +344,7 @@
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 5");
-           $('#temp-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#temp-map-header .valid-dates').html("Valid: " + validSeason + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead05/off05_temp.gif');
           }
           else if (this.value == 'temp-lead-6') {
@@ -335,7 +353,7 @@
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .temp-title').text("U.S. 3 Month Temperature Outlook - Lead 6");
-           $('#temp-map-header .temp-valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#temp-map-header .temp-valid-dates').html("Valid: " + validSeason + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead06/off06_temp.gif');
           }
           else if (this.value == 'temp-lead-7') {
@@ -344,7 +362,7 @@
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .temp-title').text("U.S. 3 Month Temperature Outlook - Lead 7");
-           $('#temp-map-header .temp-valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#temp-map-header .temp-valid-dates').html("Valid: " + validSeason + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead07/off07_temp.gif');
           }
           else if (this.value == 'temp-lead-8') {
@@ -353,7 +371,7 @@
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 8");
-           $('#temp-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#temp-map-header .valid-dates').html("Valid: " + validSeason + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead08/off08_temp.gif');
           }
           else if (this.value == 'temp-lead-9') {
@@ -362,7 +380,7 @@
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 9");
-           $('#temp-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#temp-map-header .valid-dates').html("Valid: " + validSeason + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
           else if (this.value == 'temp-lead-10') {
@@ -371,7 +389,7 @@
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 10");
-           $('#temp-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#temp-map-header .valid-dates').html("Valid: " + validSeason + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
           else if (this.value == 'temp-lead-11') {
@@ -380,7 +398,7 @@
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 11");
-           $('#temp-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#temp-map-header .valid-dates').html("Valid: " + validSeason + "<br> Released " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
           else if (this.value == 'temp-lead-12') {
@@ -389,7 +407,7 @@
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 12");
-           $('#temp-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#temp-map-header .valid-dates').html("Valid: " + validSeason + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
           else if (this.value == 'temp-lead-13') {
@@ -398,7 +416,7 @@
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 13");
-           $('#temp-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#temp-map-header .valid-dates').html("Valid: " + validSeason + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
         });
