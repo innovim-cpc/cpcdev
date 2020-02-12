@@ -184,6 +184,7 @@
 
         temp610dayLayer.query()
           .run(function(error, featureCollection){
+
             validmonth = new Date(featureCollection.features[0].properties.start_date);
             validMonthEnd = new Date(featureCollection.features[0].properties.end_date);
             releasemonth = new Date(featureCollection.features[0].properties.fcst_date);
@@ -193,10 +194,10 @@
             validmonth = validMonthFormat + ' - ' + validMonthEndFormat;
             releasemonth = releaseMonthFormat;
 
-
             // Set initial title and valid period for monthly drought outlook
             $('#temp-map-header .title').text("U.S. 6 to 10 Day Temperature Outlook");
             $('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
+
         });
         var temp610dayChecked = $('#temp-map__view-select input[type=radio][id=temp610day]:checked');
         var temp814dayChecked = $('#temp-map__view-select input[type=radio][id=temp814day]:checked');
