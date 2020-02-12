@@ -175,7 +175,7 @@
           .run(function(error, featureCollection){
           validmonth = featureCollection.features[0].properties.start_date;
           releasemonth = featureCollection.features[0].properties.fcst_date;
-
+          console.log(featureCollection.features[0].properties);
           // Set initial title and valid period for monthly drought outlook
           $('#temp-map-header .title').text("U.S. 6 to 10 Day Temperature Outlook");
           $('#temp-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
