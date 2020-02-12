@@ -13,8 +13,9 @@
   		  // Set up map
         const hazardsmap = L.map('hazards-map', {
           center: [38, -96],
-          zoom: 4,
-          minZoom: 3.6
+          zoomSnap: 0.1,
+          zoom: 3.9,
+          minZoom: 3.9
         });
 
         hazardsmap.whenReady(hideLegend);
