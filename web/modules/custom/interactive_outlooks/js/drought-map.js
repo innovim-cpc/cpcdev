@@ -12,7 +12,7 @@
    	  //$('#drought-outlooks-map', context).once('#drought-map', function() {
 
   		  // Create the map
-        var droughtmap = L.map('drought-map', {
+        const droughtmap = L.map('drought-map', {
           center: [38, -96],
           zoomSnap: 0.1,
           zoom: 3.9,
@@ -22,27 +22,23 @@
         // Add Esri World Topo base map via Esri Leaflet plugin
         L.esri.basemapLayer('Topographic').addTo(droughtmap);
 
-        // Get link to layer data
-        var monthlyDrought = "https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_drought_outlk/MapServer/0";
-        var seasonalDrought = "https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_drought_outlk/MapServer/1/";
-
-        // create monthly drought layer
-        var monthlyDroughtLayer = L.esri.featureLayer({
-          url: monthlyDrought
+        //create Drought layers
+        var monthlyDroughtLayer = new L.esri.featureLayer({
+          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_drought_outlk/MapServer/0'
         });
-        console.log(monthlyDroughtLayer.fcst_date);
-
-        // create seasonal drought layer
-        var seasonalDroughtLayer = L.esri.featureLayer({
-         url: seasonalDrought
+        var seasonalDroughtLayer = new L.esri.featureLayer({
+          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_drought_outlk/MapServer/1'
         });
-
+        
         //Add initial layer to map
         monthlyDroughtLayer.addTo(droughtmap);
 
-        //Add seasonal map on load (then remove it) or the layer styles won't be applied
         seasonalDroughtLayer.addTo(droughtmap);
         seasonalDroughtLayer.removeFrom(droughtmap);
+
+        var currentLayer = monthlyDroughtLayer;
+        var previousLayer = "";
+        currentLayer.on('load', iterateFeatures);
 
         var validmonth = "";
         var releasemonth = "";
@@ -54,16 +50,11 @@
         var persist;
         var remove;
 
-        monthlyDroughtLayer.query()
-          .run(function(error, featureCollection){
-          validmonth = featureCollection.features[0].properties.target;
-          releasemonth = featureCollection.features[0].properties.fcst_date;
-          // Set initial title and valid period for monthly drought outlook
-          $('#drought-map-header .title').text("U.S. Monthly Drought Outlook");
-          $('#drought-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
-
-          ///set the colors of the layers
-          monthlyDroughtLayer.eachFeature(function(layer){
+        function iterateFeatures () {
+          currentLayer.eachFeature(function(layer) {
+            layer.setStyle({
+               fillOpacity: 0.6
+            });
             if (layer.feature.properties.fid_dev){
               layer.setStyle({
                 color: '#FFDE63'
@@ -101,9 +92,8 @@
               remove = true;
             }
 
-          });
 
-          //hide the legend item if there are no layers for that item
+            //hide the legend item if there are no layers for that item
           if (!develop){
             $('.development').hide();
           }
@@ -117,6 +107,18 @@
             $('.removal').hide();
           }
 
+            
+          });
+        }
+
+        monthlyDroughtLayer.query()
+          .run(function(error, featureCollection){
+          validmonth = featureCollection.features[0].properties.start_date;
+          releasemonth = featureCollection.features[0].properties.fcst_date;
+
+          // Set initial title and valid period for monthly drought outlook
+          $('#drought-map-header .title').text("U.S. Monthly Drought Outlook");
+          $('#drought-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
         });
 
         seasonalDroughtLayer.query()
@@ -179,6 +181,7 @@
           }
         });
 
+
         var monthlyChecked = $('#drought-map__view-select input[type=radio][id=monthly]:checked');
         var seasonalChecked = $('#drought-map__view-select input[type=radio][id=seasonal]:checked');
 
@@ -192,6 +195,7 @@
         $('input[name=drought-map-duration]').on('change', function() {
           if (this.value == 'monthly') {
            seasonalDroughtLayer.removeFrom(droughtmap);
+           currentLayer = seasonalDroughtLayer;
            monthlyDroughtLayer.addTo(droughtmap);
            $('#drought-map-header .title').text("U.S. Monthly Drought Outlook");
            $('#drought-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
@@ -199,12 +203,22 @@
           }
           else if (this.value == 'seasonal') {
            monthlyDroughtLayer.removeFrom(droughtmap);
-           seasonalDroughtLayer.addTo(droughtmap);
+           currentLayer.addTo(droughtmap);
+           currentLayer.on('load', iterateFeatures);
+          //  seasonalDroughtLayer.addTo(droughtmap);
            $('#drought-map-header .title').text("U.S. Seasonal Drought Outlook");
            $('#drought-map-header .valid-dates').text("Valid for " + seasonalstartdate + " - " + seasonalenddate + ", Released " + releaseseasonal);
            $('.drought-image li a').attr({href: "https://www.cpc.ncep.noaa.gov/products/expert_assessment/season_drought.png", target: "_blank"});
           }
         });
+
+
+        // Function to remove any existing layers
+        function removePrevLayer() {
+          if (droughtmap.hasLayer(currentLayer)) {
+            droughtmap.removeLayer(currentLayer);
+          }
+        };
 
         //change the map to the correct area
         $('input[type=radio][name=drought-map-view]').on('change',function() {
@@ -216,9 +230,31 @@
           }
         });
 
-        droughtmap.invalidateSize();
+        var droughtSlider = $('#drought-opacity-level')[0];
+        // var output = document.getElementById("sliderValue");
+        var droughtOutput = $('.drought-opacity-slider__value')[0];
 
-        //export { droughtmap };
+        var opacityVal = $('.drought-opacity-slider__range').val();
+        // Convert opacity decimal value to percent
+        var percent = Math.round(droughtSlider.value * 100);
+        // Write percent value in html label area
+        $('.drought-opacity-slider__value').html(percent);
+
+        droughtOutput.innerHTML = percent;
+        droughtSlider.oninput = function() {
+          droughtOutput.innerHTML = Math.round(this.value * 100);
+
+          currentLayer.eachFeature(function(layer){
+            layer.setStyle({
+              fillOpacity: (droughtSlider.value)
+            });
+          });
+        }
+
+        
+     droughtmap.invalidateSize();
+     //export { droughtmap };
+
 
     //  }); // .once
   //  } // attach
