@@ -6,10 +6,10 @@
 (function ($) {
   "use strict";
 
-   //Drupal.behaviors.createprecipMap = {
+   //Drupal.behaviors.createPrecipMap = {
    	//attach:function (context, settings) {
 
-   	  //$('#precip-outlooks-map', context).once('#precip-map', function() {
+   	  //$('#precip-map', context).once('.precip-map', function() {
 
   		  // Create the map
         const precipmap = L.map('precip-map', {
@@ -19,61 +19,62 @@
           minZoom: 3.9
         });
 
+        precipmap.invalidateSize();
+
         // Add Esri World Topo base map via Esri Leaflet plugin
         L.esri.basemapLayer('Topographic').addTo(precipmap);
-
 
         // Get link to layer data
         // const temp = "https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_6_10_day_outlk/MapServer/0/";
         // const precip = "https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_6_10_day_outlk/MapServer/1/";
 
         //create Precipitation layers
-        var precip610dayLayer = new L.esri.featureLayer({
+        const precip610dayLayer = new L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_6_10_day_outlk/MapServer/1'
         });
-        var precip814dayLayer = new L.esri.featureLayer({
+        const precip814dayLayer = new L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_8_14_day_outlk/MapServer/1'
         });
-        var precipMonthlyLayer = new L.esri.featureLayer({
+        const precipMonthlyLayer = new L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_mthly_precip_outlk/MapServer/0'
         });
-        var precip3MonthLead1Layer = new L.esri.featureLayer({
+        const precip3MonthLead1Layer = new L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_precip_outlk/MapServer/0'
         });
-        var precip3MonthLead2Layer = new L.esri.featureLayer({
+        const precip3MonthLead2Layer = new L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_precip_outlk/MapServer/1'
         });
-        var precip3MonthLead3Layer = new L.esri.featureLayer({
+        const precip3MonthLead3Layer = new L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_precip_outlk/MapServer/2'
         });
-        var precip3MonthLead4Layer = new L.esri.featureLayer({
+        const precip3MonthLead4Layer = new L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_precip_outlk/MapServer/3'
         });
-        var precip3MonthLead5Layer = new L.esri.featureLayer({
+        const precip3MonthLead5Layer = new L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_precip_outlk/MapServer/4'
         });
-        var precip3MonthLead6Layer = new L.esri.featureLayer({
+        const precip3MonthLead6Layer = new L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_precip_outlk/MapServer/5'
         });
-        var precip3MonthLead7Layer = new L.esri.featureLayer({
+        const precip3MonthLead7Layer = new L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_precip_outlk/MapServer/6'
         });
-        var precip3MonthLead8Layer = new L.esri.featureLayer({
+        const precip3MonthLead8Layer = new L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_precip_outlk/MapServer/7'
         });
-        var precip3MonthLead9Layer = new L.esri.featureLayer({
+        const precip3MonthLead9Layer = new L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_precip_outlk/MapServer/8'
         });
-        var precip3MonthLead10Layer = new L.esri.featureLayer({
+        const precip3MonthLead10Layer = new L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_precip_outlk/MapServer/9'
         });
-        var precip3MonthLead11Layer = new L.esri.featureLayer({
+        const precip3MonthLead11Layer = new L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_precip_outlk/MapServer/10'
         });
-        var precip3MonthLead12Layer = new L.esri.featureLayer({
+        const precip3MonthLead12Layer = new L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_precip_outlk/MapServer/11'
         });
-        var precip3MonthLead13Layer = new L.esri.featureLayer({
+        const precip3MonthLead13Layer = new L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_precip_outlk/MapServer/12'
         });
 
@@ -92,22 +93,97 @@
            }
        });
 
-        //Add initial layer to map
+        // Add initial layer to map
         precip610dayLayer.addTo(precipmap);
 
+        var get_start_date;
+        var get_end_date;
+        var get_fcst_date;
+        var get_valid_seas;
+        var start_date_plus1;
+        var end_date_plus1;
+        var fcst_date_plus1;
+        var start_date;
+        var end_date;
+        var fcst_date;
+        var file_date;
+        var valid_seas;
 
+        // Set current layer
         var currentLayer = precip610dayLayer;
-        var previousLayer = "";
+
+        // Initial settings for 6-10 day layer
         currentLayer.on('load', iterateFeatures);
 
-        var validmonth = "";
-        var releasemonth = "";
+        // Initialize 6-10 day layer
+        precip610dayLayer.query()
+        .run(function(error, featureCollection){
+          //precipmap.invalidateSize();
+          iterateFeatures();
+
+          get_start_date = new Date(featureCollection.features[0].properties.start_date);
+          get_end_date = new Date(featureCollection.features[0].properties.end_date);
+          get_fcst_date = new Date(featureCollection.features[0].properties.fcst_date);
+          file_date = new Date(featureCollection.features[0].properties.idp_filedate);
+
+          // Add a day to the date for correct display
+          start_date_plus1 = get_start_date.setDate(get_start_date.getDate() + 1);
+          end_date_plus1 = get_end_date.setDate(get_end_date.getDate() + 1);
+          fcst_date_plus1 = get_end_date.setDate(get_fcst_date.getDate() + 1);
+
+          // Create new Date object
+          start_date = new Date(start_date_plus1);
+          end_date = new Date(end_date_plus1);
+          fcst_date = new Date(fcst_date_plus1);
+
+          // Set up options for date display
+          var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+          // Format dates
+          start_date = start_date.toLocaleDateString("en-US", options);
+          end_date = end_date.toLocaleDateString("en-US", options);
+          fcst_date = fcst_date.toLocaleDateString("en-US", options);
+
+          // Set initial title and valid period for 6-10 day precip outlook
+          $('#precip-map-header .title').text("U.S. 6 to 10 Day Precipitation Outlook");
+          $('#precip-map-header .valid-dates').html("Valid for " + start_date + " &ndash; " + end_date + "<br>Released: " + fcst_date);
+        });
+
+        var previousLayer = "";
+
         $('#precip-map-header .title').text("U.S. 6 to 10 Day Precipitation Outlook");
-        $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
+        //$('#precip-map-header .valid-dates').text("Valid for " + fcst_date + ", Released " + file_date);
         $('#lead-selector-precip').hide();
 
         function iterateFeatures () {
+          precipmap.invalidateSize();
           currentLayer.eachFeature(function(layer) {
+            console.log(layer.feature.properties);
+
+            get_start_date = new Date(layer.feature.properties.start_date);
+            get_end_date = new Date(layer.feature.properties.end_date);
+            get_fcst_date = new Date(layer.feature.properties.fcst_date);
+            get_valid_seas = layer.feature.properties.valid_seas;
+
+            // Add a day to the date for correct display
+            start_date_plus1 = get_start_date.setDate(get_start_date.getDate() + 1);
+            end_date_plus1 = get_end_date.setDate(get_end_date.getDate() + 1);
+            fcst_date_plus1 = get_end_date.setDate(get_fcst_date.getDate() + 1);
+
+            // Create new Date object
+            start_date = new Date(start_date_plus1);
+            end_date = new Date(end_date_plus1);
+            fcst_date = new Date(fcst_date_plus1);
+
+            // Set up options for date display
+            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+            // Format dates
+            start_date = start_date.toLocaleDateString("en-US", options);
+            end_date = end_date.toLocaleDateString("en-US", options);
+            fcst_date = fcst_date.toLocaleDateString("en-US", options);
+            //valid_seas =
+
             layer.setStyle({
                fillOpacity: 0.6
             });
@@ -126,11 +202,11 @@
                   layer.bindTooltip("70% chance of Above Average Precipitation");
                   break;
                 case 60:
-                    layer.bindTooltip("60% chance of Above Average Precipitation");
-                    break;
+                  layer.bindTooltip("60% chance of Above Average Precipitation");
+                  break;
                 case 50:
-                    layer.bindTooltip("50% chance of Above Average Precipitation");
-                    break;
+                  layer.bindTooltip("50% chance of Above Average Precipitation");
+                  break;
                 case 40:
                   layer.bindTooltip("40% chance of Above Average Precipitation");
                   break;
@@ -141,10 +217,10 @@
 
             }
             else if (layer.feature.properties.cat == "Normal"){
-                  layer.bindTooltip("36% chance of Normal Precipitation");
+              layer.bindTooltip("36% chance of Normal Precipitation");
             }
             else if (layer.feature.properties.cat == "EC"){
-                  layer.removeFrom(precipmap);
+              layer.removeFrom(precipmap);
             }
             else if (layer.feature.properties.cat == "Below"){
               switch(layer.feature.properties.prob){
@@ -174,17 +250,6 @@
           });
         }
 
-        precip610dayLayer.query()
-          .run(function(error, featureCollection){
-          validmonth = featureCollection.features[0].properties.start_date;
-          releasemonth = featureCollection.features[0].properties.fcst_date;
-
-          // Set initial title and valid period for monthly drought outlook
-          $('#precip-map-header .title').text("U.S. 6 to 10 Day Precipitation Outlook");
-          $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
-        });
-
-
         var precip610dayChecked = $('#precip-map__view-select input[type=radio][id=precip610day]:checked');
         var precip814dayChecked = $('#precip-map__view-select input[type=radio][id=precip610day]:checked');
 
@@ -194,51 +259,47 @@
           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/814day/814prcp.new.gif');
         }
 
-        //change the layers of the map to Monthly or precip based on the dropdown list
+        // Change the layers of the map to based on dropdown list selection
         $('input[name=precip-map-duration]').on('change', function() {
           if (this.value == 'precip610day') {
             removePrevLayer();
             currentLayer = precip610dayLayer;
             currentLayer.addTo(precipmap);
-            currentLayer.on('load', iterateFeatures);
             //hide Select a Lead
             $('#lead-selector-precip').hide();
             $('#precip-map-header .title').text("U.S. 6 to 10 Day Precipitation Outlook");
-            $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
+            $('#precip-map-header .valid-dates').html("Valid for " + start_date + " &ndash; " + end_date + "<br>Released: " + fcst_date);
             $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/610day/610prcp.new.gif');
           }
           else if (this.value == 'precip814day') {
             removePrevLayer();
             currentLayer = precip814dayLayer;
             currentLayer.addTo(precipmap);
-            currentLayer.on('load', iterateFeatures);
             //hide Select a Lead
             $('#lead-selector-precip').hide();
             $('#precip-map-header .title').text("U.S. 8 to 14 Day Precipitation Outlook");
-            $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
+            $('#precip-map-header .valid-dates').html("Valid for " + start_date + " &ndash; " + end_date + "<br>Released: " + fcst_date);
             $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/814day/814prcp.new.gif');
           }
           else if (this.value == 'precip-monthly') {
             removePrevLayer();
             currentLayer = precipMonthlyLayer;
             currentLayer.addTo(precipmap);
-            currentLayer.on('load', iterateFeatures);
 
             //hide Select a Lead
             $('#lead-selector-precip').hide();
             $('#precip-map-header .title').text("U.S. Monthly Precipitation Outlook");
-            $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
+            $('#precip-map-header .valid-dates').html("Valid for " + get_valid_seas + "<br>Released: " + fcst_date);
             $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead14/off14_prcp.gif');
           }
           else if (this.value == 'precip-3month') {
             removePrevLayer();
             currentLayer = precip3MonthLead1Layer;
             currentLayer.addTo(precipmap);
-            currentLayer.on('load', iterateFeatures);
             //Show Select a Lead
             $('#lead-selector-precip').show();
             $('#precip-map-header .title').text("U.S. 3 Month Preciptation Outlook");
-            $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
+            $('#precip-map-header .valid-dates').html("Valid for " + start_date + " &ndash; " + end_date + "<br>Released: " + fcst_date);
             $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead01/off01_prcp.gif');
           }
         });
@@ -289,7 +350,7 @@
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 1");
            $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
-           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
+           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead01/off01_prcp.gif');
           }
           else if (this.value == 'precip-lead-2') {
             removePrevLayer();
@@ -298,7 +359,7 @@
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 2");
            $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
-           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
+           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead02/off02_prcp.gif');
           }
           else if (this.value == 'precip-lead-3') {
             removePrevLayer();
@@ -307,7 +368,7 @@
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 3");
            $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
-           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
+           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead03/off03_prcp.gif');
           }
           else if (this.value == 'precip-lead-4') {
             removePrevLayer();
@@ -316,7 +377,7 @@
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 4");
            $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
-           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
+           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead04/off04_prcp.gif');
           }
           else if (this.value == 'precip-lead-5') {
             removePrevLayer();
@@ -325,7 +386,7 @@
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 5");
            $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
-           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
+           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead05/off05_prcp.gif');
           }
           else if (this.value == 'precip-lead-6') {
             removePrevLayer();
@@ -334,7 +395,7 @@
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 6");
            $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
-           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
+           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead06/off06_prcp.gif');
           }
           else if (this.value == 'precip-lead-7') {
             removePrevLayer();
@@ -343,7 +404,7 @@
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 7");
            $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
-           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
+           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead07/off07_prcp.gif');
           }
           else if (this.value == 'precip-lead-8') {
             removePrevLayer();
@@ -352,7 +413,7 @@
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 8");
            $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
-           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
+           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead08/off08_prcp.gif');
           }
           else if (this.value == 'precip-lead-9') {
             removePrevLayer();
@@ -361,7 +422,7 @@
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 9");
            $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
-           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
+           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead09/off09_prcp.gif');
           }
           else if (this.value == 'precip-lead-10') {
             removePrevLayer();
@@ -370,7 +431,7 @@
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 10");
            $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
-           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
+           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead10/off10_prcp.gif');
           }
           else if (this.value == 'precip-lead-11') {
             removePrevLayer();
@@ -379,7 +440,7 @@
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 11");
            $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
-           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
+           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead11/off11_prcp.gif');
           }
           else if (this.value == 'precip-lead-12') {
             removePrevLayer();
@@ -388,7 +449,7 @@
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 12");
            $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
-           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
+           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead12/off12_prcp.gif');
           }
           else if (this.value == 'precip-lead-13') {
             removePrevLayer();
@@ -397,7 +458,7 @@
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 13");
            $('#precip-map-header .valid-dates').text("Valid for " + new Date(validmonth) + ", Released " + new Date(releasemonth));
-           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
+           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead13/off13_prcp.gif');
           }
         });
 
@@ -553,37 +614,30 @@
     			xmlHttp.send(null);
       }
       function HandleResponse_Precip(response) {
-      		response = response.split('#');
-          pcpn_norm = response[0];
-    			precip_abv = response[1];
-    			precip_blo = response[2];
-    			precip_norm = response[3];
-            if (initialLoad){
-              if (pcpn_norm == null)
-              {
-                drawChartInitial(pcpn_norm,precip_abv,precip_blo,precip_norm);
-              }
-              else
-              {
-                setTimeout(function(){
-                    drawChartInitial(pcpn_norm,precip_abv,precip_blo,precip_norm);
-                }, 700);
-              }
-            }
-            else
-            {
-              if (pcpn_norm == null)
-              {
-                drawChart(pcpn_norm,precip_abv,precip_blo,precip_norm);
-              }
-              else
-              {
-                setTimeout(function(){
-                    drawChart(pcpn_norm,precip_abv,precip_blo,precip_norm);
-                }, 700);
-              }
-            }
+    		response = response.split('#');
+        pcpn_norm = response[0];
+  			precip_abv = response[1];
+  			precip_blo = response[2];
+  			precip_norm = response[3];
+        if (initialLoad){
+          if (pcpn_norm == null)
+          {
+            drawChartInitial(pcpn_norm,precip_abv,precip_blo,precip_norm);
+          } else {
+            setTimeout(function(){
+              drawChartInitial(pcpn_norm,precip_abv,precip_blo,precip_norm);
+            }, 700);
+          }
+        } else {
+          if (pcpn_norm == null) {
+            drawChart(pcpn_norm,precip_abv,precip_blo,precip_norm);
+          } else {
+            setTimeout(function(){
+              drawChart(pcpn_norm,precip_abv,precip_blo,precip_norm);
+            }, 700);
+          }
         }
+      }
 
       function drawChart(pcpn_norm,precip_abv,precip_blo,precip_norm) {
 
@@ -610,35 +664,32 @@
         }
 
       function getXMLHttp() {
-  		var xmlHttp;
-  		try {
-  		//Firefox, Opera 8.0+, Safari
-  		xmlHttp = new XMLHttpRequest();
-  		}
-      catch(e) {
-  		//Internet Explorer
-  		try {
-  		  xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
-  		}
-      catch(e) {
-  		try {
-  			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
-  		}
-      catch(e) {
-  				alert("Your browser does not support AJAX!")
-  				return false;
-  						}
-  				}
-  			}
-  	  return xmlHttp;
-  	 }
-
-     precipmap.invalidateSize();
-     //export { precipmap };
+    		var xmlHttp;
+    		try {
+    		  //Firefox, Opera 8.0+, Safari
+    		  xmlHttp = new XMLHttpRequest();
+    		}
+        catch(e) {
+    		  // Internet Explorer
+      		try {
+      		  xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+      		}
+          catch(e) {
+        		try {
+        			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+        		}
+            catch(e) {
+        			alert("Your browser does not support AJAX!")
+        			return false;
+        		}
+      		}
+    		}
+    	  return xmlHttp;
+    	 }
 
 
-    //  }); // .once
-  //  } // attach
+      //}); // .once
+    //} // attach
   //}; // behaviors
 
 })(jQuery);
