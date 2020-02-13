@@ -2,6 +2,7 @@ global:
   css:
     theme:
       css/styles.css: {}
+      css/messages.css: {}
       #css/flexboxgrid.min.css: {}
   js:
     js/uswds.min.js: {}

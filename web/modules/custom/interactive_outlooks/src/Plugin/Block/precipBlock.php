@@ -26,7 +26,10 @@ class PrecipBlock extends Blockbase {
   public function build() {
     //Fetch data
     return [
-      '#theme' => 'precip_map',
+      '#theme' => [
+        'precip_map',
+        'lead_months'
+      ],
       '#attached' => [
         'library' => [
           'interactive_outlooks/precip',
