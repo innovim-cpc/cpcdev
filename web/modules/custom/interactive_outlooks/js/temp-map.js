@@ -98,6 +98,7 @@
           .run(function(error, featureCollection){
             lead1Label = (featureCollection.features[0].properties.valid_seas);
             $('#lead-options option[value="temp-lead-1"]').text("Lead 1 - " + lead1Label);
+            console.log(featureCollection.features[0].properties)
         });
 
         temp3MonthLead2Layer.query()
@@ -183,6 +184,7 @@
         var validMonthEnd;
         var releasemonth;
         var validSeason;
+        var currentLayerName = "temp610dayLayer";
 
         var currentLayer = temp610dayLayer;
         currentLayer.on('load', iterateFeatures);
@@ -266,6 +268,15 @@
               }
             }
           });
+
+          //repopulate the pie chart
+          if (region == "AK"){
+            getTempHandlerAlaska(coord);
+          }
+          else
+          {
+            getTempHandler(coord);
+          }
         }
 
         temp610dayLayer.query()
@@ -299,6 +310,7 @@
           if (this.value == 'temp610day') {
             removePrevLayer();
             currentLayer = temp610dayLayer;
+            currentLayerName = "temp610dayLayer";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
 
@@ -311,6 +323,7 @@
           else if (this.value == 'temp814day') {
             removePrevLayer();
             currentLayer = temp814dayLayer;
+            currentLayerName = "temp814dayLayer";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
 
@@ -324,6 +337,7 @@
           else if (this.value == 'tempmonthly') {
             removePrevLayer();
             currentLayer = tempMonthlyLayer;
+            currentLayerName = "tempMonthlyLayer";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
 
@@ -337,6 +351,7 @@
           else if (this.value == 'temp3month') {
             removePrevLayer();
             currentLayer = temp3MonthLead1Layer;
+            currentLayerName = "Lead1";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
 
@@ -391,6 +406,7 @@
           if (this.value == 'temp-lead-1') {
             removePrevLayer();
             currentLayer = temp3MonthLead1Layer;
+            currentLayerName = "Lead1";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 1");
@@ -400,6 +416,7 @@
           else if (this.value == 'temp-lead-2') {
             removePrevLayer();
             currentLayer = temp3MonthLead2Layer;
+            currentLayerName = "Lead2";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 2");
@@ -409,6 +426,7 @@
           else if (this.value == 'temp-lead-3') {
             removePrevLayer();
             currentLayer = temp3MonthLead3Layer;
+            currentLayerName = "Lead3";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 3");
@@ -418,6 +436,7 @@
           else if (this.value == 'temp-lead-4') {
             removePrevLayer();
             currentLayer = temp3MonthLead4Layer;
+            currentLayerName = "Lead4";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 4");
@@ -427,6 +446,7 @@
           else if (this.value == 'temp-lead-5') {
             removePrevLayer();
             currentLayer = temp3MonthLead5Layer;
+            currentLayerName = "Lead5";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 5");
@@ -436,6 +456,7 @@
           else if (this.value == 'temp-lead-6') {
             removePrevLayer();
             currentLayer = temp3MonthLead6Layer;
+            currentLayerName = "Lead6";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .temp-title').text("U.S. 3 Month Temperature Outlook - Lead 6");
@@ -445,6 +466,7 @@
           else if (this.value == 'temp-lead-7') {
             removePrevLayer();
             currentLayer = temp3MonthLead7Layer;
+            currentLayerName = "Lead7";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .temp-title').text("U.S. 3 Month Temperature Outlook - Lead 7");
@@ -454,6 +476,7 @@
           else if (this.value == 'temp-lead-8') {
             removePrevLayer();
             currentLayer = temp3MonthLead8Layer;
+            currentLayerName = "Lead8";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 8");
@@ -463,6 +486,7 @@
           else if (this.value == 'temp-lead-9') {
             removePrevLayer();
             currentLayer = temp3MonthLead9Layer;
+            currentLayerName = "Lead9";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 9");
@@ -472,6 +496,7 @@
           else if (this.value == 'temp-lead-10') {
             removePrevLayer();
             currentLayer = temp3MonthLead10Layer;
+            currentLayerName = "Lead10";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 10");
@@ -481,6 +506,7 @@
           else if (this.value == 'temp-lead-11') {
             removePrevLayer();
             currentLayer = temp3MonthLead11Layer;
+            currentLayerName = "Lead11";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 11");
@@ -490,6 +516,7 @@
           else if (this.value == 'temp-lead-12') {
             removePrevLayer();
             currentLayer = temp3MonthLead12Layer;
+            currentLayerName = "Lead12";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 12");
@@ -499,6 +526,7 @@
           else if (this.value == 'temp-lead-13') {
             removePrevLayer();
             currentLayer = temp3MonthLead13Layer;
+            currentLayerName = "Lead13";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
            $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 13");
@@ -622,10 +650,6 @@
           var latitude = e.latlng.lat;
           var longitude = e.latlng.lng;
 
-          var errDisp = 'There are no features at this location';
-          var errMapDisp = 'Data not available. Please use the Alaska map';
-          var fatalerrDisp = 'An error has occured. Please try again';
-
           var query = L.esri.query({
             url: 'https://services.arcgis.com/P3ePLMYs2RVChkJx/ArcGIS/rest/services/USA_ZIP_Codes/FeatureServer/0'
           });
@@ -655,11 +679,25 @@
     				HandleResponse_Temp(xmlHttp.responseText);
           }
         }
-    			xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/610day/interactive/includes/get_temps_pie.php?coord="+coord+"&region=conus", true);
+
+        //get the correct data based on which layer is selected (including Leads)
+        if (currentLayerName == "temp610dayLayer") {
+          xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/610day/interactive/includes/get_temps_pie.php?coord="+coord+"&region=conus", true);
+        }
+        else if (currentLayerName == "temp814dayLayer") {
+          xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/814day/interactive/includes/get_temps_pie.php?coord="+coord+"&region=conus", true);
+        }
+        else if (currentLayerName == "tempMonthlyLayer"){
+          xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead14/interactive/includes/get_temps_pie.php?coord="+coord+"&region=conus", true);
+        }
+        else {
+          xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/long_range/interactive/includes/get_temps_pie.php?coord="+coord+"&region=conus&lead="+ currentLayerName, true);
+        }
     			xmlHttp.send(null);
       }
 
-      function getTempHandlerAlaska(coord) {
+
+     function getTempHandlerAlaska(coord) {
     		var xmlHttp = getXMLHttp();
     		xmlHttp.onreadystatechange = function() {
     			//console.log(xmlHttp.readyState);
@@ -667,8 +705,22 @@
     				HandleResponse_Temp(xmlHttp.responseText);
           }
         }
-    			xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/610day/interactive/includes/get_temps_pie.php?coord="+coord+"&region=alaska", true);
-    			xmlHttp.send(null);
+        
+        //get the correct data based on which layer is selected (including Leads)
+        //xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/610day/interactive/includes/get_temps_pie.php?coord="+coord+"&region=alaska", true);
+        if (currentLayerName == "temp610dayLayer") {
+          xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/610day/interactive/includes/get_temps_pie.php?coord="+coord+"&region=alaska", true);
+        }
+        else if (currentLayerName == "temp814dayLayer") {
+          xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/814day/interactive/includes/get_temps_pie.php?coord="+coord+"&region=alaska", true);
+        }
+        else if (currentLayerName == "tempMonthlyLayer"){
+          xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead14/interactive/includes/get_temps_pie.php?coord="+coord+"&region=alaska", true);
+        }
+        else {
+          xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/long_range/interactive/includes/get_temps_pie.php?coord="+coord+"&region=alaska&lead="+ currentLayerName, true);
+        }
+        xmlHttp.send(null);
       }
       function HandleResponse_Temp(response) {
       		response = response.split('#');
