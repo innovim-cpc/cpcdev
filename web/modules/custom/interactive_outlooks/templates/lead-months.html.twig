@@ -1,0 +1,54 @@
+{% set lead_time, leadcount = 0.5, 0 %}
+
+{% for i in 0..12 %}
+  {% set leadadd = leadcount + 1 %}
+  {% set lead = lead_time + 0.5 %}
+  {% set leadadd1, leadadd2, leadadd3 = leadcount + 1, leadcount + 2, leadcount + 3 %}
+  {{ date().timestamp }}
+  <option value='precip-lead-{{ loop.index }}'>{{ leadadd1 }} {{ leadadd2 }} {{ leadadd3 }} {{ lead_time }} Month - {{ mon1 }}-{{ mon2 }}-{{ mon3 }} {{ display_year }}</option>
+
+  {# set mon1 = date("M",mktime(5,0,0,{{ref_month}}+{{leadadd1}},1,{{ref_year}})) #}
+{% endfor %}
+
+<?php
+
+  $lead_time = 0.5;
+	$leadcount = 0;
+
+	while ($leadcount < 13) {
+		// month and year of appropiate fcst season
+		$leadadd = $leadcount+1;
+		$year = strftime("%Y",strtotime("$leadadd months", $ref_date));
+		$lead = $lead_time + 0.5;
+		$lead_dir_label = sprintf("%02d",$lead);
+
+		// Get 3 months for title
+		$leadadd1 = $leadcount+1;
+		$leadadd2 = $leadcount+2;
+		$leadadd3 = $leadcount+3;
+		$month_index = date("n",mktime(5,0,0,${ref_month}+$leadadd1,1,${ref_year}));
+		$lead_season = $seasonlab[${month_index}-1];
+		$mon1 = date("M",mktime(5,0,0,${ref_month}+$leadadd1,1,${ref_year}));
+		$mon2 = date("M",mktime(5,0,0,${ref_month}+$leadadd2,1,${ref_year}));
+		$mon3 = date("M",mktime(5,0,0,${ref_month}+$leadadd3,1,${ref_year}));
+
+		// Get display year or range of years ie for Dec-Jan-Feb
+		if ( (strcmp($mon1,"Nov") == 0 ) OR (strcmp($mon1,"Dec") == 0 ) ) {
+			$year2 = ${year} + 1;
+			$year_substr = substr("$year2",2,2);
+			$display_year = "$year - $year_substr";
+		}
+		else {
+			$display_year = $year;
+		}
+		// If it is the first lead, save the display year for the tiled monthly/seasonal page title
+		if ($leadcount == 0) {
+			$lead1_display = "${mon1}-${mon2}-${mon3} ${display_year}";
+		}
+
+		echo "<option value='precip-lead-1'>${lead_time} Month - ${mon1}-${mon2}-${mon3} ${display_year}</option>";
+
+		$lead_time = $lead_time + 1;
+		$leadcount = $leadcount + 1;
+	}
+?>
