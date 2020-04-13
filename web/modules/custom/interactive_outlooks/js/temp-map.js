@@ -248,26 +248,27 @@
                fillOpacity: 0.6
             });
             if (layer.feature.properties.cat == "Above"){
+              console.log(layer.feature);
 
               //get probability of the layer
               switch(layer.feature.properties.prob){
                 case 90:
-                  layer.bindTooltip("90% chance of Above Average Temperature");
+                  layer.bindTooltip("90% - 100% chance of Above Average Temperature");
                   break;
                 case 80:
-                  layer.bindTooltip("80% chance of Above Average Temperature");
+                  layer.bindTooltip("80% - 90% chance of Above Average Temperature");
                   break;
                 case 70:
-                  layer.bindTooltip("70% chance of Above Average Temperature");
+                  layer.bindTooltip("70% - 80% chance of Above Average Temperature");
                   break;
                 case 60:
-                    layer.bindTooltip("60% chance of Above Average Temperature");
+                    layer.bindTooltip("60% - 70% chance of Above Average Temperature");
                     break;
                 case 50:
-                    layer.bindTooltip("50% chance of Above Average Temperature");
+                    layer.bindTooltip("50% - 60% chance of Above Average Temperature");
                     break;
                 case 40:
-                  layer.bindTooltip("40% chance of Above Average Temperature");
+                  layer.bindTooltip("40% - 50% chance of Above Average Temperature");
                   break;
                 case 33:
                   layer.bindTooltip("33% chance of Above Average Temperature");
@@ -279,7 +280,7 @@
                   layer.bindTooltip("36% chance of Normal Temperature");
             }
             else if (layer.feature.properties.cat == "EC"){
-                  layer.removeFrom(tempmap);
+                  //layer.removeFrom(tempmap);
 
             }
             else if (layer.feature.properties.cat == "Below"){
@@ -288,22 +289,22 @@
                   layer.bindTooltip("33% chance of Below Average Temperature");
                   break;
                 case 40:
-                  layer.bindTooltip("40% chance of Below Average Temperature");
+                  layer.bindTooltip("40% - 50% chance of Below Average Temperature");
                   break;
                 case 50:
-                  layer.bindTooltip("50% chance of Below Average Temperature");
+                  layer.bindTooltip("50% - 60% chance of Below Average Temperature");
                   break;
                 case 60:
-                  layer.bindTooltip("60% chance of Below Average Temperature");
+                  layer.bindTooltip("60% - 70% chance of Below Average Temperature");
                   break;
                 case 70:
-                  layer.bindTooltip("70% chance of Below Average Temperature");
+                  layer.bindTooltip("70% - 80% chance of Below Average Temperature");
                   break;
                 case 80:
-                  layer.bindTooltip("80% chance of Below Average Temperature");
+                  layer.bindTooltip("80% - 90$ chance of Below Average Temperature");
                   break;
                 case 90:
-                  layer.bindTooltip("90% chance of Below Average Temperature");
+                  layer.bindTooltip("90% - 100% chance of Below Average Temperature");
                   break;
               }
             }
