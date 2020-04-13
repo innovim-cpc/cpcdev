@@ -76,6 +76,7 @@
         var temp3MonthLead13Layer = L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/12'
         });
+        var leadLabel;
 
         var lead1Label;
         var lead2Label;
@@ -91,77 +92,116 @@
         var lead12Label;
         var lead13Label;
 
-        //temp3MonthLead1Layer.addTo(tempmap);
-        //set the Lead drop down options
-
+        function formatLeadDates(x){
+          switch(x.substring(0,3)) {
+              case 'JFM':
+                  leadLabel = 'Jan-Feb-Mar ' + x.substring(x.length - 4, x.length);
+                  break;
+              case 'FMA':
+                  leadLabel = 'Feb-Mar-Apr ' + x.substring(x.length - 4, x.length);
+                  break;
+              case 'MAM':
+                  leadLabel = 'Mar-Apr-May ' + x.substring(x.length - 4, x.length);
+                  break;
+              case 'AMJ':
+                  leadLabel = 'Apr-May-Jun ' + x.substring(x.length - 4, x.length);
+                  break;
+              case 'MJJ':
+                  leadLabel = 'May-Jun-Jul ' + x.substring(x.length - 4, x.length);
+                  break;
+              case 'JJA':
+                  leadLabel = 'Jun-Jul-Aug ' + x.substring(x.length - 4, x.length);
+                  break;
+              case 'JAS':
+                  leadLabel = 'Jul-Aug-Sep ' + x.substring(x.length - 4, x.length);
+                  break;
+              case 'ASO':
+                  leadLabel = 'Aug-Sep-Oct ' + x.substring(x.length - 4, x.length);
+                  break;
+              case 'SON':
+                  leadLabel = 'Sep-Oct-Nov ' + x.substring(x.length - 4, x.length);
+                  break;
+              case 'OND':
+                  leadLabel = 'Oct-Nov-Dec ' + x.substring(x.length - 4, x.length);
+                  break;
+              case 'NDJ':
+                  leadLabel = 'Nov-Dec-Jan ' + x.substring(x.length - 9, x.length);
+                  break;
+              case 'DJF':
+                  leadLabel = 'Dec-Jan-Feb ' + x.substring(x.length - 9, x.length);
+                  break;
+              default: 
+              leadLabel = x;
+          }
+      }
+        
         temp3MonthLead1Layer.query()
           .run(function(error, featureCollection){
-            lead1Label = (featureCollection.features[0].properties.valid_seas);
-            $('#lead-options option[value="temp-lead-1"]').text("Lead 1 - " + lead1Label);
-            console.log(featureCollection.features[0].properties)
+            formatLeadDates(featureCollection.features[0].properties.valid_seas);
+            $('#lead-options option[value="temp-lead-1"]').text(leadLabel);
         });
 
         temp3MonthLead2Layer.query()
           .run(function(error, featureCollection){
-            lead2Label = (featureCollection.features[0].properties.valid_seas);
-            $('#lead-options option[value="temp-lead-2"]').text("Lead 2 - " + lead2Label);
+            formatLeadDates(featureCollection.features[0].properties.valid_seas);
+            $('#lead-options option[value="temp-lead-2"]').text(leadLabel);
         });
 
         temp3MonthLead3Layer.query()
           .run(function(error, featureCollection){
-            lead3Label = (featureCollection.features[0].properties.valid_seas);
-            $('#lead-options option[value="temp-lead-3"]').text("Lead 3 - " + lead3Label);
+            formatLeadDates(featureCollection.features[0].properties.valid_seas);
+            $('#lead-options option[value="temp-lead-3"]').text(leadLabel);
         });
 
         temp3MonthLead4Layer.query()
           .run(function(error, featureCollection){
-            lead4Label = (featureCollection.features[0].properties.valid_seas);
-            $('#lead-options option[value="temp-lead-4"]').text("Lead 4 - " + lead4Label);
+            formatLeadDates(featureCollection.features[0].properties.valid_seas);
+            $('#lead-options option[value="temp-lead-4"]').text(leadLabel);
         });
         temp3MonthLead5Layer.query()
           .run(function(error, featureCollection){
-            lead5Label = (featureCollection.features[0].properties.valid_seas);
-            $('#lead-options option[value="temp-lead-5"]').text("Lead 5 - " + lead5Label);
+            formatLeadDates(featureCollection.features[0].properties.valid_seas);
+            $('#lead-options option[value="temp-lead-5"]').text(leadLabel);
         });
         temp3MonthLead6Layer.query()
           .run(function(error, featureCollection){
-            lead6Label = (featureCollection.features[0].properties.valid_seas);
-            $('#lead-options option[value="temp-lead-6"]').text("Lead 6 - " + lead6Label);
+            formatLeadDates(featureCollection.features[0].properties.valid_seas);
+            $('#lead-options option[value="temp-lead-6"]').text(leadLabel);
         });
         temp3MonthLead7Layer.query()
           .run(function(error, featureCollection){
-            lead7Label = (featureCollection.features[0].properties.valid_seas);
-            $('#lead-options option[value="temp-lead-7"]').text("Lead 7 - " + lead7Label);
+            formatLeadDates(featureCollection.features[0].properties.valid_seas);
+            $('#lead-options option[value="temp-lead-7"]').text(leadLabel);
         });
         temp3MonthLead8Layer.query()
           .run(function(error, featureCollection){
-            lead8Label = (featureCollection.features[0].properties.valid_seas);
-            $('#lead-options option[value="temp-lead-8"]').text("Lead 8 - " + lead8Label);
+            formatLeadDates(featureCollection.features[0].properties.valid_seas);
+            $('#lead-options option[value="temp-lead-8"]').text(leadLabel);
         });
         temp3MonthLead9Layer.query()
           .run(function(error, featureCollection){
-            lead9Label = (featureCollection.features[0].properties.valid_seas);
-            $('#lead-options option[value="temp-lead-9"]').text("Lead 9 - " + lead9Label);
+            formatLeadDates(featureCollection.features[0].properties.valid_seas);
+            $('#lead-options option[value="temp-lead-9"]').text(leadLabel);
         });
         temp3MonthLead10Layer.query()
           .run(function(error, featureCollection){
-            lead10Label = (featureCollection.features[0].properties.valid_seas);
-            $('#lead-options option[value="temp-lead-10"]').text("Lead 10 - " + lead10Label);
+            formatLeadDates(featureCollection.features[0].properties.valid_seas);
+            $('#lead-options option[value="temp-lead-10"]').text(leadLabel);
         });
         temp3MonthLead11Layer.query()
           .run(function(error, featureCollection){
-            lead11Label = (featureCollection.features[0].properties.valid_seas);
-            $('#lead-options option[value="temp-lead-11"]').text("Lead 11 - " + lead11Label);
+            formatLeadDates(featureCollection.features[0].properties.valid_seas);
+            $('#lead-options option[value="temp-lead-11"]').text(leadLabel);
         });
         temp3MonthLead12Layer.query()
           .run(function(error, featureCollection){
-            lead12Label = (featureCollection.features[0].properties.valid_seas);
-            $('#lead-options option[value="temp-lead-12"]').text("Lead 12 - " + lead12Label);
+            formatLeadDates(featureCollection.features[0].properties.valid_seas);
+            $('#lead-options option[value="temp-lead-12"]').text(leadLabel);
         });
         temp3MonthLead13Layer.query()
           .run(function(error, featureCollection){
-            lead13Label = (featureCollection.features[0].properties.valid_seas);
-            $('#lead-options option[value="temp-lead-13"]').text("Lead 13 - " + lead13Label);
+            formatLeadDates(featureCollection.features[0].properties.valid_seas);
+            $('#lead-options option[value="temp-lead-13"]').text(leadLabel);
         });
 
 
