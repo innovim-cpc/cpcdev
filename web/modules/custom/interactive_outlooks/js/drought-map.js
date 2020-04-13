@@ -63,7 +63,6 @@
               layer.bindTooltip("Drought development likely");
               // log that the layer has this category and we will need to show it in the legend
               develop = true;
-              console.log(layer);
             }
             if (layer.feature.properties.fid_improv){
               layer.setStyle({
@@ -127,21 +126,38 @@
           });
         }
 
+        // Set up options for date display
+        var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
         monthlyDroughtLayer.query()
           .run(function(error, featureCollection){
-          validmonth = featureCollection.features[0].properties.start_date;
-          releasemonth = featureCollection.features[0].properties.fcst_date;
+            validmonth = featureCollection.features[0].properties.target;
+            //releasemonth = featureCollection.features[0].properties.fcst_date;
+
+            //create new Date object
+            releasemonth = new Date(featureCollection.features[0].properties.fcst_date);
+
+            //format dates
+            releasemonth = releasemonth.toLocaleDateString("en-US", options);
 
           // Set initial title and valid period for monthly drought outlook
           $('#drought-map-header .title').text("U.S. Monthly Drought Outlook");
-          $('#drought-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+          $('#drought-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
         });
 
-        // seasonalDroughtLayer.query()
-        //   .run(function(error, featureCollection){
-        //   seasonalstartdate = featureCollection.features[0].properties.fcst_date;
-        //   seasonalenddate = featureCollection.features[0].properties.target;
-        //   releaseseasonal = featureCollection.features[0].properties.fcst_date;
+
+        seasonalDroughtLayer.query()
+          .run(function(error, featureCollection){
+            seasonalenddate = featureCollection.features[0].properties.target;
+            // Create new Date object
+            seasonalstartdate = new Date(featureCollection.features[0].properties.idp_ingestdate);
+            releaseseasonal = new Date(featureCollection.features[0].properties.fcst_date);
+  
+            // Format dates
+            seasonalstartdate = seasonalstartdate.toLocaleDateString("en-US", options);
+            releaseseasonal = releaseseasonal.toLocaleDateString("en-US", options);
+
+        });
 
         //   ///set the colors of the layers
         //   seasonalDroughtLayer.eachFeature(function(layer){
@@ -215,7 +231,7 @@
            currentLayer.addTo(droughtmap);
            currentLayer.on('load', iterateFeatures);
            $('#drought-map-header .title').text("U.S. Monthly Drought Outlook");
-           $('#drought-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
+           $('#drought-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
            $('.drought-image li a').attr({href: "https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png", target: "_blank"});
           }
           else if (this.value == 'seasonal') {
@@ -225,7 +241,7 @@
            currentLayer.on('load', iterateFeatures);
           //  seasonalDroughtLayer.addTo(droughtmap);
            $('#drought-map-header .title').text("U.S. Seasonal Drought Outlook");
-           $('#drought-map-header .valid-dates').text("Valid for " + seasonalstartdate + " - " + seasonalenddate + ", Released " + releaseseasonal);
+           $('#drought-map-header .valid-dates').html("Valid: " + seasonalstartdate + " - " + seasonalenddate + "<br> Released: " + releaseseasonal);
            $('.drought-image li a').attr({href: "https://www.cpc.ncep.noaa.gov/products/expert_assessment/season_drought.png", target: "_blank"});
           }
         });
