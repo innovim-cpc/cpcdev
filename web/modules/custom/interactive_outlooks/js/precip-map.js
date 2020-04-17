@@ -158,7 +158,6 @@
         function iterateFeatures () {
           precipmap.invalidateSize();
           currentLayer.eachFeature(function(layer) {
-            console.log(layer.feature.properties);
 
             get_start_date = new Date(layer.feature.properties.start_date);
             get_end_date = new Date(layer.feature.properties.end_date);
@@ -196,19 +195,19 @@
                   layer.bindTooltip("90% chance of Above Average Precipitation");
                   break;
                 case 80:
-                  layer.bindTooltip("80% chance of Above Average Precipitation");
+                  layer.bindTooltip("80% - 90% chance of Above Average Precipitation");
                   break;
                 case 70:
-                  layer.bindTooltip("70% chance of Above Average Precipitation");
+                  layer.bindTooltip("70% - 80% chance of Above Average Precipitation");
                   break;
                 case 60:
-                  layer.bindTooltip("60% chance of Above Average Precipitation");
+                  layer.bindTooltip("60% - 70% chance of Above Average Precipitation");
                   break;
                 case 50:
-                  layer.bindTooltip("50% chance of Above Average Precipitation");
+                  layer.bindTooltip("50% - 60% chance of Above Average Precipitation");
                   break;
                 case 40:
-                  layer.bindTooltip("40% chance of Above Average Precipitation");
+                  layer.bindTooltip("40% - 50% chance of Above Average Precipitation");
                   break;
                 case 33:
                   layer.bindTooltip("33% chance of Above Average Precipitation");
@@ -228,19 +227,19 @@
                   layer.bindTooltip("33% chance of Below Average Precipitation");
                   break;
                 case 40:
-                  layer.bindTooltip("40% chance of Below Average Precipitation");
+                  layer.bindTooltip("40% - 50% chance of Below Average Precipitation");
                   break;
                 case 50:
-                  layer.bindTooltip("50% chance of Below Average Precipitation");
+                  layer.bindTooltip("50% - 60% chance of Below Average Precipitation");
                   break;
                 case 60:
-                  layer.bindTooltip("60% chance of Below Average Precipitation");
+                  layer.bindTooltip("60% - 70% chance of Below Average Precipitation");
                   break;
                 case 70:
-                  layer.bindTooltip("70% chance of Below Average Precipitation");
+                  layer.bindTooltip("70% - 80% chance of Below Average Precipitation");
                   break;
                 case 80:
-                  layer.bindTooltip("80% chance of Below Average Precipitation");
+                  layer.bindTooltip("80% - 90% chance of Below Average Precipitation");
                   break;
                 case 90:
                   layer.bindTooltip("90% chance of Below Average Precipitation");
@@ -653,7 +652,7 @@
         		document.getElementById("chart-div-precip-label").innerHTML=
                 "<font color=black>Three Category Precipitation Outlook<br>Normal Precipitation: </font><strong>"
                 + eval(pcpn_norm).toFixed(2) + "</strong></a>";
-                console.log(pcpn_norm);
+                //console.log(pcpn_norm);
       		}
           else {
         		document.getElementById("chart-div-precip-label").innerHTML=
