@@ -33,8 +33,8 @@
         //Add initial layer to map
         monthlyDroughtLayer.addTo(droughtmap);
 
-        seasonalDroughtLayer.addTo(droughtmap);
-        seasonalDroughtLayer.removeFrom(droughtmap);
+        //seasonalDroughtLayer.addTo(droughtmap);
+        //seasonalDroughtLayer.removeFrom(droughtmap);
 
         var currentLayer = monthlyDroughtLayer;
         var previousLayer = "";
@@ -63,6 +63,7 @@
               layer.bindTooltip("Drought development likely");
               // log that the layer has this category and we will need to show it in the legend
               develop = true;
+              console.log(layer);
             }
             if (layer.feature.properties.fid_improv){
               layer.setStyle({
@@ -97,14 +98,29 @@
           if (!develop){
             $('.development').hide();
           }
+          else {
+            $('.development').show();
+          }
+          
           if(!improve){
             $('.improves').hide();
           }
+          else {
+            $('.improves').show();
+          }
+
           if(!persist){
             $('.persists').hide();
           }
+          else {
+            $('.persists').show();
+          }
+          
           if(!remove){
             $('.removal').hide();
+          }
+          else {
+            $('.removal').show();
           }
 
             
@@ -121,65 +137,65 @@
           $('#drought-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
         });
 
-        seasonalDroughtLayer.query()
-          .run(function(error, featureCollection){
-          seasonalstartdate = featureCollection.features[0].properties.fcst_date;
-          seasonalenddate = featureCollection.features[0].properties.target;
-          releaseseasonal = featureCollection.features[0].properties.fcst_date;
+        // seasonalDroughtLayer.query()
+        //   .run(function(error, featureCollection){
+        //   seasonalstartdate = featureCollection.features[0].properties.fcst_date;
+        //   seasonalenddate = featureCollection.features[0].properties.target;
+        //   releaseseasonal = featureCollection.features[0].properties.fcst_date;
 
-          ///set the colors of the layers
-          seasonalDroughtLayer.eachFeature(function(layer){
-            if (layer.feature.properties.fid_dev){
-              layer.setStyle({
-                color: '#FFDE63'
-              })
-              //add tooltip to map
-              layer.bindTooltip("Drought development likely");
-              // log that the layer has this category and we will need to show it in the legend
-              develop = true;
-            }
-            if (layer.feature.properties.fid_improv){
-              layer.setStyle({
-                color: '#DED2BC'
-              })
-              layer.bindTooltip("Drought remains but improves");
-              // log that the layer has this category and we will need to show it in the legend
-              improve = true;
-            }
-            if (layer.feature.properties.fid_persis){
-              layer.setStyle({
-                color: '#9B634A'
-              })
-              //add tooltip to map
-              layer.bindTooltip("Drought persists");
-              // log that the layer has this category and we will need to show it in the legend
-              persist = true;
-            }
-            if (layer.feature.properties.fid_remove){
-              layer.setStyle({
-                color: '#B2AD69'
-              })
-              //add tooltip to map
-              layer.bindTooltip("Drought removal likely");
-              // log that the layer has this category and we will need to show it in the legend
-              remove = true;
-            }
-          });
+        //   ///set the colors of the layers
+        //   seasonalDroughtLayer.eachFeature(function(layer){
+        //     if (layer.feature.properties.fid_dev){
+        //       layer.setStyle({
+        //         color: '#FFDE63'
+        //       })
+        //       //add tooltip to map
+        //       layer.bindTooltip("Drought development likely");
+        //       // log that the layer has this category and we will need to show it in the legend
+        //       develop = true;
+        //     }
+        //     if (layer.feature.properties.fid_improv){
+        //       layer.setStyle({
+        //         color: '#DED2BC'
+        //       })
+        //       layer.bindTooltip("Drought remains but improves");
+        //       // log that the layer has this category and we will need to show it in the legend
+        //       improve = true;
+        //     }
+        //     if (layer.feature.properties.fid_persis){
+        //       layer.setStyle({
+        //         color: '#9B634A'
+        //       })
+        //       //add tooltip to map
+        //       layer.bindTooltip("Drought persists");
+        //       // log that the layer has this category and we will need to show it in the legend
+        //       persist = true;
+        //     }
+        //     if (layer.feature.properties.fid_remove){
+        //       layer.setStyle({
+        //         color: '#B2AD69'
+        //       })
+        //       //add tooltip to map
+        //       layer.bindTooltip("Drought removal likely");
+        //       // log that the layer has this category and we will need to show it in the legend
+        //       remove = true;
+        //     }
+        //   });
 
-          //hide the legend item if there are no layers for that item
-          if (!develop){
-            $('.development').hide();
-          }
-          if(!improve){
-            $('.improves').hide();
-          }
-          if(!persist){
-            $('.persists').hide();
-          }
-          if(!remove){
-            $('.removal').hide();
-          }
-        });
+        //   //hide the legend item if there are no layers for that item
+        //   if (!develop){
+        //     $('.development').hide();
+        //   }
+        //   if(!improve){
+        //     $('.improves').hide();
+        //   }
+        //   if(!persist){
+        //     $('.persists').hide();
+        //   }
+        //   if(!remove){
+        //     $('.removal').hide();
+        //   }
+        // });
 
 
         var monthlyChecked = $('#drought-map__view-select input[type=radio][id=monthly]:checked');
@@ -194,15 +210,17 @@
         //change the layers of the map to Monthly or Seasonal based on selected radio button
         $('input[name=drought-map-duration]').on('change', function() {
           if (this.value == 'monthly') {
-           seasonalDroughtLayer.removeFrom(droughtmap);
-           currentLayer = seasonalDroughtLayer;
-           monthlyDroughtLayer.addTo(droughtmap);
+           currentLayer.removeFrom(droughtmap);
+           currentLayer = monthlyDroughtLayer;
+           currentLayer.addTo(droughtmap);
+           currentLayer.on('load', iterateFeatures);
            $('#drought-map-header .title').text("U.S. Monthly Drought Outlook");
            $('#drought-map-header .valid-dates').text("Valid for " + validmonth + ", Released " + releasemonth);
            $('.drought-image li a').attr({href: "https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png", target: "_blank"});
           }
           else if (this.value == 'seasonal') {
-           monthlyDroughtLayer.removeFrom(droughtmap);
+           currentLayer.removeFrom(droughtmap);
+           currentLayer = seasonalDroughtLayer;
            currentLayer.addTo(droughtmap);
            currentLayer.on('load', iterateFeatures);
           //  seasonalDroughtLayer.addTo(droughtmap);
@@ -212,13 +230,6 @@
           }
         });
 
-
-        // Function to remove any existing layers
-        function removePrevLayer() {
-          if (droughtmap.hasLayer(currentLayer)) {
-            droughtmap.removeLayer(currentLayer);
-          }
-        };
 
         //change the map to the correct area
         $('input[type=radio][name=drought-map-view]').on('change',function() {
