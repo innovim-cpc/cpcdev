@@ -16,6 +16,9 @@ function interactive_outlooks_theme($existing, $type, $theme, $path) {
     'precip_map' => [
       'variables' => ['map' => NULL],
     ],
+    'lead_months' => [
+      'variables' => ['lead' => NULL],
+    ],
     'outlook_selector' => [
       'render element' => 'form',
     ],

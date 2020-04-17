@@ -13,8 +13,13 @@
           <div id="drought-map"></div>
         </div>
       </div>
+
       <div class="grid-row" id="drought-map__view-controls">
         <div class="tablet:grid-col-8">
+          <div class="opacity-slider">
+            <input type="range" min="0.0" max="1.0" value="0.6" step="0.1" class="drought-opacity-slider__range" id="drought-opacity-level" name="drought-opacity-level">
+            <label for="drought-opacity-level">Opacity: <span class="drought-opacity-slider__value"></span>%</label>
+          </div>
         </div>
         <div class="tablet:grid-col-4">
           <fieldset class="usa-fieldset">
