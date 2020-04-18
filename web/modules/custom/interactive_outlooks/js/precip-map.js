@@ -19,8 +19,6 @@
           minZoom: 3.9
         });
 
-        precipmap.invalidateSize();
-
         // Add Esri World Topo base map via Esri Leaflet plugin
         L.esri.basemapLayer('Topographic').addTo(precipmap);
 
@@ -156,7 +154,7 @@
         $('#lead-selector-precip').hide();
 
         function iterateFeatures () {
-          precipmap.invalidateSize();
+
           currentLayer.eachFeature(function(layer) {
 
             get_start_date = new Date(layer.feature.properties.start_date);
@@ -685,6 +683,8 @@
     		}
     	  return xmlHttp;
     	 }
+
+       precipmap.invalidateSize();
 
 
       //}); // .once
