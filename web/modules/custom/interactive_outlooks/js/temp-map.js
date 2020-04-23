@@ -422,24 +422,22 @@
           }
         });
 
-        var slider = $('#opacity-level')[0];
-        // var output = document.getElementById("sliderValue");
-        var output = $('.opacity-slider__value')[0];
-
+        var tempSlider = $('#opacity-level')[0];
+        var tempOutput = $('.opacity-slider__value')[0];
         var opacityVal = $('.opacity-slider__range').val();
         // Convert opacity decimal value to percent
-        var percent = Math.round(slider.value * 100);
+        var percent = Math.round(tempSlider.value * 100);
         //console.log(percent);
         // Write percent value in html label area
         $('.opacity-slider__value').html(percent);
 
-        output.innerHTML = percent;
-        slider.oninput = function() {
-          output.innerHTML = Math.round(this.value * 100);
-          $('.opacity-slider__value').html(percent);
+        tempOutput.innerHTML = percent;
+        tempSlider.oninput = function() {
+          tempOutput.innerHTML = Math.round(this.value * 100);
+          
           currentLayer.eachFeature(function(layer){
             layer.setStyle({
-              fillOpacity: (slider.value)
+              fillOpacity: (tempSlider.value)
             });
           });
         }
