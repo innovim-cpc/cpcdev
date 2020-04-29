@@ -320,7 +320,6 @@
             start_date = start_date.toLocaleDateString("en-US", options);
             end_date = end_date.toLocaleDateString("en-US", options);
             fcst_date = fcst_date.toLocaleDateString("en-US", options);
-            console.log(currentLayer)
 
             layer.setStyle({
                fillOpacity: 0.6
@@ -416,7 +415,7 @@
             //hide Select a Lead
             $('#lead-selector-precip').hide();
             $('#precip-map-header .title').text("U.S. 8 to 14 Day Precipitation Outlook");
-            $('#precip-map-header .valid-dates').html("Valid: " + start_date + " &ndash; " + end_date + "<br> eleased: " + fcst_date);
+            $('#precip-map-header .valid-dates').html("Valid: " + start_date + " &ndash; " + end_date + "<br> Released: " + fcst_date);
             $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/814day/814prcp.new.gif');
           }
           else if (this.value == 'precip-monthly') {
@@ -436,7 +435,7 @@
             currentLayer.addTo(precipmap);
             //Show Select a Lead
             $('#lead-selector-precip').show();
-            $('#precip-map-header .title').text("U.S. 3 Month Preciptation Outlook - Lead 1");
+            $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 1");
             $('#precip-map-header .valid-dates').html("Valid: " + lead1Label + "<br> Released: " + fcst_date);
             $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead01/off01_prcp.gif');
           }
