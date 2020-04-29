@@ -388,7 +388,7 @@
         }
 
         var precip610dayChecked = $('#precip-map__view-select input[type=radio][id=precip610day]:checked');
-        var precip814dayChecked = $('#precip-map__view-select input[type=radio][id=precip610day]:checked');
+        var precip814dayChecked = $('#precip-map__view-select input[type=radio][id=precip814day]:checked');
 
         if (precip610dayChecked) {
           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/610day/610prcp.new.gif');
@@ -402,6 +402,7 @@
             removePrevLayer();
             currentLayer = precip610dayLayer;
             currentLayer.addTo(precipmap);
+            currentLayer.on('load', iterateFeatures);
             //hide Select a Lead
             $('#lead-selector-precip').hide();
             $('#precip-map-header .title').text("U.S. 6 to 10 Day Precipitation Outlook");
@@ -412,6 +413,7 @@
             removePrevLayer();
             currentLayer = precip814dayLayer;
             currentLayer.addTo(precipmap);
+            currentLayer.on('load', iterateFeatures);
             //hide Select a Lead
             $('#lead-selector-precip').hide();
             $('#precip-map-header .title').text("U.S. 8 to 14 Day Precipitation Outlook");
@@ -421,8 +423,8 @@
           else if (this.value == 'precip-monthly') {
             removePrevLayer();
             currentLayer = precipMonthlyLayer;
+            currentLayer.on('load', iterateFeatures);
             currentLayer.addTo(precipmap);
-
             //hide Select a Lead
             $('#lead-selector-precip').hide();
             $('#precip-map-header .title').text("U.S. Monthly Precipitation Outlook");
@@ -433,6 +435,7 @@
             removePrevLayer();
             currentLayer = precip3MonthLead1Layer;
             currentLayer.addTo(precipmap);
+            currentLayer.on('load', iterateFeatures);
             //Show Select a Lead
             $('#lead-selector-precip').show();
             $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 1");

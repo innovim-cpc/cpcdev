@@ -489,6 +489,7 @@
         var opacityVal = $('.temp-opacity-slider__range').val();
         // Convert opacity decimal value to percent
         var percent = Math.round(tempSlider.value * 100);
+
         // Write percent value in html label area
         $('.temp-opacity-slider__value').html(percent);
 
