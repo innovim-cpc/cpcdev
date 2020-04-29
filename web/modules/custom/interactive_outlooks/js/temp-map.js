@@ -139,69 +139,82 @@
           .run(function(error, featureCollection){
             formatLeadDates(featureCollection.features[0].properties.valid_seas);
             $('#lead-options option[value="temp-lead-1"]').text(leadLabel);
+            lead1Label = leadLabel;
         });
 
         temp3MonthLead2Layer.query()
           .run(function(error, featureCollection){
             formatLeadDates(featureCollection.features[0].properties.valid_seas);
             $('#lead-options option[value="temp-lead-2"]').text(leadLabel);
+            lead2Label = leadLabel;
         });
 
         temp3MonthLead3Layer.query()
           .run(function(error, featureCollection){
             formatLeadDates(featureCollection.features[0].properties.valid_seas);
             $('#lead-options option[value="temp-lead-3"]').text(leadLabel);
+            lead3Label = leadLabel;
         });
 
         temp3MonthLead4Layer.query()
           .run(function(error, featureCollection){
             formatLeadDates(featureCollection.features[0].properties.valid_seas);
             $('#lead-options option[value="temp-lead-4"]').text(leadLabel);
+            lead4Label = leadLabel;
         });
         temp3MonthLead5Layer.query()
           .run(function(error, featureCollection){
             formatLeadDates(featureCollection.features[0].properties.valid_seas);
             $('#lead-options option[value="temp-lead-5"]').text(leadLabel);
+            lead5Label = leadLabel;
         });
         temp3MonthLead6Layer.query()
           .run(function(error, featureCollection){
             formatLeadDates(featureCollection.features[0].properties.valid_seas);
             $('#lead-options option[value="temp-lead-6"]').text(leadLabel);
+            lead6Label = leadLabel;
         });
         temp3MonthLead7Layer.query()
           .run(function(error, featureCollection){
             formatLeadDates(featureCollection.features[0].properties.valid_seas);
             $('#lead-options option[value="temp-lead-7"]').text(leadLabel);
+            lead7Label = leadLabel;
         });
         temp3MonthLead8Layer.query()
           .run(function(error, featureCollection){
             formatLeadDates(featureCollection.features[0].properties.valid_seas);
             $('#lead-options option[value="temp-lead-8"]').text(leadLabel);
+            lead8Label = leadLabel;
         });
         temp3MonthLead9Layer.query()
           .run(function(error, featureCollection){
             formatLeadDates(featureCollection.features[0].properties.valid_seas);
             $('#lead-options option[value="temp-lead-9"]').text(leadLabel);
+            lead9Label = leadLabel;
         });
         temp3MonthLead10Layer.query()
           .run(function(error, featureCollection){
             formatLeadDates(featureCollection.features[0].properties.valid_seas);
             $('#lead-options option[value="temp-lead-10"]').text(leadLabel);
+            lead10Label = leadLabel;
         });
         temp3MonthLead11Layer.query()
           .run(function(error, featureCollection){
             formatLeadDates(featureCollection.features[0].properties.valid_seas);
             $('#lead-options option[value="temp-lead-11"]').text(leadLabel);
+            lead11Label = leadLabel;
         });
         temp3MonthLead12Layer.query()
           .run(function(error, featureCollection){
             formatLeadDates(featureCollection.features[0].properties.valid_seas);
             $('#lead-options option[value="temp-lead-12"]').text(leadLabel);
+            lead12Label = leadLabel;
         });
         temp3MonthLead13Layer.query()
           .run(function(error, featureCollection){
             formatLeadDates(featureCollection.features[0].properties.valid_seas);
             $('#lead-options option[value="temp-lead-13"]').text(leadLabel);
+            lead13Label = leadLabel;
         });
 
 
@@ -223,8 +236,9 @@
         var validmonth;
         var validMonthEnd;
         var releasemonth;
-        var validSeason;
+        var valid_seas;
         var currentLayerName = "temp610dayLayer";
+        // Set up options for date display
 
         var currentLayer = temp610dayLayer;
         currentLayer.on('load', iterateFeatures);
@@ -233,22 +247,47 @@
 
         function iterateFeatures () {
           currentLayer.eachFeature(function(layer) {
+
             // validmonth = layer.feature.properties.start_date;
             // releasemonth = layer.feature.properties.fcst_date;
+            // validmonth = new Date(layer.feature.properties.start_date);
+            // validMonthEnd = new Date(layer.feature.properties.end_date);
+            // releasemonth = new Date(layer.feature.properties.fcst_date); 
+            //validSeason = layer.feature.properties.valid_seas;  
+            // var validMonthFormat = (validmonth.getMonth() + 1) + '-' +  validmonth.getDate()   + '-' + validmonth.getFullYear();            
+            // var validMonthEndFormat = (validMonthEnd.getMonth() + 1) + '-' +  validMonthEnd.getDate()   + '-' + validMonthEnd.getFullYear();      
+            // var releaseMonthFormat = (releasemonth.getMonth() + 1) + '-' +  releasemonth.getDate()   + '-' + releasemonth.getFullYear();            
+            // validmonth = validMonthFormat + ' - ' + validMonthEndFormat;
+            // releasemonth = releaseMonthFormat;
+
+            //create new Date object
             validmonth = new Date(layer.feature.properties.start_date);
+            validmonth = validmonth.setDate(validmonth.getDate() + 1);
+            validmonth = new Date(validmonth);
             validMonthEnd = new Date(layer.feature.properties.end_date);
-            releasemonth = new Date(layer.feature.properties.fcst_date); 
-            validSeason = layer.feature.properties.valid_seas;  
-            var validMonthFormat = (validmonth.getMonth() + 1) + '-' +  validmonth.getDate()   + '-' + validmonth.getFullYear();            
-            var validMonthEndFormat = (validMonthEnd.getMonth() + 1) + '-' +  validMonthEnd.getDate()   + '-' + validMonthEnd.getFullYear();      
-            var releaseMonthFormat = (releasemonth.getMonth() + 1) + '-' +  releasemonth.getDate()   + '-' + releasemonth.getFullYear();            
-            validmonth = validMonthFormat + ' - ' + validMonthEndFormat;
-            releasemonth = releaseMonthFormat;
+            validMonthEnd = validMonthEnd.setDate(validMonthEnd.getDate() + 1);
+            validMonthEnd = new Date(validMonthEnd);
+            releasemonth = new Date(layer.feature.properties.fcst_date);
+            releasemonth = releasemonth.setDate(releasemonth.getDate() + 1);
+            releasemonth = new Date(releasemonth);
+
+            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+            //format dates
+            validmonth = validmonth.toLocaleDateString("en-US", options);
+            validMonthEnd = validMonthEnd.toLocaleDateString("en-US", options);
+            validmonth = validmonth + ' - ' + validMonthEnd;
+            releasemonth = releasemonth.toLocaleDateString("en-US", options);
+
             layer.setStyle({
-               fillOpacity: 0.6
+              fillOpacity: 0.6
             });
+
+            // if (layer.feature.properties.valid_seas){
+            //   formatLeadDates(layer.feature.properties.valid_seas);
+            // }
+            
             if (layer.feature.properties.cat == "Above"){
-              console.log(layer.feature);
 
               //get probability of the layer
               switch(layer.feature.properties.prob){
@@ -281,6 +320,7 @@
             }
             else if (layer.feature.properties.cat == "EC"){
                   //layer.removeFrom(tempmap);
+                  //layer.bindTooltip("EC");
 
             }
             else if (layer.feature.properties.cat == "Below"){
@@ -323,14 +363,38 @@
         temp610dayLayer.query()
           .run(function(error, featureCollection){
 
+            //validmonth = new Date(featureCollection.features[0].properties.start_date);
+            //validMonthEnd = new Date(featureCollection.features[0].properties.end_date);
+            //releasemonth = new Date(featureCollection.features[0].properties.fcst_date);
+            
+            
+            //var validMonthFormat = (validmonth.getMonth() + 1) + '-' +  validmonth.getDate()   + '-' + validmonth.getFullYear();            
+            //var validMonthEndFormat = (validMonthEnd.getMonth() + 1) + '-' +  validMonthEnd.getDate()   + '-' + validMonthEnd.getFullYear();      
+            //var releaseMonthFormat = (releasemonth.getMonth() + 1) + '-' +  releasemonth.getDate()   + '-' + releasemonth.getFullYear();            
+            
+            //validmonth = validMonthFormat + ' - ' + validMonthEndFormat;
+            
+            //releasemonth = releaseMonthFormat;
+
+            //create new Date object
             validmonth = new Date(featureCollection.features[0].properties.start_date);
+            validmonth = validmonth.setDate(validmonth.getDate() + 1);
+            validmonth = new Date(validmonth);
             validMonthEnd = new Date(featureCollection.features[0].properties.end_date);
+            validMonthEnd = validMonthEnd.setDate(validMonthEnd.getDate() + 1);
+            validMonthEnd = new Date(validMonthEnd);
             releasemonth = new Date(featureCollection.features[0].properties.fcst_date);
-            var validMonthFormat = (validmonth.getMonth() + 1) + '-' +  validmonth.getDate()   + '-' + validmonth.getFullYear();            
-            var validMonthEndFormat = (validMonthEnd.getMonth() + 1) + '-' +  validMonthEnd.getDate()   + '-' + validMonthEnd.getFullYear();      
-            var releaseMonthFormat = (releasemonth.getMonth() + 1) + '-' +  releasemonth.getDate()   + '-' + releasemonth.getFullYear();            
-            validmonth = validMonthFormat + ' - ' + validMonthEndFormat;
-            releasemonth = releaseMonthFormat;
+            releasemonth = releasemonth.setDate(releasemonth.getDate() + 1);
+            releasemonth = new Date(releasemonth);
+
+            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+            //format dates
+            validmonth = validmonth.toLocaleDateString("en-US", options);
+            validMonthEnd = validMonthEnd.toLocaleDateString("en-US", options);
+            validmonth = validmonth + ' - ' + validMonthEnd;
+            releasemonth = releasemonth.toLocaleDateString("en-US", options);
+
 
             // Set initial title and valid period for monthly drought outlook
             $('#temp-map-header .title').text("U.S. 6 to 10 Day Temperature Outlook");
@@ -355,7 +419,6 @@
             currentLayerName = "temp610dayLayer";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
-
             //hide Select a Lead
             $('#lead-selector').hide();
             $('#temp-map-header .title').text("U.S. 6 to 10 Day Temperature Outlook");
@@ -371,7 +434,6 @@
 
             //hide Select a Lead
             $('#lead-selector').hide();
-
             $('#temp-map-header .title').text("U.S. 8 to 14 Day Temperature Outlook");
             $('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
             $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/814day/814temp.new.gif');
@@ -382,10 +444,8 @@
             currentLayerName = "tempMonthlyLayer";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
-
             //hide Select a Lead
             $('#lead-selector').hide();
-
             $('#temp-map-header .title').text("U.S. Monthly Temperature Outlook");
             $('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
             $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead14/off14_temp.gif');
@@ -396,7 +456,6 @@
             currentLayerName = "Lead1";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
-
             //Show Select a Lead
             $('#lead-selector').show();
             $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook");
@@ -422,19 +481,22 @@
           }
         });
 
-        var tempSlider = $('#opacity-level')[0];
-        var tempOutput = $('.opacity-slider__value')[0];
-        var opacityVal = $('.opacity-slider__range').val();
+
+        var tempSlider = $('#temp-opacity-level')[0];
+        // var output = document.getElementById("sliderValue");
+        var tempOutput = $('.temp-opacity-slider__value')[0];
+
+        var opacityVal = $('.temp-opacity-slider__range').val();
         // Convert opacity decimal value to percent
         var percent = Math.round(tempSlider.value * 100);
-        //console.log(percent);
+
         // Write percent value in html label area
-        $('.opacity-slider__value').html(percent);
+        $('.temp-opacity-slider__value').html(percent);
 
         tempOutput.innerHTML = percent;
         tempSlider.oninput = function() {
           tempOutput.innerHTML = Math.round(this.value * 100);
-          
+
           currentLayer.eachFeature(function(layer){
             layer.setStyle({
               fillOpacity: (tempSlider.value)
@@ -499,8 +561,8 @@
             currentLayerName = "Lead6";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
-           $('#temp-map-header .temp-title').text("U.S. 3 Month Temperature Outlook - Lead 6");
-           $('#temp-map-header .temp-valid-dates').html("Valid: " + lead6Label + "<br> Released: " + releasemonth);
+           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 6");
+           $('#temp-map-header .valid-dates').html("Valid: " + lead6Label + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead06/off06_temp.gif');
           }
           else if (this.value == 'temp-lead-7') {
@@ -509,8 +571,8 @@
             currentLayerName = "Lead7";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
-           $('#temp-map-header .temp-title').text("U.S. 3 Month Temperature Outlook - Lead 7");
-           $('#temp-map-header .temp-valid-dates').html("Valid: " + lead7Label + "<br> Released: " + releasemonth);
+           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 7");
+           $('#temp-map-header .valid-dates').html("Valid: " + lead7Label + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead07/off07_temp.gif');
           }
           else if (this.value == 'temp-lead-8') {
