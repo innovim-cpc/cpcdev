@@ -306,7 +306,7 @@
             // Add a day to the date for correct display
             start_date_plus1 = get_start_date.setDate(get_start_date.getDate() + 1);
             end_date_plus1 = get_end_date.setDate(get_end_date.getDate() + 1);
-            fcst_date_plus1 = get_end_date.setDate(get_fcst_date.getDate() + 1);
+            fcst_date_plus1 = get_fcst_date.setDate(get_fcst_date.getDate() + 1);
 
             // Create new Date object
             start_date = new Date(start_date_plus1);
