@@ -36,7 +36,7 @@ esri-leaflet-geocoder:
     url: http://www.apache.org/licenses/LICENSE-2.0
   css:
     theme:
-      https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css: {}
+    https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css: {}
   js:
     https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js: { type: external }
 
@@ -70,6 +70,14 @@ google:
   js:
     https://www.gstatic.com/charts/loader.js: { type: external }
 
+functions:
+  version: VERSION
+  js:
+    js/functions.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
 drought:
   version: 1.x
   css:
@@ -84,6 +92,7 @@ drought:
     - interactive_outlooks/esri-leaflet
     - interactive_outlooks/leaflet-plugins
     - interactive_outlooks/leaflet-renderers
+    - interactive_outlooks/functions
 
 hazards:
   version: 1.x
@@ -100,6 +109,7 @@ hazards:
     - interactive_outlooks/leaflet-omnivore
     - interactive_outlooks/leaflet-plugins
     - interactive_outlooks/leaflet-renderers
+    - interactive_outlooks/functions
 
 temp:
   version: 1.x
@@ -118,6 +128,7 @@ temp:
     - interactive_outlooks/google
     - interactive_outlooks/leaflet-renderers
     - interactive_outlooks/esri-leaflet-geocoder
+    - interactive_outlooks/functions
 
 precip:
   version: 1.x
@@ -136,6 +147,7 @@ precip:
     - interactive_outlooks/google
     - interactive_outlooks/leaflet-renderers
     - interactive_outlooks/esri-leaflet-geocoder
+    - interactive_outlooks/functions
 
 selector:
   version: 1.x
@@ -151,3 +163,4 @@ selector:
     - interactive_outlooks/precip
     - interactive_outlooks/hazards
     - interactive_outlooks/drought
+    - interactive_outlooks/functions
