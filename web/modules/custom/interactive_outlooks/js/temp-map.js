@@ -93,7 +93,6 @@
         var lead13Label;
 
         function formatLeadDates(x){
-          console.log(x);
           switch(x.substring(0,3)) {
               case 'JFM':
                   leadLabel = 'Jan-Feb-Mar ' + x.substring(x.length - 4, x.length);
