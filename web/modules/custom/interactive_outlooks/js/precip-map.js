@@ -105,6 +105,7 @@
        var lead11Label;
        var lead12Label;
        var lead13Label;
+       var monthlyValidDate;
 
        function formatLeadDates(x){
         switch(x.substring(0,3)) {
@@ -148,6 +149,13 @@
             leadLabel = x;
         }
     }
+
+      precipMonthlyLayer.query()
+      .run(function(error, featureCollection){
+        //formatLeadDates(featureCollection.features[0].properties.valid_seas);
+        //$('#lead-options-precip option[value="precip-lead-1"]').text(leadLabel);
+        monthlyValidDate = featureCollection.features[0].properties.valid_seas;
+    });
 
        //query lead layers to get lead dates for drop down list
        precip3MonthLead1Layer.query()
@@ -428,7 +436,7 @@
             //hide Select a Lead
             $('#lead-selector-precip').hide();
             $('#precip-map-header .title').text("U.S. Monthly Precipitation Outlook");
-            $('#precip-map-header .valid-dates').html("Valid: " + get_valid_seas + "<br> Released: " + fcst_date);
+            $('#precip-map-header .valid-dates').html("Valid: " + monthlyValidDate + "<br> Released: " + fcst_date);
             $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead14/off14_prcp.gif');
           }
           else if (this.value == 'precip-3month') {

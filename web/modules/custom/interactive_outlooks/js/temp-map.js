@@ -91,6 +91,7 @@
         var lead11Label;
         var lead12Label;
         var lead13Label;
+        var monthlyValidDate;
 
         function formatLeadDates(x){
           switch(x.substring(0,3)) {
@@ -135,6 +136,13 @@
           }
       }
         
+        tempMonthlyLayer.query()
+        .run(function(error, featureCollection){
+          //formatLeadDates(featureCollection.features[0].properties.valid_seas);
+          //$('#lead-options-precip option[value="precip-lead-1"]').text(leadLabel);
+          monthlyValidDate = featureCollection.features[0].properties.valid_seas;
+        });
+
         temp3MonthLead1Layer.query()
           .run(function(error, featureCollection){
             formatLeadDates(featureCollection.features[0].properties.valid_seas);
@@ -447,7 +455,7 @@
             //hide Select a Lead
             $('#lead-selector').hide();
             $('#temp-map-header .title').text("U.S. Monthly Temperature Outlook");
-            $('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
+            $('#temp-map-header .valid-dates').html("Valid: " + monthlyValidDate + "<br> Released: " + releasemonth);
             $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead14/off14_temp.gif');
           }
           else if (this.value == 'temp3month') {
