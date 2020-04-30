@@ -91,7 +91,9 @@
         var lead11Label;
         var lead12Label;
         var lead13Label;
-        var monthlyValidDate;
+        var validDate610Day;
+        var validDate814Day
+        var validDateMonthly;
 
         function formatLeadDates(x){
           switch(x.substring(0,3)) {
@@ -136,11 +138,18 @@
           }
       }
         
+
+      tempMonthlyLayer.query()
+        .run(function(error, featureCollection){
+          //formatLeadDates(featureCollection.features[0].properties.valid_seas);
+          //$('#lead-options-precip option[value="precip-lead-1"]').text(leadLabel);
+          validDateMonthly = featureCollection.features[0].properties.valid_seas;
+        });
         tempMonthlyLayer.query()
         .run(function(error, featureCollection){
           //formatLeadDates(featureCollection.features[0].properties.valid_seas);
           //$('#lead-options-precip option[value="precip-lead-1"]').text(leadLabel);
-          monthlyValidDate = featureCollection.features[0].properties.valid_seas;
+          validDateMonthly = featureCollection.features[0].properties.valid_seas;
         });
 
         temp3MonthLead1Layer.query()
@@ -287,6 +296,16 @@
             validmonth = validmonth + ' - ' + validMonthEnd;
             releasemonth = releasemonth.toLocaleDateString("en-US", options);
 
+            if (currentLayerName == "temp610dayLayer") {
+              $('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
+            }
+            else if (currentLayerName == "temp814dayLayer"){
+              $('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
+            }
+            else if (currentLayerName == "tempMonthlyLayer"){
+              $('#temp-map-header .valid-dates').html("Valid: " + layer.feature.properties.valid_seas + "<br> Released: " + releasemonth);
+            }
+
             layer.setStyle({
               fillOpacity: 0.6
             });
@@ -371,19 +390,6 @@
         temp610dayLayer.query()
           .run(function(error, featureCollection){
 
-            //validmonth = new Date(featureCollection.features[0].properties.start_date);
-            //validMonthEnd = new Date(featureCollection.features[0].properties.end_date);
-            //releasemonth = new Date(featureCollection.features[0].properties.fcst_date);
-            
-            
-            //var validMonthFormat = (validmonth.getMonth() + 1) + '-' +  validmonth.getDate()   + '-' + validmonth.getFullYear();            
-            //var validMonthEndFormat = (validMonthEnd.getMonth() + 1) + '-' +  validMonthEnd.getDate()   + '-' + validMonthEnd.getFullYear();      
-            //var releaseMonthFormat = (releasemonth.getMonth() + 1) + '-' +  releasemonth.getDate()   + '-' + releasemonth.getFullYear();            
-            
-            //validmonth = validMonthFormat + ' - ' + validMonthEndFormat;
-            
-            //releasemonth = releaseMonthFormat;
-
             //create new Date object
             validmonth = new Date(featureCollection.features[0].properties.start_date);
             validmonth = validmonth.setDate(validmonth.getDate() + 1);
@@ -430,7 +436,7 @@
             //hide Select a Lead
             $('#lead-selector').hide();
             $('#temp-map-header .title').text("U.S. 6 to 10 Day Temperature Outlook");
-            $('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
+            //$('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
             $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/610day/610temp.new.gif');
           }
           else if (this.value == 'temp814day') {
@@ -443,7 +449,7 @@
             //hide Select a Lead
             $('#lead-selector').hide();
             $('#temp-map-header .title').text("U.S. 8 to 14 Day Temperature Outlook");
-            $('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
+            //$('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
             $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/814day/814temp.new.gif');
           }
           else if (this.value == 'tempmonthly') {
@@ -455,7 +461,7 @@
             //hide Select a Lead
             $('#lead-selector').hide();
             $('#temp-map-header .title').text("U.S. Monthly Temperature Outlook");
-            $('#temp-map-header .valid-dates').html("Valid: " + monthlyValidDate + "<br> Released: " + releasemonth);
+            //$('#temp-map-header .valid-dates').html("Valid: " + monthlyValidDate + "<br> Released: " + releasemonth);
             $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead14/off14_temp.gif');
           }
           else if (this.value == 'temp3month') {

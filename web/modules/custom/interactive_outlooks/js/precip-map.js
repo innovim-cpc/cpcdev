@@ -105,8 +105,9 @@
        var lead11Label;
        var lead12Label;
        var lead13Label;
-       var monthlyValidDate;
+       var validDateMonthly;
        var currentLayerName;
+       var count = 0;
 
        function formatLeadDates(x){
         switch(x.substring(0,3)) {
@@ -150,13 +151,6 @@
             leadLabel = x;
         }
     }
-
-      precipMonthlyLayer.query()
-      .run(function(error, featureCollection){
-        //formatLeadDates(featureCollection.features[0].properties.valid_seas);
-        //$('#lead-options-precip option[value="precip-lead-1"]').text(leadLabel);
-        monthlyValidDate = featureCollection.features[0].properties.valid_seas;
-    });
 
        //query lead layers to get lead dates for drop down list
        precip3MonthLead1Layer.query()
@@ -303,10 +297,11 @@
         //$('#precip-map-header .valid-dates').text("Valid for " + fcst_date + ", Released " + file_date);
         $('#lead-selector-precip').hide();
 
+
         function iterateFeatures () {
 
           currentLayer.eachFeature(function(layer) {
-
+            
             get_start_date = new Date(layer.feature.properties.start_date);
             get_end_date = new Date(layer.feature.properties.end_date);
             get_fcst_date = new Date(layer.feature.properties.fcst_date);
@@ -329,6 +324,16 @@
             start_date = start_date.toLocaleDateString("en-US", options);
             end_date = end_date.toLocaleDateString("en-US", options);
             fcst_date = fcst_date.toLocaleDateString("en-US", options);
+
+            if (currentLayerName == "precip610dayLayer") {
+              $('#precip-map-header .valid-dates').html("Valid: " + start_date + " - " + end_date + "<br>Released: " + fcst_date);
+            }
+            else if (currentLayerName == "precip814dayLayer"){
+              $('#precip-map-header .valid-dates').html("Valid: " + start_date + " - " + end_date + "<br> Released: " + fcst_date);
+            }
+            else if (currentLayerName == "precipMonthlyLayer"){
+              $('#precip-map-header .valid-dates').html("Valid: " + get_valid_seas + "<br> Released: " + fcst_date);
+            }
 
             layer.setStyle({
                fillOpacity: 0.6
@@ -425,7 +430,7 @@
             //hide Select a Lead
             $('#lead-selector-precip').hide();
             $('#precip-map-header .title').text("U.S. 6 to 10 Day Precipitation Outlook");
-            $('#precip-map-header .valid-dates').html("Valid: " + start_date + " &ndash; " + end_date + "<br>Released: " + fcst_date);
+            //$('#precip-map-header .valid-dates').html("Valid: " + validDate610Day + "<br>Released: " + fcst_date);
             $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/610day/610prcp.new.gif');
           }
           else if (this.value == 'precip814day') {
@@ -437,7 +442,7 @@
             //hide Select a Lead
             $('#lead-selector-precip').hide();
             $('#precip-map-header .title').text("U.S. 8 to 14 Day Precipitation Outlook");
-            $('#precip-map-header .valid-dates').html("Valid: " + start_date + " &ndash; " + end_date + "<br> Released: " + fcst_date);
+            // $('#precip-map-header .valid-dates').html("Valid: " + validDate814Day + "<br> Released: " + fcst_date);
             $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/814day/814prcp.new.gif');
           }
           else if (this.value == 'precip-monthly') {
@@ -449,7 +454,7 @@
             //hide Select a Lead
             $('#lead-selector-precip').hide();
             $('#precip-map-header .title').text("U.S. Monthly Precipitation Outlook");
-            $('#precip-map-header .valid-dates').html("Valid: " + monthlyValidDate + "<br> Released: " + fcst_date);
+            //$('#precip-map-header .valid-dates').html("Valid: " + validDateMonthly + "<br> Released: " + fcst_date);
             $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead14/off14_prcp.gif');
           }
           else if (this.value == 'precip-3month') {
