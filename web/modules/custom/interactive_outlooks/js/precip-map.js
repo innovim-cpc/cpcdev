@@ -106,6 +106,7 @@
        var lead12Label;
        var lead13Label;
        var monthlyValidDate;
+       var currentLayerName;
 
        function formatLeadDates(x){
         switch(x.substring(0,3)) {
@@ -258,7 +259,7 @@
 
         // Set current layer
         var currentLayer = precip610dayLayer;
-
+        currentLayerName = "precip610dayLayer";
         // Initial settings for 6-10 day layer
         currentLayer.on('load', iterateFeatures);
 
@@ -393,6 +394,15 @@
               }
             }
           });
+
+          //repopulate the pie chart
+          if (region == "AK"){
+            getPrecipHandlerAlaska(coord);
+          }
+          else
+          {
+            getPrecipHandler(coord);
+          }
         }
 
         var precip610dayChecked = $('#precip-map__view-select input[type=radio][id=precip610day]:checked');
@@ -409,6 +419,7 @@
           if (this.value == 'precip610day') {
             removePrevLayer();
             currentLayer = precip610dayLayer;
+            currentLayerName = "precip610dayLayer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
             //hide Select a Lead
@@ -420,6 +431,7 @@
           else if (this.value == 'precip814day') {
             removePrevLayer();
             currentLayer = precip814dayLayer;
+            currentLayerName = "precip814dayLayer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
             //hide Select a Lead
@@ -431,6 +443,7 @@
           else if (this.value == 'precip-monthly') {
             removePrevLayer();
             currentLayer = precipMonthlyLayer;
+            currentLayerName = "precipMonthlyLayer";
             currentLayer.on('load', iterateFeatures);
             currentLayer.addTo(precipmap);
             //hide Select a Lead
@@ -442,6 +455,7 @@
           else if (this.value == 'precip-3month') {
             removePrevLayer();
             currentLayer = precip3MonthLead1Layer;
+            currentLayerName = "precip3MonthLead1Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
             //Show Select a Lead
@@ -494,6 +508,7 @@
           if (this.value == 'precip-lead-1') {
             removePrevLayer();
             currentLayer = precip3MonthLead1Layer;
+            currentLayerName = "precip3MonthLead1Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 1");
@@ -503,6 +518,7 @@
           else if (this.value == 'precip-lead-2') {
             removePrevLayer();
             currentLayer = precip3MonthLead2Layer;
+            currentLayerName = "precip3MonthLead2Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 2");
@@ -512,6 +528,7 @@
           else if (this.value == 'precip-lead-3') {
             removePrevLayer();
             currentLayer = precip3MonthLead3Layer;
+            currentLayerName = "precip3MonthLead3Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 3");
@@ -521,6 +538,7 @@
           else if (this.value == 'precip-lead-4') {
             removePrevLayer();
             currentLayer = precip3MonthLead4Layer;
+            currentLayerName = "precip3MonthLead4Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 4");
@@ -530,6 +548,7 @@
           else if (this.value == 'precip-lead-5') {
             removePrevLayer();
             currentLayer = precip3MonthLead5Layer;
+            currentLayerName = "precip3MonthLead5Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 5");
@@ -539,6 +558,7 @@
           else if (this.value == 'precip-lead-6') {
             removePrevLayer();
             currentLayer = precip3MonthLead6Layer;
+            currentLayerName = "precip3MonthLead6Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 6");
@@ -548,6 +568,7 @@
           else if (this.value == 'precip-lead-7') {
             removePrevLayer();
             currentLayer = precip3MonthLead7Layer;
+            currentLayerName = "precip3MonthLead7Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 7");
@@ -557,6 +578,7 @@
           else if (this.value == 'precip-lead-8') {
             removePrevLayer();
             currentLayer = precip3MonthLead8Layer;
+            currentLayerName = "precip3MonthLead8Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 8");
@@ -566,6 +588,7 @@
           else if (this.value == 'precip-lead-9') {
             removePrevLayer();
             currentLayer = precip3MonthLead9Layer;
+            currentLayerName = "precip3MonthLead9Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 9");
@@ -575,6 +598,7 @@
           else if (this.value == 'precip-lead-10') {
             removePrevLayer();
             currentLayer = precip3MonthLead10Layer;
+            currentLayerName = "precip3MonthLead10Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 10");
@@ -584,6 +608,7 @@
           else if (this.value == 'precip-lead-11') {
             removePrevLayer();
             currentLayer = precip3MonthLead11Layer;
+            currentLayerName = "precip3MonthLead111Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 11");
@@ -593,6 +618,7 @@
           else if (this.value == 'precip-lead-12') {
             removePrevLayer();
             currentLayer = precip3MonthLead12Layer;
+            currentLayerName = "precip3MonthLead12Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 12");
@@ -602,6 +628,7 @@
           else if (this.value == 'precip-lead-13') {
             removePrevLayer();
             currentLayer = precip3MonthLead13Layer;
+            currentLayerName = "precip3MonthLead13Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
            $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 13");
@@ -746,7 +773,22 @@
     				HandleResponse_Precip(xmlHttp.responseText);
           }
         }
-    			xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/610day/interactive/includes/get_precip_pie.php?coord="+coord+"&region=conus", true);
+          //xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/610day/interactive/includes/get_precip_pie.php?coord="+coord+"&region=conus", true);
+          
+        //get the correct data based on which layer is selected (including Leads)
+          if (currentLayerName == "precip610dayLayer") {
+            xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/610day/interactive/includes/get_precip_pie.php?coord="+coord+"&region=conus", true);
+          }
+          else if (currentLayerName == "precip814dayLayer") {
+            xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/814day/interactive/includes/get_precip_pie.php?coord="+coord+"&region=conus", true);
+          }
+          else if (currentLayerName == "precipMonthlyLayer"){
+            xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead14/interactive/includes/get_precip_pie.php?coord="+coord+"&region=conus", true);
+          }
+          else {
+            xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/long_range/interactive/includes/get_precip_pie.php?coord="+coord+"&region=conus&lead="+ currentLayerName, true);
+          }
+    			
     			xmlHttp.send(null);
       }
 
@@ -758,7 +800,21 @@
     				HandleResponse_Precip(xmlHttp.responseText);
           }
         }
-    			xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/610day/interactive/includes/get_precip_pie.php?coord="+coord+"&region=alaska", true);
+          //xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/610day/interactive/includes/get_precip_pie.php?coord="+coord+"&region=alaska", true);          
+
+          //get the correct data based on which layer is selected (including Leads)        
+          if (currentLayerName == "precip610dayLayer") {
+            xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/610day/interactive/includes/get_precip_pie.php?coord="+coord+"&region=alaska", true);
+          }
+          else if (currentLayerName == "precip814dayLayer") {
+            xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/814day/interactive/includes/get_precip_pie.php?coord="+coord+"&region=alaska", true);
+          }
+          else if (currentLayerName == "precipMonthlyLayer"){
+            xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead14/interactive/includes/get_preci_pie.php?coord="+coord+"&region=alaska", true);
+          }
+          else {
+            xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/long_range/interactive/includes/get_precip_pie.php?coord="+coord+"&region=alaska&lead="+ currentLayerName, true);
+          }
     			xmlHttp.send(null);
       }
       function HandleResponse_Precip(response) {
