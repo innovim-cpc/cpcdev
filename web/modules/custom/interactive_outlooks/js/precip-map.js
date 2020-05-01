@@ -415,7 +415,7 @@
           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/814day/814prcp.new.gif');
         }
 
-        // Change the layers of the map to based on dropdown list selection
+        // Change the layers of the map based on dropdown list selection
         $('input[name=precip-map-duration]').on('change', function() {
           if (this.value == 'precip610day') {
             removePrevLayer();
