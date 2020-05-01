@@ -41,5 +41,5 @@ function formatLeadDates(x) {
     default:
       leadLabel = x;
   }
-  return x;
+  return leadLabel;
 }

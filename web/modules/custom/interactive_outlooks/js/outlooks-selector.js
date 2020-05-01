@@ -11,7 +11,7 @@
 
    	  //$('#outlooks-selector', context).once('.outlooks', function() {
 
-      $('.grid-row.outlooks .temp').show();
+      $('.grid-row.outlooks .temp').fadeIn();
       $('.grid-row.outlooks .precip').hide();
       $('.grid-row.outlooks .hazards').hide();
       $('.grid-row.outlooks .drought').hide();
@@ -21,36 +21,35 @@
         switch(selectedVal) {
           case 'temp':
             e.preventDefault();
-            $('.grid-row.outlooks .temp').show(500);
-            $('.grid-row.outlooks .precip').hide(500);
-            $('.grid-row.outlooks .hazards').hide(500);
-            $('.grid-row.outlooks .drought').hide(500);
+            $('.grid-row.outlooks .temp').fadeIn(500);
+            $('.grid-row.outlooks .precip').hide();
+            $('.grid-row.outlooks .hazards').hide();
+            $('.grid-row.outlooks .drought').hide();
             break;
           case 'precip':
             e.preventDefault();
-            $('.grid-row.outlooks .precip').show(500);
-            $('.grid-row.outlooks .temp').hide(500);
-            $('.grid-row.outlooks .hazards').hide(500);
-            $('.grid-row.outlooks .drought').hide(500);
-            localStorage.setItem('testForm', JSON.stringify('precip'));
+            $('.grid-row.outlooks .precip').fadeIn(500);
+            $('.grid-row.outlooks .temp').hide();
+            $('.grid-row.outlooks .hazards').hide();
+            $('.grid-row.outlooks .drought').hide();
             break;
           case 'hazards':
             e.preventDefault();
-            $('.grid-row.outlooks .hazards').show(500);
-            $('.grid-row.outlooks .temp').hide(500);
-            $('.grid-row.outlooks .precip').hide(500);
-            $('.grid-row.outlooks .drought').hide(500);
+            $('.grid-row.outlooks .hazards').fadeIn(500);
+            $('.grid-row.outlooks .temp').hide();
+            $('.grid-row.outlooks .precip').hide();
+            $('.grid-row.outlooks .drought').hide();
             break;
           case 'drought':
             e.preventDefault();
-            $('.grid-row.outlooks .drought').show(500);
-            $('.grid-row.outlooks .temp').hide(500);
-            $('.grid-row.outlooks .precip').hide(500);
-            $('.grid-row.outlooks .hazards').hide(500);
+            $('.grid-row.outlooks .drought').fadeIn(500);
+            $('.grid-row.outlooks .temp').hide();
+            $('.grid-row.outlooks .precip').hide();
+            $('.grid-row.outlooks .hazards').hide();
             break;
           default:
             e.preventDefault();
-            $('.grid-row.outlooks .temp').show();
+            $('.grid-row.outlooks .temp').fadeIn();
             $('.grid-row.outlooks .precip').hide();
             $('.grid-row.outlooks .hazards').hide();
             $('.grid-row.outlooks .drought').hide();
