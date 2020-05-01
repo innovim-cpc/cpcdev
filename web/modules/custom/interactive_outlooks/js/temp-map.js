@@ -261,6 +261,10 @@
         function iterateFeatures() {
           currentLayer.eachFeature(function(layer) {
 
+            layer.setStyle({
+              fillOpacity: 0.6
+            });
+
             // validmonth = layer.feature.properties.start_date;
             // releasemonth = layer.feature.properties.fcst_date;
             // validmonth = new Date(layer.feature.properties.start_date);
@@ -292,28 +296,24 @@
             validmonth = validmonth + ' - ' + validMonthEnd;
             releasemonth = releasemonth.toLocaleDateString("en-US", options);
 
-            if (currentLayerName == "temp610dayLayer") {
+            if (currentLayerName === "temp610dayLayer") {
               $('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
             }
-            else if (currentLayerName == "temp814dayLayer"){
+            else if (currentLayerName === "temp814dayLayer"){
               $('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
             }
-            else if (currentLayerName == "tempMonthlyLayer"){
+            else if (currentLayerName === "tempMonthlyLayer"){
               $('#temp-map-header .valid-dates').html("Valid: " + layer.feature.properties.valid_seas + "<br> Released: " + releasemonth);
             }
 
-            layer.setStyle({
-              fillOpacity: 0.6
-            });
-
+            
             // if (layer.feature.properties.valid_seas){
             //   formatLeadDates(layer.feature.properties.valid_seas);
             // }
             
-            if (layer.feature.properties.cat == "Above"){
-
-              //get probability of the layer
-              switch(layer.feature.properties.prob){
+            if (layer.feature.properties.cat === "Above") {
+              // get probability of the layer
+              switch(layer.feature.properties.prob) {
                 case 90:
                   layer.bindTooltip("90% - 100% chance of Above Average Temperature");
                   break;
@@ -336,18 +336,13 @@
                   layer.bindTooltip("33% chance of Above Average Temperature");
                   break;
               }
-
-            }
-            else if (layer.feature.properties.cat == "Normal"){
-                  layer.bindTooltip("36% chance of Normal Temperature");
-            }
-            else if (layer.feature.properties.cat == "EC"){
+            } else if (layer.feature.properties.cat === "Normal") {
+              layer.bindTooltip("36% chance of Normal Temperature");
+            } else if (layer.feature.properties.cat === "EC") {
                   //layer.removeFrom(tempmap);
                   //layer.bindTooltip("EC");
-
-            }
-            else if (layer.feature.properties.cat == "Below"){
-              switch(layer.feature.properties.prob){
+            } else if (layer.feature.properties.cat === "Below") {
+              switch(layer.feature.properties.prob) {
                 case 33:
                   layer.bindTooltip("33% chance of Below Average Temperature");
                   break;

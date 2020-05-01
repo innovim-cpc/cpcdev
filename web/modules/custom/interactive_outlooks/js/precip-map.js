@@ -108,54 +108,54 @@
 
       function formatLeadDates(x){
         switch(x.substring(0,3)) {
-            case 'JFM':
-                leadLabel = 'Jan-Feb-Mar ' + x.substring(x.length - 4, x.length);
-                break;
-            case 'FMA':
-                leadLabel = 'Feb-Mar-Apr ' + x.substring(x.length - 4, x.length);
-                break;
-            case 'MAM':
-                leadLabel = 'Mar-Apr-May ' + x.substring(x.length - 4, x.length);
-                break;
-            case 'AMJ':
-                leadLabel = 'Apr-May-Jun ' + x.substring(x.length - 4, x.length);
-                break;
-            case 'MJJ':
-                leadLabel = 'May-Jun-Jul ' + x.substring(x.length - 4, x.length);
-                break;
-            case 'JJA':
-                leadLabel = 'Jun-Jul-Aug ' + x.substring(x.length - 4, x.length);
-                break;
-            case 'JAS':
-                leadLabel = 'Jul-Aug-Sep ' + x.substring(x.length - 4, x.length);
-                break;
-            case 'ASO':
-                leadLabel = 'Aug-Sep-Oct ' + x.substring(x.length - 4, x.length);
-                break;
-            case 'SON':
-                leadLabel = 'Sep-Oct-Nov ' + x.substring(x.length - 4, x.length);
-                break;
-            case 'OND':
-                leadLabel = 'Oct-Nov-Dec ' + x.substring(x.length - 4, x.length);
-                break;
-            case 'NDJ':
-                leadLabel = 'Nov-Dec-Jan ' + x.substring(x.length - 9, x.length);
-                break;
-            case 'DJF':
-                leadLabel = 'Dec-Jan-Feb ' + x.substring(x.length - 9, x.length);
-                break;
-            default: 
+          case 'JFM':
+            leadLabel = 'Jan-Feb-Mar ' + x.substring(x.length - 4, x.length);
+            break;
+          case 'FMA':
+            leadLabel = 'Feb-Mar-Apr ' + x.substring(x.length - 4, x.length);
+            break;
+          case 'MAM':
+            leadLabel = 'Mar-Apr-May ' + x.substring(x.length - 4, x.length);
+            break;
+          case 'AMJ':
+            leadLabel = 'Apr-May-Jun ' + x.substring(x.length - 4, x.length);
+            break;
+          case 'MJJ':
+            leadLabel = 'May-Jun-Jul ' + x.substring(x.length - 4, x.length);
+            break;
+          case 'JJA':
+            leadLabel = 'Jun-Jul-Aug ' + x.substring(x.length - 4, x.length);
+            break;
+          case 'JAS':
+            leadLabel = 'Jul-Aug-Sep ' + x.substring(x.length - 4, x.length);
+            break;
+          case 'ASO':
+            leadLabel = 'Aug-Sep-Oct ' + x.substring(x.length - 4, x.length);
+            break;
+          case 'SON':
+            leadLabel = 'Sep-Oct-Nov ' + x.substring(x.length - 4, x.length);
+            break;
+          case 'OND':
+            leadLabel = 'Oct-Nov-Dec ' + x.substring(x.length - 4, x.length);
+            break;
+          case 'NDJ':
+            leadLabel = 'Nov-Dec-Jan ' + x.substring(x.length - 9, x.length);
+            break;
+          case 'DJF':
+            leadLabel = 'Dec-Jan-Feb ' + x.substring(x.length - 9, x.length);
+            break;
+          default: 
             leadLabel = x;
         }
-    }
+      }
 
-       //query lead layers to get lead dates for drop down list
-       precip3MonthLead1Layer.query()
-          .run(function(error, featureCollection){
-            formatLeadDates(featureCollection.features[0].properties.valid_seas);
-            $('#lead-options-precip option[value="precip-lead-1"]').text(leadLabel);
-            lead1Label = leadLabel;
-        });
+      // Query lead layers to get lead dates for drop down list
+      precip3MonthLead1Layer.query()
+        .run(function(error, featureCollection){
+          formatLeadDates(featureCollection.features[0].properties.valid_seas);
+          $('#lead-options-precip option[value="precip-lead-1"]').text(leadLabel);
+          lead1Label = leadLabel;
+      });
 
         precip3MonthLead2Layer.query()
           .run(function(error, featureCollection){
@@ -256,8 +256,7 @@
 
         // Initialize 6-10 day layer
         precip610dayLayer.query()
-        .run(function(error, featureCollection){
-          //precipmap.invalidateSize();
+        .run(function(error, featureCollection) {
           iterateFeatures();
 
           get_start_date = new Date(featureCollection.features[0].properties.start_date);
@@ -296,9 +295,12 @@
 
 
         function iterateFeatures () {
-
-          currentLayer.eachFeature(function(layer) {
+          currentLayer.eachFeature(function(layer) {   
             
+            layer.setStyle({
+              fillOpacity: 0.6
+            });
+
             get_start_date = new Date(layer.feature.properties.start_date);
             get_end_date = new Date(layer.feature.properties.end_date);
             get_fcst_date = new Date(layer.feature.properties.fcst_date);
@@ -322,24 +324,21 @@
             end_date = end_date.toLocaleDateString("en-US", options);
             fcst_date = fcst_date.toLocaleDateString("en-US", options);
 
-            if (currentLayerName == "precip610dayLayer") {
+            if (currentLayerName === "precip610dayLayer") {
               $('#precip-map-header .valid-dates').html("Valid: " + start_date + " - " + end_date + "<br>Released: " + fcst_date);
             }
-            else if (currentLayerName == "precip814dayLayer"){
+            else if (currentLayerName === "precip814dayLayer"){
               $('#precip-map-header .valid-dates').html("Valid: " + start_date + " - " + end_date + "<br> Released: " + fcst_date);
             }
-            else if (currentLayerName == "precipMonthlyLayer"){
+            else if (currentLayerName === "precipMonthlyLayer"){
               $('#precip-map-header .valid-dates').html("Valid: " + get_valid_seas + "<br> Released: " + fcst_date);
             }
 
-            layer.setStyle({
-               fillOpacity: 0.6
-            });
 
-            if (layer.feature.properties.cat == "Above"){
+            if (layer.feature.properties.cat === "Above"){
 
-              //get probability of the layer
-              switch(layer.feature.properties.prob){
+              // Get probability of the layer
+              switch(layer.feature.properties.prob) {
                 case 90:
                   layer.bindTooltip("90% chance of Above Average Precipitation");
                   break;
@@ -363,15 +362,12 @@
                   break;
               }
 
-            }
-            else if (layer.feature.properties.cat == "Normal"){
+            } else if (layer.feature.properties.cat === "Normal") {
               layer.bindTooltip("36% chance of Normal Precipitation");
-            }
-            else if (layer.feature.properties.cat == "EC"){
+            } else if (layer.feature.properties.cat === "EC") {
               layer.removeFrom(precipmap);
-            }
-            else if (layer.feature.properties.cat == "Below"){
-              switch(layer.feature.properties.prob){
+            } else if (layer.feature.properties.cat === "Below") {
+              switch(layer.feature.properties.prob) {
                 case 33:
                   layer.bindTooltip("33% chance of Below Average Precipitation");
                   break;
@@ -397,7 +393,7 @@
             }
           });
 
-          //repopulate the pie chart
+          // Repopulate the pie chart
           if (region === "AK") {
             getPrecipHandlerAlaska(coord);
           } else {
