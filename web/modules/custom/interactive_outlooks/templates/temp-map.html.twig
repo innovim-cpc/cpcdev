@@ -36,6 +36,10 @@
 
       <div class="grid-row">
         <div class="tablet:grid-col-12 temp-image image-links">
+          <h4>Discussion</h4>
+          <ul>
+            <li><a href="">Read Outlook Discussion</a></li>
+          </ul>
           <h4>Images</h4>
           <ul>
             <li><a href="">View larger image</a></li>
@@ -54,21 +58,21 @@
             <legend class="usa-sr-only">Outlook Duration</legend>
             <div class="usa-radio">
               <input class="usa-radio__input" id="temp610day" type="radio" checked name="temp-map-duration" value="temp610day">
-              <label class="usa-radio__label" for="temp610day">6 - 10 Day</label>
+              <label class="usa-radio__label" for="temp610day">6&ndash;10 Day</label>
               <input class="usa-radio__input" id="temp814day" type="radio" name="temp-map-duration" value="temp814day">
-              <label class="usa-radio__label" for="temp814day">8 - 14 Day</label>
+              <label class="usa-radio__label" for="temp814day">8&ndash;14 Day</label>
               <input class="usa-radio__input" id="tempmonthly" type="radio" name="temp-map-duration" value="tempmonthly">
               <label class="usa-radio__label" for="tempmonthly">Monthly</label>
               <input class="usa-radio__input" id="temp3month" type="radio" name="temp-map-duration" value="temp3month">
               <label class="usa-radio__label" for="temp3month">3 Month</label>
             </div>
           </fieldset>
-          {# <p class="temp-monitor-link"><a href="https://droughtmonitor.unl.edu/" target="_blank">U.S. Drought Monitor<i class="fas fa-external-link-alt"></i></a></p> #}
         </div>
+
         <div class="tablet:grid-col-12">
           <div class="lead-selector-container">
             <form class="usa-form" id="lead-selector">
-              <label class="usa-label" for="lead-options">Select a Lead</label>
+              <label class="usa-label" for="lead-options"><b>Select a Lead</b></label>
               <select class="usa-select" name="lead-options" id="lead-options">
                 <option value="temp-lead-1"></option>
                 <option value="temp-lead-2"></option>
@@ -84,7 +88,6 @@
                 <option value="temp-lead-12"></option>
                 <option value="temp-lead-13"></option>
               </select>
-              {# <input class="usa-button" type="submit" value="Select Lead"> #}
             </form>
           </div>
         </div>

@@ -36,6 +36,10 @@
 
       <div class="grid-row">
         <div class="tablet:grid-col-12 precip-image image-links">
+          <h4>Discussion</h4>
+          <ul>
+            <li><a href="">Read Outlook Discussion</a></li>
+          </ul>
           <h4>Images</h4>
           <ul>
             <li><a href="">View larger image</a></li>
@@ -54,23 +58,22 @@
             <legend class="usa-sr-only">Outlook Duration</legend>
             <div class="usa-radio">
               <input class="usa-radio__input" id="precip610day" type="radio" checked name="precip-map-duration" value="precip610day">
-              <label class="usa-radio__label" for="precip610day">6 - 10 Day</label>
+              <label class="usa-radio__label" for="precip610day">6&ndash;10 Day</label>
               <input class="usa-radio__input" id="precip814day" type="radio" name="precip-map-duration" value="precip814day">
-              <label class="usa-radio__label" for="precip814day">8 - 14 Day</label>
+              <label class="usa-radio__label" for="precip814day">8&ndash;14 Day</label>
               <input class="usa-radio__input" id="precip-monthly" type="radio" name="precip-map-duration" value="precip-monthly">
               <label class="usa-radio__label" for="precip-monthly">Monthly</label>
               <input class="usa-radio__input" id="precip-3month" type="radio" name="precip-map-duration" value="precip-3month">
               <label class="usa-radio__label" for="precip-3month">3 Month</label>
             </div>
           </fieldset>
-          {# <p class="precip-monitor-link"><a href="https://droughtmonitor.unl.edu/" target="_blank">U.S. Drought Monitor<i class="fas fa-external-link-alt"></i></a></p> #}
         </div>
+
         <div class="tablet:grid-col-12">
           <div class="lead-selector-container">
             <form class="usa-form" id="lead-selector-precip">
-              <label class="usa-label" for="lead-options-precip">Select a Lead</label>
+              <label class="usa-label" for="lead-options-precip"><b>Select a Lead</b></label>
               <select class="usa-select" name="lead-options-precip" id="lead-options-precip">
-                {# include '@templates/lead-months.html.twig' #}
                 <option value="precip-lead-1"></option>
                 <option value="precip-lead-2"></option>
                 <option value="precip-lead-3"></option>
@@ -85,7 +88,6 @@
                 <option value="precip-lead-12"></option>
                 <option value="precip-lead-13"></option>
               </select>
-              {# <input class="usa-button" type="submit" value="Select Lead"> #}
             </form>
           </div>
         </div>
