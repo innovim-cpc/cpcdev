@@ -398,3 +398,9 @@ table.hazards-data th {
   left: 650px;
   top: 40px !important;
 }
+#legend_div {
+  position:absolute;
+  z-index: 1000;
+  left: 50px;
+  top: 0px;
+}
