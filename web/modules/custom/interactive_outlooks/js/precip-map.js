@@ -20,7 +20,7 @@
         });
 
         // Add Esri World Topo base map via Esri Leaflet plugin
-        L.esri.basemapLayer('Topographic').addTo(precipmap);
+        L.esri.basemapLayer('Gray').addTo(precipmap);
 
         // Create variables from all the Precipitation layers
         const precip610dayLayer = L.esri.featureLayer({
@@ -144,7 +144,7 @@
           case 'DJF':
             leadLabel = 'Dec-Jan-Feb ' + x.substring(x.length - 9, x.length);
             break;
-          default: 
+          default:
             leadLabel = x;
         }
       }
@@ -295,8 +295,8 @@
 
 
         function iterateFeatures () {
-          currentLayer.eachFeature(function(layer) {   
-            
+          currentLayer.eachFeature(function(layer) {
+
             layer.setStyle({
               fillOpacity: 0.6
             });
@@ -771,7 +771,7 @@
           }
         }
           //xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/610day/interactive/includes/get_precip_pie.php?coord="+coord+"&region=conus", true);
-          
+
         //get the correct data based on which layer is selected (including Leads)
           if (currentLayerName == "precip610dayLayer") {
             xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/610day/interactive/includes/get_precip_pie.php?coord="+coord+"&region=conus", true);
@@ -795,9 +795,9 @@
           }
         }
 
-        //xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/610day/interactive/includes/get_precip_pie.php?coord="+coord+"&region=alaska", true);          
+        //xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/610day/interactive/includes/get_precip_pie.php?coord="+coord+"&region=alaska", true);
 
-        // Get the correct data based on which layer is selected (including Leads)        
+        // Get the correct data based on which layer is selected (including Leads)
         if (currentLayerName == "precip610dayLayer") {
           xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/610day/interactive/includes/get_precip_pie.php?coord="+coord+"&region=alaska", true);
         }
