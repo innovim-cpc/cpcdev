@@ -126,8 +126,8 @@ table.hazards-data th {
 }
 
 .opacity-slider .opacity-slider__range::-webkit-slider-thumb,
-.opacity-slider .precip-opacity-slider__range::-webkit-slider-thumb, 
-.opacity-slider .temp-opacity-slider__range::-webkit-slider-thumb, 
+.opacity-slider .precip-opacity-slider__range::-webkit-slider-thumb,
+.opacity-slider .temp-opacity-slider__range::-webkit-slider-thumb,
 .opacity-slider .drought-opacity-slider__range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -403,4 +403,17 @@ table.hazards-data th {
   z-index: 1000;
   left: 50px;
   top: 0px;
+}
+.temp-map-legend,
+.precip-map-legend {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: 1000;
+}
+.temp-map-legend img,
+.precip-map-legend img {
+  height: 20px;
+  margin: 0 auto;
+  width: auto;
 }
