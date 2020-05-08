@@ -484,7 +484,7 @@
         //change the map to the correct area
         $('input[type=radio][name=temp-map-view]').on('change',function() {
           if (this.value == 'conus') {
-            tempmap.setView(new L.LatLng(38.98970, -76.93776), 3.9)
+            tempmap.setView(new L.LatLng(38, -96), 3.9)
             //set default marker back to College Park, MD
             if (marker) {
               tempmap.removeLayer(marker);
