@@ -552,7 +552,7 @@
   
             var latitude = 61.217381;
             var longitude = -149.863129;
-            var coord = latitude.toFixed(2) + ", " + longitude.toFixed(2);
+            coord = latitude.toFixed(2) + ", " + longitude.toFixed(2);
   
             //locate the closest town/city within 160 miles
             //getForecast(e.Latlng = 64.2,-149.2);
@@ -899,7 +899,7 @@
 
 
      function getTempHandlerAlaska(coord) {
-    		var xmlHttp = getXMLHttp();
+        var xmlHttp = getXMLHttp();
     		xmlHttp.onreadystatechange = function() {
     			//console.log(xmlHttp.readyState);
     			if (xmlHttp.readyState==4 && xmlHttp.status==200) {
@@ -987,7 +987,7 @@
       		}
 
 
-          chartTemp = new google.visualization.PieChart(document.getElementById('temp-chart'));
+          chartTemp = new google.visualization.PieChart(document.getElementById('temp-chart')); 
           chartTemp.draw(data, options);
         }
 
