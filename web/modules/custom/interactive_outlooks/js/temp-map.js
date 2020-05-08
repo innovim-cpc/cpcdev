@@ -414,6 +414,12 @@
             $('#temp-map-header .title').text("U.S. 6 to 10 Day Temperature Outlook");
             $('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
 
+            marker.bindPopup(function (layer){
+              return L.Util.template("Collge Park, MD <br> <a href= https://forecast.weather.gov/MapClick.php?lat=38.98970" +
+              "&amp;lon=-76.93776 " +
+              "target=_blank title='Link to 7 Day Forecast'>7 Day Forecast for College Park, MD");
+            }).openPopup();
+
         });
         var temp610dayChecked = $('#temp-map__view-select input[type=radio][id=temp610day]:checked');
         var temp814dayChecked = $('#temp-map__view-select input[type=radio][id=temp814day]:checked');
@@ -488,10 +494,78 @@
         //change the map to the correct area
         $('input[type=radio][name=temp-map-view]').on('change',function() {
           if (this.value == 'conus') {
-            tempmap.setView(new L.LatLng(38, -96), 3.9)
+            tempmap.setView(new L.LatLng(38.98970, -76.93776), 3.9)
+            //set default marker back to College Park, MD
+            if (marker) {
+              tempmap.removeLayer(marker);
+            }
+            //add marker to map at click location
+            var init_coord = L.latLng(38.98970, -76.93776);
+
+            //var marker;
+            //add initial marker
+            marker = new L.marker(init_coord).addTo(tempmap);
+            marker.bindPopup(function (layer){
+              return L.Util.template("Collge Park, MD <br> <a href= https://forecast.weather.gov/MapClick.php?lat=38.98970" +
+              "&amp;lon=-76.93776 " +
+              "target=_blank title='Link to 7 Day Forecast'>7 Day Forecast for College Park, MD");
+            }).openPopup();
+            
+            
+  
+            var latitude = 38.989697;
+            var longitude = -76.937759;
+            var coord = latitude.toFixed(2) + ", " + longitude.toFixed(2);
+  
+            //locate the closest town/city within 160 miles
+            //getForecast(e.Latlng = 64.2,-149.2);
+            
+            //reset the variables before loading new data, prevents old data from being displayed if the pie chart loads before the new data refreshes
+            mint_norm = null;
+            maxt_norm = null;
+            temp_abv = null;
+            temp_blo =  null;
+            temp_norm = null;
+            
+            getTempHandler(coord);
           }
+
           else if (this.value == 'alaska') {
             tempmap.setView(new L.LatLng(64.2,-149.4), 3.9)
+            //set default marker for Anchorage, Alaska
+            if (marker) {
+              tempmap.removeLayer(marker);
+            }
+            //add marker to map at click location
+            var init_coord = L.latLng(61.217381, -149.863129);
+
+            //var marker;
+            //add initial marker
+            marker = new L.marker(init_coord).addTo(tempmap);
+            marker.bindPopup(function (layer){
+              return L.Util.template("Anchorage, AK <br> <a href= https://forecast.weather.gov/MapClick.php?lat=61.217381" +
+              "&amp;lon=-149.863129 " +
+              "target=_blank title='Link to 7 Day Forecast'>7 Day Forecast for Anchorage, AK");
+            }).openPopup();
+            
+            
+  
+            var latitude = 61.217381;
+            var longitude = -149.863129;
+            var coord = latitude.toFixed(2) + ", " + longitude.toFixed(2);
+  
+            //locate the closest town/city within 160 miles
+            //getForecast(e.Latlng = 64.2,-149.2);
+            
+            //reset the variables before loading new data, prevents old data from being displayed if the pie chart loads before the new data refreshes
+            mint_norm = null;
+            maxt_norm = null;
+            temp_abv = null;
+            temp_blo =  null;
+            temp_norm = null;
+            
+            getTempHandlerAlaska(coord);
+           
           }
         });
 
@@ -525,7 +599,7 @@
             currentLayerName = "Lead1";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
-           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 1");
+           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook");
            $('#temp-map-header .valid-dates').html("Valid: " + lead1Label + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead01/off01_temp.gif');
           }
@@ -535,7 +609,7 @@
             currentLayerName = "Lead2";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
-           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 2");
+           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook");
            $('#temp-map-header .valid-dates').html("Valid: " + lead2Label + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead02/off02_temp.gif');
           }
@@ -545,7 +619,7 @@
             currentLayerName = "Lead3";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
-           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 3");
+           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook");
            $('#temp-map-header .valid-dates').html("Valid: " + lead3Label + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead03/off03_temp.gif');
           }
@@ -555,7 +629,7 @@
             currentLayerName = "Lead4";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
-           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 4");
+           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook");
            $('#temp-map-header .valid-dates').html("Valid: " + lead4Label + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead04/off04_temp.gif');
           }
@@ -565,7 +639,7 @@
             currentLayerName = "Lead5";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
-           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 5");
+           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook");
            $('#temp-map-header .valid-dates').html("Valid: " + lead5Label + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead05/off05_temp.gif');
           }
@@ -575,7 +649,7 @@
             currentLayerName = "Lead6";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
-           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 6");
+           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook");
            $('#temp-map-header .valid-dates').html("Valid: " + lead6Label + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead06/off06_temp.gif');
           }
@@ -585,7 +659,7 @@
             currentLayerName = "Lead7";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
-           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 7");
+           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook");
            $('#temp-map-header .valid-dates').html("Valid: " + lead7Label + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead07/off07_temp.gif');
           }
@@ -595,7 +669,7 @@
             currentLayerName = "Lead8";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
-           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 8");
+           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook");
            $('#temp-map-header .valid-dates').html("Valid: " + lead8Label + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead08/off08_temp.gif');
           }
@@ -605,7 +679,7 @@
             currentLayerName = "Lead9";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
-           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 9");
+           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook");
            $('#temp-map-header .valid-dates').html("Valid: " + lead9Label + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
@@ -615,7 +689,7 @@
             currentLayerName = "Lead10";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
-           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 10");
+           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook");
            $('#temp-map-header .valid-dates').html("Valid: " + lead10Label + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
@@ -625,7 +699,7 @@
             currentLayerName = "Lead11";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
-           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 11");
+           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook");
            $('#temp-map-header .valid-dates').html("Valid: " + lead11Label + "<br> Released " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
@@ -635,7 +709,7 @@
             currentLayerName = "Lead12";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
-           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 12");
+           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook");
            $('#temp-map-header .valid-dates').html("Valid: " + lead12Label + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
@@ -645,7 +719,7 @@
             currentLayerName = "Lead13";
             currentLayer.addTo(tempmap);
             currentLayer.on('load', iterateFeatures);
-           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook - Lead 13");
+           $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook");
            $('#temp-map-header .valid-dates').html("Valid: " + lead13Label + "<br> Released: " + releasemonth);
            $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png');
           }
@@ -665,11 +739,12 @@
         var marker;
         //add initial marker
         marker = new L.marker(init_coord).addTo(tempmap);
+        
 
-        document.getElementById('location-container').innerHTML =
-            "<a href= https://forecast.weather.gov/MapClick.php?lat=38.98970" +
-            "&amp;lon=-76.93776 " +
-            "target=_blank title='Link to 7 Day Forecast'>7 Day Forecast for College Park, MD"
+        // document.getElementById('location-container').innerHTML =
+        //     "<a href= https://forecast.weather.gov/MapClick.php?lat=38.98970" +
+        //     "&amp;lon=-76.93776 " +
+        //     "target=_blank title='Link to 7 Day Forecast'>7 Day Forecast for College Park, MD"
 
         // Load the Visualization API and the corechart package.
         google.charts.load('current', {'packages':['corechart']});
@@ -778,12 +853,22 @@
               console.log(error);
               return;
             }
-            document.getElementById('location-container').innerHTML =
-                "<a href= https://forecast.weather.gov/MapClick.php?lat=" +
-                latitude.toFixed(2)+"&amp;lon="+ longitude.toFixed(2) +
-                " target=_blank title='Link to 7 Day Forecast'>7 Day Forecast for " +
-                featureCollection.features[0].properties.PO_NAME + ", "+ featureCollection.features[0].properties.STATE+"</a>";
-                region = featureCollection.features[0].properties.STATE;
+            // document.getElementById('location-container').innerHTML =
+            //     "<a href= https://forecast.weather.gov/MapClick.php?lat=" +
+            //     latitude.toFixed(2)+"&amp;lon="+ longitude.toFixed(2) +
+            //     " target=_blank title='Link to 7 Day Forecast'>7 Day Forecast for " +
+            //     featureCollection.features[0].properties.PO_NAME + ", "+ featureCollection.features[0].properties.STATE+"</a>";
+            //     region = featureCollection.features[0].properties.STATE;
+            marker.bindPopup(function (layer){
+              region = featureCollection.features[0].properties.STATE;
+              return L.Util.template(featureCollection.features[0].properties.PO_NAME + ", " + featureCollection.features[0].properties.STATE + 
+              "<br><a href= https://forecast.weather.gov/MapClick.php?lat=" +
+                  latitude.toFixed(2)+"&amp;lon="+ longitude.toFixed(2) +
+                  " target=_blank title='Link to 7 Day Forecast'>7 Day Forecast for " +
+                  featureCollection.features[0].properties.PO_NAME + ", "+ featureCollection.features[0].properties.STATE+"</a>");                  
+            }).openPopup();
+            
+              
           })
         }
 

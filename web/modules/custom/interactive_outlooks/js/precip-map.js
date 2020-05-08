@@ -465,7 +465,7 @@
             currentLayer.on('load', iterateFeatures);
             //Show Select a Lead
             $('#lead-selector-precip').show();
-            $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook - Lead 1");
+            $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook");
             $('#precip-map-header .valid-dates').html("Valid: " + lead1Label + "<br> Released: " + fcst_date);
             $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead01/off01_prcp.gif');
           }
@@ -516,7 +516,7 @@
             currentLayerName = "precip3MonthLead1Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 1");
+           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook");
            $('#precip-map-header .valid-dates').html("Valid: " + lead1Label + "<br> Released: " + fcst_date);
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead01/off01_prcp.gif');
           }
@@ -526,7 +526,7 @@
             currentLayerName = "precip3MonthLead2Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 2");
+           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook");
            $('#precip-map-header .valid-dates').html("Valid: " + lead2Label + "<br> Released: " + fcst_date);
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead02/off02_prcp.gif');
           }
@@ -536,7 +536,7 @@
             currentLayerName = "precip3MonthLead3Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 3");
+           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook");
            $('#precip-map-header .valid-dates').html("Valid: " + lead3Label + "<br> Released: " + fcst_date);
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead03/off03_prcp.gif');
           }
@@ -546,7 +546,7 @@
             currentLayerName = "precip3MonthLead4Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 4");
+           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook");
            $('#precip-map-header .valid-dates').html("Valid: " + lead4Label + "<br> Released: " + fcst_date);
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead04/off04_prcp.gif');
           }
@@ -556,7 +556,7 @@
             currentLayerName = "precip3MonthLead5Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 5");
+           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook");
            $('#precip-map-header .valid-dates').html("Valid: " + lead5Label + "<br> Released: " + fcst_date);
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead05/off05_prcp.gif');
           }
@@ -566,7 +566,7 @@
             currentLayerName = "precip3MonthLead6Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 6");
+           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook");
            $('#precip-map-header .valid-dates').html("Valid: " + lead6Label + "<br> Released: " + fcst_date);
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead06/off06_prcp.gif');
           }
@@ -576,7 +576,7 @@
             currentLayerName = "precip3MonthLead7Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 7");
+           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook");
            $('#precip-map-header .valid-dates').html("Valid: " + lead7Label + "<br> Released: " + fcst_date);
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead07/off07_prcp.gif');
           }
@@ -586,7 +586,7 @@
             currentLayerName = "precip3MonthLead8Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 8");
+           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook");
            $('#precip-map-header .valid-dates').html("Valid: " + lead8Label + "<br> Released: " + fcst_date);
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead08/off08_prcp.gif');
           }
@@ -596,7 +596,7 @@
             currentLayerName = "precip3MonthLead9Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 9");
+           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook");
            $('#precip-map-header .valid-dates').html("Valid: " + lead9Label + "<br> Released: " + fcst_date);
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead09/off09_prcp.gif');
           }
@@ -606,7 +606,7 @@
             currentLayerName = "precip3MonthLead10Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 10");
+           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook");
            $('#precip-map-header .valid-dates').html("Valid: " + lead10Label + "<br> Released: " + fcst_date);
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead10/off10_prcp.gif');
           }
@@ -616,7 +616,7 @@
             currentLayerName = "precip3MonthLead111Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 11");
+           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook");
            $('#precip-map-header .valid-dates').html("Valid: " + lead11Label + "<br> Released: " + fcst_date);
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead11/off11_prcp.gif');
           }
@@ -626,7 +626,7 @@
             currentLayerName = "precip3MonthLead12Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 12");
+           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook");
            $('#precip-map-header .valid-dates').html("Valid: " + lead12Label + "<br> Released: " + fcst_date);
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead12/off12_prcp.gif');
           }
@@ -636,7 +636,7 @@
             currentLayerName = "precip3MonthLead13Layer";
             currentLayer.addTo(precipmap);
             currentLayer.on('load', iterateFeatures);
-           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook - Lead 13");
+           $('#precip-map-header .title').html("U.S. 3 Month Precipitation Outlook");
            $('#precip-map-header .valid-dates').html("Valid: " + lead13Label + "<br> Released: " + fcst_date);
            $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead13/off13_prcp.gif');
           }
