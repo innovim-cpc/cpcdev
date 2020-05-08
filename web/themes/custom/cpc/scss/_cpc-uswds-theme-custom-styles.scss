@@ -161,3 +161,6 @@ i.e.
   }
   .usa-button { margin-top: 10px; }
 }
+button:not([disabled]):focus, input:not([disabled]):focus, select:not([disabled]):focus, textarea:not([disabled]):focus {
+    outline: none !important;
+}
