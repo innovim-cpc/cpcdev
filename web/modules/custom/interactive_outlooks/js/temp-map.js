@@ -542,7 +542,7 @@
   
             var latitude = 61.217381;
             var longitude = -149.863129;
-            var coord = latitude.toFixed(2) + ", " + longitude.toFixed(2);
+            coord = latitude.toFixed(2) + ", " + longitude.toFixed(2);
   
             //locate the closest town/city within 160 miles
             //getForecast(e.Latlng = 64.2,-149.2);
@@ -885,8 +885,14 @@
     		xmlHttp.send(null);
       }
 
+<<<<<<< HEAD
       function getTempHandlerAlaska(coord) {
     		var xmlHttp = getXMLHttp();
+=======
+
+     function getTempHandlerAlaska(coord) {
+        var xmlHttp = getXMLHttp();
+>>>>>>> pie chart was not updated when first selected Alaska radio button
     		xmlHttp.onreadystatechange = function() {
     			//console.log(xmlHttp.readyState);
     			if (xmlHttp.readyState==4 && xmlHttp.status==200) {
@@ -958,12 +964,17 @@
             "<font color=black>Three Category Temperature Outlook<br>Normal Maximum Temperature: N/A</font></a>";
         }
 
+<<<<<<< HEAD
         if (mint_norm > -200) {
           document.getElementById("chart_div_temp_label_min").innerHTML=
             "<font color=black>Normal Minimum Temperature: </font><strong>"
             + mint_norm + "</strong></a>";
         } else {
             document.getElementById("chart_div_temp_label_min").innerHTML="<font color=black>Normal Minimum Temperature: N/A</font></a>";
+=======
+          chartTemp = new google.visualization.PieChart(document.getElementById('temp-chart')); 
+          chartTemp.draw(data, options);
+>>>>>>> pie chart was not updated when first selected Alaska radio button
         }
         chartTemp = new google.visualization.PieChart(document.getElementById('temp-chart'));
         chartTemp.draw(data, options);
