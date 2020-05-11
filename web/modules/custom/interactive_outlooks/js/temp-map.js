@@ -6,7 +6,6 @@
 (function ($) {
   "use strict";
 
-
    //Drupal.behaviors.createtempMap = {
    	//attach:function (context, settings) {
 
@@ -23,61 +22,73 @@
         // Add Esri World Topo base map via Esri Leaflet plugin
         L.esri.basemapLayer('Topographic').addTo(tempmap);
 
-        // Get link to layer data
-        const temp610day = "https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_6_10_day_outlk/MapServer/0/";
-
-
-        // another feature layer with unique value renderer defined in the service
-        var temp610dayLayer = L.esri.featureLayer({
+        // Create variables from all the Temperature layers
+        const temp610dayLayer = L.esri.featureLayer({
           url:'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_6_10_day_outlk/MapServer/0'
         }).addTo(tempmap);
-        var temp814dayLayer = L.esri.featureLayer({
+        const temp814dayLayer = L.esri.featureLayer({
           url:'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_8_14_day_outlk/MapServer/0'
         });
-        var tempMonthlyLayer = L.esri.featureLayer({
+        const tempMonthlyLayer = L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_mthly_temp_outlk/MapServer/0'
         });
-        var temp3MonthLead1Layer = L.esri.featureLayer({
+        const temp3MonthLead1Layer = L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/0'
         });
-        var temp3MonthLead2Layer = L.esri.featureLayer({
+        const temp3MonthLead2Layer = L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/1'
         });
-        var temp3MonthLead3Layer = L.esri.featureLayer({
+        const temp3MonthLead3Layer = L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/2'
         });
-        var temp3MonthLead4Layer = L.esri.featureLayer({
+        const temp3MonthLead4Layer = L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/3'
         });
-        var temp3MonthLead5Layer = L.esri.featureLayer({
+        const temp3MonthLead5Layer = L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/4'
         });
-        var temp3MonthLead6Layer = L.esri.featureLayer({
+        const temp3MonthLead6Layer = L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/5'
         });
-        var temp3MonthLead7Layer = L.esri.featureLayer({
+        const temp3MonthLead7Layer = L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/6'
         });
-        var temp3MonthLead8Layer = L.esri.featureLayer({
+        const temp3MonthLead8Layer = L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/7'
         });
-        var temp3MonthLead9Layer = L.esri.featureLayer({
+        const temp3MonthLead9Layer = L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/8'
         });
-        var temp3MonthLead10Layer = L.esri.featureLayer({
+        const temp3MonthLead10Layer = L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/9'
         });
-        var temp3MonthLead11Layer = L.esri.featureLayer({
+        const temp3MonthLead11Layer = L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/10'
         });
-        var temp3MonthLead12Layer = L.esri.featureLayer({
+        const temp3MonthLead12Layer = L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/11'
         });
-        var temp3MonthLead13Layer = L.esri.featureLayer({
+        const temp3MonthLead13Layer = L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/12'
         });
-        var leadLabel;
 
+        // Search by address
+        // Create the geocoding control and add it to the map
+        var searchControl = L.esri.Geocoding.geosearch().addTo(tempmap);
+
+        // Create an empty layer group to store the results and add it to the map
+        var results = L.layerGroup().addTo(tempmap);
+
+        // Listen for the results event and add every result to the map
+        searchControl.on("results", function(data) {
+          results.clearLayers();
+          for (var i = data.results.length - 1; i >= 0; i--) {
+            addMarker(data.results[i]);
+          }
+        });
+
+
+        var leadLabel;
         var lead1Label;
         var lead2Label;
         var lead3Label;
@@ -97,47 +108,48 @@
 
         function formatLeadDates(x){
           switch(x.substring(0,3)) {
-              case 'JFM':
-                  leadLabel = 'Jan-Feb-Mar ' + x.substring(x.length - 4, x.length);
-                  break;
-              case 'FMA':
-                  leadLabel = 'Feb-Mar-Apr ' + x.substring(x.length - 4, x.length);
-                  break;
-              case 'MAM':
-                  leadLabel = 'Mar-Apr-May ' + x.substring(x.length - 4, x.length);
-                  break;
-              case 'AMJ':
-                  leadLabel = 'Apr-May-Jun ' + x.substring(x.length - 4, x.length);
-                  break;
-              case 'MJJ':
-                  leadLabel = 'May-Jun-Jul ' + x.substring(x.length - 4, x.length);
-                  break;
-              case 'JJA':
-                  leadLabel = 'Jun-Jul-Aug ' + x.substring(x.length - 4, x.length);
-                  break;
-              case 'JAS':
-                  leadLabel = 'Jul-Aug-Sep ' + x.substring(x.length - 4, x.length);
-                  break;
-              case 'ASO':
-                  leadLabel = 'Aug-Sep-Oct ' + x.substring(x.length - 4, x.length);
-                  break;
-              case 'SON':
-                  leadLabel = 'Sep-Oct-Nov ' + x.substring(x.length - 4, x.length);
-                  break;
-              case 'OND':
-                  leadLabel = 'Oct-Nov-Dec ' + x.substring(x.length - 4, x.length);
-                  break;
-              case 'NDJ':
-                  leadLabel = 'Nov-Dec-Jan ' + x.substring(x.length - 9, x.length);
-                  break;
-              case 'DJF':
-                  leadLabel = 'Dec-Jan-Feb ' + x.substring(x.length - 9, x.length);
-                  break;
-              default: 
+            case 'JFM':
+              leadLabel = 'Jan-Feb-Mar ' + x.substring(x.length - 4, x.length);
+              break;
+            case 'FMA':
+              leadLabel = 'Feb-Mar-Apr ' + x.substring(x.length - 4, x.length);
+              break;
+            case 'MAM':
+              leadLabel = 'Mar-Apr-May ' + x.substring(x.length - 4, x.length);
+              break;
+            case 'AMJ':
+              leadLabel = 'Apr-May-Jun ' + x.substring(x.length - 4, x.length);
+              break;
+            case 'MJJ':
+              leadLabel = 'May-Jun-Jul ' + x.substring(x.length - 4, x.length);
+              break;
+            case 'JJA':
+              leadLabel = 'Jun-Jul-Aug ' + x.substring(x.length - 4, x.length);
+              break;
+            case 'JAS':
+              leadLabel = 'Jul-Aug-Sep ' + x.substring(x.length - 4, x.length);
+              break;
+            case 'ASO':
+              leadLabel = 'Aug-Sep-Oct ' + x.substring(x.length - 4, x.length);
+              break;
+            case 'SON':
+              leadLabel = 'Sep-Oct-Nov ' + x.substring(x.length - 4, x.length);
+              break;
+            case 'OND':
+              leadLabel = 'Oct-Nov-Dec ' + x.substring(x.length - 4, x.length);
+              break;
+            case 'NDJ':
+              leadLabel = 'Nov-Dec-Jan ' + x.substring(x.length - 9, x.length);
+              break;
+            case 'DJF':
+              leadLabel = 'Dec-Jan-Feb ' + x.substring(x.length - 9, x.length);
+              break;
+            default:
               leadLabel = x;
           }
-      }
-        
+          return leadLabel;
+        }
+
 
       tempMonthlyLayer.query()
         .run(function(error, featureCollection){
@@ -234,46 +246,34 @@
             lead13Label = leadLabel;
         });
 
-
-        //search by address
-        // create the geocoding control and add it to the map
-       var searchControl = L.esri.Geocoding.geosearch().addTo(tempmap);
-
-       // create an empty layer group to store the results and add it to the map
-       var results = L.layerGroup().addTo(tempmap);
-
-       // listen for the results event and add every result to the map
-       searchControl.on("results", function(data) {
-           results.clearLayers();
-           for (var i = data.results.length - 1; i >= 0; i--) {
-               addMarker(data.results[i]);
-           }
-       });
-
         var validmonth;
         var validMonthEnd;
         var releasemonth;
         var valid_seas;
         var currentLayerName = "temp610dayLayer";
-        // Set up options for date display
 
         var currentLayer = temp610dayLayer;
+
         currentLayer.on('load', iterateFeatures);
         //hide Select a Lead
         $('#lead-selector').hide();
 
-        function iterateFeatures () {
+        function iterateFeatures() {
           currentLayer.eachFeature(function(layer) {
+
+            layer.setStyle({
+              fillOpacity: 0.6
+            });
 
             // validmonth = layer.feature.properties.start_date;
             // releasemonth = layer.feature.properties.fcst_date;
             // validmonth = new Date(layer.feature.properties.start_date);
             // validMonthEnd = new Date(layer.feature.properties.end_date);
-            // releasemonth = new Date(layer.feature.properties.fcst_date); 
-            //validSeason = layer.feature.properties.valid_seas;  
-            // var validMonthFormat = (validmonth.getMonth() + 1) + '-' +  validmonth.getDate()   + '-' + validmonth.getFullYear();            
-            // var validMonthEndFormat = (validMonthEnd.getMonth() + 1) + '-' +  validMonthEnd.getDate()   + '-' + validMonthEnd.getFullYear();      
-            // var releaseMonthFormat = (releasemonth.getMonth() + 1) + '-' +  releasemonth.getDate()   + '-' + releasemonth.getFullYear();            
+            // releasemonth = new Date(layer.feature.properties.fcst_date);
+            //validSeason = layer.feature.properties.valid_seas;
+            // var validMonthFormat = (validmonth.getMonth() + 1) + '-' +  validmonth.getDate()   + '-' + validmonth.getFullYear();
+            // var validMonthEndFormat = (validMonthEnd.getMonth() + 1) + '-' +  validMonthEnd.getDate()   + '-' + validMonthEnd.getFullYear();
+            // var releaseMonthFormat = (releasemonth.getMonth() + 1) + '-' +  releasemonth.getDate()   + '-' + releasemonth.getFullYear();
             // validmonth = validMonthFormat + ' - ' + validMonthEndFormat;
             // releasemonth = releaseMonthFormat;
 
@@ -296,28 +296,24 @@
             validmonth = validmonth + ' - ' + validMonthEnd;
             releasemonth = releasemonth.toLocaleDateString("en-US", options);
 
-            if (currentLayerName == "temp610dayLayer") {
+            if (currentLayerName === "temp610dayLayer") {
               $('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
             }
-            else if (currentLayerName == "temp814dayLayer"){
+            else if (currentLayerName === "temp814dayLayer"){
               $('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
             }
-            else if (currentLayerName == "tempMonthlyLayer"){
+            else if (currentLayerName === "tempMonthlyLayer"){
               $('#temp-map-header .valid-dates').html("Valid: " + layer.feature.properties.valid_seas + "<br> Released: " + releasemonth);
             }
 
-            layer.setStyle({
-              fillOpacity: 0.6
-            });
 
             // if (layer.feature.properties.valid_seas){
             //   formatLeadDates(layer.feature.properties.valid_seas);
             // }
-            
-            if (layer.feature.properties.cat == "Above"){
 
-              //get probability of the layer
-              switch(layer.feature.properties.prob){
+            if (layer.feature.properties.cat === "Above") {
+              // get probability of the layer
+              switch(layer.feature.properties.prob) {
                 case 90:
                   layer.bindTooltip("90% - 100% chance of Above Average Temperature");
                   break;
@@ -340,18 +336,13 @@
                   layer.bindTooltip("33% chance of Above Average Temperature");
                   break;
               }
-
-            }
-            else if (layer.feature.properties.cat == "Normal"){
-                  layer.bindTooltip("36% chance of Normal Temperature");
-            }
-            else if (layer.feature.properties.cat == "EC"){
+            } else if (layer.feature.properties.cat === "Normal") {
+              layer.bindTooltip("36% chance of Normal Temperature");
+            } else if (layer.feature.properties.cat === "EC") {
                   //layer.removeFrom(tempmap);
                   //layer.bindTooltip("EC");
-
-            }
-            else if (layer.feature.properties.cat == "Below"){
-              switch(layer.feature.properties.prob){
+            } else if (layer.feature.properties.cat === "Below") {
+              switch(layer.feature.properties.prob) {
                 case 33:
                   layer.bindTooltip("33% chance of Below Average Temperature");
                   break;
@@ -378,13 +369,12 @@
           });
 
           //repopulate the pie chart
-          if (region == "AK"){
+          if (region === "AK") {
             getTempHandlerAlaska(coord);
-          }
-          else
-          {
+          } else {
             getTempHandler(coord);
           }
+
         }
 
         temp610dayLayer.query()
@@ -410,7 +400,7 @@
             releasemonth = releasemonth.toLocaleDateString("en-US", options);
 
 
-            // Set initial title and valid period for monthly drought outlook
+            // Set initial title and valid period for 6-10 day temperature outlook
             $('#temp-map-header .title').text("U.S. 6 to 10 Day Temperature Outlook");
             $('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
 
@@ -757,15 +747,15 @@
         tempmap.on('load', getTempHandler(coord));
         var chartTemp;
         var options = {
-        colors:['#d35656','#5c94bd','#b2e4d5'],
-        //b22222
-        pieSliceText: 'percentage',
-        pieSliceTextStyle: {color: 'black', fontSize: 12},
-        is3D:'true',
-        tooltip: {text: 'percentage'},
-        title:'Three Category Temperature Outlook',
-        width:400,
-        height:300
+          colors:['#d35656','#5c94bd','#b2e4d5'],
+          //b22222
+          pieSliceText: 'percentage',
+          pieSliceTextStyle: {color: 'black', fontSize: 12},
+          is3D:'true',
+          tooltip: {text: 'percentage'},
+          title:'Three Category Temperature Outlook',
+          width:400,
+          height:300
         };
 
         function drawChartInitial(mint_norm,maxt_norm,temp_abv,temp_blo,temp_norm) {
@@ -884,17 +874,15 @@
         //get the correct data based on which layer is selected (including Leads)
         if (currentLayerName == "temp610dayLayer") {
           xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/610day/interactive/includes/get_temps_pie.php?coord="+coord+"&region=conus", true);
-        }
-        else if (currentLayerName == "temp814dayLayer") {
+        } else if (currentLayerName == "temp814dayLayer") {
           xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/814day/interactive/includes/get_temps_pie.php?coord="+coord+"&region=conus", true);
-        }
-        else if (currentLayerName == "tempMonthlyLayer"){
+        } else if (currentLayerName == "tempMonthlyLayer"){
           xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead14/interactive/includes/get_temps_pie.php?coord="+coord+"&region=conus", true);
-        }
-        else {
+        } else {
           xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/long_range/interactive/includes/get_temps_pie.php?coord="+coord+"&region=conus&lead="+ currentLayerName, true);
+          console.log(currentLayerName);
         }
-    			xmlHttp.send(null);
+    		xmlHttp.send(null);
       }
 
 
@@ -906,9 +894,10 @@
     				HandleResponse_Temp(xmlHttp.responseText);
           }
         }
-        
-        //get the correct data based on which layer is selected (including Leads)
+
         //xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/610day/interactive/includes/get_temps_pie.php?coord="+coord+"&region=alaska", true);
+
+        // Get the correct data based on which layer is selected (including Leads)
         if (currentLayerName == "temp610dayLayer") {
           xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/https://www.cpc.ncep.noaa.gov/products/predictions/610day/interactive/includes/get_temps_pie.php?coord="+coord+"&region=alaska", true);
         }
@@ -923,101 +912,90 @@
         }
         xmlHttp.send(null);
       }
+
+
       function HandleResponse_Temp(response) {
-      		response = response.split('#');
-      			mint_norm = response[0];
-      			maxt_norm = response[1];
-      			temp_abv = response[2];
-      			temp_blo =  response[3];
-      			temp_norm = response[4];
-            if (initialLoad){
-              if (temp_norm == null)
-              {
-                drawChartInitial(mint_norm,maxt_norm,temp_abv,temp_blo,temp_norm);
-              }
-              else
-              {
-                setTimeout(function(){
-                    drawChartInitial(mint_norm,maxt_norm,temp_abv,temp_blo,temp_norm);
-                }, 700);
-              }
-            }
-            else
-            {
-              if (temp_norm == null)
-              {
-                drawChart(mint_norm,maxt_norm,temp_abv,temp_blo,temp_norm);
-              }
-              else
-              {
-                setTimeout(function(){
-                    drawChart(mint_norm,maxt_norm,temp_abv,temp_blo,temp_norm);
-                }, 700);
-              }
-            }
+        response = response.split('#');
+        mint_norm = response[0];
+        maxt_norm = response[1];
+        temp_abv = response[2];
+        temp_blo =  response[3];
+        temp_norm = response[4];
+        if (initialLoad) {
+          if (temp_norm === null) {
+            drawChartInitial(mint_norm,maxt_norm,temp_abv,temp_blo,temp_norm);
+          } else {
+            setTimeout(function() {
+              drawChartInitial(mint_norm,maxt_norm,temp_abv,temp_blo,temp_norm);
+            }, 700);
+          }
+        } else {
+          if (temp_norm === null) {
+            drawChart(mint_norm,maxt_norm,temp_abv,temp_blo,temp_norm);
+          } else {
+            setTimeout(function() {
+              drawChart(mint_norm,maxt_norm,temp_abv,temp_blo,temp_norm);
+            }, 700);
+          }
         }
+      }
+
 
       function drawChart(mint_norm,maxt_norm,temp_abv,temp_blo,temp_norm) {
+        // Map data to legend
+        var data = google.visualization.arrayToDataTable([
+          ['Category', 'Count'],
+          ['Above Normal', eval(temp_abv)],
+          ['Below Normal', eval(temp_blo)],
+          ['Near Normal', eval(temp_norm)]
+        ]);
 
-          // Create the data table.
-          var data = google.visualization.arrayToDataTable([
-            ['Category', 'Count'],
-            ['Above Normal', eval(temp_abv)],
-            ['Below Normal', eval(temp_blo)],
-            ['Near Normal', eval(temp_norm)]
-          ]);
-
-        	if (maxt_norm > -200) {
-        		document.getElementById("chart_div_temp_label_max").innerHTML=
-                "<font color=black>Three Category Temperature Outlook<br>Normal Maximum Temperature: </font><strong>"
-                + maxt_norm + "</strong></a>";
-      		}
-          else {
-        		document.getElementById("chart_div_temp_label_max").innerHTML=
-              "<font color=black>Three Category Temperature Outlook<br>Normal Maximum Temperature: N/A</font></a>";
-        	}
-
-          if (mint_norm > -200) {
-        		document.getElementById("chart_div_temp_label_min").innerHTML=
-              "<font color=black>Normal Minimum Temperature: </font><strong>"
-              + mint_norm + "</strong></a>";
-        	}
-          else {
-      		    document.getElementById("chart_div_temp_label_min").innerHTML="<font color=black>Normal Minimum Temperature: N/A</font></a>";
-      		}
-
-
-          chartTemp = new google.visualization.PieChart(document.getElementById('temp-chart')); 
-          chartTemp.draw(data, options);
+        if (maxt_norm > -200) {
+          document.getElementById("chart_div_temp_label_max").innerHTML=
+              "<font color=black>Three Category Temperature Outlook<br>Normal Maximum Temperature: </font><strong>"
+              + maxt_norm + "</strong></a>";
+        } else {
+          document.getElementById("chart_div_temp_label_max").innerHTML=
+            "<font color=black>Three Category Temperature Outlook<br>Normal Maximum Temperature: N/A</font></a>";
         }
 
+        if (mint_norm > -200) {
+          document.getElementById("chart_div_temp_label_min").innerHTML=
+            "<font color=black>Normal Minimum Temperature: </font><strong>"
+            + mint_norm + "</strong></a>";
+        } else {
+            document.getElementById("chart_div_temp_label_min").innerHTML="<font color=black>Normal Minimum Temperature: N/A</font></a>";
+        }
+        chartTemp = new google.visualization.PieChart(document.getElementById('temp-chart'));
+        chartTemp.draw(data, options);
+      }
+
+
       function getXMLHttp() {
-  		var xmlHttp;
-  		try {
-  		//Firefox, Opera 8.0+, Safari
-  		xmlHttp = new XMLHttpRequest();
-  		}
-      catch(e) {
-  		//Internet Explorer
-  		try {
-  		  xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
-  		}
-      catch(e) {
-  		try {
-  			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
-  		}
-      catch(e) {
-  				alert("Your browser does not support AJAX!")
-  				return false;
-  						}
-  				}
-  			}
-  	  return xmlHttp;
-  	 }
+        var xmlHttp;
+        try {
+          // Firefox, Opera 8.0+, Safari
+          xmlHttp = new XMLHttpRequest();
+        }
+        catch(e) {
+          // Internet Explorer
+          try {
+            xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+          }
+          catch(e) {
+            try {
+              xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            catch(e) {
+              alert("Your browser does not support AJAX!")
+              return false;
+            }
+          }
+        }
+        return xmlHttp;
+  	  }
 
-     tempmap.invalidateSize();
-     //export { tempmap };
-
+      tempmap.invalidateSize();
 
     //  }); // .once
   //  } // attach
