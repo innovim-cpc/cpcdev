@@ -405,7 +405,7 @@
             $('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
 
             marker.bindPopup(function (layer){
-              return L.Util.template("Collge Park, MD <br> <a href= https://forecast.weather.gov/MapClick.php?lat=38.98970" +
+              return L.Util.template("<a href= https://forecast.weather.gov/MapClick.php?lat=38.98970" +
               "&amp;lon=-76.93776 " +
               "target=_blank title='Link to 7 Day Forecast'>7 Day Forecast for College Park, MD");
             }).openPopup();
@@ -496,7 +496,7 @@
             //add initial marker
             marker = new L.marker(init_coord).addTo(tempmap);
             marker.bindPopup(function (layer){
-              return L.Util.template("Collge Park, MD <br> <a href= https://forecast.weather.gov/MapClick.php?lat=38.98970" +
+              return L.Util.template("<a href= https://forecast.weather.gov/MapClick.php?lat=38.98970" +
               "&amp;lon=-76.93776 " +
               "target=_blank title='Link to 7 Day Forecast'>7 Day Forecast for College Park, MD");
             }).openPopup();
@@ -533,7 +533,7 @@
             //add initial marker
             marker = new L.marker(init_coord).addTo(tempmap);
             marker.bindPopup(function (layer){
-              return L.Util.template("Anchorage, AK <br> <a href= https://forecast.weather.gov/MapClick.php?lat=61.217381" +
+              return L.Util.template("<a href= https://forecast.weather.gov/MapClick.php?lat=61.217381" +
               "&amp;lon=-149.863129 " +
               "target=_blank title='Link to 7 Day Forecast'>7 Day Forecast for Anchorage, AK");
             }).openPopup();
