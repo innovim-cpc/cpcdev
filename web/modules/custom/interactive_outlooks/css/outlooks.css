@@ -416,7 +416,8 @@ table.hazards-data th {
   height: 20px;
   margin: 0 auto;
   width: auto;
-.geocoder-control-input{
+}
+.geocoder-control-input {
   position:absolute;
   left:0;
   top:285px;
@@ -437,11 +438,11 @@ table.hazards-data th {
   cursor:pointer;
   box-sizing:border-box
 }
-.geocoder-control-input-disabled{
+.geocoder-control-input-disabled {
   background-color:#f4f4f4;
   /* background-image:url("img/search-disabled.png") */
 }
-.geocoder-control{
+.geocoder-control {
   width:26px;
   height:26px;
   -webkit-transition:width .175s ease-in;
@@ -452,17 +453,17 @@ table.hazards-data th {
 }
 .geocoder-control-expanded,
 .leaflet-touch
-.geocoder-control-expanded{
+.geocoder-control-expanded {
   width:275px
 }
-.geocoder-control-input.geocoder-control-loading{
+.geocoder-control-input.geocoder-control-loading {
   /* background-image:url("img/loading.gif"); */
   background-size:26px
 }
 @media only screen and (min--moz-device-pixel-ratio: 2),
 only screen and (-o-min-device-pixel-ratio: 2 / 1),
 only screen and (-webkit-min-device-pixel-ratio: 2),
-only screen and (min-device-pixel-ratio: 2){
+only screen and (min-device-pixel-ratio: 2) {
   /* .geocoder-control-input{
     background-image:url("img/search@2x.png")
   } */
@@ -473,13 +474,13 @@ only screen and (min-device-pixel-ratio: 2){
     background-image:url("img/loading@2x.gif")
   } */
 }
-.geocoder-control-input:focus{
+.geocoder-control-input:focus {
   outline:none;cursor:text
 }
-.geocoder-control-input::-ms-clear{
+.geocoder-control-input::-ms-clear {
   display:none
 }
-.geocoder-control-suggestions{
+.geocoder-control-suggestions {
   width:100%;
   position:absolute;
   top:103px;
@@ -488,11 +489,11 @@ only screen and (min-device-pixel-ratio: 2){
   overflow:auto;
   display:none
 }
-.geocoder-control-list+.geocoder-control-header{
+.geocoder-control-list+.geocoder-control-header {
   border-top:1px
   solid #d5d5d5
 }
-.geocoder-control-header{
+.geocoder-control-header {
   font-size:10px;
   font-weight:700;
   text-transform:uppercase;
@@ -504,12 +505,12 @@ only screen and (min-device-pixel-ratio: 2){
   display:block;
   padding:.5em
 }
-.geocoder-control-list{
+.geocoder-control-list {
   list-style:none;
   margin:0;
   padding:0
 }
-.geocoder-control-suggestions .geocoder-control-suggestion{
+.geocoder-control-suggestions .geocoder-control-suggestion {
   font-size:13px;
   padding:7px;
   background:white;
@@ -520,60 +521,60 @@ only screen and (min-device-pixel-ratio: 2){
   text-overflow:ellipsis;
   cursor:pointer
 }
-.geocoder-control-suggestions .geocoder-control-suggestion:first-child{
+.geocoder-control-suggestions .geocoder-control-suggestion:first-child {
   border:none
 }
 .geocoder-control-suggestions
 .geocoder-control-suggestion
 .geocoder-control-selected,
 .geocoder-control-suggestions
-.geocoder-control-suggestion:hover{
+.geocoder-control-suggestion:hover {
   background:#7FDFFF;
   border-color:#7FDFFF
 }
 .leaflet-right
-.geocoder-control-suggestions{
+.geocoder-control-suggestions {
   left:auto;
   right:0
 }
 .leaflet-right
-.geocoder-control-input{
+.geocoder-control-input {
   left:auto;
   right:0
 }
 .leaflet-touch
-.geocoder-control{
+.geocoder-control {
   width:34px
 }
 .leaflet-touch
-.geocoder-control.geocoder-control-expanded{
+.geocoder-control.geocoder-control-expanded {
   width:275px
 }
 .leaflet-touch
-.geocoder-control-input{
+.geocoder-control-input {
   height:34px;
   line-height:30px;
   background-size:30px
 }
 .leaflet-touch
-.geocoder-control-suggestions{
+.geocoder-control-suggestions {
   top:30px;
   width:271px
 }
 .leaflet-oldie
-.geocoder-control-input{
+.geocoder-control-input {
   width:28px;
   height:28px
 }
 .leaflet-oldie
 .geocoder-control-expanded
-.geocoder-control-input{
+.geocoder-control-input {
   width:auto
 }
 .leaflet-oldie
 .geocoder-control-input,
 .leaflet-oldie
-.geocoder-control-suggestions{
+.geocoder-control-suggestions {
   border:1px
   solid #999
 }
