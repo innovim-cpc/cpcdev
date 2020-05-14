@@ -405,9 +405,7 @@
             $('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
 
             marker.bindPopup(function (layer){
-              return L.Util.template("<a href= https://forecast.weather.gov/MapClick.php?lat=38.98970" +
-              "&amp;lon=-76.93776 " +
-              "target=_blank title='Link to 7 Day Forecast'>7 Day Forecast for College Park, MD");
+              return L.Util.template("College Park, MD");
             }).openPopup();
 
         });
@@ -484,7 +482,7 @@
         //change the map to the correct area
         $('input[type=radio][name=temp-map-view]').on('change',function() {
           if (this.value == 'conus') {
-            tempmap.setView(new L.LatLng(38, -96), 3.9)
+            tempmap.setView(new L.LatLng(38.98970, -76.93776), 3.9)
             //set default marker back to College Park, MD
             if (marker) {
               tempmap.removeLayer(marker);
@@ -496,27 +494,25 @@
             //add initial marker
             marker = new L.marker(init_coord).addTo(tempmap);
             marker.bindPopup(function (layer){
-              return L.Util.template("<a href= https://forecast.weather.gov/MapClick.php?lat=38.98970" +
-              "&amp;lon=-76.93776 " +
-              "target=_blank title='Link to 7 Day Forecast'>7 Day Forecast for College Park, MD");
+              return L.Util.template("College Park, MD");
             }).openPopup();
-            
-            
-  
+
+
+
             var latitude = 38.989697;
             var longitude = -76.937759;
             var coord = latitude.toFixed(2) + ", " + longitude.toFixed(2);
-  
+
             //locate the closest town/city within 160 miles
             //getForecast(e.Latlng = 64.2,-149.2);
-            
+
             //reset the variables before loading new data, prevents old data from being displayed if the pie chart loads before the new data refreshes
             mint_norm = null;
             maxt_norm = null;
             temp_abv = null;
             temp_blo =  null;
             temp_norm = null;
-            
+
             getTempHandler(coord);
           }
 
@@ -533,29 +529,27 @@
             //add initial marker
             marker = new L.marker(init_coord).addTo(tempmap);
             marker.bindPopup(function (layer){
-              return L.Util.template("<a href= https://forecast.weather.gov/MapClick.php?lat=61.217381" +
-              "&amp;lon=-149.863129 " +
-              "target=_blank title='Link to 7 Day Forecast'>7 Day Forecast for Anchorage, AK");
+              return L.Util.template("Anchorage, AK");
             }).openPopup();
-            
-            
-  
+
+
+
             var latitude = 61.217381;
             var longitude = -149.863129;
             coord = latitude.toFixed(2) + ", " + longitude.toFixed(2);
-  
+
             //locate the closest town/city within 160 miles
             //getForecast(e.Latlng = 64.2,-149.2);
-            
+
             //reset the variables before loading new data, prevents old data from being displayed if the pie chart loads before the new data refreshes
             mint_norm = null;
             maxt_norm = null;
             temp_abv = null;
             temp_blo =  null;
             temp_norm = null;
-            
+
             getTempHandlerAlaska(coord);
-           
+
           }
         });
 
@@ -729,7 +723,7 @@
         var marker;
         //add initial marker
         marker = new L.marker(init_coord).addTo(tempmap);
-        
+
 
         // document.getElementById('location-container').innerHTML =
         //     "<a href= https://forecast.weather.gov/MapClick.php?lat=38.98970" +
@@ -851,14 +845,10 @@
             //     region = featureCollection.features[0].properties.STATE;
             marker.bindPopup(function (layer){
               region = featureCollection.features[0].properties.STATE;
-              return L.Util.template(featureCollection.features[0].properties.PO_NAME + ", " + featureCollection.features[0].properties.STATE + 
-              "<br><a href= https://forecast.weather.gov/MapClick.php?lat=" +
-                  latitude.toFixed(2)+"&amp;lon="+ longitude.toFixed(2) +
-                  " target=_blank title='Link to 7 Day Forecast'>7 Day Forecast for " +
-                  featureCollection.features[0].properties.PO_NAME + ", "+ featureCollection.features[0].properties.STATE+"</a>");                  
+              return L.Util.template(featureCollection.features[0].properties.PO_NAME + ", " + featureCollection.features[0].properties.STATE);
             }).openPopup();
-            
-              
+
+
           })
         }
 
@@ -885,14 +875,9 @@
     		xmlHttp.send(null);
       }
 
-<<<<<<< HEAD
-      function getTempHandlerAlaska(coord) {
-    		var xmlHttp = getXMLHttp();
-=======
 
      function getTempHandlerAlaska(coord) {
         var xmlHttp = getXMLHttp();
->>>>>>> pie chart was not updated when first selected Alaska radio button
     		xmlHttp.onreadystatechange = function() {
     			//console.log(xmlHttp.readyState);
     			if (xmlHttp.readyState==4 && xmlHttp.status==200) {
@@ -964,17 +949,12 @@
             "<font color=black>Three Category Temperature Outlook<br>Normal Maximum Temperature: N/A</font></a>";
         }
 
-<<<<<<< HEAD
         if (mint_norm > -200) {
           document.getElementById("chart_div_temp_label_min").innerHTML=
             "<font color=black>Normal Minimum Temperature: </font><strong>"
             + mint_norm + "</strong></a>";
         } else {
             document.getElementById("chart_div_temp_label_min").innerHTML="<font color=black>Normal Minimum Temperature: N/A</font></a>";
-=======
-          chartTemp = new google.visualization.PieChart(document.getElementById('temp-chart')); 
-          chartTemp.draw(data, options);
->>>>>>> pie chart was not updated when first selected Alaska radio button
         }
         chartTemp = new google.visualization.PieChart(document.getElementById('temp-chart'));
         chartTemp.draw(data, options);
