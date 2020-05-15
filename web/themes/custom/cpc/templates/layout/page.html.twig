@@ -66,40 +66,57 @@
   </div>
   <button class="usa-menu-btn">Menu</button>
 </div>
-<nav role="navigation" class="usa-nav">
+<nav role="navigation" class="usa-nav" style="border-bottom: 1px solid #dfe1e2;">
     <div class="usa-nav__inner"><button class="usa-nav__close"><img src="/assets/img/close.svg" alt="close"></button>
 
       <ul class="usa-nav__primary usa-accordion">
         <li class="usa-nav__primary-item">
-          <button class="usa-accordion__button usa-nav__link  usa-current" aria-expanded="false" aria-controls="extended-mega-nav-section-one"><span>Outlooks</span></button>
-          <div id="extended-mega-nav-section-one" class="usa-nav__submenu usa-megamenu"><div class="grid-row grid-gap-4">
+          <button style="font-size:1.15rem;" class="usa-accordion__button usa-nav__link  usa-current" aria-expanded="false" aria-controls="extended-mega-nav-section-one"><span>Outlooks</span></button>
+          <div id="extended-mega-nav-section-one" class="usa-nav__submenu usa-megamenu">
+            <div class="grid-row grid-gap-4">
+              <div class="desktop:grid-col-3">
+                <ul class="usa-nav__submenu-list">
+                  <li class="usa-nav__submenu-item">
+                      <a href="/outlooks/">All Outlooks</a>
+                    </li>
+                  <li class="usa-nav__submenu-item">
+                      <a href="/outlooks/temperature/">Temperature Outlooks</a>
+                    </li>
+                    <li class="usa-nav__submenu-item">
+                      <a href="/outlooks/precipitation/">Precipitation Outlooks</a>
+                    </li>
+                    <li class="usa-nav__submenu-item">
+                      <a href="/outlooks/hazards/">Hazards Outlooks</a>
+                    </li>
+                  </ul>
+              </div>
+
                   <div class="desktop:grid-col-3">
-                    <ul class="usa-nav__submenu-list"><li class="usa-nav__submenu-item">
-                          <a href="#">Temperature Outlook</a>
-                        </li><li class="usa-nav__submenu-item">
-                          <a href="#">Precipitation Outlook</a>
-                        </li><li class="usa-nav__submenu-item">
-                          <a href="#">Hazards Outlook</a>
-                        </li></ul>
-                  </div><div class="desktop:grid-col-3">
-                    <ul class="usa-nav__submenu-list"><li class="usa-nav__submenu-item">
-                          <a href="#">Drought Outlook</a>
-                        </li><li class="usa-nav__submenu-item">
-                          <a href="#">UV Index Outlook</a>
-                        </li><li class="usa-nav__submenu-item">
-                          <a href="#">Hurricane Outlook</a>
-                        </li></ul>
-                  </div><div class="desktop:grid-col-3">
-                    <ul class="usa-nav__submenu-list"><li class="usa-nav__submenu-item">
-                          <a href="#">Oceans Outlook</a>
-                        </li><li class="usa-nav__submenu-item">
-                          <a href="#">Climate Diagnostics Bulletin</a>
+                    <ul class="usa-nav__submenu-list">
+                      <li class="usa-nav__submenu-item">
+                          <a href="/outlooks/drought/">Drought Outlooks</a>
+                        </li>
+                        <li class="usa-nav__submenu-item">
+                          <a href="/outlooks/uv-index/">UV Index Outlooks</a>
+                        </li>
+                        <li class="usa-nav__submenu-item">
+                          <a href="/outlooks/hurricane/">Hurricane Outlooks</a>
                         </li>
                       </ul>
-                  </div></div></div></li>
+                  </div>
+                  <div class="desktop:grid-col-3">
+                    <ul class="usa-nav__submenu-list">
+                      <li class="usa-nav__submenu-item">
+                          <a href="#"></a>
+                        </li>
+                      </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
 
                   <li class="usa-nav__primary-item">
-                    <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-mega-nav-section-three"><span>Climate Phenomena</span></button>
+                    <button style="font-size:1.15rem;" class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-mega-nav-section-three"><span>Climate Phenomena</span></button>
                     <div id="extended-mega-nav-section-three" class="usa-nav__submenu usa-megamenu"><div class="grid-row grid-gap-4"><div class="desktop:grid-col-3">
                               <ul class="usa-nav__submenu-list"><li class="usa-nav__submenu-item">
                                     <a href="#">El Niño Southern Oscillation</a>
@@ -119,13 +136,13 @@
                             </div><div class="desktop:grid-col-3">
                               <ul class="usa-nav__submenu-list">
                                 <li class="usa-nav__submenu-item">
-                                  <a href="#">Climate Diagnostics Bulletin</a>
+                                  <a href="#"></a>
                                 </li>
                               </ul>
                             </div></div></div></li>
 
         <li class="usa-nav__primary-item">
-          <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-mega-nav-section-two"><span>Observations</span></button>
+          <button style="font-size:1.15rem;" class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-mega-nav-section-two"><span>Observations</span></button>
           <div id="extended-mega-nav-section-two" class="usa-nav__submenu usa-megamenu">
             <div class="grid-row grid-gap-4">
               <div class="desktop:grid-col-3">
@@ -149,7 +166,7 @@
         </li>
 
             <li class="usa-nav__primary-item">
-              <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-mega-nav-section-four"><span>International</span></button>
+              <button style="font-size:1.15rem;" class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-mega-nav-section-four"><span>International</span></button>
               <div id="extended-mega-nav-section-four" class="usa-nav__submenu usa-megamenu"><div class="grid-row grid-gap-4"><div class="desktop:grid-col-3">
                         <ul class="usa-nav__submenu-list"><li class="usa-nav__submenu-item">
                               <a href="#">International Desks</a>
@@ -177,7 +194,7 @@
                       </div></div></div></li>
 
             <li class="usa-nav__primary-item">
-              <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-mega-nav-section-five"><span>Data</span></button>
+              <button style="font-size:1.15rem;" class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-mega-nav-section-five"><span>Data</span></button>
               <div id="extended-mega-nav-section-five" class="usa-nav__submenu usa-megamenu"><div class="grid-row grid-gap-4"><div class="desktop:grid-col-3">
                         <ul class="usa-nav__submenu-list"><li class="usa-nav__submenu-item">
                               <a href="#">Outlooks Maps &amp; Data</a>
@@ -204,7 +221,7 @@
                 </li>
 
           <li class="usa-nav__primary-item">
-            <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-mega-nav-section-six"><span>Knowledge Center</span></button>
+            <button style="font-size:1.15rem;" class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-mega-nav-section-six"><span>Knowledge Center</span></button>
             <div id="extended-mega-nav-section-six" class="usa-nav__submenu usa-megamenu">
               <div class="grid-row grid-gap-4">
                 <div class="desktop:grid-col-3">
@@ -227,7 +244,7 @@
             </div>
           </li>
 
-          <li class="usa-nav__primary-item">
+          <!--<li class="usa-nav__primary-item">
             <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-mega-nav-section-seven">
               <span>Climate News</span></button>
             <div id="extended-mega-nav-section-seven" class="usa-nav__submenu usa-megamenu">
@@ -250,21 +267,21 @@
                 </div>
               </div>
             </div>
-          </li>
+          </li>-->
 
       </ul>
 
 
     <div class="usa-nav__secondary">
   <ul class="usa-nav__secondary-links">
-    <li class="usa-nav__secondary-item">
+    <!--<li class="usa-nav__secondary-item">
       <a href="">National Weather Service</a>
-    </li>
-    <li class="usa-nav__secondary-item">
-      <a href="">Dept. of Commerce</a>
-    </li>
+    </li>-->
     <li class="usa-nav__secondary-item">
       <a href="">About Us</a>
+    </li>
+    <li class="usa-nav__secondary-item">
+      <a href="">Climate News</a>
     </li>
   </ul><form class="usa-search usa-search--small ">
   <div role="search">
@@ -340,12 +357,10 @@
     <div class="grid-container">
       <div class="grid-row grid-gap">
         <div class="usa-footer__logo grid-row mobile-lg:grid-col-6 mobile-lg:grid-gap-2">
-          <div class="mobile-lg:grid-col-auto">
-            <img class="usa-footer__logo-img" src="{{ active_theme_path() }}/images/logo-img.png" alt="">
-          </div>
-          <div class="mobile-lg:grid-col-auto">
-            <h3 class="usa-footer__logo-heading">NOAA / NWS / NCEP / CPC</h3>
-          </div>
+          <a href="https://weather.gov">
+            <img class="usa-footer-logo-img" src="/{{ active_theme_path() }}/images/nws-logo.png" alt="Agency logo">
+            <h3 class="usa-footer-logo-heading" style="text-align:center;font-size:1em;margin-top:0">National Weather <br>Service</h3>
+          </a>
         </div>
         <div class="usa-footer__contact-links mobile-lg:grid-col-6">
           <div class="usa-footer__social-links grid-row grid-gap-1">
@@ -374,10 +389,10 @@
           <address class="usa-footer__address">
             <div class="usa-footer__contact-info grid-row grid-gap">
               <div class="grid-col-auto">
-                <a href="tel:1-800-555-5555">(800) CALL-GOVT</a>
-              </div>
-              <div class="grid-col-auto">
-                <a href="mailto:info@agency.gov">info@agency.gov</a>
+                NOAA Center for Weather<br>
+                and Climate Prediction<br>
+                5830 University Research Court<br>
+                College Park, Maryland 20740
               </div>
             </div>
           </address>
@@ -390,14 +405,16 @@
     <div class="grid-container">
       <div class="grid-row">
           <div class="usa-footer__copyright mobile-lg:grid-col-3">
-            {{ 'now'|date('Y') }}
+            &copy; {{ 'now'|date('Y') }} All rights reserved.
           </div>
           <div class="usa-footer__disclaimer-links mobile-lg:grid-col-9">
-            <ul class="menu">
+            <ul style="text-align:right;" class="menu">
               <li><a href="http://www.weather.gov/disclaimer" target="_blank">Disclaimer</a></li>
-              <li><a href="http://www.weather.gov/privacy" target="_blank">Privacy Policy</a></li>
-              <li><a href="http://www.cio.noaa.gov/services_programs/info_quality.html" target="_blank">Information Quality</a></li>
-              <li><a href="http://www.noaa.gov/foia-freedom-of-information-act" target="_blank">Freedom of Information Act</a></li>
+              <li style="margin-left:1.1em;"><a href="http://www.weather.gov/privacy" target="_blank">Privacy Policy</a>
+              </li>
+              <li style="margin-left:1.1em;"><a href="http://www.cio.noaa.gov/services_programs/info_quality.html"
+                  target="_blank">Information Quality</a></li>
+              <li style="margin-left:1.1em;"><a href="http://www.noaa.gov/foia-freedom-of-information-act" target="_blank">Freedom of Information Act</a></li>
             </ul>
           </div>
       </div>
