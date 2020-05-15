@@ -305,6 +305,10 @@
             else if (currentLayerName === "tempMonthlyLayer"){
               $('#temp-map-header .valid-dates').html("Valid: " + layer.feature.properties.valid_seas + "<br> Released: " + releasemonth);
             }
+            else if (currentLayerName === "Lead1"){
+              // $('#temp-map-header .valid-dates').html("Valid: " + layer.feature.properties.valid_seas + "<br> Released: " + releasemonth);
+              $('#temp-map-header .valid-dates').html("Valid: " + lead1Label + "<br> Released: " + releasemonth);
+            }
 
 
             // if (layer.feature.properties.valid_seas){
