@@ -155,7 +155,7 @@ global_tropics:
     theme:
       css/outlooks.css: {}
   js:
-    js/global-tropics-map.js: {}
+    js/global-tropics-hazards.js: {}
   dependencies:
     - core/jquery
     - core/drupal

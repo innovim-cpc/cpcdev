@@ -20,7 +20,7 @@ class GlobalTropicsBlock extends Blockbase {
       '#theme' => 'global_tropics_map',
       '#attached' => [
         'library' => [
-          'interactive_outlooks/globaltropics',
+          'interactive_outlooks/global_tropics',
         ],
       ],
     ];
