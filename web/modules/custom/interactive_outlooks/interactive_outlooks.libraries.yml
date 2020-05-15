@@ -149,6 +149,25 @@ precip:
     - interactive_outlooks/esri-leaflet-geocoder
     - interactive_outlooks/functions
 
+global_tropics:
+  version: 1.x
+  css:
+    theme:
+      css/outlooks.css: {}
+  js:
+    js/global-tropics-map.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - interactive_outlooks/leaflet
+    - interactive_outlooks/esri-leaflet
+    - interactive_outlooks/leaflet-omnivore
+    - interactive_outlooks/leaflet-plugins
+    - interactive_outlooks/google
+    - interactive_outlooks/leaflet-renderers
+    - interactive_outlooks/esri-leaflet-geocoder
+    - interactive_outlooks/functions
+
 selector:
   version: 1.x
   css:

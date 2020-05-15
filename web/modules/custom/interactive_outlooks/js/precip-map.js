@@ -337,6 +337,9 @@
             else if (currentLayerName === "precipMonthlyLayer"){
               $('#precip-map-header .valid-dates').html("Valid: " + get_valid_seas + "<br> Released: " + fcst_date);
             }
+            else if (currentLayerName === "Lead1"){
+              $('#precip-map-header .valid-dates').html("Valid: " + lead1Label + "<br> Released: " + fcst_date);
+            }
 
 
             if (layer.feature.properties.cat === "Above"){
