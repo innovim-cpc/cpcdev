@@ -285,6 +285,10 @@
           // Set initial title and valid period for 6-10 day precip outlook
           $('#precip-map-header .title').text("U.S. 6 to 10 Day Precipitation Outlook");
           $('#precip-map-header .valid-dates').html("Valid for " + start_date + " &ndash; " + end_date + "<br>Released: " + fcst_date);
+
+          marker.bindPopup(function (layer){
+            return L.Util.template("College Park, MD");
+          }).openPopup();
         });
 
         var previousLayer = "";
@@ -332,6 +336,9 @@
             }
             else if (currentLayerName === "precipMonthlyLayer"){
               $('#precip-map-header .valid-dates').html("Valid: " + get_valid_seas + "<br> Released: " + fcst_date);
+            }
+            else if (currentLayerName === "Lead1"){
+              $('#precip-map-header .valid-dates').html("Valid: " + lead1Label + "<br> Released: " + fcst_date);
             }
 
 
@@ -473,10 +480,74 @@
         //change the map to the correct area
         $('input[type=radio][name=precip-map-view]').on('change',function() {
           if (this.value == 'conus') {
+            // precipmap.setView(new L.LatLng(38, -96), 3.9)
             precipmap.setView(new L.LatLng(38, -96), 3.9)
+            //set default marker back to College Park, MD
+            if (marker) {
+              precipmap.removeLayer(marker);
+            }
+            //add marker to map at click location
+            var init_coord = L.latLng(38.98970, -76.93776);
+
+            //var marker;
+            //add initial marker
+            marker = new L.marker(init_coord).addTo(precipmap);
+            marker.bindPopup(function (layer){
+              return L.Util.template("College Park, MD");
+            }).openPopup();
+
+
+
+            var latitude = 38.989697;
+            var longitude = -76.937759;
+            var coord = latitude.toFixed(2) + ", " + longitude.toFixed(2);
+
+            //locate the closest town/city within 160 miles
+            //getForecast(e.Latlng = 64.2,-149.2);
+
+            //reset the variables before loading new data, prevents old data from being displayed if the pie chart loads before the new data refreshes
+            mint_norm = null;
+            maxt_norm = null;
+            precip_abv = null;
+            precip_blo =  null;
+            precip_norm = null;
+
+            getPrecipHandler(coord);
           }
           else if (this.value == 'alaska') {
+            // precipmap.setView(new L.LatLng(64.2,-149.4), 3.9)
             precipmap.setView(new L.LatLng(64.2,-149.4), 3.9)
+            //set default marker for Anchorage, Alaska
+            if (marker) {
+              precipmap.removeLayer(marker);
+            }
+            //add marker to map at click location
+            var init_coord = L.latLng(61.217381, -149.863129);
+
+            //var marker;
+            //add initial marker
+            marker = new L.marker(init_coord).addTo(precipmap);
+            marker.bindPopup(function (layer){
+              return L.Util.template("Anchorage, AK");
+            }).openPopup();
+
+
+
+            var latitude = 61.217381;
+            var longitude = -149.863129;
+            coord = latitude.toFixed(2) + ", " + longitude.toFixed(2);
+
+            //locate the closest town/city within 160 miles
+            //getForecast(e.Latlng = 64.2,-149.2);
+
+            //reset the variables before loading new data, prevents old data from being displayed if the pie chart loads before the new data refreshes
+            mint_norm = null;
+            maxt_norm = null;
+            precip_abv = null;
+            precip_blo =  null;
+            precip_norm = null;
+
+            getPrecipHandlerAlaska(coord);
           }
         });
 
@@ -648,10 +719,10 @@
         //add initial marker
         marker = new L.marker(init_coord).addTo(precipmap);
 
-        document.getElementById('location-container-precip').innerHTML =
-            "<a href= https://forecast.weather.gov/MapClick.php?lat=38.98970" +
-            "&amp;lon=-76.93776 " +
-            "target=_blank title='Link to 7 Day Forecast'>7 Day Forecast for College Park, MD"
+        // document.getElementById('location-container-precip').innerHTML =
+        //     "<a href= https://forecast.weather.gov/MapClick.php?lat=38.98970" +
+        //     "&amp;lon=-76.93776 " +
+        //     "target=_blank title='Link to 7 Day Forecast'>7 Day Forecast for College Park, MD"
 
         // Load the Visualization API and the corechart package.
         google.charts.load('current', {'packages':['corechart']});
@@ -753,12 +824,16 @@
               console.log(error);
               return;
             }
-            document.getElementById('location-container-precip').innerHTML =
-                "<a href= https://forecast.weather.gov/MapClick.php?lat=" +
-                latitude.toFixed(2)+"&amp;lon="+ longitude.toFixed(2) +
-                " target=_blank title='Link to 7 Day Forecast'>7 Day Forecast for " +
-                featureCollection.features[0].properties.PO_NAME + ", "+ featureCollection.features[0].properties.STATE+"</a>";
-                region = featureCollection.features[0].properties.STATE;
+            // document.getElementById('location-container-precip').innerHTML =
+            //     "<a href= https://forecast.weather.gov/MapClick.php?lat=" +
+            //     latitude.toFixed(2)+"&amp;lon="+ longitude.toFixed(2) +
+            //     " target=_blank title='Link to 7 Day Forecast'>7 Day Forecast for " +
+            //     featureCollection.features[0].properties.PO_NAME + ", "+ featureCollection.features[0].properties.STATE+"</a>";
+            //     region = featureCollection.features[0].properties.STATE;
+            marker.bindPopup(function (layer){
+              region = featureCollection.features[0].properties.STATE;
+              return L.Util.template(featureCollection.features[0].properties.PO_NAME + ", "+ featureCollection.features[0].properties.STATE);
+            }).openPopup();
           })
         }
 

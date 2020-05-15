@@ -305,6 +305,10 @@
             else if (currentLayerName === "tempMonthlyLayer"){
               $('#temp-map-header .valid-dates').html("Valid: " + layer.feature.properties.valid_seas + "<br> Released: " + releasemonth);
             }
+            else if (currentLayerName === "Lead1"){
+              // $('#temp-map-header .valid-dates').html("Valid: " + layer.feature.properties.valid_seas + "<br> Released: " + releasemonth);
+              $('#temp-map-header .valid-dates').html("Valid: " + lead1Label + "<br> Released: " + releasemonth);
+            }
 
 
             // if (layer.feature.properties.valid_seas){
@@ -404,6 +408,10 @@
             $('#temp-map-header .title').text("U.S. 6 to 10 Day Temperature Outlook");
             $('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
 
+            marker.bindPopup(function (layer){
+              return L.Util.template("College Park, MD");
+            }).openPopup();
+
         });
         var temp610dayChecked = $('#temp-map__view-select input[type=radio][id=temp610day]:checked');
         var temp814dayChecked = $('#temp-map__view-select input[type=radio][id=temp814day]:checked');
@@ -478,10 +486,74 @@
         //change the map to the correct area
         $('input[type=radio][name=temp-map-view]').on('change',function() {
           if (this.value == 'conus') {
-            tempmap.setView(new L.LatLng(38, -96), 3.9)
+            tempmap.setView(new L.LatLng(38.98970, -76.93776), 3.9)
+            //set default marker back to College Park, MD
+            if (marker) {
+              tempmap.removeLayer(marker);
+            }
+            //add marker to map at click location
+            var init_coord = L.latLng(38.98970, -76.93776);
+
+            //var marker;
+            //add initial marker
+            marker = new L.marker(init_coord).addTo(tempmap);
+            marker.bindPopup(function (layer){
+              return L.Util.template("College Park, MD");
+            }).openPopup();
+
+
+
+            var latitude = 38.989697;
+            var longitude = -76.937759;
+            var coord = latitude.toFixed(2) + ", " + longitude.toFixed(2);
+
+            //locate the closest town/city within 160 miles
+            //getForecast(e.Latlng = 64.2,-149.2);
+
+            //reset the variables before loading new data, prevents old data from being displayed if the pie chart loads before the new data refreshes
+            mint_norm = null;
+            maxt_norm = null;
+            temp_abv = null;
+            temp_blo =  null;
+            temp_norm = null;
+
+            getTempHandler(coord);
           }
+
           else if (this.value == 'alaska') {
             tempmap.setView(new L.LatLng(64.2,-149.4), 3.9)
+            //set default marker for Anchorage, Alaska
+            if (marker) {
+              tempmap.removeLayer(marker);
+            }
+            //add marker to map at click location
+            var init_coord = L.latLng(61.217381, -149.863129);
+
+            //var marker;
+            //add initial marker
+            marker = new L.marker(init_coord).addTo(tempmap);
+            marker.bindPopup(function (layer){
+              return L.Util.template("Anchorage, AK");
+            }).openPopup();
+
+
+
+            var latitude = 61.217381;
+            var longitude = -149.863129;
+            coord = latitude.toFixed(2) + ", " + longitude.toFixed(2);
+
+            //locate the closest town/city within 160 miles
+            //getForecast(e.Latlng = 64.2,-149.2);
+
+            //reset the variables before loading new data, prevents old data from being displayed if the pie chart loads before the new data refreshes
+            mint_norm = null;
+            maxt_norm = null;
+            temp_abv = null;
+            temp_blo =  null;
+            temp_norm = null;
+
+            getTempHandlerAlaska(coord);
+
           }
         });
 
@@ -656,10 +728,11 @@
         //add initial marker
         marker = new L.marker(init_coord).addTo(tempmap);
 
-        document.getElementById('location-container').innerHTML =
-            "<a href= https://forecast.weather.gov/MapClick.php?lat=38.98970" +
-            "&amp;lon=-76.93776 " +
-            "target=_blank title='Link to 7 Day Forecast'>7 Day Forecast for College Park, MD"
+
+        // document.getElementById('location-container').innerHTML =
+        //     "<a href= https://forecast.weather.gov/MapClick.php?lat=38.98970" +
+        //     "&amp;lon=-76.93776 " +
+        //     "target=_blank title='Link to 7 Day Forecast'>7 Day Forecast for College Park, MD"
 
         // Load the Visualization API and the corechart package.
         google.charts.load('current', {'packages':['corechart']});
@@ -768,12 +841,18 @@
               console.log(error);
               return;
             }
-            document.getElementById('location-container').innerHTML =
-                "<a href= https://forecast.weather.gov/MapClick.php?lat=" +
-                latitude.toFixed(2)+"&amp;lon="+ longitude.toFixed(2) +
-                " target=_blank title='Link to 7 Day Forecast'>7 Day Forecast for " +
-                featureCollection.features[0].properties.PO_NAME + ", "+ featureCollection.features[0].properties.STATE+"</a>";
-                region = featureCollection.features[0].properties.STATE;
+            // document.getElementById('location-container').innerHTML =
+            //     "<a href= https://forecast.weather.gov/MapClick.php?lat=" +
+            //     latitude.toFixed(2)+"&amp;lon="+ longitude.toFixed(2) +
+            //     " target=_blank title='Link to 7 Day Forecast'>7 Day Forecast for " +
+            //     featureCollection.features[0].properties.PO_NAME + ", "+ featureCollection.features[0].properties.STATE+"</a>";
+            //     region = featureCollection.features[0].properties.STATE;
+            marker.bindPopup(function (layer){
+              region = featureCollection.features[0].properties.STATE;
+              return L.Util.template(featureCollection.features[0].properties.PO_NAME + ", " + featureCollection.features[0].properties.STATE);
+            }).openPopup();
+
+
           })
         }
 
@@ -800,8 +879,9 @@
     		xmlHttp.send(null);
       }
 
-      function getTempHandlerAlaska(coord) {
-    		var xmlHttp = getXMLHttp();
+
+     function getTempHandlerAlaska(coord) {
+        var xmlHttp = getXMLHttp();
     		xmlHttp.onreadystatechange = function() {
     			//console.log(xmlHttp.readyState);
     			if (xmlHttp.readyState==4 && xmlHttp.status==200) {
