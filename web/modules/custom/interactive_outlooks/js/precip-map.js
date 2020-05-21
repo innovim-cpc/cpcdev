@@ -29,11 +29,11 @@
         // Create a map pane for the boundaries
         precipmap.createPane('boundaries');
 
-        // Define the created pane when creating the dynamicMapLayer
+        // Define the boundaries pane when creating the dynamicMapLayer
         L.esri.dynamicMapLayer({
           url: boundariesUrl,
           pane: 'boundaries',
-          opacity: 0.5
+          opacity: 0.25
         }).addTo(precipmap);
         // Define the created pane when creating the feature layer
         /*L.esri.featureLayer({
@@ -44,10 +44,23 @@
           }
         }).addTo(precipmap);*/
 
+        // Get URL to place cities layer
+        const citiesUrl = 'https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/';
+
+        // Create a map pane for the city labels
+        precipmap.createPane('cities');
+
+        // Define the cities pane when creating the dynamicMapLayer
+        L.esri.dynamicMapLayer({
+          url: citiesUrl,
+          pane: 'cities',
+          opacity: 0.75
+        }).addTo(precipmap);
+
         // Create a map pane for the outlooks
         precipmap.createPane('outlooks');
 
-        // Create variables from all the Precipitation layers
+        // Create variables for all the precipitation layers to be placed in 'outlooks' pane
         const precip610dayLayer = L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_6_10_day_outlk/MapServer/1',
           pane: 'outlooks'
