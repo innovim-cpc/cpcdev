@@ -745,7 +745,7 @@
         tempmap.on('load', getTempHandler(coord));
         var chartTemp;
         var options = {
-          colors:['#d35656','#5c94bd','#b2e4d5'],
+          colors:['#d35656','#5c94bd','#e0e0e0'],
           //b22222
           pieSliceText: 'percentage',
           pieSliceTextStyle: {color: 'black', fontSize: 12},
