@@ -789,7 +789,7 @@
         precipmap.on('load', getPrecipHandler(coord));
         var chartPrecip;
         var options = {
-          colors:['#99FF66','#DEB887','#EBEBEB'],
+          colors:['#7ace6b','#deb887','#d9d9d9'],
           //b22222
           pieSliceText: 'percentage',
           pieSliceTextStyle: {color: 'black', fontSize: 12},
