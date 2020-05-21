@@ -295,7 +295,7 @@
             validMonthEnd = validMonthEnd.toLocaleDateString("en-US", options);
             validmonth = validmonth + ' - ' + validMonthEnd;
             releasemonth = releasemonth.toLocaleDateString("en-US", options);
-
+            
             if (currentLayerName === "temp610dayLayer") {
               $('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
             }
@@ -343,7 +343,7 @@
             } else if (layer.feature.properties.cat === "Normal") {
               layer.bindTooltip("36% chance of Normal Temperature");
             } else if (layer.feature.properties.cat === "EC") {
-                  //layer.removeFrom(tempmap);
+                  layer.removeFrom(tempmap);
                   //layer.bindTooltip("EC");
             } else if (layer.feature.properties.cat === "Below") {
               switch(layer.feature.properties.prob) {
@@ -749,7 +749,7 @@
           //b22222
           pieSliceText: 'percentage',
           pieSliceTextStyle: {color: 'black', fontSize: 12},
-          is3D:'true',
+          is3D:'false',
           tooltip: {text: 'percentage'},
           title:'Three Category Temperature Outlook',
           width:400,

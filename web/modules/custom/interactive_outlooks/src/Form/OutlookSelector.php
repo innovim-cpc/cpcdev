@@ -34,6 +34,8 @@ class OutlookSelector extends FormBase {
         'precip' => $this->t('Precipitation Outlook'),
         'hazards' => $this->t('Hazards Outlook'),
         'drought' => $this->t('Drought Outlook'),
+        'global-tropics' => $this->t('Global Tropics Hazards Outlook'),
+        'week34' => $this->t('Week 3 - 4 Outlook')
       ],
       '#form_attributes' => [
         'class' => 'usa-form',
@@ -84,6 +86,12 @@ class OutlookSelector extends FormBase {
       '#theme' => 'drought_map',
       //'#test_var' => 'test variable',
     ];
+    $global_tropics_map = [
+      '#theme' => 'global_tropics_map',
+    ];
+    $week34_map = [
+      '#theme' => 'week34_map',
+    ];
 
     $response = new AjaxResponse();
     // Check if the select field has a selected option.
@@ -105,6 +113,12 @@ class OutlookSelector extends FormBase {
           //code
           break;
         case 'drought':
+          //
+          break;
+        case 'global-tropics':
+          //
+          break;
+        case 'week34':
           //
           break;
         default:

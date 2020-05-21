@@ -16,6 +16,12 @@ function interactive_outlooks_theme($existing, $type, $theme, $path) {
     'precip_map' => [
       'variables' => ['map' => NULL],
     ],
+    'global_tropics_map' => [
+      'variables' => ['map' => NULL],
+    ],
+    'week34_map' => [
+      'variables' => ['map' => NULL],
+    ],
     'lead_months' => [
       'variables' => ['lead' => NULL],
     ],

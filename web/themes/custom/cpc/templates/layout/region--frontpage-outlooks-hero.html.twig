@@ -32,6 +32,8 @@
           <option value="precip">U.S. Precipitation Outlook</option>
           <option value="hazards">U.S. Hazards Outlook</option>
           <option value="drought">U.S. Drought Outlook</option>
+          <option value="global-tropics">U.S. Global Tropics Hazards Oulook</option>
+          <option value="week34">U.S. Week 3 - 4 Outlook</option>
         </select>
         <input class="usa-button" type="submit" value="Select">
       </form>
@@ -52,6 +54,12 @@
   </div><!-- end .hazard -->
   <div class="tablet:grid-col-12 drought">
     {{ drupal_block('interactive_drought_outlooks') }}
+  </div><!-- end .drought -->
+   <div class="tablet:grid-col-12 global-tropics">
+    {{ drupal_block('interactive_global_tropics_outlooks') }}
+  </div><!-- end .drought -->
+   <div class="tablet:grid-col-12 week34">
+    {{ drupal_block('interactive_week34_outlooks') }}
   </div><!-- end .drought -->
 
 </div><!-- end outer .grid-row .outlooks -->
