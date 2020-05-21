@@ -155,7 +155,26 @@ global_tropics:
     theme:
       css/outlooks.css: {}
   js:
-    js/global-tropics-hazards.js: {}
+    js/global-tropics-map.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - interactive_outlooks/leaflet
+    - interactive_outlooks/esri-leaflet
+    - interactive_outlooks/leaflet-omnivore
+    - interactive_outlooks/leaflet-plugins
+    - interactive_outlooks/google
+    - interactive_outlooks/leaflet-renderers
+    - interactive_outlooks/esri-leaflet-geocoder
+    - interactive_outlooks/functions
+
+week34:
+  version: 1.x
+  css:
+    theme:
+      css/outlooks.css: {}
+  js:
+    js/week34-map.js: {}
   dependencies:
     - core/jquery
     - core/drupal

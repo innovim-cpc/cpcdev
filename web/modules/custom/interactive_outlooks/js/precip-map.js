@@ -739,7 +739,7 @@
           //b22222
           pieSliceText: 'percentage',
           pieSliceTextStyle: {color: 'black', fontSize: 12},
-          is3D:'true',
+          is3D:'false',
           tooltip: {text: 'percentage'},
           title:'Three Category Precipitation Outlook',
           width:400,
