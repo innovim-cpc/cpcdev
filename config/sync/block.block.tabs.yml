@@ -1,0 +1,20 @@
+uuid: f821f0dc-8a8b-4bc8-9e8f-18aebf42f05a
+langcode: en
+status: true
+dependencies:
+  theme:
+    - cpc
+id: tabs
+theme: cpc
+region: frontpage_outlooks_hero
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

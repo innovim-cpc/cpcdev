@@ -1,0 +1,71 @@
+  <div class="grid-row">
+    <header class="tablet:grid-col-7" id="week34-map-header">
+      <h2 class="title"></h2>
+      <h3 class="valid-dates"></h3>
+    </header>
+  </div>
+
+  <div class="grid-row">
+    <div class="tablet:grid-col-8 map-column">
+
+      <div class="grid-row">
+        <div class="tablet:grid-col-12">
+          <div id="week34-map"></div>
+        </div>
+      </div>
+      <div class="grid-row" id="week34-map__view-controls">
+        <div class="tablet:grid-col-8">
+          <div class="opacity-slider">
+            <input type="range" min="0.0" max="1.0" value="0.6" step="0.1" class="week34-opacity-slider__range" id="week34-opacity-level" name="week34-opacity-level">
+            <label for="week34-opacity-level">Opacity: <span class="week34-opacity-slider__value"></span>%</label>
+          </div>
+        </div>
+        <div class="tablet:grid-col-4">
+          <fieldset class="usa-fieldset">
+            <legend class="usa-sr-only">Map View</legend>
+            <div class="usa-radio">
+              <input class="usa-radio__input" id="week34-conus" type="radio" checked name="week34-map-view" value="conus">
+              <label class="usa-radio__label" for="week34-conus">CONUS</label>
+              <input class="usa-radio__input" id="week34-alaska" type="radio" name="week34-map-view" value="alaska">
+              <label class="usa-radio__label" for="week34-alaska">Alaska</label>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+
+      <div class="grid-row">
+        <div class="tablet:grid-col-12 week34-image image-links">
+          <h4>Discussion</h4>
+          <ul>
+            <li><a href="">Read Outlook Discussion</a></li>
+          </ul>
+          <h4>Images</h4>
+          <ul>
+            <li><a href="">View larger image</a></li>
+          </ul>
+        </div>
+      </div><!-- end .grid-row -->
+
+    </div><!-- end .map-column-->
+
+    <div class="tablet:grid-col-4 map-data-column">
+
+      <div class="grid-row">
+        <div class="tablet:grid-col-12" id="week34-map__view-select">
+          <h4>Outlook</h4>
+          <fieldset class="usa-fieldset">
+            <legend class="usa-sr-only">Outlook</legend>
+            <div class="usa-radio">
+              <input class="usa-radio__input" id="temp-probability" type="radio" checked name="week34-probability" value="temp-probability">
+              <label class="usa-radio__label" for="temp">Temperature Probability</label>
+              <input class="usa-radio__input" id="precip-probability" type="radio" name="week34-probability" value="precip-probability">
+              <label class="usa-radio__label" for="precip">Precipitation Probability</label>
+            </div>
+          </fieldset>
+        </div>
+      </div><!-- end .grid-row -->
+
+    </div><!-- end .map-data-column -->
+
+
+  </div><!-- end outer .grid-row for .map-column and .map-data-column -->

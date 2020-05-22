@@ -1,4 +1,4 @@
-uuid: fc66e20b-893c-4dd6-aa54-4bc8012e04b8
+uuid: 43ea04fb-d190-4ea9-a61a-39dd657559b0
 langcode: en
 status: true
 dependencies:
@@ -18,9 +18,9 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: images/outlooks/temperature
+  file_directory: '[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
-  max_filesize: '1 MB'
+  max_filesize: ''
   max_resolution: ''
   min_resolution: ''
   alt_field: true

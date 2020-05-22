@@ -1,0 +1,8 @@
+uuid: d1c19252-57c0-49f8-84d4-29d103120df1
+langcode: en
+status: true
+dependencies: {  }
+id: outlooks-sidebar-menu
+label: 'Outlooks Sidebar Menu'
+description: ''
+locked: false

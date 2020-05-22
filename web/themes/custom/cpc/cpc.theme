@@ -5,6 +5,12 @@
  * Importing menus, form and theme process functions.
  */
 
+//require_once __DIR__ . '/includes/menus.inc';
+
+function cpc_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+  //var_dump($suggestions);
+}
+
  /**
  * Implements hook_theme().
  */

@@ -8,12 +8,21 @@
 /web/libraries/
 
 # Ignore sensitive information
-/web/sites/*/settings.php
-/web/sites/*/settings.local.php
-/web/sites/*/services.local.yml
+/web/sites/*/*settings*.php
+/web/sites/*/*services*.yml
+/web/sites/*services*.yml
 
-# Ignore Drupal's file directory
-/web/sites/*/files/
+# Ignore paths that may contain user-generated content
+/web/sites/*/files
+/web/sites/*/public
+/web/sites/*/private
+/web/sites/*/files-public
+/web/sites/*/files-private
+
+# Ignore paths that may contain temporary files
+/web/sites/*/translations
+/web/sites/*/tmp
+/web/sites/*/cache
 
 # Ignore node_modules dependency directories
 node_modules/
@@ -29,7 +38,7 @@ node_modules/
 
 # Packages #
 ############
-# it's better to unpack these files and commit the raw source
+# It's better to unpack these files and commit the raw source
 # git has its own built in compression methods
 *.7z
 *.bzip
