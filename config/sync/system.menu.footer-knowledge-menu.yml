@@ -1,0 +1,8 @@
+uuid: 57c75f1d-d6da-4a42-b434-d8ba42d12536
+langcode: en
+status: true
+dependencies: {  }
+id: footer-knowledge-menu
+label: 'Footer Knowledge Center Menu'
+description: ''
+locked: false

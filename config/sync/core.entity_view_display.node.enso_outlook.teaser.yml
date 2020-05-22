@@ -1,0 +1,30 @@
+uuid: 4993c0df-baf3-4b6d-bfa1-6ae876c6266e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.enso_outlook.body
+    - node.type.enso_outlook
+  module:
+    - text
+    - user
+id: node.enso_outlook.teaser
+targetEntityType: node
+bundle: enso_outlook
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

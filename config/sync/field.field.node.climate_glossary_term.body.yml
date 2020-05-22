@@ -1,0 +1,22 @@
+uuid: c0abfbd0-11b8-410d-af2f-1f0c0abd6915
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.climate_glossary_term
+  module:
+    - text
+id: node.climate_glossary_term.body
+field_name: body
+entity_type: node
+bundle: climate_glossary_term
+label: Definition
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

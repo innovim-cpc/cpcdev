@@ -1,0 +1,22 @@
+uuid: b28e3bbe-e75d-40c8-b694-9d48f7a3a54e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.enso_outlook
+  module:
+    - text
+id: node.enso_outlook.body
+field_name: body
+entity_type: node
+bundle: enso_outlook
+label: Discussion
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

@@ -1,0 +1,8 @@
+uuid: a9da3dd9-2a55-4929-b4da-f3f5e9c3ac70
+langcode: en
+status: true
+dependencies: {  }
+id: footer-climate-news-menu
+label: 'Footer Climate News Menu'
+description: ''
+locked: false

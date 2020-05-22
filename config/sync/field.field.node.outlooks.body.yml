@@ -1,0 +1,22 @@
+uuid: 18c9cd56-1bae-47a1-ab7f-8162d51175be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.outlooks
+  module:
+    - text
+id: node.outlooks.body
+field_name: body
+entity_type: node
+bundle: outlooks
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

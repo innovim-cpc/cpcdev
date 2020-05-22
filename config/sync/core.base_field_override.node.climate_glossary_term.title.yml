@@ -1,0 +1,18 @@
+uuid: d138b33f-b61c-4670-9913-1757ba333368
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.climate_glossary_term
+id: node.climate_glossary_term.title
+field_name: title
+entity_type: node
+bundle: climate_glossary_term
+label: Term
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

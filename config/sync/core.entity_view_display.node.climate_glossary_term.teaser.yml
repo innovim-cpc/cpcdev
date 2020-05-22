@@ -1,0 +1,30 @@
+uuid: d8900312-4644-4a82-aa75-cd1898faaf0c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.climate_glossary_term.body
+    - node.type.climate_glossary_term
+  module:
+    - text
+    - user
+id: node.climate_glossary_term.teaser
+targetEntityType: node
+bundle: climate_glossary_term
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

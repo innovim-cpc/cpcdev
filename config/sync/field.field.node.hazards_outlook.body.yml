@@ -1,0 +1,22 @@
+uuid: 7d519bfb-d00f-47e6-b3c1-9645db4acd5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.hazards_outlook
+  module:
+    - text
+id: node.hazards_outlook.body
+field_name: body
+entity_type: node
+bundle: hazards_outlook
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

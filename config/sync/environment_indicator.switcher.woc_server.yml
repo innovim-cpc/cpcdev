@@ -1,0 +1,10 @@
+uuid: df617f8a-26a5-4b92-b12c-68ef7624ff48
+langcode: en
+status: true
+dependencies: {  }
+machine: woc_server
+description: null
+name: 'WOC Server'
+url: 'https://cpc-dev.drupal.woc.noaa.gov'
+fg_color: '#fefcff'
+bg_color: '#60c300'

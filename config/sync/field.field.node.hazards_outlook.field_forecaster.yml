@@ -1,0 +1,21 @@
+uuid: 4c542080-b045-42d5-a7a4-e11fbb8337d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_forecaster
+    - node.type.hazards_outlook
+  module:
+    - text
+id: node.hazards_outlook.field_forecaster
+field_name: field_forecaster
+entity_type: node
+bundle: hazards_outlook
+label: Forecaster
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

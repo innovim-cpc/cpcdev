@@ -1,4 +1,4 @@
-uuid: 9248239e-57d8-4755-8cd3-db6735a5fb00
+uuid: 748f174b-5fc1-47fa-a5ba-33a7c139fe01
 langcode: en
 status: true
 dependencies:
@@ -12,7 +12,7 @@ _core:
   default_config_hash: kkISXE1LT2FJEoYnqCrCpeFB-2pmGmMxMklVk7rQcfg
 id: cpc_footer
 theme: cpc
-region: footer_menu
+region: disabled
 weight: -6
 provider: null
 plugin: 'system_menu_block:footer'

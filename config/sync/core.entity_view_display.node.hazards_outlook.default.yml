@@ -1,0 +1,36 @@
+uuid: 532e1660-e15f-4c3a-a5ee-02e3f4af25be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.hazards_outlook.body
+    - field.field.node.hazards_outlook.field_forecaster
+    - node.type.hazards_outlook
+  module:
+    - text
+    - user
+id: node.hazards_outlook.default
+targetEntityType: node
+bundle: hazards_outlook
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_forecaster:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }
