@@ -1,0 +1,24 @@
+uuid: 444dff85-b0e7-4445-9517-a593b154874c
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-outlooks-menu
+  module:
+    - system
+  theme:
+    - cpc
+id: footeroutlooksmenu
+theme: cpc
+region: footer_menu
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer-outlooks-menu'
+settings:
+  id: 'system_menu_block:footer-outlooks-menu'
+  label: 'Footer Outlooks Menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility: {  }

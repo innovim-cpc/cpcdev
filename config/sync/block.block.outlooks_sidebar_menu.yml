@@ -1,0 +1,37 @@
+uuid: ca5400ae-c725-4222-b671-9a4b09b2c925
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.outlooks-sidebar-menu
+  module:
+    - node
+    - system
+  theme:
+    - cpc
+id: outlooks_sidebar_menu
+theme: cpc
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'system_menu_block:outlooks-sidebar-menu'
+settings:
+  id: 'system_menu_block:outlooks-sidebar-menu'
+  label: 'Outlooks Sidebar Menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      outlooks: outlooks
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: '/outlooks/*'
+    negate: false
+    context_mapping: {  }

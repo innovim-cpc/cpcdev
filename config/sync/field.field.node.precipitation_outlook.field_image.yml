@@ -1,4 +1,4 @@
-uuid: f20f4f67-c355-4e2f-84b5-3dffd1ebc2b7
+uuid: d95cc328-ea65-483f-8db7-a9ab605c3712
 langcode: en
 status: true
 dependencies:
@@ -18,9 +18,9 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: images/outlooks/precipitation
+  file_directory: '[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
-  max_filesize: '1 MB'
+  max_filesize: ''
   max_resolution: ''
   min_resolution: ''
   alt_field: true

@@ -39,6 +39,7 @@
         "drupal/pathauto": "^1.4",
         "drupal/twig_field_value": "^1.2",
         "drupal/twig_tweak": "^2.1",
+        "drupal/uswds_base": "^2.2",
         "drupal/viewfield": "^3.0@beta",
         "drupal/views_bulk_operations": "^3.2",
         "drupal/webform": "^5.4",

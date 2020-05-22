@@ -1,4 +1,4 @@
-uuid: 430eaf11-3464-4ac6-8766-0ffa8fe0b1cc
+uuid: 6d3343ed-a93c-44f5-b529-4b1ba67d7475
 langcode: en
 status: true
 dependencies: {  }
@@ -7,7 +7,7 @@ _core:
 id: feedback
 label: 'Website feedback'
 recipients:
-  - info@example.com
+  - woc@noaa.gov
 reply: ''
 weight: 0
 message: 'Your message has been sent.'

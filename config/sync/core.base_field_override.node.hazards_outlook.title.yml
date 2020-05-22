@@ -1,0 +1,18 @@
+uuid: a5a48f07-83cf-4121-981c-53ee6d876475
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.hazards_outlook
+id: node.hazards_outlook.title
+field_name: title
+entity_type: node
+bundle: hazards_outlook
+label: 'Valid Dates'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -4,7 +4,9 @@ description: 'A Twig/Sass theme informed by USWDS'
 core: 8.x
 libraries:
   - cpc/global
-base theme: classy
+base theme: uswds_base
+ckeditor_stylesheets:
+  - css/styles.css
 regions:
   header: 'Header'
   site_branding: 'Site Branding'
@@ -22,4 +24,5 @@ regions:
   sidebar_second: 'Sidebar Right'
   footer_menu: 'Footer Menu'
   footer: 'Footer'
+  footer_secondary: 'Secondary Footer'
   disabled: 'Disabled'

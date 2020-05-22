@@ -1,0 +1,28 @@
+uuid: a11df403-8878-462c-8b23-d3c74ea4fcb6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.outlooks.body
+    - node.type.outlooks
+  module:
+    - text
+    - user
+id: node.outlooks.default
+targetEntityType: node
+bundle: outlooks
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

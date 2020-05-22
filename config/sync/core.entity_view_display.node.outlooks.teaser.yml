@@ -1,0 +1,30 @@
+uuid: 86fbf940-35bf-46da-acde-d058af8ffb35
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.outlooks.body
+    - node.type.outlooks
+  module:
+    - text
+    - user
+id: node.outlooks.teaser
+targetEntityType: node
+bundle: outlooks
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }
