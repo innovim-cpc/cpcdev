@@ -63,10 +63,14 @@ i.e.
   .usa-nav__secondary {
     bottom: 6rem !important;
   }
-}
-@media (min-width: 64em) {
-    .usa-nav__submenu {
-      z-index: 9999 !important;
+  .usa-nav__submenu {
+    z-index: 9999 !important;
+  }
+  .usa-layout-docs__sidenav {
+    width: 25%;
+  }
+  .usa-layout-docs__main {
+    width: 75%;
   }
 }
 
@@ -163,4 +167,14 @@ i.e.
 }
 button:not([disabled]):focus, input:not([disabled]):focus, select:not([disabled]):focus, textarea:not([disabled]):focus {
     outline: none !important;
+}
+.usa-layout-docs {
+  font-family: family('body');
+}
+.usa-prose > h1 {
+  font-size: 2rem;
+}
+.node--type-outlooks img {
+  max-height: 400px;
+  width: auto;
 }
