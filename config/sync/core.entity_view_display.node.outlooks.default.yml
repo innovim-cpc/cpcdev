@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.outlooks.body
+    - field.field.node.outlooks.field_map_image
     - node.type.outlooks
   module:
+    - image
     - text
     - user
 id: node.outlooks.default
@@ -16,13 +18,22 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 101
+    weight: 2
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_map_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
     region: content
   links:
-    weight: 100
+    weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden: {  }
