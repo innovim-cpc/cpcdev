@@ -175,6 +175,19 @@ button:not([disabled]):focus, input:not([disabled]):focus, select:not([disabled]
   font-size: 2rem;
 }
 .node--type-outlooks img {
-  max-height: 400px;
-  width: auto;
+  width: 100%;
+  height: auto;
+}
+
+.ckeditor-accordion-container > dl dt > a {
+  background-color: #999;
+  border-bottom: 2px solid #fff;
+}
+
+#main-content a.ckeditor-accordion-toggler {
+  color: #fff;
+  font-weight:bold;
+}
+.ckeditor-accordion-container > dl {
+  border: 0 none;
 }

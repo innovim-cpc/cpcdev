@@ -32,6 +32,6 @@ visibility:
       node: '@node.node_route_context:node'
   request_path:
     id: request_path
-    pages: '/outlooks/*'
+    pages: "/outlooks\r\n/outlooks/*"
     negate: false
     context_mapping: {  }
