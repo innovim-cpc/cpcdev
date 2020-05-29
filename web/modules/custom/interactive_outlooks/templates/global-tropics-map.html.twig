@@ -65,6 +65,54 @@
         </div>
       </div><!-- end .grid-row -->
 
+      <div class="grid-row">
+        <div class="tablet:grid-col-12" id="hazards-map__layers-table">
+          <form class="usa-form hazards-form">
+            <fieldset class="usa-fieldset">
+            <table class="usa-table usa-table--borderless font-sans-3xs hazards-data">
+              <thead>
+                <tr class="line-height-sans-1">
+                  <th scope="col"></th>
+                  {# <th scope="col">High</th> #}
+                </tr>
+              </thead>
+              <tbody class="font-lang-2xs">
+          <tr>
+            <th scope="row">Tropical Cyclone Formation</th>
+            <td id='tropical-cyclone-chkbox'><input class="usa-checkbox__input" id="tropical-cyclone" type="checkbox" name="globaltropics" value="tropical-cyclone" checked></td>
+            {# <td id="tropical-cyclone-no-hazards">No Hazards</td> #}
+          </tr>
+          <tr>
+            <th scope="row">Above - Average Rainfall</th>
+            <td id="above-average-rainfall-chkbox"><input class="usa-checkbox__input" id="above-average-rainfall" type="checkbox" name="globaltropics" value="above-average-rainfall" checked></td>
+            {# <td id="above-average-rainfall-no-hazards">No Hazards</td> #}
+
+          </tr>
+          <tr>
+            <th scope="row">Below - Average Rainfall</th>
+            <td id="below-average-rainfall-chkbox"><input class="usa-checkbox__input" id="below-average-rainfall" type="checkbox" name="globaltropics" value="below-average-rainfall" checked></td>
+            {# <td id="below-average-rainfall-no-hazards">No Hazards</td> #}
+
+          </tr>
+          <tr>
+            <th scope="row">Above - Normal Temperature</th>
+            <td id="above-normal-temp-chkbox"><input class="usa-checkbox__input" id="above-normal-temp" type="checkbox" name="globaltropics" value="above-normal-temp" checked></td>
+            {# <td id="above-normal-temp-no-hazards">No Hazards</td> #}
+
+          </tr>
+          <tr>
+            <th scope="row">Below - Normal Temperature</th>
+            <td id="below-normal-temp-chkbox"><input class="usa-checkbox__input" id="below-normal-temp" type="checkbox" name="globaltropics" value="below-normal-temp" checked></td>
+            {# <td id="below-normal-temp-no-hazards">No Hazards</td> #}
+
+          </tr>
+        </tbody>
+            </table>
+            </fieldset>
+          </form>
+        </div>
+      </div><!-- end .grid-row -->
+
     </div><!-- end .map-data-column -->
 
 

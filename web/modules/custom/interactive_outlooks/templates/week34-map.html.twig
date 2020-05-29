@@ -10,10 +10,11 @@
 
       <div class="grid-row">
         <div class="tablet:grid-col-12">
-          <div id="week34-map"></div>
+          {# <div id="week34-map"></div> #}
+          <img id="week34image" src="https://www.cpc.ncep.noaa.gov/products/predictions/WK34/gifs/WK34temp.gif">
         </div>
       </div>
-      <div class="grid-row" id="week34-map__view-controls">
+      {# <div class="grid-row" id="week34-map__view-controls">
         <div class="tablet:grid-col-8">
           <div class="opacity-slider">
             <input type="range" min="0.0" max="1.0" value="0.6" step="0.1" class="week34-opacity-slider__range" id="week34-opacity-level" name="week34-opacity-level">
@@ -31,7 +32,7 @@
             </div>
           </fieldset>
         </div>
-      </div>
+      </div> #}
 
       <div class="grid-row">
         <div class="tablet:grid-col-12 week34-image image-links">
@@ -57,9 +58,9 @@
             <legend class="usa-sr-only">Outlook</legend>
             <div class="usa-radio">
               <input class="usa-radio__input" id="temp-probability" type="radio" checked name="week34-probability" value="temp-probability">
-              <label class="usa-radio__label" for="temp">Temperature Probability</label>
+              <label class="usa-radio__label" for="temp-probability">Temperature Probability</label>
               <input class="usa-radio__input" id="precip-probability" type="radio" name="week34-probability" value="precip-probability">
-              <label class="usa-radio__label" for="precip">Precipitation Probability</label>
+              <label class="usa-radio__label" for="precip-probability">Precipitation Probability</label>
             </div>
           </fieldset>
         </div>
