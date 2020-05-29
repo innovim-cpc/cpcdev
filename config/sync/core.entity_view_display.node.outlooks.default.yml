@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.outlooks.body
+    - field.field.node.outlooks.field_image
     - field.field.node.outlooks.field_map_image
     - node.type.outlooks
   module:
@@ -18,9 +19,17 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 2
+    weight: 3
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_image:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: ''
+    third_party_settings: {  }
+    type: image_url
     region: content
   field_map_image:
     weight: 1

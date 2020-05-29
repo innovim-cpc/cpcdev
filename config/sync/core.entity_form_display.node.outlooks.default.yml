@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.outlooks.body
+    - field.field.node.outlooks.field_image
     - field.field.node.outlooks.field_map_image
     - image.style.thumbnail
     - node.type.outlooks
@@ -31,6 +32,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_image:
+    weight: 123
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
   field_map_image:
     weight: 122
     settings:
