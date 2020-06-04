@@ -982,7 +982,7 @@
           document.getElementById("chart-div-precip-label").innerHTML=
               "<font color=black>Three Category Precipitation Outlook<br>Normal Precipitation: </font><strong>"
               + eval(pcpn_norm).toFixed(2) + "</strong></a>";
-              console.log(pcpn_norm);
+              // console.log(pcpn_norm);
         } else {
           document.getElementById("chart-div-precip-label").innerHTML=
             "<font color=black>Three Category Precipitation Outlook<br>Normal Precipitation: N/A</font></a>";
