@@ -15,13 +15,42 @@
       });
 
       // Add Esri World Topo basemap via Esri Leaflet plugin
-      L.esri.basemapLayer('Topographic').addTo(week34map);
+      L.esri.basemapLayer('Gray').addTo(week34map);
 
+      // Get URL to place boundaries layer
+      const boundariesUrl = 'https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/State_County/MapServer/';
 
-      $('#week34-map-header .title').text("U.S. Week 3 - 4 Outlooks");
-      $('#week34-map-header .valid-dates').html("<br><br>  ");
+      // Create a map pane for the boundaries
+      week34map.createPane('boundaries');
 
-      // Get link to  KML files
+      // Define the boundaries pane when creating the dynamicMapLayer
+      L.esri.dynamicMapLayer({
+        url: boundariesUrl,
+        pane: 'boundaries',
+        opacity: 0.25
+      }).addTo(week34map);
+
+      // Get URL to place cities layer
+      const citiesUrl = 'https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/';
+
+      // Create a map pane for the city labels
+      week34map.createPane('cities');
+
+      week34map.getPane('cities').style.pointerEvents = 'none';
+
+      // Define the cities pane when creating the dynamicMapLayer
+      L.esri.dynamicMapLayer({
+        url: citiesUrl,
+        pane: 'cities',
+        opacity: 0.75
+      }).addTo(week34map);
+
+      // Create a map pane for the outlooks
+      week34map.createPane('outlooks');
+
+      week34map.getPane('outlooks').style.zIndex = 650;
+
+      // Get link to KML files
       const week34Tempkml = "http://www.cpc.ncep.noaa.gov/products/predictions/WK34/gis_files/wk34temp_latest.kml";
       const week34Precipkml = "http://www.cpc.ncep.noaa.gov/products/predictions/WK34/gis_files/wk34prcp_latest.kml";
 
@@ -29,14 +58,13 @@
       const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
       // Create the layers based on the URL and proxy URL
-      var week34TempLayer = omnivore.kml((proxyurl + week34Tempkml));
-      var week34PrecipLayer = omnivore.kml((proxyurl + week34Precipkml));
+      var week34TempLayer = omnivore.kml(proxyurl + week34Tempkml);
+      var week34PrecipLayer = omnivore.kml(proxyurl + week34Precipkml);
 
-      //add layers to map
+      // Add layers to map
       week34map.addLayer(week34TempLayer);
       console.log(week34PrecipLayer);
-      //week34map.addLayer(week34PrecipLayer);
-
+      // week34map.addLayer(week34PrecipLayer);
 
       $.ajax({
         type     : "GET",
@@ -49,11 +77,15 @@
       });
 
 
+    $('#week34-map-header .title').text("U.S. Week 3 - 4 Outlooks");
+    $('#week34-map-header .valid-dates').html("<br><br>  ");
+
+
     function getDataWeek34Tempkml(xml) {
       const dateInfo = $(xml).find("Document").first().attr("id");
       const noHazards = dateInfo.substring(dateInfo.indexOf("No_Hazards_Posted"));
 
-      week34TempLayer.eachLayer(function(layer){         
+      week34TempLayer.eachLayer(function(layer){
         switch(layer.feature.properties.name){
           case "50 Percent Chance of Temperature Being Above Normal":
             layer.bindTooltip("50% Chance of Temperature Being Above Normal");
@@ -291,12 +323,11 @@
       }
     });
 
-
     function getDataWeek34Precipkml(xml) {
       const dateInfo = $(xml).find("Document").first().attr("id");
       const noHazards = dateInfo.substring(dateInfo.indexOf("No_Hazards_Posted"));
 
-      week34PrecipLayer.eachLayer(function(layer){         
+      week34PrecipLayer.eachLayer(function(layer){
         switch(layer.feature.properties.name){
           case "50 Percent Chance of Precipitation Being Above Normal":
             layer.bindTooltip("50% Chance of Precipitation Being Above Normal");
@@ -530,7 +561,7 @@
       //show temperature probability
       week34map.removeLayer(week34PrecipLayer);
       week34map.addLayer(week34TempLayer);
-      
+
     }
     else if (this.value == 'precip-probability') {
         //show precipitation probability
@@ -539,7 +570,6 @@
     }
   });
 
-
-
   week34map.invalidateSize();
+
   })(jQuery);

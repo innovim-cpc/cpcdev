@@ -19,57 +19,102 @@
           minZoom: 3.9
         });
 
-        // Add Esri World Topo base map via Esri Leaflet plugin
-        L.esri.basemapLayer('Topographic').addTo(tempmap);
+        // Add Esri Gray base map via Esri Leaflet plugin
+        L.esri.basemapLayer('Gray').addTo(tempmap);
 
-        // Create variables from all the Temperature layers
+        // Get URL to place boundaries layer
+        const boundariesUrl = 'https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/State_County/MapServer/';
+
+        // Create a map pane for the boundaries
+        tempmap.createPane('boundaries');
+
+        // Define the boundaries pane when creating the dynamicMapLayer
+        L.esri.dynamicMapLayer({
+          url: boundariesUrl,
+          pane: 'boundaries',
+          opacity: 0.25
+        }).addTo(tempmap);
+
+        // Get URL to place cities layer
+        const citiesUrl = 'https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/';
+
+        // Create a map pane for the city labels
+        tempmap.createPane('cities');
+
+        // Define the cities pane when creating the dynamicMapLayer
+        L.esri.dynamicMapLayer({
+          url: citiesUrl,
+          pane: 'cities',
+          opacity: 0.75
+        }).addTo(tempmap);
+
+        // Create a map pane for the outlooks
+        tempmap.createPane('outlooks');
+
+        // Create variables from all the temperature layers to be placed in 'outlooks' pane; add initial (6-10 Day) layer to map
         const temp610dayLayer = L.esri.featureLayer({
-          url:'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_6_10_day_outlk/MapServer/0'
+          url:'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_6_10_day_outlk/MapServer/0',
+          pane: 'outlooks'
         }).addTo(tempmap);
         const temp814dayLayer = L.esri.featureLayer({
-          url:'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_8_14_day_outlk/MapServer/0'
+          url:'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_8_14_day_outlk/MapServer/0',
+          pane: 'outlooks'
         });
         const tempMonthlyLayer = L.esri.featureLayer({
-          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_mthly_temp_outlk/MapServer/0'
+          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_mthly_temp_outlk/MapServer/0',
+          pane: 'outlooks'
         });
         const temp3MonthLead1Layer = L.esri.featureLayer({
-          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/0'
+          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/0',
+          pane: 'outlooks'
         });
         const temp3MonthLead2Layer = L.esri.featureLayer({
-          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/1'
+          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/1',
+          pane: 'outlooks'
         });
         const temp3MonthLead3Layer = L.esri.featureLayer({
-          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/2'
+          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/2',
+          pane: 'outlooks'
         });
         const temp3MonthLead4Layer = L.esri.featureLayer({
-          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/3'
+          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/3',
+          pane: 'outlooks'
         });
         const temp3MonthLead5Layer = L.esri.featureLayer({
-          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/4'
+          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/4',
+          pane: 'outlooks'
         });
         const temp3MonthLead6Layer = L.esri.featureLayer({
-          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/5'
+          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/5',
+          pane: 'outlooks'
         });
         const temp3MonthLead7Layer = L.esri.featureLayer({
-          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/6'
+          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/6',
+          pane: 'outlooks'
         });
         const temp3MonthLead8Layer = L.esri.featureLayer({
-          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/7'
+          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/7',
+          pane: 'outlooks'
         });
         const temp3MonthLead9Layer = L.esri.featureLayer({
-          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/8'
+          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/8',
+          pane: 'outlooks'
         });
         const temp3MonthLead10Layer = L.esri.featureLayer({
-          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/9'
+          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/9',
+          pane: 'outlooks'
         });
         const temp3MonthLead11Layer = L.esri.featureLayer({
-          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/10'
+          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/10',
+          pane: 'outlooks'
         });
         const temp3MonthLead12Layer = L.esri.featureLayer({
-          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/11'
+          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/11',
+          pane: 'outlooks'
         });
         const temp3MonthLead13Layer = L.esri.featureLayer({
-          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/12'
+          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_sea_temp_outlk/MapServer/12',
+          pane: 'outlooks'
         });
 
         // Search by address
@@ -295,7 +340,7 @@
             validMonthEnd = validMonthEnd.toLocaleDateString("en-US", options);
             validmonth = validmonth + ' - ' + validMonthEnd;
             releasemonth = releasemonth.toLocaleDateString("en-US", options);
-            
+
             if (currentLayerName === "temp610dayLayer") {
               $('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
             }
