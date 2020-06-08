@@ -19,7 +19,7 @@
           minZoom: 3.9
         });
 
-        // Add Esri World Topo base map via Esri Leaflet plugin
+        // Add Esri Gray base map via Esri Leaflet plugin
         L.esri.basemapLayer('Gray').addTo(precipmap);
 
         // Get URL to place boundaries layer
@@ -60,11 +60,11 @@
         // Create a map pane for the outlooks
         precipmap.createPane('outlooks');
 
-        // Create variables for all the precipitation layers to be placed in 'outlooks' pane
+        // Create variables for all the precipitation layers to be placed in 'outlooks' pane; add initial (6-10 Day) layer to map
         const precip610dayLayer = L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_6_10_day_outlk/MapServer/1',
           pane: 'outlooks'
-        });
+        }).addTo(precipmap);
         const precip814dayLayer = L.esri.featureLayer({
           url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_8_14_day_outlk/MapServer/1',
           pane: 'outlooks'
@@ -285,9 +285,6 @@
             $('#lead-options-precip option[value="precip-lead-13"]').text(leadLabel);
             lead13Label = leadLabel;
         });
-
-        // Add initial layer to map
-        precip610dayLayer.addTo(precipmap);
 
         var get_start_date;
         var get_end_date;
@@ -982,7 +979,7 @@
           document.getElementById("chart-div-precip-label").innerHTML=
               "<font color=black>Three Category Precipitation Outlook<br>Normal Precipitation: </font><strong>"
               + eval(pcpn_norm).toFixed(2) + "</strong></a>";
-              console.log(pcpn_norm);
+              // console.log(pcpn_norm);
         } else {
           document.getElementById("chart-div-precip-label").innerHTML=
             "<font color=black>Three Category Precipitation Outlook<br>Normal Precipitation: N/A</font></a>";

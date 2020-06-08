@@ -21,38 +21,66 @@
         hazardsmap.whenReady(hideLegend);
 
         function hideLegend(){
-            $('#high-risk-excessive-heat').hide();
-            $('#moderate-risk-excessive-heat').hide();
-            $('#slight-risk-excessive-heat').hide();
+          $('#high-risk-excessive-heat').hide();
+          $('#moderate-risk-excessive-heat').hide();
+          $('#slight-risk-excessive-heat').hide();
 
-            $('#high-risk-much-above-normal-temperature').hide();
-            $('#moderate-risk-much-above-normal-temperature').hide();
-            $('#slight-risk-much-above-normal-temperature').hide();
+          $('#high-risk-much-above-normal-temperature').hide();
+          $('#moderate-risk-much-above-normal-temperature').hide();
+          $('#slight-risk-much-above-normal-temperature').hide();
 
-            $('#high-risk-much-below-normal-temperature').hide();
-            $('#moderate-risk-much-below-normal-temperature').hide();
-            $('#slight-risk-much-below-normal-temperature').hide();
+          $('#high-risk-much-below-normal-temperature').hide();
+          $('#moderate-risk-much-below-normal-temperature').hide();
+          $('#slight-risk-much-below-normal-temperature').hide();
 
-            $('#moderate-risk-high-winds').hide();
-            $('#slight-risk-high-winds').hide();
+          $('#moderate-risk-high-winds').hide();
+          $('#slight-risk-high-winds').hide();
 
-            $('#high-risk-precip').hide();
-            $('#moderate-risk-precip').hide();
-            $('#slight-risk-precip').hide();
+          $('#high-risk-precip').hide();
+          $('#moderate-risk-precip').hide();
+          $('#slight-risk-precip').hide();
 
-            $('#frozen-precip').hide();
-            $('#flooding-possible').hide();
-          }
+          $('#frozen-precip').hide();
+          $('#flooding-possible').hide();
+        }
 
         // Add Esri World Topo basemap via Esri Leaflet plugin
-        L.esri.basemapLayer('Topographic').addTo(hazardsmap);
+        L.esri.basemapLayer('Gray').addTo(hazardsmap);
+
+        // Get URL to place boundaries layer
+        const boundariesUrl = 'https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/State_County/MapServer/';
+
+        // Create a map pane for the boundaries
+        hazardsmap.createPane('boundaries');
+
+        // Define the boundaries pane when creating the dynamicMapLayer
+        L.esri.dynamicMapLayer({
+          url: boundariesUrl,
+          pane: 'boundaries',
+          opacity: 0.25
+        }).addTo(hazardsmap);
+
+        // Get URL to place cities layer
+        const citiesUrl = 'https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/';
+
+        // Create a map pane for the city labels
+        hazardsmap.createPane('cities');
+
+        // Define the cities pane when creating the dynamicMapLayer
+        L.esri.dynamicMapLayer({
+          url: citiesUrl,
+          pane: 'cities',
+          opacity: 0.75
+        }).addTo(hazardsmap);
+
+        // Create a map pane for the outlooks
+        hazardsmap.createPane('outlooks');
 
         // Get link to 8-14 day KML files found at https://www.cpc.ncep.noaa.gov/products/predictions/threats/threats.php
         const prcp814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/prcp_D8_14.kml";
         const probPrcp814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/prcp_prob_D8_14.kml";
         const temp814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/temp_D8_14.kml";
         const probTemp814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/temp_prob_D8_14.kml";
-
 
         // const excessHeat814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/excess_heat_D8_14.kml";
         const wind814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/wind_D8_14.kml";

@@ -191,3 +191,78 @@ button:not([disabled]):focus, input:not([disabled]):focus, select:not([disabled]
 .ckeditor-accordion-container > dl {
   border: 0 none;
 }
+@media (min-width: 40em) {
+  .usa-sidenav .usa-current::after {
+    background-color: #005ea2;
+    border-radius: 0;
+    bottom: .25rem;
+    top: .25rem;
+    width: .25rem;
+  }
+}
+.usa-sidenav .usa-current::after {
+  background-color: #005ea2;
+  border-radius: 0;
+}
+.usa-sidenav > .usa-sidenav__item:not(:first-of-type) a > span::after {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f078";
+  color: #ccc;
+  position: absolute;
+  right: 1.3rem;
+}
+.usa-sidenav > .usa-sidenav__item:not(:first-of-type) a:hover > span::after {
+  color: #005ea2;
+}
+.usa-sidenav > .usa-sidenav__item:not(:first-of-type) a.usa-current {
+  background-color: #e6e6e6;
+}
+.usa-sidenav > .usa-sidenav__item:not(:first-of-type) a.usa-current > span::after {
+  color: #005ea2;
+  right: .25rem;
+}
+#main-content .usa-sidenav a:hover {
+  background-color: #f1f1f1;
+  color: #005ea2;
+}
+.usa-sidenav > .usa-sidenav__item.first a {
+  /*padding-top: 0.5rem;
+  padding-right: 1rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1.25rem;*/
+}
+.usa-sidenav > .usa-sidenav__item.first a > span::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+
+  font-family: "Font Awesome 5 Free";
+  font-size: 1rem;
+  font-weight: 900;
+  content: "\f015";
+  color: #005ea2;
+  position: absolute;
+  top: .75rem;
+  left: .75rem;
+}
+.usa-sidenav > .usa-sidenav__item {
+  font-size: 1.25rem;
+}
+.usa-sidenav__sublist a {
+  padding-left: 2.25rem;
+}
+.usa-sidenav__sublist .usa-sidenav__sublist {
+  font-size: .9rem;
+}
+.usa-sidenav__sublist .usa-sidenav__sublist a {
+  padding-left: 3.35rem;
+}

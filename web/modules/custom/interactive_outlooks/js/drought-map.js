@@ -19,22 +19,48 @@
           minZoom: 3.9
         });
 
-        // Add Esri World Topo base map via Esri Leaflet plugin
-        L.esri.basemapLayer('Topographic').addTo(droughtmap);
+        // Add Esri Gray base map via Esri Leaflet plugin
+        L.esri.basemapLayer('Gray').addTo(droughtmap);
 
-        //create Drought layers
+        // Get URL to place boundaries layer
+        const boundariesUrl = 'https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/State_County/MapServer/';
+
+        // Create a map pane for the boundaries
+        droughtmap.createPane('boundaries');
+
+        // Define the boundaries pane when creating the dynamicMapLayer
+        L.esri.dynamicMapLayer({
+          url: boundariesUrl,
+          pane: 'boundaries',
+          opacity: 0.25
+        }).addTo(droughtmap);
+
+        // Get URL to place cities layer
+        const citiesUrl = 'https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/';
+
+        // Create a map pane for the city labels
+        droughtmap.createPane('cities');
+
+        // Define the cities pane when creating the dynamicMapLayer
+        L.esri.dynamicMapLayer({
+          url: citiesUrl,
+          pane: 'cities',
+          opacity: 0.75
+        }).addTo(droughtmap);
+
+        // Create a map pane for the outlooks
+        droughtmap.createPane('outlooks');
+
+        // Create variables for all the drought layers to be placed in 'outlooks' pane; add initial (Monthly) layer to map
         var monthlyDroughtLayer = new L.esri.featureLayer({
-          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_drought_outlk/MapServer/0'
-        });
+          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_drought_outlk/MapServer/0',
+          pane: 'outlooks'
+        }).addTo(droughtmap);
         var seasonalDroughtLayer = new L.esri.featureLayer({
-          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_drought_outlk/MapServer/1'
+          url: 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Climate_Outlooks/cpc_drought_outlk/MapServer/1',
+          pane: 'outlooks'
         });
-        
-        //Add initial layer to map
-        monthlyDroughtLayer.addTo(droughtmap);
 
-        //seasonalDroughtLayer.addTo(droughtmap);
-        //seasonalDroughtLayer.removeFrom(droughtmap);
 
         var currentLayer = monthlyDroughtLayer;
         var previousLayer = "";
@@ -100,7 +126,7 @@
           else {
             $('.development').show();
           }
-          
+
           if(!improve){
             $('.improves').hide();
           }
@@ -114,7 +140,7 @@
           else {
             $('.persists').show();
           }
-          
+
           if(!remove){
             $('.removal').hide();
           }
@@ -122,7 +148,7 @@
             $('.removal').show();
           }
 
-            
+
           });
         }
 
@@ -152,7 +178,7 @@
             // Create new Date object
             seasonalstartdate = new Date(featureCollection.features[0].properties.idp_ingestdate);
             releaseseasonal = new Date(featureCollection.features[0].properties.fcst_date);
-  
+
             // Format dates
             seasonalstartdate = seasonalstartdate.toLocaleDateString("en-US", options);
             releaseseasonal = releaseseasonal.toLocaleDateString("en-US", options);
@@ -278,7 +304,7 @@
           });
         }
 
-        
+
      droughtmap.invalidateSize();
      //export { droughtmap };
 
