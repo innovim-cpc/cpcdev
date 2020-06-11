@@ -83,6 +83,11 @@
          globaltropicsmap.addLayer(week1AboveNormalTempLayer);
          globaltropicsmap.addLayer(week1BelowNormalTempLayer);
 
+         var globalTropicsValidDateWeek1;
+         var globalTropicsReleaseDateWeek1;
+         var globalTropicsValidDateWeek2;
+         var globalTropicsReleaseDateWeek2;
+
 
          $.ajax({
             type     : "GET",
@@ -102,6 +107,16 @@
           function getDataWeek1TropicalCyclonekml(xml) {
             const dateInfo = $(xml).find("Document").first().attr("id");
             const noHazards = dateInfo.substring(dateInfo.indexOf("No_Hazards_Posted"));
+            
+            var globalTropicsValidStartDateString = new Date(dateInfo.substring(58,68));
+            var globalTropicsValidEndDateString = new Date(dateInfo.substring(68,78));
+
+            var globalTropicsReleaseDateString = new Date(dateInfo.substring(39,49));
+
+            globalTropicsValidDateWeek1 = globalTropicsValidStartDateString.toLocaleDateString("en-US", options) + ' - ' + globalTropicsValidEndDateString.toLocaleDateString("en-US", options);
+            globalTropicsReleaseDateWeek1 = globalTropicsReleaseDateString.toLocaleDateString("en-US", options);
+
+            $('#global-tropics-map-header .valid-dates').html("Valid: " + globalTropicsValidDateWeek1 + "<br> Released: " + globalTropicsReleaseDateWeek1);
 
             week1TropicalCycloneLayer.eachLayer(function(layer){
               switch(layer.feature.properties.styleUrl){
@@ -115,7 +130,7 @@
                     weight: 1,
                   })
                   break;
-                case "#PolyStyle01":
+                default:
                   layer.bindTooltip("Moderate development of a tropical cyclone");
                   layer.setStyle({
                     fillColor: 'red',
@@ -145,6 +160,14 @@
             const dateInfo = $(xml).find("Document").first().attr("id");
             const noHazards = dateInfo.substring(dateInfo.indexOf("No_Hazards_Posted"));
 
+            var globalTropicsValidStartDateString = new Date(dateInfo.substring(58,68));
+            var globalTropicsValidEndDateString = new Date(dateInfo.substring(68,78));
+
+            var globalTropicsReleaseDateString = new Date(dateInfo.substring(39,49));
+
+            globalTropicsValidDateWeek2 = globalTropicsValidStartDateString.toLocaleDateString("en-US", options) + ' - ' + globalTropicsValidEndDateString.toLocaleDateString("en-US", options);
+            globalTropicsReleaseDateWeek2 = globalTropicsReleaseDateString.toLocaleDateString("en-US", options);
+
             week2TropicalCycloneLayer.eachLayer(function(layer){
               switch(layer.feature.properties.styleUrl){
                 case "#PolyStyle00":
@@ -157,7 +180,7 @@
                     weight: 1,
                   })
                   break;
-                case "#PolyStyle01":
+                default:
                   layer.bindTooltip("Moderate development of a tropical cyclone");
                   layer.setStyle({
                     fillColor: 'red',
@@ -199,7 +222,7 @@
                     weight: 1,
                   })
                   break;
-                case "#PolyStyle02":
+                default:
                   layer.bindTooltip("Moderate weekly total rainfall in the upper third of the historical range");
                   layer.setStyle({
                     fillColor: 'lime',
@@ -240,7 +263,7 @@
                     weight: 1,
                   })
                   break;
-                case "#PolyStyle01":
+                default:
                   layer.bindTooltip("Moderate weekly total rainfall in the <br>upper third of the historical range");
                   layer.setStyle({
                     fillColor: 'lime',
@@ -282,7 +305,7 @@
                     weight: 1,
                   })
                   break;
-                case "#PolyStyle02":
+                default:
                   layer.bindTooltip("Moderate weekly total rainfall in the <br>lower third of the historical range");
                   layer.setStyle({
                     fillColor: 'yellow',
@@ -324,7 +347,7 @@
                     weight: 1,
                   })
                   break;
-                case "#PolyStyle01":
+                default:
                   layer.bindTooltip("Moderate weekly total rainfall in the <br>lower third of the historical range");
                   layer.setStyle({
                     fillColor: 'yellow',
@@ -365,7 +388,7 @@
                     weight: 1,
                   })
                   break;
-                case "#PolyStyle02":
+                default:
                   layer.bindTooltip("Moderate 7 - day mean temperatures in the <br> upper third of the historical range");
                   layer.setStyle({
                     fillColor: 'orange',
@@ -406,7 +429,7 @@
                     weight: 1,
                   })
                   break;
-                case "#PolyStyle01":
+                default:
                   layer.bindTooltip("Moderate 7 - day mean temperatures in the <br> upper third of the historical range");
                   layer.setStyle({
                     fillColor: 'orange',
@@ -448,7 +471,7 @@
                     weight: 1,
                   })
                   break;
-                case "#PolyStyle02":
+                default:
                   layer.bindTooltip("Moderate 7 - day mean temperatures in the <br> lower third of the historical range");
                   layer.setStyle({
                     fillColor: 'blue',
@@ -489,7 +512,7 @@
                     weight: 1,
                   })
                   break;
-                case "#PolyStyle01":
+                default:
                   layer.bindTooltip("Moderate 7 - day mean temperatures in the <br> lower third of the historical range");
                   layer.setStyle({
                     fillColor: 'blue',
@@ -624,6 +647,7 @@
 
         //switch all layers from Week 1 or Week 2
         $("input[name=global-tropics-map-duration").on('change', function() {
+
           //get the values of the check boxes
           var tropicalCycloneChecked = $('input[id=tropical-cyclone]:checked')[0];
           var aboveAverageRainfallChecked = $('input[id=above-average-rainfall]:checked')[0];
@@ -632,12 +656,17 @@
           var belowNormalTempChecked = $('input[id=below-normal-temp]:checked')[0];
 
           if(this.value == "week1"){
+
             //remove all week 2 layers
             globaltropicsmap.removeLayer(week2TropicalCycloneLayer);
             globaltropicsmap.removeLayer(week2UpperTercilePrecipLayer);
             globaltropicsmap.removeLayer(week2LowerTercilePrecipLayer);
             globaltropicsmap.removeLayer(week2AboveNormalTempLayer);
             globaltropicsmap.removeLayer(week2BelowNormalTempLayer);
+
+
+            //update the valid and release dates
+            $('#global-tropics-map-header .valid-dates').html("Valid: " + globalTropicsValidDateWeek1 + "<br> Released: " + globalTropicsReleaseDateWeek1);
 
             //add all week 1 layers that are still checked
             if (tropicalCycloneChecked){
@@ -664,6 +693,10 @@
             globaltropicsmap.removeLayer(week1LowerTercilePrecipLayer);
             globaltropicsmap.removeLayer(week1AboveNormalTempLayer);
             globaltropicsmap.removeLayer(week1BelowNormalTempLayer);
+
+
+            //update the valid and release dates
+            $('#global-tropics-map-header .valid-dates').html("Valid: " + globalTropicsValidDateWeek2 + "<br> Released: " + globalTropicsReleaseDateWeek2);
 
             //add all week 2 layers
             if (tropicalCycloneChecked){
