@@ -720,10 +720,28 @@
           }
         });
 
+        // var globalTropicsSlider = $('#global-tropics-opacity-level')[0];
+        // var globalTropicsOutput = $('.global-tropics-opacity-slider__value')[0];
+
+        // // Convert opacity decimal value to percent
+        // var percent = Math.round(globalTropicsSlider.value * 100);
+        // // Write percent value in html label area
+        // $('.global-tropics-opacity-slider__value').html(percent);
+
+        // globalTropicsOutput.innerHTML = percent;
+        // globalTropicsSlider.oninput = function() {
+        //   globalTropicsOutput.innerHTML = Math.round(this.value * 100);
+          
+
+          
+        //   week2UpperTercilePrecipLayer.layer.setStyle({
+        //         fillOpacity: (globalTropicsSlider.value)
+        //         });
+            
+        // }
         var globalTropicsSlider = $('#global-tropics-opacity-level')[0];
         var globalTropicsOutput = $('.global-tropics-opacity-slider__value')[0];
 
-        var opacityVal = $('.global-tropics-opacity-slider__range').val();
         // Convert opacity decimal value to percent
         var percent = Math.round(globalTropicsSlider.value * 100);
         // Write percent value in html label area
@@ -733,13 +751,69 @@
         globalTropicsSlider.oninput = function() {
           globalTropicsOutput.innerHTML = Math.round(this.value * 100);
 
-          globaltropicsmap.eachLayer(function(layer){
-              // layer.layer.setStyle({
-              //   fillOpacity: (globalTropicsSlider.value)
-              //   });
+          //Update the Opacity for all layers:
+          week1TropicalCycloneLayer.eachLayer(function(layer){
+            layer.setStyle({
+              fillOpacity: (globalTropicsSlider.value)
             });
-        }
+          });
+          week1UpperTercilePrecipLayer.eachLayer(function(layer){
+            layer.setStyle({
+              fillOpacity: (globalTropicsSlider.value)
+            });
+          });
+          week1UpperTercilePrecipLayer.eachLayer(function(layer){
+            layer.setStyle({
+              fillOpacity: (globalTropicsSlider.value)
+            });
+          });
+          week1LowerTercilePrecipLayer.eachLayer(function(layer){
+            layer.setStyle({
+              fillOpacity: (globalTropicsSlider.value)
+            });
+          });
+          week1AboveNormalTempLayer.eachLayer(function(layer){
+            layer.setStyle({
+              fillOpacity: (globalTropicsSlider.value)
+            });
+          });
+          week1BelowNormalTempLayer.eachLayer(function(layer){
+            layer.setStyle({
+              fillOpacity: (globalTropicsSlider.value)
+            });
+          });
 
+          week2TropicalCycloneLayer.eachLayer(function(layer){
+            layer.setStyle({
+              fillOpacity: (globalTropicsSlider.value)
+            });
+          });
+          week2UpperTercilePrecipLayer.eachLayer(function(layer){
+            layer.setStyle({
+              fillOpacity: (globalTropicsSlider.value)
+            });
+          });
+          week2UpperTercilePrecipLayer.eachLayer(function(layer){
+            layer.setStyle({
+              fillOpacity: (globalTropicsSlider.value)
+            });
+          });
+          week2LowerTercilePrecipLayer.eachLayer(function(layer){
+            layer.setStyle({
+              fillOpacity: (globalTropicsSlider.value)
+            });
+          });
+          week2AboveNormalTempLayer.eachLayer(function(layer){
+            layer.setStyle({
+              fillOpacity: (globalTropicsSlider.value)
+            });
+          });
+          week2BelowNormalTempLayer.eachLayer(function(layer){
+            layer.setStyle({
+              fillOpacity: (globalTropicsSlider.value)
+            });
+          });
+        }
 
       globaltropicsmap.invalidateSize();
   })(jQuery);
