@@ -63,8 +63,15 @@
 
       // Add layers to map
       week34map.addLayer(week34TempLayer);
-      console.log(week34PrecipLayer);
-      // week34map.addLayer(week34PrecipLayer);
+      var currentLayer = week34TempLayer;
+
+      var tempValidDate;
+      var tempReleaseDate;
+      var precipValidDate;
+      var precipReleaseDate
+
+      $('#week34-map-header .title').text("U.S. Week 3 - 4 Outlooks");
+      $('#week34-map-header .valid-dates').html("Valid: <br>Released: ");
 
       $.ajax({
         type     : "GET",
@@ -76,14 +83,18 @@
         }
       });
 
-
-    $('#week34-map-header .title').text("U.S. Week 3 - 4 Outlooks");
-    $('#week34-map-header .valid-dates').html("<br><br>  ");
-
-
     function getDataWeek34Tempkml(xml) {
       const dateInfo = $(xml).find("Document").first().attr("id");
-      const noHazards = dateInfo.substring(dateInfo.indexOf("No_Hazards_Posted"));
+      var tempValidStartDateString = new Date(dateInfo.substring(57,67));
+      var tempValidEndDateString = new Date(dateInfo.substring(67));
+
+      var tempReleaseDateString = new Date(dateInfo.substring(39,49));
+
+      var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      tempValidDate = tempValidStartDateString.toLocaleDateString("en-US", options) + ' - ' + tempValidEndDateString.toLocaleDateString("en-US", options);
+      tempReleaseDate = tempReleaseDateString.toLocaleDateString("en-US", options);
+
+      $('#week34-map-header .valid-dates').html("Valid: " + tempValidDate + "<br> Released: " + tempReleaseDate);
 
       week34TempLayer.eachLayer(function(layer){
         switch(layer.feature.properties.name){
@@ -325,7 +336,14 @@
 
     function getDataWeek34Precipkml(xml) {
       const dateInfo = $(xml).find("Document").first().attr("id");
-      const noHazards = dateInfo.substring(dateInfo.indexOf("No_Hazards_Posted"));
+      var precipValidStartDateString = new Date(dateInfo.substring(59,69));
+      var precipValidEndDateString = new Date(dateInfo.substring(69));
+
+      var precipReleaseDateString = new Date(dateInfo.substring(41,51));
+
+      var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      precipValidDate = precipValidStartDateString.toLocaleDateString("en-US", options) + ' - ' + precipValidEndDateString.toLocaleDateString("en-US", options);
+      precipReleaseDate = precipReleaseDateString.toLocaleDateString("en-US", options);
 
       week34PrecipLayer.eachLayer(function(layer){
         switch(layer.feature.properties.name){
@@ -561,14 +579,47 @@
       //show temperature probability
       week34map.removeLayer(week34PrecipLayer);
       week34map.addLayer(week34TempLayer);
+      currentLayer = week34TempLayer;
+      $('#week34-map-header .valid-dates').html("Valid: " + tempValidDate + "<br> Released: " + tempReleaseDate);
 
     }
     else if (this.value == 'precip-probability') {
         //show precipitation probability
         week34map.removeLayer(week34TempLayer);
         week34map.addLayer(week34PrecipLayer);
+        currentLayer = week34PrecipLayer;
+        $('#week34-map-header .valid-dates').html("Valid: " + precipValidDate + "<br> Released: " + precipReleaseDate);
     }
   });
+
+    //change the map to the correct area
+    $('input[type=radio][name=week34-map-view]').on('change',function() {
+      if (this.value == 'conus') {
+        week34map.setView(new L.LatLng(38, -96), 3.9)        
+      }
+      else if (this.value == 'alaska') {        
+        week34map.setView(new L.LatLng(64.2,-149.4), 3.9)
+      } 
+    });
+
+    var week34Slider = $('#week34-opacity-level')[0];
+    var week34Output = $('.week34-opacity-slider__value')[0];
+
+    // Convert opacity decimal value to percent
+    var percent = Math.round(week34Slider.value * 100);
+    // Write percent value in html label area
+    $('.week34-opacity-slider__value').html(percent);
+
+    week34Output.innerHTML = percent;
+    week34Slider.oninput = function() {
+      week34Output.innerHTML = Math.round(this.value * 100);
+
+      currentLayer.eachLayer(function(layer){
+        layer.setStyle({
+          fillOpacity: (week34Slider.value)
+        });
+      });
+    }
 
   week34map.invalidateSize();
 
