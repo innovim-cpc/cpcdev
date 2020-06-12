@@ -43,3 +43,5 @@ function formatLeadDates(x) {
   }
   return leadLabel;
 }
+
+var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };

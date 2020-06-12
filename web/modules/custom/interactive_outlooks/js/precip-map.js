@@ -557,8 +557,7 @@
             //getForecast(e.Latlng = 64.2,-149.2);
 
             //reset the variables before loading new data, prevents old data from being displayed if the pie chart loads before the new data refreshes
-            mint_norm = null;
-            maxt_norm = null;
+            pcpn_norm = null;
             precip_abv = null;
             precip_blo =  null;
             precip_norm = null;
@@ -592,8 +591,7 @@
             //getForecast(e.Latlng = 64.2,-149.2);
 
             //reset the variables before loading new data, prevents old data from being displayed if the pie chart loads before the new data refreshes
-            mint_norm = null;
-            maxt_norm = null;
+            pcpn_norm = null;
             precip_abv = null;
             precip_blo =  null;
             precip_norm = null;

@@ -91,14 +91,14 @@
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
         // Create the layers based on the URL and proxy URL
-        var prcp814kmlLayer = omnivore.kml((proxyurl + prcp814kml));
-        var probPrcp814kmlLayer = omnivore.kml((proxyurl + probPrcp814kml));
-        var temp814kmlLayer = omnivore.kml((proxyurl + temp814kml));
-        var probTemp814kmlLayer = omnivore.kml((proxyurl + probTemp814kml));
+        var prcp814kmlLayer = omnivore.kml(proxyurl + prcp814kml);
+        var probPrcp814kmlLayer = omnivore.kml(proxyurl + probPrcp814kml);
+        var temp814kmlLayer = omnivore.kml(proxyurl + temp814kml);
+        var probTemp814kmlLayer = omnivore.kml(proxyurl + probTemp814kml);
         // var excessHeat814kmlLayer = new L.KML(proxyurl + excessHeat814kml, {async: true});
-        var probExcessHeat814kmlLayer = omnivore.kml((proxyurl + probExcessHeat814kml));
-        var wind814kmlLayer = omnivore.kml((proxyurl + wind814kml));
-        var probWind814kmlLayer = omnivore.kml((proxyurl + probWind814kml));
+        var probExcessHeat814kmlLayer = omnivore.kml(proxyurl + probExcessHeat814kml);
+        var wind814kmlLayer = omnivore.kml(proxyurl + wind814kml);
+        var probWind814kmlLayer = omnivore.kml(proxyurl + probWind814kml);
 
         // Add the layers to the map
         hazardsmap.addLayer(prcp814kmlLayer);
@@ -350,9 +350,18 @@
 
         function getValidDates(xml) {
           const dateInfo = $(xml).find("name").first().text();
-          const validDatesString = dateInfo.substring(dateInfo.indexOf("Valid"));
-          const validDates = validDatesString.replace('No Hazards Posted', '');
-          $("#hazards-map-header .valid-dates").append(validDates).text();
+          const validDateString = dateInfo.substring(dateInfo.indexOf("Valid"));
+          const validDates = validDateString.replace('No Hazards Posted', '');
+
+          var hazardsValidStartDateString = new Date(validDateString.substring(7,17));
+          var hazardsValidEndDateString = new Date(validDateString.substring(20,30));
+          var hazardsReleaseDateString = new Date(dateInfo.substring(38,48));
+
+          var hazardsValidDate = hazardsValidStartDateString.toLocaleDateString("en-US", options) + ' - ' + hazardsValidEndDateString.toLocaleDateString("en-US", options);
+          var hazardsReleaseDate = hazardsReleaseDateString.toLocaleDateString("en-US", options);
+          
+          // $("#hazards-map-header .valid-dates").append(validDates).text();
+          $('#hazards-map-header .valid-dates').html("Valid: " + hazardsValidDate + "<br> Released: " + hazardsReleaseDate);
 
           const noHazards = dateInfo.substring(dateInfo.indexOf("No_Hazards_Posted"));
           if (noHazards === "No_Hazards_Posted")
@@ -796,10 +805,10 @@
         $("input[id=temp-hazards-814]").on('change', function() {
           if(this.checked) {
             hazardsmap.addLayer(temp814kmlLayer)
-            hazardsmap.addLayer(excessHeat814kmlLayer)
+            // hazardsmap.addLayer(excessHeat814kmlLayer)
           } else {
             hazardsmap.removeLayer(temp814kmlLayer)
-            hazardsmap.removeLayer(excessHeat814kmlLayer)
+            // hazardsmap.removeLayer(excessHeat814kmlLayer)
           }
         });
 
