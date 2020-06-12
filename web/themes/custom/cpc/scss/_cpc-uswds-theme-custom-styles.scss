@@ -266,3 +266,24 @@ button:not([disabled]):focus, input:not([disabled]):focus, select:not([disabled]
 .usa-sidenav__sublist .usa-sidenav__sublist a {
   padding-left: 3.35rem;
 }
+.usa-logo .noaa-logo {
+  width: 90px;
+  height: auto;
+}
+.usa-logo a {
+  display: inline-block;
+  line-height: .7;
+  margin-top: -1em;
+  padding-left: .2em;
+  vertical-align: text-top;
+
+  .cpc-logo__text {
+    color: #005ea2;
+    font-size: .9em;
+  }
+  .cpc-logo__tagline {
+    font-size: .5em;
+    font-weight: 400;
+    padding-left: .15em;
+  }
+}
