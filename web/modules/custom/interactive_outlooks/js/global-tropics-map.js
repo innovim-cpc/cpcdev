@@ -8,7 +8,7 @@
 
         // Create the map
         const globaltropicsmap = L.map('global-tropics-map', {
-          center: [0,0],
+          center: [20,5],
           zoomSnap: 0.1,
           zoom: 1.5
         });
@@ -107,7 +107,7 @@
           function getDataWeek1TropicalCyclonekml(xml) {
             const dateInfo = $(xml).find("Document").first().attr("id");
             const noHazards = dateInfo.substring(dateInfo.indexOf("No_Hazards_Posted"));
-            
+
             var globalTropicsValidStartDateString = new Date(dateInfo.substring(58,68));
             var globalTropicsValidEndDateString = new Date(dateInfo.substring(68,78));
 
@@ -731,13 +731,13 @@
         // globalTropicsOutput.innerHTML = percent;
         // globalTropicsSlider.oninput = function() {
         //   globalTropicsOutput.innerHTML = Math.round(this.value * 100);
-          
 
-          
+
+
         //   week2UpperTercilePrecipLayer.layer.setStyle({
         //         fillOpacity: (globalTropicsSlider.value)
         //         });
-            
+
         // }
         var globalTropicsSlider = $('#global-tropics-opacity-level')[0];
         var globalTropicsOutput = $('.global-tropics-opacity-slider__value')[0];
