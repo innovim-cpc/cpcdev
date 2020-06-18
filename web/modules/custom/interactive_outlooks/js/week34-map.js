@@ -99,7 +99,7 @@
       week34TempLayer.eachLayer(function(layer){
         switch(layer.feature.properties.name){
           case "50 Percent Chance of Temperature Being Above Normal":
-            layer.bindTooltip("50% Chance of Temperature Being Above Normal");
+            layer.bindTooltip("50% - 55% Chance of Temperature Being Above Normal");
             layer.setStyle({
               fillColor: 'red',
               fillOpacity: .7,
@@ -109,7 +109,7 @@
             })
             break;
           case "55 Percent Chance of Temperature Being Above Normal":
-            layer.bindTooltip("55% Chance of Temperature Being Above Normal");
+            layer.bindTooltip("55% - 65% Chance of Temperature Being Above Normal");
             layer.setStyle({
               fillColor: 'red',
               fillOpacity: .7,
@@ -119,7 +119,7 @@
             })
             break;
             case "60 Percent Chance of Temperature Being Above Normal":
-            layer.bindTooltip("60% Chance of Temperature Being Above Normal");
+            layer.bindTooltip("60% - 65% Chance of Temperature Being Above Normal");
             layer.setStyle({
               fillColor: 'red',
               fillOpacity: .7,
@@ -129,7 +129,7 @@
             })
             break;
             case "65 Percent Chance of Temperature Being Above Normal":
-            layer.bindTooltip("65% Chance of Temperature Being Above Normal");
+            layer.bindTooltip("65% - 70% Chance of Temperature Being Above Normal");
             layer.setStyle({
               fillColor: 'red',
               fillOpacity: .7,
@@ -139,7 +139,7 @@
             })
             break;
             case "70 Percent Chance of Temperature Being Above Normal":
-            layer.bindTooltip("70% Chance of Temperature Being Above Normal");
+            layer.bindTooltip("70% - 75% Chance of Temperature Being Above Normal");
             layer.setStyle({
               fillColor: 'red',
               fillOpacity: .7,
@@ -149,7 +149,7 @@
             })
             break;
             case "75 Percent Chance of Temperature Being Above Normal":
-            layer.bindTooltip("75% Chance of Temperature Being Above Normal");
+            layer.bindTooltip("75% - 80% Chance of Temperature Being Above Normal");
             layer.setStyle({
               fillColor: 'red',
               fillOpacity: .7,
@@ -159,7 +159,7 @@
             })
             break;
             case "80 Percent Chance of Temperature Being Above Normal":
-            layer.bindTooltip("80% Chance of Temperature Being Above Normal");
+            layer.bindTooltip("80% - 85% Chance of Temperature Being Above Normal");
             layer.setStyle({
               fillColor: 'red',
               fillOpacity: .7,
@@ -169,7 +169,7 @@
             })
             break;
             case "85 Percent Chance of Temperature Being Above Normal":
-            layer.bindTooltip("85% Chance of Temperature Being Above Normal");
+            layer.bindTooltip("85% - 90% Chance of Temperature Being Above Normal");
             layer.setStyle({
               fillColor: 'red',
               fillOpacity: .7,
@@ -179,7 +179,7 @@
             })
             break;
             case "90 Percent Chance of Temperature Being Above Normal":
-            layer.bindTooltip("90% Chance of Temperature Being Above Normal");
+            layer.bindTooltip("90% - 95% Chance of Temperature Being Above Normal");
             layer.setStyle({
               fillColor: 'red',
               fillOpacity: .7,
@@ -189,7 +189,7 @@
             })
             break;
             case "95 Percent Chance of Temperature Being Above Normal":
-            layer.bindTooltip("95% Chance of Temperature Being Above Normal");
+            layer.bindTooltip("95% - 100% Chance of Temperature Being Above Normal");
             layer.setStyle({
               fillColor: 'red',
               fillOpacity: .7,
@@ -211,7 +211,7 @@
 
 
             case "50 Percent Chance of Temperature Being Below Normal":
-            layer.bindTooltip("50% Chance of Temperature Being Below Normal");
+            layer.bindTooltip("50% - 55% Chance of Temperature Being Below Normal");
             layer.setStyle({
               fillColor: 'blue',
               fillOpacity: .7,
@@ -221,7 +221,7 @@
             })
             break;
           case "55 Percent Chance of Temperature Being Below Normal":
-            layer.bindTooltip("55% Chance of Temperature Below Above Normal");
+            layer.bindTooltip("55% - 60% - 65% Chance of Temperature Below Above Normal");
             layer.setStyle({
               fillColor: 'blue',
               fillOpacity: .7,
@@ -231,7 +231,7 @@
             })
             break;
             case "60 Percent Chance of Temperature Being Below Normal":
-            layer.bindTooltip("60% Chance of Temperature Being Below Normal");
+            layer.bindTooltip("60% - 65% Chance of Temperature Being Below Normal");
             layer.setStyle({
               fillColor: 'blue',
               fillOpacity: .7,
@@ -241,7 +241,7 @@
             })
             break;
             case "65 Percent Chance of Temperature Being Below Normal":
-            layer.bindTooltip("65% Chance of Temperature Being Below Normal");
+            layer.bindTooltip("65% - 70% Chance of Temperature Being Below Normal");
             layer.setStyle({
               fillColor: 'blue',
               fillOpacity: .7,
@@ -251,7 +251,7 @@
             })
             break;
             case "70 Percent Chance of Temperature Being Below Normal":
-            layer.bindTooltip("70% Chance of Temperature Being Below Normal");
+            layer.bindTooltip("70% - 75% Chance of Temperature Being Below Normal");
             layer.setStyle({
               fillColor: 'blue',
               fillOpacity: .7,
@@ -261,7 +261,7 @@
             })
             break;
             case "75 Percent Chance of Temperature Being Below Normal":
-            layer.bindTooltip("75% Chance of Temperature Being Below Normal");
+            layer.bindTooltip("75% - 80% Chance of Temperature Being Below Normal");
             layer.setStyle({
               fillColor: 'blue',
               fillOpacity: .7,
@@ -271,7 +271,7 @@
             })
             break;
             case "80 Percent Chance of Temperature Being Below Normal":
-            layer.bindTooltip("80% Chance of Temperature Being Below Normal");
+            layer.bindTooltip("80% - 85% Chance of Temperature Being Below Normal");
             layer.setStyle({
               fillColor: 'blue',
               fillOpacity: .7,
@@ -281,7 +281,7 @@
             })
             break;
             case "85 Percent Chance of Temperature Being Below Normal":
-            layer.bindTooltip("85% Chance of Temperature Being Below Normal");
+            layer.bindTooltip("85% - 90% Chance of Temperature Being Below Normal");
             layer.setStyle({
               fillColor: 'blue',
               fillOpacity: .7,
@@ -291,7 +291,7 @@
             })
             break;
             case "90 Percent Chance of Temperature Being Below Normal":
-            layer.bindTooltip("90% Chance of Temperature Being Below Normal");
+            layer.bindTooltip("90% - 95% Chance of Temperature Being Below Normal");
             layer.setStyle({
               fillColor: 'blue',
               fillOpacity: .7,
@@ -301,7 +301,7 @@
             })
             break;
             case "95 Percent Chance of Temperature Being Below Normal":
-            layer.bindTooltip("95% Chance of Temperature Being Below Normal");
+            layer.bindTooltip("95% - 100% Chance of Temperature Being Below Normal");
             layer.setStyle({
               fillColor: 'blue',
               fillOpacity: .7,
@@ -348,7 +348,7 @@
       week34PrecipLayer.eachLayer(function(layer){
         switch(layer.feature.properties.name){
           case "50 Percent Chance of Precipitation Being Above Normal":
-            layer.bindTooltip("50% Chance of Precipitation Being Above Normal");
+            layer.bindTooltip("50% - 55% Chance of Precipitation Being Above Normal");
             layer.setStyle({
               fillColor: 'green',
               fillOpacity: .7,
@@ -358,7 +358,7 @@
             })
             break;
           case "55 Percent Chance of Precipitation Being Above Normal":
-            layer.bindTooltip("55% Chance of Precipitation Being Above Normal");
+            layer.bindTooltip("55% - 60% Chance of Precipitation Being Above Normal");
             layer.setStyle({
               fillColor: 'green',
               fillOpacity: .7,
@@ -368,7 +368,7 @@
             })
             break;
             case "60 Percent Chance of Precipitation Being Above Normal":
-            layer.bindTooltip("60% Chance of Precipitation Being Above Normal");
+            layer.bindTooltip("60% - 65% Chance of Precipitation Being Above Normal");
             layer.setStyle({
               fillColor: 'green',
               fillOpacity: .7,
@@ -378,7 +378,7 @@
             })
             break;
             case "65 Percent Chance of Precipitation Being Above Normal":
-            layer.bindTooltip("65% Chance of Precipitation Being Above Normal");
+            layer.bindTooltip("65% - 70% Chance of Precipitation Being Above Normal");
             layer.setStyle({
               fillColor: 'green',
               fillOpacity: .7,
@@ -388,7 +388,7 @@
             })
             break;
             case "70 Percent Chance of Precipitation Being Above Normal":
-            layer.bindTooltip("70% Chance of Precipitation Being Above Normal");
+            layer.bindTooltip("70% - 75% Chance of Precipitation Being Above Normal");
             layer.setStyle({
               fillColor: 'green',
               fillOpacity: .7,
@@ -398,7 +398,7 @@
             })
             break;
             case "75 Percent Chance of Precipitation Being Above Normal":
-            layer.bindTooltip("75% Chance of Precipitation Being Above Normal");
+            layer.bindTooltip("75% - 80% Chance of Precipitation Being Above Normal");
             layer.setStyle({
               fillColor: 'green',
               fillOpacity: .7,
@@ -408,7 +408,7 @@
             })
             break;
             case "80 Percent Chance of Precipitation Being Above Normal":
-            layer.bindTooltip("80% Chance of Precipitation Being Above Normal");
+            layer.bindTooltip("80% - 85% Chance of Precipitation Being Above Normal");
             layer.setStyle({
               fillColor: 'green',
               fillOpacity: .7,
@@ -418,7 +418,7 @@
             })
             break;
             case "85 Percent Chance of Precipitation Being Above Normal":
-            layer.bindTooltip("85% Chance of Precipitation Being Above Normal");
+            layer.bindTooltip("85% - 90% Chance of Precipitation Being Above Normal");
             layer.setStyle({
               fillColor: 'green',
               fillOpacity: .7,
@@ -428,7 +428,7 @@
             })
             break;
             case "90 Percent Chance of Precipitation Being Above Normal":
-            layer.bindTooltip("90% Chance of Precipitation Being Above Normal");
+            layer.bindTooltip("90% - 95% Chance of Precipitation Being Above Normal");
             layer.setStyle({
               fillColor: 'green',
               fillOpacity: .7,
@@ -438,7 +438,7 @@
             })
             break;
             case "95 Percent Chance of Precipitation Being Above Normal":
-            layer.bindTooltip("95% Chance of Precipitation Being Above Normal");
+            layer.bindTooltip("95% - 100% Chance of Precipitation Being Above Normal");
             layer.setStyle({
               fillColor: 'green',
               fillOpacity: .7,
@@ -460,7 +460,7 @@
 
 
             case "50 Percent Chance of Precipitation Being Below Normal":
-            layer.bindTooltip("50% Chance of Precipitation Being Below Normal");
+            layer.bindTooltip("50% - 55% Chance of Precipitation Being Below Normal");
             layer.setStyle({
               fillColor: 'tan',
               fillOpacity: .7,
@@ -470,7 +470,7 @@
             })
             break;
           case "55 Percent Chance of Precipitation Being Below Normal":
-            layer.bindTooltip("55% Chance of Precipitation Being Below Normal");
+            layer.bindTooltip("55% - 60% Chance of Precipitation Being Below Normal");
             layer.setStyle({
               fillColor: 'tan',
               fillOpacity: .7,
@@ -480,7 +480,7 @@
             })
             break;
             case "60 Percent Chance of Precipitation Being Below Normal":
-            layer.bindTooltip("60% Chance of Precipitation Being Below Normal");
+            layer.bindTooltip("60% - 65% Chance of Precipitation Being Below Normal");
             layer.setStyle({
               fillColor: 'tan',
               fillOpacity: .7,
@@ -490,7 +490,7 @@
             })
             break;
             case "65 Percent Chance of Precipitation Being Below Normal":
-            layer.bindTooltip("65% Chance of Precipitation Being Below Normal");
+            layer.bindTooltip("65% - 70% Chance of Precipitation Being Below Normal");
             layer.setStyle({
               fillColor: 'tan',
               fillOpacity: .7,
@@ -500,7 +500,7 @@
             })
             break;
             case "70 Percent Chance of Precipitation Being Below Normal":
-            layer.bindTooltip("70% Chance of Precipitation Being Below Normal");
+            layer.bindTooltip("70% - 75% Chance of Precipitation Being Below Normal");
             layer.setStyle({
               fillColor: 'tan',
               fillOpacity: .7,
@@ -510,7 +510,7 @@
             })
             break;
             case "75 Percent Chance of Precipitation Being Below Normal":
-            layer.bindTooltip("75% Chance of Precipitation Being Below Normal");
+            layer.bindTooltip("75% - 80% Chance of Precipitation Being Below Normal");
             layer.setStyle({
               fillColor: 'tan',
               fillOpacity: .7,
@@ -520,7 +520,7 @@
             })
             break;
             case "80 Percent Chance of Precipitation Being Below Normal":
-            layer.bindTooltip("80% Chance of Precipitation Being Below Normal");
+            layer.bindTooltip("80% - 85% Chance of Precipitation Being Below Normal");
             layer.setStyle({
               fillColor: 'tan',
               fillOpacity: .7,
@@ -530,7 +530,7 @@
             })
             break;
             case "85 Percent Chance of Precipitation Being Below Normal":
-            layer.bindTooltip("85% Chance of Precipitation Being Below Normal");
+            layer.bindTooltip("85% - 90% Chance of Precipitation Being Below Normal");
             layer.setStyle({
               fillColor: 'tan',
               fillOpacity: .7,
@@ -540,7 +540,7 @@
             })
             break;
             case "90 Percent Chance of Precipitation Being Below Normal":
-            layer.bindTooltip("90% Chance of Precipitation Being Below Normal");
+            layer.bindTooltip("90% - 95% Chance of Precipitation Being Below Normal");
             layer.setStyle({
               fillColor: 'tan',
               fillOpacity: .7,
@@ -550,7 +550,7 @@
             })
             break;
             case "95 Percent Chance of Precipitation Being Below Normal":
-            layer.bindTooltip("95% Chance of Precipitation Being Below Normal");
+            layer.bindTooltip("95% - 100% Chance of Precipitation Being Below Normal");
             layer.setStyle({
               fillColor: 'tan',
               fillOpacity: .7,
