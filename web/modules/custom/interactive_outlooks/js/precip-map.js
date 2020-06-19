@@ -416,18 +416,18 @@
                   layer.bindTooltip("40% - 50% chance of Above Average Precipitation");
                   break;
                 case 33:
-                  layer.bindTooltip("33% chance of Above Average Precipitation");
+                  layer.bindTooltip("33% - 40% chance of Above Average Precipitation");
                   break;
               }
 
             } else if (layer.feature.properties.cat === "Normal") {
-              layer.bindTooltip("36% chance of Normal Precipitation");
+              layer.bindTooltip("36% - 40% chance of Normal Precipitation");
             } else if (layer.feature.properties.cat === "EC") {
               layer.removeFrom(precipmap);
             } else if (layer.feature.properties.cat === "Below") {
               switch(layer.feature.properties.prob) {
                 case 33:
-                  layer.bindTooltip("33% chance of Below Average Precipitation");
+                  layer.bindTooltip("33% - 40% chance of Below Average Precipitation");
                   break;
                 case 40:
                   layer.bindTooltip("40% - 50% chance of Below Average Precipitation");
