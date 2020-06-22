@@ -421,7 +421,7 @@
               }
 
             } else if (layer.feature.properties.cat === "Normal") {
-              layer.bindTooltip("36% - 40% chance of Normal Precipitation");
+              layer.bindTooltip("33% - 40% chance of Normal Precipitation");
             } else if (layer.feature.properties.cat === "EC") {
               layer.removeFrom(precipmap);
             } else if (layer.feature.properties.cat === "Below") {
