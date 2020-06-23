@@ -386,7 +386,7 @@
                   break;
               }
             } else if (layer.feature.properties.cat === "Normal") {
-              layer.bindTooltip("36% - 40% chance of Normal Temperature");
+              layer.bindTooltip("33% - 40% chance of Normal Temperature");
             } else if (layer.feature.properties.cat === "EC") {
                   layer.removeFrom(tempmap);
                   //layer.bindTooltip("EC");

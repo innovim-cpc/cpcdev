@@ -171,7 +171,7 @@
             week2TropicalCycloneLayer.eachLayer(function(layer){
               switch(layer.feature.properties.styleUrl){
                 case "#PolyStyle00":
-                  layer.bindTooltip("High development of a tropical cyclone");
+                  layer.bindTooltip("High Confidence development of a tropical cyclone");
                   layer.setStyle({
                     fillColor: 'red',
                     fillOpacity: .7,
@@ -181,7 +181,7 @@
                   })
                   break;
                 default:
-                  layer.bindTooltip("Moderate development of a tropical cyclone");
+                  layer.bindTooltip("Moderate Confidence development of a tropical cyclone");
                   layer.setStyle({
                     fillColor: 'red',
                     fillOpacity: .7,
@@ -213,7 +213,7 @@
             week1UpperTercilePrecipLayer.eachLayer(function(layer){
               switch(layer.feature.properties.styleUrl){
                 case "#PolyStyle00":
-                  layer.bindTooltip("High weekly total rainfall in the upper third of the historical range");
+                  layer.bindTooltip("High Confidence weekly total rainfall in the upper third of the historical range");
                   layer.setStyle({
                     fillColor: 'lime',
                     fillOpacity: .7,
@@ -223,7 +223,7 @@
                   })
                   break;
                 default:
-                  layer.bindTooltip("Moderate weekly total rainfall in the upper third of the historical range");
+                  layer.bindTooltip("Moderate Confidence weekly total rainfall in the upper third of the historical range");
                   layer.setStyle({
                     fillColor: 'lime',
                     fillOpacity: .7,
@@ -254,7 +254,7 @@
             week2UpperTercilePrecipLayer.eachLayer(function(layer){
               switch(layer.feature.properties.styleUrl){
                 case "#PolyStyle00":
-                  layer.bindTooltip("High weekly total rainfall in the <br>upper third of the historical range");
+                  layer.bindTooltip("High Confidence weekly total rainfall in the <br>upper third of the historical range");
                   layer.setStyle({
                     fillColor: 'lime',
                     fillOpacity: .7,
@@ -264,7 +264,7 @@
                   })
                   break;
                 default:
-                  layer.bindTooltip("Moderate weekly total rainfall in the <br>upper third of the historical range");
+                  layer.bindTooltip("Moderate Confidence weekly total rainfall in the <br>upper third of the historical range");
                   layer.setStyle({
                     fillColor: 'lime',
                     fillOpacity: .7,
@@ -296,7 +296,7 @@
             week1LowerTercilePrecipLayer.eachLayer(function(layer){
               switch(layer.feature.properties.styleUrl){
                 case "#PolyStyle00":
-                  layer.bindTooltip("High weekly total rainfall in the <br>lower third of the historical range");
+                  layer.bindTooltip("High Confidence weekly total rainfall in the <br>lower third of the historical range");
                   layer.setStyle({
                     fillColor: 'yellow',
                     fillOpacity: .7,
@@ -306,7 +306,7 @@
                   })
                   break;
                 default:
-                  layer.bindTooltip("Moderate weekly total rainfall in the <br>lower third of the historical range");
+                  layer.bindTooltip("Moderate Confidence weekly total rainfall in the <br>lower third of the historical range");
                   layer.setStyle({
                     fillColor: 'yellow',
                     fillOpacity: .7,
@@ -338,7 +338,7 @@
             week2LowerTercilePrecipLayer.eachLayer(function(layer){
               switch(layer.feature.properties.styleUrl){
                 case "#PolyStyle00":
-                  layer.bindTooltip("High weekly total rainfall in the <br>lower third of the historical range");
+                  layer.bindTooltip("High Confidence weekly total rainfall in the <br>lower third of the historical range");
                   layer.setStyle({
                     fillColor: 'yellow',
                     fillOpacity: .7,
@@ -348,7 +348,7 @@
                   })
                   break;
                 default:
-                  layer.bindTooltip("Moderate weekly total rainfall in the <br>lower third of the historical range");
+                  layer.bindTooltip("Moderate Confidence weekly total rainfall in the <br>lower third of the historical range");
                   layer.setStyle({
                     fillColor: 'yellow',
                     fillOpacity: .7,
@@ -379,7 +379,7 @@
             week1AboveNormalTempLayer.eachLayer(function(layer){
               switch(layer.feature.properties.styleUrl){
                 case "#PolyStyle00":
-                  layer.bindTooltip("7 - day mean temperatures in the <br> upper third of the historical range");
+                  layer.bindTooltip("High Confidence 7 - day mean temperatures in the <br> upper third of the historical range");
                   layer.setStyle({
                     fillColor: 'orange',
                     fillOpacity: .7,
@@ -389,7 +389,7 @@
                   })
                   break;
                 default:
-                  layer.bindTooltip("Moderate 7 - day mean temperatures in the <br> upper third of the historical range");
+                  layer.bindTooltip("Moderate Confidence 7 - day mean temperatures in the <br> upper third of the historical range");
                   layer.setStyle({
                     fillColor: 'orange',
                     fillOpacity: .7,
@@ -420,7 +420,7 @@
             week2AboveNormalTempLayer.eachLayer(function(layer){
               switch(layer.feature.properties.styleUrl){
                 case "#PolyStyle00":
-                  layer.bindTooltip("7 - day mean temperatures in the <br> upper third of the historical range");
+                  layer.bindTooltip("High Confidence 7 - day mean temperatures in the <br> upper third of the historical range");
                   layer.setStyle({
                     fillColor: 'orange',
                     fillOpacity: .7,
@@ -430,7 +430,7 @@
                   })
                   break;
                 default:
-                  layer.bindTooltip("Moderate 7 - day mean temperatures in the <br> upper third of the historical range");
+                  layer.bindTooltip("Moderate Confidence 7 - day mean temperatures in the <br> upper third of the historical range");
                   layer.setStyle({
                     fillColor: 'orange',
                     fillOpacity: .7,
@@ -462,7 +462,7 @@
             week1BelowNormalTempLayer.eachLayer(function(layer){
               switch(layer.feature.properties.styleUrl){
                 case "#PolyStyle00":
-                  layer.bindTooltip("7 - day mean temperatures in the <br> lower third of the historical range");
+                  layer.bindTooltip("High Confidence 7 - day mean temperatures in the <br> lower third of the historical range");
                   layer.setStyle({
                     fillColor: 'blue',
                     fillOpacity: .7,
@@ -472,7 +472,7 @@
                   })
                   break;
                 default:
-                  layer.bindTooltip("Moderate 7 - day mean temperatures in the <br> lower third of the historical range");
+                  layer.bindTooltip("Moderate Confidence 7 - day mean temperatures in the <br> lower third of the historical range");
                   layer.setStyle({
                     fillColor: 'blue',
                     fillOpacity: .7,
@@ -503,7 +503,7 @@
             week2BelowNormalTempLayer.eachLayer(function(layer){
               switch(layer.feature.properties.styleUrl){
                 case "#PolyStyle00":
-                  layer.bindTooltip("7 - day mean temperatures in the <br> lower third of the historical range");
+                  layer.bindTooltip("High Confidence 7 - day mean temperatures in the <br> lower third of the historical range");
                   layer.setStyle({
                     fillColor: 'blue',
                     fillOpacity: .7,
@@ -513,7 +513,7 @@
                   })
                   break;
                 default:
-                  layer.bindTooltip("Moderate 7 - day mean temperatures in the <br> lower third of the historical range");
+                  layer.bindTooltip("Moderate Confidence 7 - day mean temperatures in the <br> lower third of the historical range");
                   layer.setStyle({
                     fillColor: 'blue',
                     fillOpacity: .7,
