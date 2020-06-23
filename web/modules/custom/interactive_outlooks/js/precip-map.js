@@ -421,7 +421,7 @@
               }
 
             } else if (layer.feature.properties.cat === "Normal") {
-              layer.bindTooltip("36% - 40% chance of Normal Precipitation");
+              layer.bindTooltip("33% - 40% chance of Normal Precipitation");
             } else if (layer.feature.properties.cat === "EC") {
               layer.removeFrom(precipmap);
             } else if (layer.feature.properties.cat === "Below") {
@@ -464,8 +464,10 @@
         var precip814dayChecked = $('#precip-map__view-select input[type=radio][id=precip814day]:checked');
 
         if (precip610dayChecked) {
+          $('.precip-discussion li a').attr('href', '/outlooks/precipitation/610-day#discussion');
           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/610day/610prcp.new.gif');
         } else if (precip814dayChecked) {
+          $('.precip-discussion li a').attr('href', '/outlooks/precipitation/814-day#discussion');
           $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/814day/814prcp.new.gif');
         }
 

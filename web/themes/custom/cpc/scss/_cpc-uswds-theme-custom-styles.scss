@@ -45,6 +45,8 @@ i.e.
         text-decoration: none;
         &:hover { text-decoration: underline; }
       }
+      padding-left: 0;
+      list-style-type: none;
     }
     li {
       margin-bottom: .5rem;
