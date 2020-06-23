@@ -244,8 +244,10 @@
         var seasonalChecked = $('#drought-map__view-select input[type=radio][id=seasonal]:checked');
 
         if (monthlyChecked) {
+          $('.drought-discussion li a').attr('href', '/outlooks/drought/monthly#discussion');
           $('.drought-image li a').attr({href: "https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png", target: "_blank"});
         } else if (seasonalChecked) {
+          $('.drought-discussion li a').attr('href', '/outlooks/drought/seasonal#discussion');
           $('.drought-image li a').attr({href: "https://www.cpc.ncep.noaa.gov/products/expert_assessment/season_drought.png", target: "_blank"});
         }
 

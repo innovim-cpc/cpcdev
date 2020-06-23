@@ -462,9 +462,11 @@
         var temp814dayChecked = $('#temp-map__view-select input[type=radio][id=temp814day]:checked');
 
         if (temp610dayChecked) {
+          $('.temp-discussion li a').attr('href', '/outlooks/temperature/610-day#discussion');
           $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/610day/610temp.new.gif');
         }
         else if (temp814dayChecked) {
+          $('.temp-discussion li a').attr('href', '/outlooks/temperature/814-day#discussion');
           $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/814day/814temp.new.gif');
         }
 
