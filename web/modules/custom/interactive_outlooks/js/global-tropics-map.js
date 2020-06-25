@@ -10,7 +10,8 @@
         const globaltropicsmap = L.map('global-tropics-map', {
           center: [20,5],
           zoomSnap: 0.1,
-          zoom: 1.5
+          zoom: 1.5,
+          attributionControl: false
         });
 
         // Add Esri World Topo base map via Esri Leaflet plugin

@@ -11,13 +11,14 @@
         center: [38, -96],
         zoomSnap: 0.1,
         zoom: 3.9,
-        minZoom: 3.9
+        minZoom: 3.6,
+        attributionControl: false
       });
 
       // Add Esri World Topo basemap via Esri Leaflet plugin
       L.esri.basemapLayer('Gray').addTo(week34map);
 
-      // Get URL to place boundaries layer
+      // Get URL for the boundaries layer
       const boundariesUrl = 'https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/State_County/MapServer/';
 
       // Create a map pane for the boundaries
@@ -30,7 +31,7 @@
         opacity: 0.25
       }).addTo(week34map);
 
-      // Get URL to place cities layer
+      // Get URL for the cities layer
       const citiesUrl = 'https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/';
 
       // Create a map pane for the city labels
@@ -490,7 +491,6 @@
       });
     }
 
-
     $('input[type=radio][name=week34-probability]').on('change',function() {
     if (this.value == 'temp-probability') {
       //show temperature probability
@@ -498,24 +498,27 @@
       week34map.addLayer(week34TempLayer);
       currentLayer = week34TempLayer;
       $('#week34-map-header .valid-dates').html("Valid: " + tempValidDate + "<br> Released: " + tempReleaseDate);
-
+      $('.week34-discussion li a').attr('href', '/outlooks/temperature/week-34#discussion');
+      $('.week34-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/WK34/gifs/WK34temp.gif');
     }
     else if (this.value == 'precip-probability') {
-        //show precipitation probability
-        week34map.removeLayer(week34TempLayer);
-        week34map.addLayer(week34PrecipLayer);
-        currentLayer = week34PrecipLayer;
-        $('#week34-map-header .valid-dates').html("Valid: " + precipValidDate + "<br> Released: " + precipReleaseDate);
+      //show precipitation probability
+      week34map.removeLayer(week34TempLayer);
+      week34map.addLayer(week34PrecipLayer);
+      currentLayer = week34PrecipLayer;
+      $('#week34-map-header .valid-dates').html("Valid: " + precipValidDate + "<br> Released: " + precipReleaseDate);
+      $('.week34-discussion li a').attr('href', '/outlooks/precipitation/week-34#discussion');
+      $('.week34-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/WK34/gifs/WK34prcp.gif');
     }
   });
 
     //change the map to the correct area
     $('input[type=radio][name=week34-map-view]').on('change',function() {
-      if (this.value == 'conus') {
+      if (this.value === 'conus') {
         week34map.setView(new L.LatLng(38, -96), 3.9)
       }
-      else if (this.value == 'alaska') {
-        week34map.setView(new L.LatLng(64.2,-149.4), 3.9)
+      else if (this.value === 'alaska') {
+        week34map.setView(new L.LatLng(63.2,-150), 3.6)
       }
     });
 

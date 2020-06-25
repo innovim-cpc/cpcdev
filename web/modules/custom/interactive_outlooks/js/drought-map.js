@@ -16,13 +16,14 @@
           center: [38, -96],
           zoomSnap: 0.1,
           zoom: 3.9,
-          minZoom: 3.9
+          minZoom: 3.6,
+          attributionControl: false
         });
 
         // Add Esri Gray base map via Esri Leaflet plugin
         L.esri.basemapLayer('Gray').addTo(droughtmap);
 
-        // Get URL to place boundaries layer
+        // Get URL for the boundaries layer
         const boundariesUrl = 'https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/State_County/MapServer/';
 
         // Create a map pane for the boundaries
@@ -35,7 +36,7 @@
           opacity: 0.25
         }).addTo(droughtmap);
 
-        // Get URL to place cities layer
+        // Get URL for the cities layer
         const citiesUrl = 'https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/';
 
         // Create a map pane for the city labels
@@ -171,7 +172,6 @@
           $('#drought-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
         });
 
-
         seasonalDroughtLayer.query()
           .run(function(error, featureCollection){
             seasonalenddate = featureCollection.features[0].properties.target;
@@ -253,16 +253,17 @@
 
         //change the layers of the map to Monthly or Seasonal based on selected radio button
         $('input[name=drought-map-duration]').on('change', function() {
-          if (this.value == 'monthly') {
+          if (this.value === 'monthly') {
            currentLayer.removeFrom(droughtmap);
            currentLayer = monthlyDroughtLayer;
            currentLayer.addTo(droughtmap);
            currentLayer.on('load', iterateFeatures);
            $('#drought-map-header .title').text("U.S. Monthly Drought Outlook");
            $('#drought-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
+           $('.drought-discussion li a').attr('href', '/outlooks/drought/monthly#discussion');
            $('.drought-image li a').attr({href: "https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png", target: "_blank"});
           }
-          else if (this.value == 'seasonal') {
+          else if (this.value === 'seasonal') {
            currentLayer.removeFrom(droughtmap);
            currentLayer = seasonalDroughtLayer;
            currentLayer.addTo(droughtmap);
@@ -270,6 +271,7 @@
           //  seasonalDroughtLayer.addTo(droughtmap);
            $('#drought-map-header .title').text("U.S. Seasonal Drought Outlook");
            $('#drought-map-header .valid-dates').html("Valid: " + seasonalstartdate + " - " + seasonalenddate + "<br> Released: " + releaseseasonal);
+           $('.drought-discussion li a').attr('href', '/outlooks/drought/seasonal#discussion');
            $('.drought-image li a').attr({href: "https://www.cpc.ncep.noaa.gov/products/expert_assessment/season_drought.png", target: "_blank"});
           }
         });
@@ -277,11 +279,11 @@
 
         //change the map to the correct area
         $('input[type=radio][name=drought-map-view]').on('change',function() {
-          if (this.value == 'conus') {
+          if (this.value === 'conus') {
             droughtmap.setView(new L.LatLng(38, -96), 3.9)
           }
-          else if (this.value == 'alaska') {
-            droughtmap.setView(new L.LatLng(64.2,-149.4), 3.9)
+          else if (this.value === 'alaska') {
+            droughtmap.setView(new L.LatLng(63.2,-150), 3.6)
           }
         });
 
@@ -305,7 +307,6 @@
             });
           });
         }
-
 
      droughtmap.invalidateSize();
      //export { droughtmap };
