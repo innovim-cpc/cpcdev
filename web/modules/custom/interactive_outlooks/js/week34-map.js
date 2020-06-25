@@ -11,13 +11,14 @@
         center: [38, -96],
         zoomSnap: 0.1,
         zoom: 3.9,
-        minZoom: 3.9
+        minZoom: 3.6,
+        attributionControl: false
       });
 
       // Add Esri World Topo basemap via Esri Leaflet plugin
       L.esri.basemapLayer('Gray').addTo(week34map);
 
-      // Get URL to place boundaries layer
+      // Get URL for the boundaries layer
       const boundariesUrl = 'https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/State_County/MapServer/';
 
       // Create a map pane for the boundaries
@@ -30,7 +31,7 @@
         opacity: 0.25
       }).addTo(week34map);
 
-      // Get URL to place cities layer
+      // Get URL for the cities layer
       const citiesUrl = 'https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/';
 
       // Create a map pane for the city labels
@@ -109,7 +110,7 @@
             })
             break;
           case "55 Percent Chance of Temperature Being Above Normal":
-            layer.bindTooltip("55% - 65% Chance of Temperature Being Above Normal");
+            layer.bindTooltip("55% - 60% Chance of Temperature Being Above Normal");
             layer.setStyle({
               fillColor: 'red',
               fillOpacity: .7,
@@ -118,7 +119,7 @@
               weight: 1,
             })
             break;
-            case "60 Percent Chance of Temperature Being Above Normal":
+          case "60 Percent Chance of Temperature Being Above Normal":
             layer.bindTooltip("60% - 70% Chance of Temperature Being Above Normal");
             layer.setStyle({
               fillColor: 'red',
@@ -127,8 +128,8 @@
               opacity: .7,
               weight: 1,
             })
-            break;            
-            case "70 Percent Chance of Temperature Being Above Normal":
+            break;
+          case "70 Percent Chance of Temperature Being Above Normal":
             layer.bindTooltip("70% - 80% Chance of Temperature Being Above Normal");
             layer.setStyle({
               fillColor: 'red',
@@ -136,9 +137,9 @@
               color: 'black',
               opacity: .7,
               weight: 1,
-            })            
+            })
             break;
-            case "80 Percent Chance of Temperature Being Above Normal":
+          case "80 Percent Chance of Temperature Being Above Normal":
             layer.bindTooltip("80% - 90% Chance of Temperature Being Above Normal");
             layer.setStyle({
               fillColor: 'red',
@@ -147,8 +148,8 @@
               opacity: .7,
               weight: 1,
             })
-            break;            
-            case "90 Percent Chance of Temperature Being Above Normal":
+            break;
+          case "90 Percent Chance of Temperature Being Above Normal":
             layer.bindTooltip("90% - 100% Chance of Temperature Being Above Normal");
             layer.setStyle({
               fillColor: 'red',
@@ -157,8 +158,8 @@
               opacity: .7,
               weight: 1,
             })
-            break;            
-            case "100 Percent Chance of Temperature Being Above Normal":
+            break;
+          case "100 Percent Chance of Temperature Being Above Normal":
             layer.bindTooltip("100% Chance of Temperature Being Above Normal");
             layer.setStyle({
               fillColor: 'red',
@@ -168,9 +169,7 @@
               weight: 1,
             })
             break;
-
-
-            case "50 Percent Chance of Temperature Being Below Normal":
+          case "50 Percent Chance of Temperature Being Below Normal":
             layer.bindTooltip("50% - 55% Chance of Temperature Being Below Normal");
             layer.setStyle({
               fillColor: 'blue',
@@ -181,7 +180,7 @@
             })
             break;
           case "55 Percent Chance of Temperature Being Below Normal":
-            layer.bindTooltip("55% - 60% - 65% Chance of Temperature Below Above Normal");
+            layer.bindTooltip("55% - 60% Chance of Temperature Below Above Normal");
             layer.setStyle({
               fillColor: 'blue',
               fillOpacity: .7,
@@ -190,7 +189,7 @@
               weight: 1,
             })
             break;
-            case "60 Percent Chance of Temperature Being Below Normal":
+          case "60 Percent Chance of Temperature Being Below Normal":
             layer.bindTooltip("60% - 70% Chance of Temperature Being Below Normal");
             layer.setStyle({
               fillColor: 'blue',
@@ -200,7 +199,7 @@
               weight: 1,
             })
             break;
-            case "70 Percent Chance of Temperature Being Below Normal":
+          case "70 Percent Chance of Temperature Being Below Normal":
             layer.bindTooltip("70% - 80% Chance of Temperature Being Below Normal");
             layer.setStyle({
               fillColor: 'blue',
@@ -210,7 +209,7 @@
               weight: 1,
             })
             break;
-            case "80 Percent Chance of Temperature Being Below Normal":
+          case "80 Percent Chance of Temperature Being Below Normal":
             layer.bindTooltip("80% - 90% Chance of Temperature Being Below Normal");
             layer.setStyle({
               fillColor: 'blue',
@@ -220,7 +219,7 @@
               weight: 1,
             })
             break;
-            case "90 Percent Chance of Temperature Being Below Normal":
+          case "90 Percent Chance of Temperature Being Below Normal":
             layer.bindTooltip("90% - 100% Chance of Temperature Being Below Normal");
             layer.setStyle({
               fillColor: 'blue',
@@ -229,8 +228,8 @@
               opacity: .7,
               weight: 1,
             })
-            break;            
-            case "100 Percent Chance of Temperature Being Below Normal":
+            break;
+          case "100 Percent Chance of Temperature Being Below Normal":
             layer.bindTooltip("100% Chance of Temperature Being Below Normal");
             layer.setStyle({
               fillColor: 'blue',
@@ -378,7 +377,6 @@
             })
             break;
 
-
             case "50 Percent Chance of Precipitation Being Below Normal":
             layer.bindTooltip("50% - 55% Chance of Precipitation Being Below Normal");
             layer.setStyle({
@@ -493,7 +491,6 @@
       });
     }
 
-
     $('input[type=radio][name=week34-probability]').on('change',function() {
     if (this.value == 'temp-probability') {
       //show temperature probability
@@ -501,25 +498,28 @@
       week34map.addLayer(week34TempLayer);
       currentLayer = week34TempLayer;
       $('#week34-map-header .valid-dates').html("Valid: " + tempValidDate + "<br> Released: " + tempReleaseDate);
-
+      $('.week34-discussion li a').attr('href', '/outlooks/temperature/week-34#discussion');
+      $('.week34-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/WK34/gifs/WK34temp.gif');
     }
     else if (this.value == 'precip-probability') {
-        //show precipitation probability
-        week34map.removeLayer(week34TempLayer);
-        week34map.addLayer(week34PrecipLayer);
-        currentLayer = week34PrecipLayer;
-        $('#week34-map-header .valid-dates').html("Valid: " + precipValidDate + "<br> Released: " + precipReleaseDate);
+      //show precipitation probability
+      week34map.removeLayer(week34TempLayer);
+      week34map.addLayer(week34PrecipLayer);
+      currentLayer = week34PrecipLayer;
+      $('#week34-map-header .valid-dates').html("Valid: " + precipValidDate + "<br> Released: " + precipReleaseDate);
+      $('.week34-discussion li a').attr('href', '/outlooks/precipitation/week-34#discussion');
+      $('.week34-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/WK34/gifs/WK34prcp.gif');
     }
   });
 
     //change the map to the correct area
     $('input[type=radio][name=week34-map-view]').on('change',function() {
-      if (this.value == 'conus') {
-        week34map.setView(new L.LatLng(38, -96), 3.9)        
+      if (this.value === 'conus') {
+        week34map.setView(new L.LatLng(38, -96), 3.9)
       }
-      else if (this.value == 'alaska') {        
-        week34map.setView(new L.LatLng(64.2,-149.4), 3.9)
-      } 
+      else if (this.value === 'alaska') {
+        week34map.setView(new L.LatLng(63.2,-150), 3.6)
+      }
     });
 
     var week34Slider = $('#week34-opacity-level')[0];

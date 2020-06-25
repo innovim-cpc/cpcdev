@@ -16,13 +16,14 @@
           center: [38, -96],
           zoomSnap: 0.1,
           zoom: 3.9,
-          minZoom: 3.9
+          minZoom: 3.6,
+          attributionControl: false
         });
 
         // Add Esri Gray base map via Esri Leaflet plugin
         L.esri.basemapLayer('Gray').addTo(precipmap);
 
-        // Get URL to place boundaries layer
+        // Get URL for the boundaries layer
         const boundariesUrl = 'https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/State_County/MapServer/';
         //const boundariesUrl = 'https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS/nws_reference_map/MapServer/3'
 
@@ -44,7 +45,7 @@
           }
         }).addTo(precipmap);*/
 
-        // Get URL to place cities layer
+        // Get URL for the cities layer
         const citiesUrl = 'https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/';
 
         // Create a map pane for the city labels
@@ -483,6 +484,7 @@
             $('#lead-selector-precip').hide();
             $('#precip-map-header .title').text("U.S. 6 to 10 Day Precipitation Outlook");
             //$('#precip-map-header .valid-dates').html("Valid: " + validDate610Day + "<br>Released: " + fcst_date);
+            $('.precip-discussion li a').attr('href', '/outlooks/precipitation/610-day#discussion');
             $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/610day/610prcp.new.gif');
           }
           else if (this.value == 'precip814day') {
@@ -495,6 +497,7 @@
             $('#lead-selector-precip').hide();
             $('#precip-map-header .title').text("U.S. 8 to 14 Day Precipitation Outlook");
             // $('#precip-map-header .valid-dates').html("Valid: " + validDate814Day + "<br> Released: " + fcst_date);
+            $('.precip-discussion li a').attr('href', '/outlooks/precipitation/814-day#discussion');
             $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/814day/814prcp.new.gif');
           }
           else if (this.value == 'precip-monthly') {
@@ -507,6 +510,7 @@
             $('#lead-selector-precip').hide();
             $('#precip-map-header .title').text("U.S. Monthly Precipitation Outlook");
             //$('#precip-map-header .valid-dates').html("Valid: " + validDateMonthly + "<br> Released: " + fcst_date);
+            $('.precip-discussion li a').attr('href', '/outlooks/precipitation/monthly#discussion');
             $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead14/off14_prcp.gif');
           }
           else if (this.value == 'precip-3month') {
@@ -519,6 +523,7 @@
             $('#lead-selector-precip').show();
             $('#precip-map-header .title').text("U.S. 3 Month Precipitation Outlook");
             $('#precip-map-header .valid-dates').html("Valid: " + lead1Label + "<br> Released: " + fcst_date);
+            $('.precip-discussion li a').attr('href', '/outlooks/precipitation/seasonal#discussion');
             $('.precip-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead01/off01_prcp.gif');
           }
         });
@@ -532,7 +537,7 @@
 
         //change the map to the correct area
         $('input[type=radio][name=precip-map-view]').on('change',function() {
-          if (this.value == 'conus') {
+          if (this.value === 'conus') {
             // precipmap.setView(new L.LatLng(38, -96), 3.9)
             precipmap.setView(new L.LatLng(38, -96), 3.9)
             //set default marker back to College Park, MD
@@ -566,9 +571,9 @@
 
             getPrecipHandler(coord);
           }
-          else if (this.value == 'alaska') {
+          else if (this.value === 'alaska') {
             // precipmap.setView(new L.LatLng(64.2,-149.4), 3.9)
-            precipmap.setView(new L.LatLng(64.2,-149.4), 3.9)
+            precipmap.setView(new L.LatLng(63.2,-150), 3.6)
             //set default marker for Anchorage, Alaska
             if (marker) {
               precipmap.removeLayer(marker);
@@ -582,8 +587,6 @@
             marker.bindPopup(function (layer){
               return L.Util.template("Anchorage, AK");
             }).openPopup();
-
-
 
             var latitude = 61.217381;
             var longitude = -149.863129;

@@ -15,7 +15,8 @@
           center: [38, -96],
           zoomSnap: 0.1,
           zoom: 3.9,
-          minZoom: 3.9
+          minZoom: 3.6,
+          attributionControl: false
         });
 
         hazardsmap.whenReady(hideLegend);
@@ -334,19 +335,17 @@
                 })
             }
           });
-
         }
 
-
         $.ajax({
-            type     : "GET",
-            url      : proxyurl + temp814kml,
-            dataType : "xml",
-            success  : getValidDates,
-            error    : function(){
-              console.log("Could not retrieve XML file.");
-            }
-          });
+          type     : "GET",
+          url      : proxyurl + temp814kml,
+          dataType : "xml",
+          success  : getValidDates,
+          error    : function(){
+            console.log("Could not retrieve XML file.");
+          }
+        });
 
         function getValidDates(xml) {
           const dateInfo = $(xml).find("name").first().text();
@@ -359,7 +358,7 @@
 
           var hazardsValidDate = hazardsValidStartDateString.toLocaleDateString("en-US", options) + ' - ' + hazardsValidEndDateString.toLocaleDateString("en-US", options);
           var hazardsReleaseDate = hazardsReleaseDateString.toLocaleDateString("en-US", options);
-          
+
           // $("#hazards-map-header .valid-dates").append(validDates).text();
           $('#hazards-map-header .valid-dates').html("Valid: " + hazardsValidDate + "<br> Released: " + hazardsReleaseDate);
 
@@ -465,14 +464,14 @@
         }
 
         $.ajax({
-            type     : "GET",
-            url      : proxyurl + probTemp814kml,
-            dataType : "xml",
-            success  : getDataProbTemp814kml,
-            error    : function(){
-              console.log("Could not retrieve XML file.");
-            }
-          });
+          type     : "GET",
+          url      : proxyurl + probTemp814kml,
+          dataType : "xml",
+          success  : getDataProbTemp814kml,
+          error    : function(){
+            console.log("Could not retrieve XML file.");
+          }
+        });
 
         function getDataProbTemp814kml(xml) {
           const dateInfo = $(xml).find("Document").first().attr("id");
@@ -543,52 +542,50 @@
                       weight: 1
                     })
                     break;
-                    case "High Risk of Much Below Normal Temperatures":
-                      layer.bindTooltip(layer.feature.properties.name);
-                      layer.setStyle({
-                        fillColor: '#4F6899',
-                        fillOpacity: .7,
-                        color: 'black',
-                        opacity: .7,
-                        weight: 1
-                      })
-                      break;
-                    case "Moderate Risk of Much Below Normal Temperatures":
-                      layer.bindTooltip(layer.feature.properties.name);
-                      layer.setStyle({
-                        fillColor: '#538FE8',
-                        fillOpacity: .7,
-                        color: 'black',
-                        opacity: .7,
-                        weight: 1
-                      })
-                      break;
-                    case "Slight Risk of Much Below Normal Temperatures":
-                      layer.bindTooltip(layer.feature.properties.name);
-                      layer.setStyle({
-                        fillColor: '#A2C9FB',
-                        fillOpacity: .7,
-                        color: 'black',
-                        opacity: .7,
-                        weight: 1
-                      })
+                  case "High Risk of Much Below Normal Temperatures":
+                    layer.bindTooltip(layer.feature.properties.name);
+                    layer.setStyle({
+                      fillColor: '#4F6899',
+                      fillOpacity: .7,
+                      color: 'black',
+                      opacity: .7,
+                      weight: 1
+                    })
+                    break;
+                  case "Moderate Risk of Much Below Normal Temperatures":
+                    layer.bindTooltip(layer.feature.properties.name);
+                    layer.setStyle({
+                      fillColor: '#538FE8',
+                      fillOpacity: .7,
+                      color: 'black',
+                      opacity: .7,
+                      weight: 1
+                    })
+                    break;
+                  case "Slight Risk of Much Below Normal Temperatures":
+                    layer.bindTooltip(layer.feature.properties.name);
+                    layer.setStyle({
+                      fillColor: '#A2C9FB',
+                      fillOpacity: .7,
+                      color: 'black',
+                      opacity: .7,
+                      weight: 1
+                    })
                 }
               });
           });
 
         }
 
-
-
         $.ajax({
-            type     : "GET",
-            url      : proxyurl + probExcessHeat814kml,
-            dataType : "xml",
-            success  : getDataExcessHeat,
-            error    : function(){
-              console.log("Could not retrieve XML file.");
-            }
-          });
+          type     : "GET",
+          url      : proxyurl + probExcessHeat814kml,
+          dataType : "xml",
+          success  : getDataExcessHeat,
+          error    : function(){
+            console.log("Could not retrieve XML file.");
+          }
+        });
 
         function getDataExcessHeat(xml) {
           const dateInfo = $(xml).find("Document").first().attr("id");
@@ -658,18 +655,17 @@
               }
           });
 
-
         }
 
         $.ajax({
-            type     : "GET",
-            url      : proxyurl + wind814kml,
-            dataType : "xml",
-            success  : getDataWind814kml,
-            error    : function(){
-              console.log("Could not retrieve XML file.");
-            }
-          });
+          type     : "GET",
+          url      : proxyurl + wind814kml,
+          dataType : "xml",
+          success  : getDataWind814kml,
+          error    : function(){
+            console.log("Could not retrieve XML file.");
+          }
+        });
 
         function getDataWind814kml(xml) {
           const dateInfo = $(xml).find("Document").first().attr("id");
@@ -693,7 +689,7 @@
               case "Slight Risk of High Winds":
                  $('#slight-risk-high-winds').show();
                 break;
-              }
+            }
           });
 
           wind814kmlLayer.eachLayer(function(layer){
@@ -724,14 +720,14 @@
         }
 
         $.ajax({
-            type     : "GET",
-            url      : proxyurl + probWind814kml,
-            dataType : "xml",
-            success  : getDataProbWind814kml,
-            error    : function(){
-              console.log("Could not retrieve XML file.");
-            }
-          });
+          type     : "GET",
+          url      : proxyurl + probWind814kml,
+          dataType : "xml",
+          success  : getDataProbWind814kml,
+          error    : function(){
+            console.log("Could not retrieve XML file.");
+          }
+        });
 
         function getDataProbWind814kml(xml) {
           const dateInfo = $(xml).find("Document").first().attr("id");
@@ -755,7 +751,7 @@
               case "Slight Risk of High Winds":
                  $('#slight-risk-high-winds').show();
                 break;
-              }
+            }
           });
 
           probWind814kmlLayer.eachLayer(function(layer){
@@ -840,11 +836,11 @@
 
         //change the map to the correct area
         $('input[type=radio][name=hazards-map-view]').change(function() {
-            if (this.value == 'conus') {
+            if (this.value === 'conus') {
               hazardsmap.setView(new L.LatLng(38, -96), 4)
             }
-            else if (this.value == 'alaska') {
-              hazardsmap.setView(new L.LatLng(64.2,-149.4), 4)
+            else if (this.value === 'alaska') {
+              hazardsmap.setView(new L.LatLng(63.2,-150), 3.6)
             }
         });
 
