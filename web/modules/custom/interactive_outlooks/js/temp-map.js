@@ -6,7 +6,7 @@
 (function ($) {
   "use strict";
 
-   //Drupal.behaviors.createtempMap = {
+   //Drupal.behaviors.createTempMap = {
    	//attach:function (context, settings) {
 
    	  //$('#temp-outlooks-map', context).once('#temp-map', function() {
@@ -16,13 +16,14 @@
           center: [38, -96],
           zoomSnap: 0.1,
           zoom: 3.9,
-          minZoom: 3.9
+          minZoom: 3.6,
+          attributionControl: false
         });
 
         // Add Esri Gray base map via Esri Leaflet plugin
         L.esri.basemapLayer('Gray').addTo(tempmap);
 
-        // Get URL to place boundaries layer
+        // Get URL for the boundaries layer
         const boundariesUrl = 'https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/State_County/MapServer/';
 
         // Create a map pane for the boundaries
@@ -35,7 +36,7 @@
           opacity: 0.25
         }).addTo(tempmap);
 
-        // Get URL to place cities layer
+        // Get URL for the cities layer
         const citiesUrl = 'https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/';
 
         // Create a map pane for the city labels
@@ -482,6 +483,7 @@
             $('#lead-selector').hide();
             $('#temp-map-header .title').text("U.S. 6 to 10 Day Temperature Outlook");
             //$('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
+            $('.temp-discussion li a').attr('href', '/outlooks/temperature/610-day#discussion');
             $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/610day/610temp.new.gif');
           }
           else if (this.value == 'temp814day') {
@@ -495,6 +497,7 @@
             $('#lead-selector').hide();
             $('#temp-map-header .title').text("U.S. 8 to 14 Day Temperature Outlook");
             //$('#temp-map-header .valid-dates').html("Valid: " + validmonth + "<br> Released: " + releasemonth);
+            $('.temp-discussion li a').attr('href', '/outlooks/temperature/814-day#discussion');
             $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/814day/814temp.new.gif');
           }
           else if (this.value == 'tempmonthly') {
@@ -507,6 +510,7 @@
             $('#lead-selector').hide();
             $('#temp-map-header .title').text("U.S. Monthly Temperature Outlook");
             //$('#temp-map-header .valid-dates').html("Valid: " + monthlyValidDate + "<br> Released: " + releasemonth);
+            $('.temp-discussion li a').attr('href', '/outlooks/temperature/monthly#discussion');
             $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead14/off14_temp.gif');
           }
           else if (this.value == 'temp3month') {
@@ -519,6 +523,7 @@
             $('#lead-selector').show();
             $('#temp-map-header .title').text("U.S. 3 Month Temperature Outlook");
             $('#temp-map-header .valid-dates').html("Valid: " + lead1Label + "<br> Released: " + releasemonth);
+            $('.temp-discussion li a').attr('href', '/outlooks/temperature/seasonal#discussion');
             $('.temp-image li a').attr('href', 'https://www.cpc.ncep.noaa.gov/products/predictions/long_range/lead01/off01_temp.gif');
           }
         });
@@ -532,7 +537,7 @@
 
         //change the map to the correct area
         $('input[type=radio][name=temp-map-view]').on('change',function() {
-          if (this.value == 'conus') {
+          if (this.value === 'conus') {
             tempmap.setView(new L.LatLng(38, -96), 3.9)
             //set default marker back to College Park, MD
             if (marker) {
@@ -547,8 +552,6 @@
             marker.bindPopup(function (layer){
               return L.Util.template("College Park, MD");
             }).openPopup();
-
-
 
             var latitude = 38.989697;
             var longitude = -76.937759;
@@ -567,8 +570,8 @@
             getTempHandler(coord);
           }
 
-          else if (this.value == 'alaska') {
-            tempmap.setView(new L.LatLng(64.2,-149.4), 3.9)
+          else if (this.value === 'alaska') {
+            tempmap.setView(new L.LatLng(63.2,-150), 3.6)
             //set default marker for Anchorage, Alaska
             if (marker) {
               tempmap.removeLayer(marker);
@@ -582,8 +585,6 @@
             marker.bindPopup(function (layer){
               return L.Util.template("Anchorage, AK");
             }).openPopup();
-
-
 
             var latitude = 61.217381;
             var longitude = -149.863129;
@@ -600,10 +601,8 @@
             temp_norm = null;
 
             getTempHandlerAlaska(coord);
-
           }
         });
-
 
         var tempSlider = $('#temp-opacity-level')[0];
         // var output = document.getElementById("sliderValue");
