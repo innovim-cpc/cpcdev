@@ -1,0 +1,29 @@
+uuid: 5763d286-9ecc-40e2-a0b9-6e2a8ead6731
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_forecaster_name
+    - node.type.outlooks
+    - taxonomy.vocabulary.forecasters
+id: node.outlooks.field_forecaster_name
+field_name: field_forecaster_name
+entity_type: node
+bundle: outlooks
+label: Forecaster
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      forecasters: forecasters
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.outlooks.body
+    - field.field.node.outlooks.field_forecaster_name
     - field.field.node.outlooks.field_image
     - field.field.node.outlooks.field_map_image
     - node.type.outlooks
@@ -22,6 +23,14 @@ content:
     weight: 3
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_forecaster_name:
+    weight: 4
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   field_image:
     weight: 2

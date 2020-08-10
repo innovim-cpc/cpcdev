@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.outlooks.body
+    - field.field.node.outlooks.field_forecaster_name
     - field.field.node.outlooks.field_image
     - field.field.node.outlooks.field_map_image
     - image.style.thumbnail
@@ -32,6 +33,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_forecaster_name:
+    weight: 124
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   field_image:
     weight: 123
     settings:

@@ -1,17 +1,17 @@
-uuid: f4a60dad-bf62-4aaa-87e7-2773a984332f
+uuid: d2abbfe6-3563-4194-b971-575f089d9817
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - text
-id: node.field_forecaster
-field_name: field_forecaster
+    - taxonomy
+id: node.field_forecaster_name
+field_name: field_forecaster_name
 entity_type: node
-type: text
+type: entity_reference
 settings:
-  max_length: 255
-module: text
+  target_type: taxonomy_term
+module: core
 locked: false
 cardinality: 1
 translatable: true
