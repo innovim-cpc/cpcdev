@@ -37,12 +37,9 @@ content:
     third_party_settings: {  }
   field_forecaster_name:
     weight: 124
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_image:
     weight: 123
@@ -62,21 +59,15 @@ content:
     region: content
   field_outlook_type:
     weight: 125
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_time_period:
     weight: 126
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   path:
     type: path
