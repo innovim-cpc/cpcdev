@@ -7,6 +7,8 @@ dependencies:
     - field.field.node.outlooks.field_forecaster_name
     - field.field.node.outlooks.field_image
     - field.field.node.outlooks.field_map_image
+    - field.field.node.outlooks.field_outlook_type
+    - field.field.node.outlooks.field_time_period
     - node.type.outlooks
   module:
     - image
@@ -48,6 +50,22 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: image
+    region: content
+  field_outlook_type:
+    weight: 5
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_time_period:
+    weight: 6
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   links:
     weight: 0
