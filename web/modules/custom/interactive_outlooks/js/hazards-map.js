@@ -87,6 +87,8 @@
         const wind814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/wind_D8_14.kml";
         const probExcessHeat814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/excess_heat_prob_D8_14.kml";
         const probWind814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/wind_prob_D8_14.kml";
+        const snow814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/snow_D8_14.kml";
+        const probSnow814kml = "https://www.cpc.ncep.noaa.gov/products/predictions/threats/snow_prob_D8_14.kml";
 
         // We need to use the direct URL to the KML files (instead of downloading them to a directory in our module) because they're automatically updated. Using the direct URL produces errors on a development site, however, so we have to append it to a proxy URL
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
@@ -100,6 +102,8 @@
         var probExcessHeat814kmlLayer = omnivore.kml(proxyurl + probExcessHeat814kml);
         var wind814kmlLayer = omnivore.kml(proxyurl + wind814kml);
         var probWind814kmlLayer = omnivore.kml(proxyurl + probWind814kml);
+        var snow814kmlLayer = omnivore.kml(proxyurl + snow814kml);
+        var probSnow814kmlLayer = omnivore.kml(proxyurl + probSnow814kml);
 
         // Add the layers to the map
         hazardsmap.addLayer(prcp814kmlLayer);
@@ -110,6 +114,8 @@
         hazardsmap.addLayer(probExcessHeat814kmlLayer);
         hazardsmap.addLayer(wind814kmlLayer);
         hazardsmap.addLayer(probWind814kmlLayer);
+        hazardsmap.addLayer(snow814kmlLayer);
+        hazardsmap.addLayer(probSnow814kmlLayer);
 
 
         var probTemp814chkBox = "";
@@ -458,6 +464,16 @@
                         opacity: .7,
                         weight: 1
                       })
+                      break;
+                      case "Excessive Heat":
+                      layer.bindTooltip(layer.feature.properties.name);
+                      layer.setStyle({
+                        fillColor: '#B95550',
+                        fillOpacity: .7,
+                        color: 'black',
+                        opacity: .7,
+                        weight: 1
+                      })
                 }
               });
           });
@@ -479,11 +495,15 @@
           if (noHazards === "No_Hazards_Posted")
           {
             //hide checkbox and display No Hazards
-            $('#temp-probabilistic-814-chkbox').hide();
+            //only hide if both this layer and Excess Heat layer have no hazards
+            probTemp814chkBox = false
+            //dont hide checkbox until we check the excess heat layer
+            //$('#temp-probabilistic-814-chkbox').hide();
           }
           else
           {
-            $('#temp-probabilistic-814-no-hazards').hide();
+            probTemp814chkBox = true
+            // $('#temp-probabilistic-814-no-hazards').hide();
           }
 
           $(xml).find("Placemark").each(function(){
@@ -510,10 +530,10 @@
               }
 
               probTemp814kmlLayer.eachLayer(function(layer){
-                //layer.bindPopup(layer.feature.properties.description);
+                layer.bindPopup(layer.feature.properties.name);
                 switch(layer.feature.properties.name){
                   case "High Risk of Much Above Normal Temperatures":
-                    layer.bindTooltip(layer.feature.properties.name);
+                    //layer.bindTooltip(layer.feature.properties.name);
                     layer.setStyle({
                       fillColor: '#B95550',
                       fillOpacity: .7,
@@ -523,7 +543,7 @@
                     })
                     break;
                   case "Moderate Risk of Much Above Normal Temperatures":
-                    layer.bindTooltip(layer.feature.properties.name);
+                    //layer.bindTooltip(layer.feature.properties.name);
                     layer.setStyle({
                       fillColor: '#E35A52',
                       fillOpacity: .7,
@@ -533,7 +553,7 @@
                     })
                     break;
                   case "Slight Risk of Much Above Normal Temperatures":
-                    layer.bindTooltip(layer.feature.properties.name);
+                    //layer.bindTooltip(layer.feature.properties.name);
                     layer.setStyle({
                       fillColor: '#F7A9A7',
                       fillOpacity: .7,
@@ -543,7 +563,7 @@
                     })
                     break;
                   case "High Risk of Much Below Normal Temperatures":
-                    layer.bindTooltip(layer.feature.properties.name);
+                    //layer.bindTooltip(layer.feature.properties.name);
                     layer.setStyle({
                       fillColor: '#4F6899',
                       fillOpacity: .7,
@@ -553,7 +573,7 @@
                     })
                     break;
                   case "Moderate Risk of Much Below Normal Temperatures":
-                    layer.bindTooltip(layer.feature.properties.name);
+                    //layer.bindTooltip(layer.feature.properties.name);
                     layer.setStyle({
                       fillColor: '#538FE8',
                       fillOpacity: .7,
@@ -563,7 +583,7 @@
                     })
                     break;
                   case "Slight Risk of Much Below Normal Temperatures":
-                    layer.bindTooltip(layer.feature.properties.name);
+                    //layer.bindTooltip(layer.feature.properties.name);
                     layer.setStyle({
                       fillColor: '#A2C9FB',
                       fillOpacity: .7,
@@ -571,6 +591,37 @@
                       opacity: .7,
                       weight: 1
                     })
+                    break;
+                  case "Flooding Possible":
+                    //layer.bindTooltip(layer.feature.properties.name);
+                    layer.setStyle({
+                      fillColor: '#D3D3D3',
+                      fillOpacity: .7,
+                      color: 'black',
+                      opacity: .7,
+                      weight: 1
+                    })
+                    break;
+                  case "Frozen Precipitation":
+                    //layer.bindTooltip(layer.feature.properties.name);
+                    layer.setStyle({
+                    fillColor: '#87CEFA',
+                    fillOpacity: .7,
+                    color: 'black',
+                    opacity: .7,
+                    weight: 1
+                  })
+                    break;
+                  case "Severe Weather":
+                    //layer.bindTooltip(layer.feature.properties.name);
+                    layer.setStyle({
+                    fillColor: '#FFC04D',
+                    fillOpacity: .7,
+                    color: 'black',
+                    opacity: .7,
+                    weight: 1
+                  })
+
                 }
               });
           });
@@ -592,16 +643,16 @@
           const noHazards = dateInfo.substring(dateInfo.indexOf("No_Hazards_Posted"));
           if (noHazards === "No_Hazards_Posted")
           {
-            //hide checkbox and display No Hazards
-            // $('#temp-probabilistic-814-chkbox').hide();
+            if (probTemp814chkBox == false){
+              $('#temp-probabilistic-814-chkbox').hide();
+            }
+            else{
+              $('#temp-probabilistic-814-no-hazards').hide();
+            }
           }
           else
           {
-            probTemp814chkBox = true;
-            // $('#temp-probabilistic-814-no-hazards').hide();
-          }
-          if (probTemp814chkBox){
-            $('#temp-probabilistic-814-no-hazards').hide();
+             $('#temp-probabilistic-814-no-hazards').hide();
           }
 
           $(xml).find("Placemark").each(function(){
@@ -781,6 +832,156 @@
           });
         }
 
+
+        $.ajax({
+          type     : "GET",
+          url      : proxyurl + snow814kml,
+          dataType : "xml",
+          success  : getDataSnow814kml,
+          error    : function(){
+            console.log("Could not retrieve XML file.");
+          }
+        });
+
+        function getDataSnow814kml(xml) {
+          const dateInfo = $(xml).find("Document").first().attr("id");
+          const noHazards = dateInfo.substring(dateInfo.indexOf("No_Hazards_Posted"));
+          if (noHazards === "No_Hazards_Posted")
+          {
+            //hide checkbox and display No Hazards
+            $('#snow-hazards-814-chkbox').hide();
+          }
+          else
+          {
+            $('#snow-hazards-814-no-hazards').hide();
+          }
+
+          $(xml).find("Placemark").each(function(){
+            var x = $(this).find("name").text();
+            switch(x) {
+              case "High Risk of Heavy Snow":
+                $('#high-risk-heavy-snow').show();
+                break;
+              case "Moderate Risk of Heavy Snow":
+                 $('#moderate-risk-heavy-snow').show();
+              case "Slight Risk of Heavy Snow":
+                $('#slight-risk-heavy-snow').show();
+                break;
+            }
+          });
+
+          snow814kmlLayer.eachLayer(function(layer){
+            //layer.bindPopup(layer.feature.properties.description);
+            switch(layer.feature.properties.name){
+              case "High Risk of Heavy Snow":
+                layer.bindTooltip(layer.feature.properties.name);
+                layer.setStyle({
+                  fillColor: '#CC419A',
+                  fillOpacity: .7,
+                  color: 'black',
+                  opacity: .7,
+                  weight: 1
+                })
+                break;
+              case "Moderate Risk of Heavy Snow":
+                layer.bindTooltip(layer.feature.properties.name);
+                layer.setStyle({
+                  fillColor: '#ED81A1',
+                  fillOpacity: .7,
+                  color: 'black',
+                  opacity: .7,
+                  weight: 1
+                })
+                break;
+              case "Slight Risk of Heavy Snow":
+                layer.bindTooltip(layer.feature.properties.name);
+                layer.setStyle({
+                  fillColor: '#A044DC',
+                  fillOpacity: .7,
+                  color: 'black',
+                  opacity: .7,
+                  weight: 1
+                })
+                break;
+              }
+          });
+        }
+
+        $.ajax({
+          type     : "GET",
+          url      : proxyurl + probSnow814kml,
+          dataType : "xml",
+          success  : getDataProbSnow814kml,
+          error    : function(){
+            console.log("Could not retrieve XML file.");
+          }
+        });
+
+        function getDataProbSnow814kml(xml) {
+          const dateInfo = $(xml).find("Document").first().attr("id");
+          const noHazards = dateInfo.substring(dateInfo.indexOf("No_Hazards_Posted"));
+          if (noHazards === "No_Hazards_Posted")
+          {
+            //hide checkbox and display No Hazards
+            $('#snow-probabilistic-814-chkbox').hide();
+          }
+          else
+          {
+            $('#snow-probabilistic-814-no-hazards').hide();
+          }
+
+          $(xml).find("Placemark").each(function(){
+            var x = $(this).find("name").text();
+            switch(x) {
+              case "High Risk of Heavy Snow":
+                $('#high-risk-heavy-snow').show();
+                break;
+              case "Moderate Risk of Heavy Snow":
+                $('#moderate-risk-high-winds').show();
+                break;
+              case "Slight Risk of Heavy Snow":
+                 $('#slight-risk-high-snow').show();
+                break;
+            }
+          });
+
+          probSnow814kmlLayer.eachLayer(function(layer){
+            //layer.bindPopup(layer.feature.properties.description);
+            switch(layer.feature.properties.name){
+              case "High Risk of Heavy Snow":
+                layer.bindTooltip(layer.feature.properties.name);
+                layer.setStyle({
+                  fillColor: '#CC419A',
+                  fillOpacity: .7,
+                  color: 'black',
+                  opacity: .7,
+                  weight: 1
+                })
+                break;
+              case "Moderate Risk of Heavy Snow":
+                layer.bindTooltip(layer.feature.properties.name);
+                layer.setStyle({
+                  fillColor: '#ED81A1',
+                  fillOpacity: .7,
+                  color: 'black',
+                  opacity: .7,
+                  weight: 1
+                })
+                break;
+              case "Slight Risk of Heavy Snow":
+                layer.bindTooltip(layer.feature.properties.name);
+                layer.setStyle({
+                  fillColor: '#A044DC',
+                  fillOpacity: .7,
+                  color: 'black',
+                  opacity: .7,
+                  weight: 1
+                })
+                break;
+              }
+          });
+        }
+
         // Checkbox functionality
         $("input[id=precip-hazards-814]").on('change', function() {
           if(this.checked) {
@@ -837,7 +1038,7 @@
         //change the map to the correct area
         $('input[type=radio][name=hazards-map-view]').change(function() {
             if (this.value === 'conus') {
-              hazardsmap.setView(new L.LatLng(38, -96), 4)
+              hazardsmap.setView(new L.LatLng(38, -96), 3.9)
             }
             else if (this.value === 'alaska') {
               hazardsmap.setView(new L.LatLng(63.2,-150), 3.6)

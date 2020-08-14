@@ -1,0 +1,67 @@
+uuid: 8cc77279-91ad-4877-bdf3-6ed5d8cb32f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.forecasters.field_email
+    - field.field.taxonomy_term.forecasters.field_first_name
+    - field.field.taxonomy_term.forecasters.field_last_name
+    - field.field.taxonomy_term.forecasters.field_phone_number
+    - field.field.taxonomy_term.forecasters.field_title
+    - taxonomy.vocabulary.forecasters
+id: taxonomy_term.forecasters.default
+targetEntityType: taxonomy_term
+bundle: forecasters
+mode: default
+content:
+  field_email:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_first_name:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_last_name:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_phone_number:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_title:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  name:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true

@@ -1,17 +1,17 @@
-uuid: f4a60dad-bf62-4aaa-87e7-2773a984332f
+uuid: 3d1f81d1-9006-40de-b09a-93a2fd2d5e67
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - text
-id: node.field_forecaster
-field_name: field_forecaster
+    - taxonomy
+id: node.field_outlook_type
+field_name: field_outlook_type
 entity_type: node
-type: text
+type: entity_reference
 settings:
-  max_length: 255
-module: text
+  target_type: taxonomy_term
+module: core
 locked: false
 cardinality: 1
 translatable: true

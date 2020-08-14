@@ -1,0 +1,29 @@
+uuid: a84aa69d-d517-4984-8f6c-fb44b6111e2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_time_period
+    - node.type.outlooks
+    - taxonomy.vocabulary.time_period
+id: node.outlooks.field_time_period
+field_name: field_time_period
+entity_type: node
+bundle: outlooks
+label: 'Time Period'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      time_period: time_period
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

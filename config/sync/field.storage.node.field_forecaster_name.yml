@@ -1,0 +1,20 @@
+uuid: d2abbfe6-3563-4194-b971-575f089d9817
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_forecaster_name
+field_name: field_forecaster_name
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

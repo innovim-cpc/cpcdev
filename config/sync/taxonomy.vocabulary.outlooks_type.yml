@@ -1,0 +1,9 @@
+uuid: 46c5b792-a0b8-4a70-a8d7-22b68179850b
+langcode: en
+status: true
+dependencies: {  }
+name: 'Outlooks Type'
+vid: outlooks_type
+description: ''
+hierarchy: 0
+weight: 0
