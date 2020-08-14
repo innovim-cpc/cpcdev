@@ -1,0 +1,9 @@
+uuid: 93beb381-3e2d-47c5-b89e-ed6e6e66c563
+langcode: en
+status: true
+dependencies: {  }
+name: Forecasters
+vid: forecasters
+description: ''
+hierarchy: 0
+weight: 0
