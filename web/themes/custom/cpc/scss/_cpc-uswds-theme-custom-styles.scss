@@ -289,3 +289,29 @@ button:not([disabled]):focus, input:not([disabled]):focus, select:not([disabled]
     padding-left: .15em;
   }
 }
+@media (min-width: 64em) {
+  #block-cpc-breadcrumbs .usa-nav__secondary-links {
+    float: left;
+    padding-top: 2rem;
+    a {
+      color: #005ea2;
+    }
+    .usa-nav__secondary-item {
+      color: #71767a;
+      &+.usa-nav__secondary-item::before {
+        color: #71767a;
+        content: "\f054";
+        font-family: "Font Awesome 5 Free";
+        font-size: 70%;
+        padding-right: .25rem;
+      }
+    }
+  }
+}
+@media (min-width: 40em) {
+  #main-content {
+    &.usa-layout-docs.usa-section {
+      padding-top: 2rem;
+    }
+  }
+}
