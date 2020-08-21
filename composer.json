@@ -31,6 +31,7 @@
         "drupal/config_update": "^1.6",
         "drupal/console": "^1.0.2",
         "drupal/core": "~8.6.0",
+        "drupal/easy_breadcrumb": "^1.13",
         "drupal/entity_browser": "^2.1",
         "drupal/entity_usage": "^2.0@beta",
         "drupal/environment_indicator": "^3.6",
