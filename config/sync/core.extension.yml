@@ -20,6 +20,7 @@ module:
   datetime: 0
   dblog: 0
   dynamic_page_cache: 0
+  easy_breadcrumb: 0
   editor: 0
   entity_reference_revisions: 0
   environment_indicator: 0
@@ -34,6 +35,8 @@ module:
   image: 0
   interactive_outlooks: 0
   leaflet: 0
+  leaflet_markercluster: 0
+  leaflet_views: 0
   link: 0
   menu_ui: 0
   module_filter: 0
@@ -44,10 +47,12 @@ module:
   pathauto: 0
   quickedit: 0
   rdf: 0
+  responsive_image: 0
   search: 0
   shortcut: 0
   system: 0
   taxonomy: 0
+  telephone: 0
   text: 0
   token: 0
   toolbar: 0
