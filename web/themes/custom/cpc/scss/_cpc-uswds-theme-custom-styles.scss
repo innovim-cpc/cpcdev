@@ -315,3 +315,20 @@ button:not([disabled]):focus, input:not([disabled]):focus, select:not([disabled]
     }
   }
 }
+
+.usa-banner__inner,
+.usa-banner__content,
+.grid-container,
+.usa-footer > .grid-container,
+.usa-footer__primary-container,
+.usa-footer__primary-section > .grid-container,
+.usa-footer__secondary-section > .grid-container {
+  max-width: 80rem;
+}
+
+@media (min-width: 64em) {
+  .usa-header--extended .usa-navbar,
+  .usa-header--extended .usa-nav__inner {
+    max-width: 80rem;
+  }
+}

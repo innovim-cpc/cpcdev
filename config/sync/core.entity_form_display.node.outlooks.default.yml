@@ -4,14 +4,17 @@ status: true
 dependencies:
   config:
     - field.field.node.outlooks.body
+    - field.field.node.outlooks.field_date_updated
     - field.field.node.outlooks.field_forecaster_name
     - field.field.node.outlooks.field_image
     - field.field.node.outlooks.field_map_image
     - field.field.node.outlooks.field_outlook_type
     - field.field.node.outlooks.field_time_period
+    - field.field.node.outlooks.field_valid_dates
     - image.style.thumbnail
     - node.type.outlooks
   module:
+    - datetime
     - image
     - path
     - text
@@ -22,7 +25,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 121
+    weight: 12
     settings:
       rows: 9
       summary_rows: 3
@@ -31,18 +34,24 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_date_updated:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   field_forecaster_name:
-    weight: 124
+    weight: 13
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_image:
-    weight: 123
+    weight: 14
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -50,7 +59,7 @@ content:
     type: image_image
     region: content
   field_map_image:
-    weight: 122
+    weight: 11
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -58,20 +67,26 @@ content:
     type: image_image
     region: content
   field_outlook_type:
-    weight: 125
+    weight: 9
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_time_period:
-    weight: 126
+    weight: 10
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
+  field_valid_dates:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   path:
     type: path
-    weight: 30
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -79,26 +94,26 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 15
+    weight: 3
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 120
+    weight: 6
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 16
+    weight: 4
     region: content
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
@@ -106,7 +121,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 1
     settings:
       match_operator: CONTAINS
       size: 60

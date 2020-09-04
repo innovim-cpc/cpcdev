@@ -4,14 +4,15 @@ status: true
 dependencies:
   config:
     - field.field.node.outlooks.body
+    - field.field.node.outlooks.field_date_updated
     - field.field.node.outlooks.field_forecaster_name
     - field.field.node.outlooks.field_image
     - field.field.node.outlooks.field_map_image
     - field.field.node.outlooks.field_outlook_type
     - field.field.node.outlooks.field_time_period
+    - field.field.node.outlooks.field_valid_dates
     - node.type.outlooks
   module:
-    - image
     - text
     - user
 id: node.outlooks.default
@@ -22,34 +23,17 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 3
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     region: content
   field_forecaster_name:
-    weight: 4
-    label: above
+    weight: 2
+    label: inline
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
-    region: content
-  field_image:
-    weight: 2
-    label: hidden
-    settings:
-      image_style: ''
-    third_party_settings: {  }
-    type: image_url
-    region: content
-  field_map_image:
-    weight: 1
-    label: hidden
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
     region: content
   links:
     weight: 0
@@ -57,5 +41,9 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_date_updated: true
+  field_image: true
+  field_map_image: true
   field_outlook_type: true
   field_time_period: true
+  field_valid_dates: true
