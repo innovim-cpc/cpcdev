@@ -1,0 +1,21 @@
+uuid: 436211eb-3c15-4766-9855-585bccd7b0fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_valid_dates
+    - node.type.outlooks
+  module:
+    - datetime
+id: node.outlooks.field_valid_dates
+field_name: field_valid_dates
+entity_type: node
+bundle: outlooks
+label: 'Valid Dates'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime
