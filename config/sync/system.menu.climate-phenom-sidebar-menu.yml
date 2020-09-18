@@ -1,0 +1,8 @@
+uuid: 95c52453-2b20-49dd-bb64-56db98fcc872
+langcode: en
+status: true
+dependencies: {  }
+id: climate-phenom-sidebar-menu
+label: 'Climate Phenomena Sidebar Menu'
+description: ''
+locked: false
