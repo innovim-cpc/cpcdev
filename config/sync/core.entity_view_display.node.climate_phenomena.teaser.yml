@@ -1,0 +1,30 @@
+uuid: 62360bca-e0e0-4839-b687-3894c0dbba86
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.climate_phenomena.body
+    - node.type.climate_phenomena
+  module:
+    - text
+    - user
+id: node.climate_phenomena.teaser
+targetEntityType: node
+bundle: climate_phenomena
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

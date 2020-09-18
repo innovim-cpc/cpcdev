@@ -1,0 +1,28 @@
+uuid: 50c1507a-15f4-47ba-84ae-e83a625860aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.climate_phenomena.body
+    - node.type.climate_phenomena
+  module:
+    - text
+    - user
+id: node.climate_phenomena.default
+targetEntityType: node
+bundle: climate_phenomena
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

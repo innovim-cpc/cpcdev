@@ -1,0 +1,17 @@
+uuid: cc86e8e5-7efd-4e91-9661-da72c71cac84
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Climate Phenomena'
+type: climate_phenomena
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false
