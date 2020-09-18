@@ -1,4 +1,4 @@
-uuid: 8fde9976-db4e-4a2f-b87a-412f99d82fa5
+uuid: cc86e8e5-7efd-4e91-9661-da72c71cac84
 langcode: en
 status: true
 dependencies:
@@ -6,11 +6,10 @@ dependencies:
     - menu_ui
 third_party_settings:
   menu_ui:
-    available_menus:
-      - main
-    parent: 'main:'
-name: 'Climate Glossary Term'
-type: climate_glossary_term
+    available_menus: {  }
+    parent: ''
+name: 'Climate Phenomena'
+type: climate_phenomena
 description: ''
 help: ''
 new_revision: true

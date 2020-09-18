@@ -1,0 +1,22 @@
+uuid: 52122620-1e60-4db6-9714-8ac34aca9f01
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.climate_phenomena
+  module:
+    - text
+id: node.climate_phenomena.body
+field_name: body
+entity_type: node
+bundle: climate_phenomena
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary
