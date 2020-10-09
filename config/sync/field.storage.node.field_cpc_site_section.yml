@@ -1,0 +1,20 @@
+uuid: 26d6f087-973c-4abb-9024-d96fdb82f5c3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_cpc_site_section
+field_name: field_cpc_site_section
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
