@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.climate_phenomena.body
+    - field.field.node.climate_phenomena.field_cpc_site_section
     - node.type.climate_phenomena
   module:
     - text
@@ -16,13 +17,14 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 101
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     region: content
   links:
-    weight: 100
+    weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
-hidden: {  }
+hidden:
+  field_cpc_site_section: true
