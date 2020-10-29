@@ -127,6 +127,9 @@
           pane: 'outlooks'
         });
 
+        //variable to determine if searchbyAddress was used instead of a mouse click on map to create a marker
+        var addressSearched;
+
         // Search by address
         // Create the geocoding control and add it to the map
         var searchControl = L.esri.Geocoding.geosearch({
@@ -140,6 +143,7 @@
         searchControl.on("results", function(data) {
           results.clearLayers();
           for (var i = data.results.length - 1; i >= 0; i--) {
+            addressSearched = data.results[i].text;
             addMarker(data.results[i]);
           }
         });
@@ -888,7 +892,14 @@
             //     region = featureCollection.features[0].properties.STATE;
             marker.bindPopup(function (layer){
               region = featureCollection.features[0].properties.STATE;
-              return L.Util.template(featureCollection.features[0].properties.PO_NAME + ", "+ featureCollection.features[0].properties.STATE);
+              if (addressSearched != null){
+                var city = addressSearched;
+                addressSearched = null;
+                return L.Util.template(city);
+              }
+              else {
+                return L.Util.template(featureCollection.features[0].properties.PO_NAME + ", " + featureCollection.features[0].properties.STATE);
+              }
             }).openPopup();
           })
         }
