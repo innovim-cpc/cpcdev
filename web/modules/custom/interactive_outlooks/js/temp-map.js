@@ -120,7 +120,11 @@
 
         // Search by address
         // Create the geocoding control and add it to the map
-        var searchControl = L.esri.Geocoding.geosearch().addTo(tempmap);
+        var searchControl = L.esri.Geocoding.geosearch({
+          zoomToResult: false,
+          providers: [ L.esri.Geocoding.arcgisOnlineProvider() ]
+          // zoomSnap: false
+        }).addTo(tempmap);
 
         // Create an empty layer group to store the results and add it to the map
         var results = L.layerGroup().addTo(tempmap);
