@@ -118,9 +118,14 @@
           pane: 'outlooks'
         });
 
+        //variable to determine if searchbyAddress was used instead of a mouse click on map to create a marker
+        var addressSearched;
+
         // Search by address
         // Create the geocoding control and add it to the map
-        var searchControl = L.esri.Geocoding.geosearch().addTo(tempmap);
+        var searchControl = L.esri.Geocoding.geosearch({
+          zoomToResult: false,
+        }).addTo(tempmap);
 
         // Create an empty layer group to store the results and add it to the map
         var results = L.layerGroup().addTo(tempmap);
@@ -129,6 +134,7 @@
         searchControl.on("results", function(data) {
           results.clearLayers();
           for (var i = data.results.length - 1; i >= 0; i--) {
+            addressSearched = data.results[i].text;
             addMarker(data.results[i]);
           }
         });
@@ -849,10 +855,11 @@
 
           var latitude = e.latlng.lat;
           var longitude = e.latlng.lng;
-          coord = latitude.toFixed(2) + ", " + longitude.toFixed(2);
+          // coord = latitude.toFixed(9) + ", " + longitude.toFixed(9);
 
           //locate the closest town/city within 160 miles
           getForecast(e);
+          coord = latitude.toFixed(2) + ", " + longitude.toFixed(2);
           //create tables onClick
           //reset the variables before loading new data, prevents old data from being displayed if the pie chart loads before the new data refreshes
           mint_norm = null;
@@ -887,18 +894,17 @@
               console.log(error);
               return;
             }
-            // document.getElementById('location-container').innerHTML =
-            //     "<a href= https://forecast.weather.gov/MapClick.php?lat=" +
-            //     latitude.toFixed(2)+"&amp;lon="+ longitude.toFixed(2) +
-            //     " target=_blank title='Link to 7 Day Forecast'>7 Day Forecast for " +
-            //     featureCollection.features[0].properties.PO_NAME + ", "+ featureCollection.features[0].properties.STATE+"</a>";
-            //     region = featureCollection.features[0].properties.STATE;
             marker.bindPopup(function (layer){
               region = featureCollection.features[0].properties.STATE;
-              return L.Util.template(featureCollection.features[0].properties.PO_NAME + ", " + featureCollection.features[0].properties.STATE);
+              if (addressSearched != null){
+                var city = addressSearched;
+                addressSearched = null;
+                return L.Util.template(city);
+              }
+              else {
+                return L.Util.template(featureCollection.features[0].properties.PO_NAME + ", " + featureCollection.features[0].properties.STATE);
+              }
             }).openPopup();
-
-
           })
         }
 
