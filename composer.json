@@ -20,9 +20,8 @@
         }
     ],
     "require": {
-        "composer/installers": "^1.2",
-        "cweagans/composer-patches": "^1.6.5",
-        "drupal-composer/drupal-scaffold": "^2.5",
+        "composer/installers": "^1.7",
+        "cweagans/composer-patches": "^1.7",
         "drupal/a11y_paragraphs_tabs": "^1.8",
         "drupal/admin_toolbar": "^1.26",
         "drupal/backup_migrate": "^4.0",
@@ -30,7 +29,8 @@
         "drupal/components": "^1.1",
         "drupal/config_update": "^1.6",
         "drupal/console": "^1.0.2",
-        "drupal/core": "~8.6.0",
+        "drupal/core-composer-scaffold": "^8.8",
+        "drupal/core-recommended": "^8.8",
         "drupal/easy_breadcrumb": "^1.13",
         "drupal/entity_browser": "^2.1",
         "drupal/entity_usage": "^2.0@beta",
@@ -50,15 +50,15 @@
         "npm-asset/esri-leaflet": "2.3.0",
         "npm-asset/leaflet": "1.5.1",
         "npm-asset/leaflet-plugins": "3.2.0",
-        "oomphinc/composer-installers-extender": "^1.1",
+        "oomphinc/composer-installers-extender": "^2.0",
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3"
     },
     "require-dev": {
+        "drupal/core-dev": "^8.8",
         "drupal/devel": "^2.1",
-        "drupal/module_missing_message_fixer": "^1.1",
-        "webflo/drupal-core-require-dev": "~8.6.0"
+        "drupal/module_missing_message_fixer": "^1.1"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -67,7 +67,7 @@
     "prefer-stable": true,
     "config": {
         "platform": {
-          "php": "7.0.32"
+          "php": "7.3.24"
         },
         "sort-packages": true
     },
@@ -112,9 +112,11 @@
             "drush/Commands/{$name}": ["type:drupal-drush"]
         },
         "drupal-scaffold": {
-            "initial": {
-                ".editorconfig": "../.editorconfig",
-                ".gitattributes": "../.gitattributes"
+            "locations": {
+                "web-root": "web/"
+            },
+            "file-mapping": {
+                "[web-root]/sites/development.services.yml": false
             }
         }
     }
