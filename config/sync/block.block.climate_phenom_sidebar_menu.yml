@@ -22,16 +22,18 @@ settings:
   label_display: '0'
   level: 1
   depth: 0
+  expand_all_items: false
 visibility:
   request_path:
     id: request_path
-    pages: "/climate-phenomena\r\n/climate-phenomena/*"
+    pages: "/climate-phenomena/*\r\n/climate-phenomena/enso\r\n/climate-phenomena/enso/*"
     negate: false
     context_mapping: {  }
   node_type:
     id: node_type
     bundles:
       climate_phenomena: climate_phenomena
+      enso_update: enso_update
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'

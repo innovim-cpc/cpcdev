@@ -1,0 +1,20 @@
+uuid: 911cb491-2358-4424-b535-98da37b62c55
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_email_request
+field_name: field_email_request
+entity_type: node
+type: text
+settings:
+  max_length: 255
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

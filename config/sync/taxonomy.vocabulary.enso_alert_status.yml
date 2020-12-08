@@ -1,0 +1,8 @@
+uuid: 0ca1488a-dbaf-40ef-b158-4de5d51f7519
+langcode: en
+status: true
+dependencies: {  }
+name: 'ENSO Alert Status'
+vid: enso_alert_status
+description: ''
+weight: 0

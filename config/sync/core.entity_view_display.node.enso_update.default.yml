@@ -1,0 +1,74 @@
+uuid: 7fb906b0-b697-4b50-b630-a038343f3096
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.enso_update.body
+    - field.field.node.enso_update.field_date
+    - field.field.node.enso_update.field_email_request
+    - field.field.node.enso_update.field_issued_by
+    - field.field.node.enso_update.field_synopsis
+    - node.type.enso_update
+  module:
+    - datetime
+    - entity_print
+    - text
+    - user
+third_party_settings:
+  entity_print:
+    pdf_label: 'Download PDF'
+id: node.enso_update.default
+targetEntityType: node
+bundle: enso_update
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  entity_print_view_pdf:
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_date:
+    weight: 2
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: day_month_year
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_email_request:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_issued_by:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_synopsis:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_word_docx: true

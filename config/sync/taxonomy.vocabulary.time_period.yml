@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Time Period'
 vid: time_period
 description: ''
-hierarchy: 0
 weight: 0

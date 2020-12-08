@@ -1,0 +1,23 @@
+uuid: 8ef71a0d-0f09-4b96-96fb-cecdf0a88721
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.enso_update
+  module:
+    - text
+id: node.enso_update.body
+field_name: body
+entity_type: node
+bundle: enso_update
+label: 'Discussion Text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

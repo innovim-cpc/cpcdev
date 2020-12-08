@@ -12,5 +12,7 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
+  - 'entity print access bundle climate_glossary_term'
+  - 'entity print access bundle enso_update'
   - 'search content'
   - 'use text format restricted_html'

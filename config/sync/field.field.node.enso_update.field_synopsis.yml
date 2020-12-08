@@ -1,0 +1,21 @@
+uuid: 4dd190ff-8dd6-4f16-a733-8b8c95442ddf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_synopsis
+    - node.type.enso_update
+  module:
+    - text
+id: node.enso_update.field_synopsis
+field_name: field_synopsis
+entity_type: node
+bundle: enso_update
+label: Synopsis
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

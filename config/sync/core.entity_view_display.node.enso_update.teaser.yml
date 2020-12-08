@@ -1,0 +1,41 @@
+uuid: 0f2b630c-962d-4b61-a4d9-653e907855d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.enso_update.body
+    - field.field.node.enso_update.field_date
+    - field.field.node.enso_update.field_email_request
+    - field.field.node.enso_update.field_issued_by
+    - field.field.node.enso_update.field_synopsis
+    - node.type.enso_update
+  module:
+    - text
+    - user
+id: node.enso_update.teaser
+targetEntityType: node
+bundle: enso_update
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_date: true
+  field_email_request: true
+  field_issued_by: true
+  field_synopsis: true

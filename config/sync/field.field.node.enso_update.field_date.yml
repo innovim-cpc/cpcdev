@@ -1,0 +1,21 @@
+uuid: 14e41c8b-8adc-48de-8383-6e17f2a504c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date
+    - node.type.enso_update
+  module:
+    - datetime
+id: node.enso_update.field_date
+field_name: field_date
+entity_type: node
+bundle: enso_update
+label: Date
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime
