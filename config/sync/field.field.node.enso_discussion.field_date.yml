@@ -1,16 +1,16 @@
-uuid: 14e41c8b-8adc-48de-8383-6e17f2a504c9
+uuid: 7b872488-c7d7-4e0a-9f01-b3d4f6d3bdc3
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_date
-    - node.type.enso_update
+    - node.type.enso_discussion
   module:
     - datetime
-id: node.enso_update.field_date
+id: node.enso_discussion.field_date
 field_name: field_date
 entity_type: node
-bundle: enso_update
+bundle: enso_discussion
 label: Date
 description: ''
 required: false

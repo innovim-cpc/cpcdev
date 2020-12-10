@@ -1,16 +1,15 @@
-uuid: 911cb491-2358-4424-b535-98da37b62c55
+uuid: c18878f9-7670-488b-8f67-7ad5065ab5f4
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - text
-id: node.field_email_request
-field_name: field_email_request
+id: node.field_discussion_footer
+field_name: field_discussion_footer
 entity_type: node
-type: text
-settings:
-  max_length: 255
+type: text_long
+settings: {  }
 module: text
 locked: false
 cardinality: 1

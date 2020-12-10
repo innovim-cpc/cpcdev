@@ -1,16 +1,16 @@
-uuid: 4dd190ff-8dd6-4f16-a733-8b8c95442ddf
+uuid: a1dee813-e3c4-4674-a131-db6cb080218d
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_synopsis
-    - node.type.enso_update
+    - node.type.enso_discussion
   module:
     - text
-id: node.enso_update.field_synopsis
+id: node.enso_discussion.field_synopsis
 field_name: field_synopsis
 entity_type: node
-bundle: enso_update
+bundle: enso_discussion
 label: Synopsis
 description: ''
 required: false

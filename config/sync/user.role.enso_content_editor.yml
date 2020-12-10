@@ -1,0 +1,11 @@
+uuid: 7b7e34f6-eeee-4b6b-b9ae-bf59685a91a0
+langcode: en
+status: true
+dependencies: {  }
+id: enso_content_editor
+label: 'ENSO Content Editor'
+weight: 4
+is_admin: null
+permissions:
+  - 'access in-place editing'
+  - 'create enso_discussion content'

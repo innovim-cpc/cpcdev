@@ -1,0 +1,14 @@
+uuid: f149a249-ebcc-4920-bff8-4438c3c752d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.cpc_content_editor
+  module:
+    - user
+id: user_remove_role_action.cpc_content_editor
+label: 'Remove the CPC Content Editor role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: cpc_content_editor

@@ -9,7 +9,6 @@ module:
   big_pipe: 0
   block: 0
   block_content: 0
-  body_node_id_class: 0
   breakpoint: 0
   ckeditor: 0
   ckeditor_accordion: 0
@@ -27,12 +26,14 @@ module:
   entity_print: 0
   entity_print_views: 0
   entity_reference_revisions: 0
+  entity_usage: 0
   environment_indicator: 0
   environment_indicator_ui: 0
   field: 0
   field_ui: 0
   file: 0
   filter: 0
+  filter_tooltips: 0
   geofield: 0
   help: 0
   history: 0
@@ -47,6 +48,8 @@ module:
   node: 0
   options: 0
   page_cache: 0
+  paragraphs_grid: 0
+  paragraphs_type_permissions: 0
   path: 0
   path_alias: 0
   pathauto: 0

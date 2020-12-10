@@ -1,0 +1,24 @@
+uuid: bd6add84-553d-4a67-9420-06a964d0ad28
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_issued_by
+    - node.type.enso_discussion
+  module:
+    - text
+id: node.enso_discussion.field_issued_by
+field_name: field_issued_by
+entity_type: node
+bundle: enso_discussion
+label: 'Issued by'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: "<p>CLIMATE PREDICTION CENTER/NCEP/NWS<br />\r\nand the International Research Institute for Climate and Society</p>\r\n"
+    format: basic_html
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,14 +1,15 @@
-uuid: 7fb906b0-b697-4b50-b630-a038343f3096
+uuid: a2945b20-dbcc-4e64-8050-ee6b69db1c1c
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.enso_update.body
-    - field.field.node.enso_update.field_date
-    - field.field.node.enso_update.field_email_request
-    - field.field.node.enso_update.field_issued_by
-    - field.field.node.enso_update.field_synopsis
-    - node.type.enso_update
+    - field.field.node.enso_discussion.body
+    - field.field.node.enso_discussion.field_date
+    - field.field.node.enso_discussion.field_discussion_footer
+    - field.field.node.enso_discussion.field_enso_alert_status
+    - field.field.node.enso_discussion.field_issued_by
+    - field.field.node.enso_discussion.field_synopsis
+    - node.type.enso_discussion
   module:
     - datetime
     - entity_print
@@ -17,20 +18,20 @@ dependencies:
 third_party_settings:
   entity_print:
     pdf_label: 'Download PDF'
-id: node.enso_update.default
+id: node.enso_discussion.default
 targetEntityType: node
-bundle: enso_update
+bundle: enso_discussion
 mode: default
 content:
   body:
     label: hidden
     type: text_default
-    weight: 4
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     region: content
   entity_print_view_pdf:
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -43,22 +44,30 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_email_request:
-    weight: 5
-    label: hidden
+  field_discussion_footer:
+    weight: 6
+    label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
+  field_enso_alert_status:
+    weight: 3
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_issued_by:
     weight: 1
-    label: hidden
+    label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_synopsis:
-    weight: 3
+    weight: 4
     label: above
     settings: {  }
     third_party_settings: {  }

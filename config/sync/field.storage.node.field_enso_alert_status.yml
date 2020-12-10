@@ -1,17 +1,17 @@
-uuid: 1ff3057b-800b-46e9-a186-da59d71af55d
+uuid: 1e153a6a-da82-4f32-a541-b98080c241ef
 langcode: en
 status: true
 dependencies:
   module:
-    - datetime
     - node
-id: node.field_date
-field_name: field_date
+    - taxonomy
+id: node.field_enso_alert_status
+field_name: field_enso_alert_status
 entity_type: node
-type: datetime
+type: entity_reference
 settings:
-  datetime_type: date
-module: datetime
+  target_type: taxonomy_term
+module: core
 locked: false
 cardinality: 1
 translatable: true
