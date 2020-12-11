@@ -163,8 +163,9 @@ i.e.
 button:not([disabled]):focus, input:not([disabled]):focus, select:not([disabled]):focus, textarea:not([disabled]):focus {
     outline: none !important;
 }
-.usa-layout-docs {
-  font-family: 'publicsans';
+.usa-prose {
+  font-family: 'Public Sans', sans-serif;
+  font-weight: 400;
 }
 .usa-prose > h1 {
   font-size: 2rem;
