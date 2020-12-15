@@ -1,0 +1,22 @@
+uuid: 8d896c50-543b-470c-b743-49a1523a0713
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: climate_phenomena_landing_page
+label: 'Climate Phenomena Landing Page'
+type: 'canonical_entities:node'
+pattern: 'climate-phenomena/[node:title]'
+selection_criteria:
+  f44b87f5-07af-48d3-8e44-5207913364c4:
+    id: node_type
+    bundles:
+      climate_phenomena_landing_page: climate_phenomena_landing_page
+    negate: false
+    context_mapping:
+      node: node
+    uuid: f44b87f5-07af-48d3-8e44-5207913364c4
+selection_logic: and
+weight: -5
+relationships: {  }

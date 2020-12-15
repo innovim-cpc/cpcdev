@@ -1,0 +1,45 @@
+uuid: 8293cc9a-d557-4eb2-a469-6ddaa38c3723
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.enso_discussion.body
+    - field.field.node.enso_discussion.field_about_enso_footnote
+    - field.field.node.enso_discussion.field_date
+    - field.field.node.enso_discussion.field_enso_alert_status
+    - field.field.node.enso_discussion.field_image_links_text
+    - field.field.node.enso_discussion.field_issued_by
+    - field.field.node.enso_discussion.field_synopsis
+    - node.type.enso_discussion
+  module:
+    - text
+    - user
+id: node.enso_discussion.teaser
+targetEntityType: node
+bundle: enso_discussion
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_about_enso_footnote: true
+  field_date: true
+  field_enso_alert_status: true
+  field_image_links_text: true
+  field_issued_by: true
+  field_synopsis: true

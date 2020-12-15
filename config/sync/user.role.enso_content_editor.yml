@@ -1,0 +1,30 @@
+uuid: 7b7e34f6-eeee-4b6b-b9ae-bf59685a91a0
+langcode: en
+status: true
+dependencies: {  }
+id: enso_content_editor
+label: 'ENSO Content Editor'
+weight: 4
+is_admin: null
+permissions:
+  - 'access in-place editing'
+  - 'access media overview'
+  - 'create audio media'
+  - 'create document media'
+  - 'create enso_discussion content'
+  - 'create image media'
+  - 'create media'
+  - 'create remote_video media'
+  - 'create video media'
+  - 'delete media'
+  - 'delete own audio media'
+  - 'delete own document media'
+  - 'delete own image media'
+  - 'delete own remote_video media'
+  - 'delete own video media'
+  - 'edit own audio media'
+  - 'edit own image media'
+  - 'edit own video media'
+  - 'update media'
+  - 'view all media revisions'
+  - 'view own unpublished media'

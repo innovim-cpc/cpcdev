@@ -1,0 +1,32 @@
+uuid: d2c268f7-4d11-483c-a4d8-d44a55ad0d22
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.remote_image.field_media_image_1
+    - image.style.large
+    - media.type.remote_image
+  module:
+    - image
+id: media.remote_image.default
+targetEntityType: media
+bundle: remote_image
+mode: default
+content:
+  field_media_image_1:
+    label: visually_hidden
+    weight: 0
+    settings:
+      image_style: large
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  created: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  name: true
+  thumbnail: true
+  uid: true

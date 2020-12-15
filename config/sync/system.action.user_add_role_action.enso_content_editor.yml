@@ -1,0 +1,14 @@
+uuid: 933db484-fb1c-45fb-8ce9-a2bd86114f9f
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.enso_content_editor
+  module:
+    - user
+id: user_add_role_action.enso_content_editor
+label: 'Add the ENSO Content Editor role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: enso_content_editor

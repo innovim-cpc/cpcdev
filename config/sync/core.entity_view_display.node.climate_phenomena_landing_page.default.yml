@@ -1,0 +1,41 @@
+uuid: e27035c7-8563-450d-83bc-55b445dd2293
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.climate_phenomena_landing_page.body
+    - field.field.node.climate_phenomena_landing_page.field_image
+    - node.type.climate_phenomena_landing_page
+  module:
+    - image
+    - text
+    - user
+id: node.climate_phenomena_landing_page.default
+targetEntityType: node
+bundle: climate_phenomena_landing_page
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_image:
+    weight: 102
+    label: hidden
+    settings:
+      image_style: ''
+    third_party_settings: {  }
+    type: image_url
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

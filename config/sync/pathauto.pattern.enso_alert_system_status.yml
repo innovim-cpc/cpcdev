@@ -1,0 +1,23 @@
+uuid: 49c4d431-e102-42bf-af3a-cf4d32a463ab
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: enso_alert_system_status
+label: 'ENSO Alert System Status'
+type: 'canonical_entities:taxonomy_term'
+pattern: 'enso-alert-status/[term:name]'
+selection_criteria:
+  3e856096-1029-48ea-8e08-eb3d43e535d1:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      enso_alert_status: enso_alert_status
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: 3e856096-1029-48ea-8e08-eb3d43e535d1
+selection_logic: and
+weight: -5
+relationships: {  }

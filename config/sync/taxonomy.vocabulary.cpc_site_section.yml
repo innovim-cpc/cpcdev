@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'CPC Site Section'
 vid: cpc_site_section
 description: ''
-hierarchy: 0
 weight: 0

@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Outlooks Type'
 vid: outlooks_type
 description: ''
-hierarchy: 0
 weight: 0

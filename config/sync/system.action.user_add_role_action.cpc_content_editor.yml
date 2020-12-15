@@ -1,0 +1,14 @@
+uuid: 1f91b026-7a5f-477d-bb17-a5549fb3b157
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.cpc_content_editor
+  module:
+    - user
+id: user_add_role_action.cpc_content_editor
+label: 'Add the CPC Content Editor role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: cpc_content_editor

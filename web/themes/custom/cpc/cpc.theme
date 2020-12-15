@@ -11,16 +11,14 @@ function cpc_theme_suggestions_alter(array &$suggestions, array $variables, $hoo
   //var_dump($suggestions);
 }
 
- /**
- * Implements hook_theme().
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * Create template suggestions by content type
  */
-/*function cpc_theme($existing, $type, $theme, $path) {
-  return [
-    'government_banner' => [
-      'path' => $path . '/templates/uswds',
-      'variables' => [
-        'image_base' => [],
-      ],
-    ],
-  ];
-}*/
+function cpc_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $content_type = $node->bundle();
+    $suggestions[] = 'page__'.$content_type;
+  }
+}

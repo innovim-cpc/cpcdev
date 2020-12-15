@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - editor
+    - filter_tooltips
 _core:
   default_config_hash: hewPmBgni9jlDK_IjLxUx1HsTbinK-hdl0lOwjbteIY
 name: 'Full HTML'
@@ -43,3 +44,15 @@ filters:
       allowed_html: '<a href hreflang> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <s> <sup> <sub> <img src alt data-entity-type data-entity-uuid data-align data-caption> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <hr> <p> <h1> <pre>'
       filter_html_help: true
       filter_html_nofollow: false
+  filter_tooltips:
+    id: filter_tooltips
+    provider: filter_tooltips
+    status: true
+    weight: -10
+    settings:
+      filter_tooltips_vocabulary: enso_alert_status
+      filter_tooltips_clear_cache: '1'
+      filter_tooltips_automatically: '1'
+      filter_tooltips_occurrence_limit: '-1'
+      filter_tooltips_exclude_tags: ''
+      filter_tooltips_trigger_event: mouseover

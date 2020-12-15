@@ -1,0 +1,14 @@
+uuid: eeccc426-26f8-4387-9ec0-9c2434a026ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.enso_content_editor
+  module:
+    - user
+id: user_remove_role_action.enso_content_editor
+label: 'Remove the ENSO Content Editor role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: enso_content_editor
