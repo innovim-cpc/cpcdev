@@ -1,0 +1,38 @@
+uuid: d29f0c80-1a89-43b9-a53d-1bc5f4dd10f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image
+    - node.type.climate_phenomena_landing_page
+  module:
+    - image
+id: node.climate_phenomena_landing_page.field_image
+field_name: field_image
+entity_type: node
+bundle: climate_phenomena_landing_page
+label: 'Hero Image'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: images/climate-phenomena
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

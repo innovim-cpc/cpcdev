@@ -1,24 +1,17 @@
 /*
-* * * * * ==============================
-* * * * * ==============================
-* * * * * ==============================
-* * * * * ==============================
-========================================
-========================================
-========================================
 ----------------------------------------
 USWDS THEME CUSTOM STYLES
-----------------------------------------
-!! Copy this file to your project's
-   sass root. Don't edit the version
-   in node_modules.
-----------------------------------------
-Custom project SASS goes here.
 
 i.e.
 @include u-padding-right('05');
 ----------------------------------------
 */
+@font-face {
+  font-family: 'publicsans';
+  src: url('../fonts/public-sans/PublicSans-Regular.ttf');
+  src: url('../fonts/public-sans/PublicSans-Regular.woff');
+}
+
 .usa-footer__return-to-top {
   a {
     color: color('primary-vivid');
@@ -67,12 +60,6 @@ i.e.
   }
   .usa-nav__submenu {
     z-index: 9999 !important;
-  }
-  .usa-layout-docs__sidenav {
-    width: 25%;
-  }
-  .usa-layout-docs__main {
-    width: 75%;
   }
 }
 
@@ -170,12 +157,7 @@ i.e.
 button:not([disabled]):focus, input:not([disabled]):focus, select:not([disabled]):focus, textarea:not([disabled]):focus {
     outline: none !important;
 }
-.usa-layout-docs {
-  font-family: family('body');
-}
-.usa-prose > h1 {
-  font-size: 2rem;
-}
+
 .node--type-outlooks img {
   width: 100%;
   height: auto;
@@ -311,7 +293,7 @@ button:not([disabled]):focus, input:not([disabled]):focus, select:not([disabled]
 @media (min-width: 40em) {
   #main-content {
     &.usa-layout-docs.usa-section {
-      padding-top: 2rem;
+      padding-top: 2.5rem;
     }
   }
 }
@@ -331,4 +313,103 @@ button:not([disabled]):focus, input:not([disabled]):focus, select:not([disabled]
   .usa-header--extended .usa-nav__inner {
     max-width: 80rem;
   }
+}
+
+.usa-prose {
+  font-family: 'Public Sans', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+.usa-prose > h1 {
+  font-family: 'Merriweather', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+#block-cpc-breadcrumbs { margin-top: 1.6rem; }
+
+.usa-prose .field__label {
+  font-weight: bold;
+}
+.usa-prose .field__item p {
+  margin-top:0;
+}
+.usa-prose .field--label-inline .field__label {
+  float: left; /* LTR */
+}
+.usa-prose .field--label-inline .field__items {
+  float: right; /* LTR */
+}
+.usa-prose .field--label-inline .field__label,
+.usa-prose .usa-prose .field--label-inline > .field__item,
+.usa-prose .field--label-inline .field__items {
+  padding-right: 0.5em;
+}
+.page-node-type-enso-discussion .field--name-field-issued-by {
+  padding-top: 0;
+}
+.page-node-type-enso-discussion .field--name-field-date,
+.page-node-type-enso-discussion .field--name-field-issued-by {
+  color: color('base');
+  font-size: .85rem;
+}
+.page-node-type-enso-discussion .field--name-field-issued-by .field__label::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-size: .8rem;
+  content: "\f4ff";
+  margin-right: .3rem;
+  padding-left: .25rem;
+  /*position: absolute;
+  right: 1.3rem;*/
+}
+.page-node-type-enso-discussion .field--name-field-issued-by .field__label {
+  font-weight: normal;
+  margin-bottom: 1.25rem;
+  padding-right: .25rem;
+}
+.page-node-type-enso-discussion .field--name-field-issued-by .field__item p {
+  display: inline;
+}
+.page-node-type-enso-discussion .field--name-field-date {
+  margin-top: -.5rem;
+  padding-bottom: 0;
+}
+.page-node-type-enso-discussion .field--name-field-date::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-size: .8rem;
+  content: "\f073";
+  margin-right: .3rem;
+  padding-left: .25rem;
+  /*position: absolute;
+  right: 1.3rem;*/
+}
+.page-node-type-enso-discussion .field--name-field-enso-alert-status.usa-alert {
+  margin-top: 0;
+}
+.page-node-type-enso-discussion .field--name-field-enso-alert-status .field__label {
+
+}
+.page-node-type-enso-discussion .field--name-field-synopsis {
+  border-bottom: 1px solid #dadada;
+  margin-bottom: 1.5rem;
+  padding-top: 1.5rem;
+}
+.page-node-type-enso-discussion .field--name-field-synopsis .field__label {
+  font-size: 1.5rem;
+}
+.page-node-type-enso-discussion .field--name-field-synopsis .field__item p {
+  font-size: 1.5rem;
+  font-weight: 200;
+  margin-top: 0;
 }

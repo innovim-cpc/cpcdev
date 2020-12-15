@@ -1,0 +1,59 @@
+uuid: 68674b60-aedb-42fd-9f8d-444cf36006eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.remote_image.field_media_image_1
+    - media.type.remote_image
+  module:
+    - path
+    - remote_stream_wrapper_widget
+id: media.remote_image.default
+targetEntityType: media
+bundle: remote_image
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_media_image_1:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: remote_stream_wrapper
+    region: content
+  name:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 100
+    region: content
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

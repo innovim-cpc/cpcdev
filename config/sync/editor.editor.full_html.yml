@@ -54,6 +54,7 @@ settings:
           items:
             - ShowBlocks
             - Source
+            - filter_tooltips
   plugins:
     stylescombo:
       styles: ''

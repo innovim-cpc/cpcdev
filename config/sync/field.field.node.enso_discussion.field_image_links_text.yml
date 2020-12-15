@@ -1,0 +1,21 @@
+uuid: 613978bf-bbdf-485f-8a42-075ef64597e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image_links_text
+    - node.type.enso_discussion
+  module:
+    - text
+id: node.enso_discussion.field_image_links_text
+field_name: field_image_links_text
+entity_type: node
+bundle: enso_discussion
+label: Images
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

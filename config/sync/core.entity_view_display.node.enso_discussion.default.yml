@@ -1,0 +1,91 @@
+uuid: a2945b20-dbcc-4e64-8050-ee6b69db1c1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.enso_discussion.body
+    - field.field.node.enso_discussion.field_about_enso_footnote
+    - field.field.node.enso_discussion.field_date
+    - field.field.node.enso_discussion.field_enso_alert_status
+    - field.field.node.enso_discussion.field_image_links_text
+    - field.field.node.enso_discussion.field_issued_by
+    - field.field.node.enso_discussion.field_synopsis
+    - node.type.enso_discussion
+  module:
+    - datetime
+    - entity_print
+    - text
+    - user
+third_party_settings:
+  entity_print:
+    pdf_label: 'Download PDF'
+id: node.enso_discussion.default
+targetEntityType: node
+bundle: enso_discussion
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  entity_print_view_pdf:
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_about_enso_footnote:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_date:
+    weight: 1
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: day_month_year
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_enso_alert_status:
+    weight: 3
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_image_links_text:
+    weight: 10
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_issued_by:
+    weight: 2
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_synopsis:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_word_docx: true

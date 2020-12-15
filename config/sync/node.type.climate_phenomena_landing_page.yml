@@ -1,0 +1,17 @@
+uuid: 36b3f2cb-e9c8-4fc7-b2bc-95332e146d73
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Climate Phenomena Landing Page'
+type: climate_phenomena_landing_page
+description: 'Template for the landing page of each section of Climate Phenomena.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

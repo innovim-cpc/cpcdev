@@ -1,0 +1,21 @@
+uuid: a1dee813-e3c4-4674-a131-db6cb080218d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_synopsis
+    - node.type.enso_discussion
+  module:
+    - text
+id: node.enso_discussion.field_synopsis
+field_name: field_synopsis
+entity_type: node
+bundle: enso_discussion
+label: Synopsis
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
