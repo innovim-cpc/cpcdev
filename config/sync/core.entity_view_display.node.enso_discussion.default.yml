@@ -4,9 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.enso_discussion.body
+    - field.field.node.enso_discussion.field_about_enso_footnote
     - field.field.node.enso_discussion.field_date
-    - field.field.node.enso_discussion.field_discussion_footer
     - field.field.node.enso_discussion.field_enso_alert_status
+    - field.field.node.enso_discussion.field_image_links_text
     - field.field.node.enso_discussion.field_issued_by
     - field.field.node.enso_discussion.field_synopsis
     - node.type.enso_discussion
@@ -35,21 +36,21 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_about_enso_footnote:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
   field_date:
-    weight: 2
+    weight: 1
     label: hidden
     settings:
       timezone_override: ''
       format_type: day_month_year
     third_party_settings: {  }
     type: datetime_default
-    region: content
-  field_discussion_footer:
-    weight: 6
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
     region: content
   field_enso_alert_status:
     weight: 3
@@ -59,9 +60,16 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_issued_by:
-    weight: 1
+  field_image_links_text:
+    weight: 10
     label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_issued_by:
+    weight: 2
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: text_default

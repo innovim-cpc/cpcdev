@@ -1,0 +1,23 @@
+uuid: d8fd61b1-bd17-4d21-9442-d8bc71ef24e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.climate_phenomena_landing_page
+  module:
+    - text
+id: node.climate_phenomena_landing_page.body
+field_name: body
+entity_type: node
+bundle: climate_phenomena_landing_page
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

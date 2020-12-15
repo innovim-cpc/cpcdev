@@ -1,12 +1,12 @@
-uuid: c18878f9-7670-488b-8f67-7ad5065ab5f4
+uuid: a78632d3-7d58-439c-83de-6aca8da73a14
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - text
-id: node.field_discussion_footer
-field_name: field_discussion_footer
+id: node.field_about_enso_footnote
+field_name: field_about_enso_footnote
 entity_type: node
 type: text_long
 settings: {  }

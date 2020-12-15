@@ -1,0 +1,24 @@
+uuid: 23cdff1c-658e-4d79-a338-f3636adc3a55
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_about_enso_footnote
+    - node.type.enso_discussion
+  module:
+    - text
+id: node.enso_discussion.field_about_enso_footnote
+field_name: field_about_enso_footnote
+entity_type: node
+bundle: enso_discussion
+label: 'About the ENSO Discussion'
+description: 'The footnote at the end of the ENSO discussion, including information on how to join the mailing list. You may edit the date of the next ENSO Discussion release.'
+required: false
+translatable: false
+default_value:
+  -
+    value: "<p>This discussion is a consolidated effort of the National Oceanic and Atmospheric Administration (NOAA), NOAA's National Weather Service, and their funded institutions. Oceanic and atmospheric conditions are updated weekly on the Climate Prediction Center web site (<a href=\"http://www.cpc.ncep.noaa.gov/products/precip/CWlink/MJO/enso.shtml\" title=\"Weekly ENSO Update page\">El Niño/La Niña Current Conditions and Expert Discussions</a>). Additional perspectives and analysis are also available in an&nbsp;<a href=\"http://www.climate.gov/news-features/blogs/enso/\">ENSO blog</a>. A probabilistic strength forecast is&nbsp;<a href=\"https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/strengths/index.php\">available here</a>. The next ENSO Diagnostics Discussion is scheduled for 14 January 2021.<br />\r\n<br />\r\nTo receive an e-mail notification when the monthly ENSO Diagnostic Discussions are released, please send an e-mail message to:&nbsp;<a href=\"mailto:ncep.list.enso-update@noaa.gov\">ncep.list.enso-update@noaa.gov</a>.</p>\r\n"
+    format: basic_html
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -5,7 +5,6 @@ dependencies:
   config:
     - system.menu.climate-phenom-sidebar-menu
   module:
-    - node
     - system
   theme:
     - cpc
@@ -29,11 +28,3 @@ visibility:
     pages: "/climate-phenomena/*\r\n/climate-phenomena/enso\r\n/climate-phenomena/enso/*"
     negate: false
     context_mapping: {  }
-  node_type:
-    id: node_type
-    bundles:
-      climate_phenomena: climate_phenomena
-      enso_update: enso_update
-    negate: false
-    context_mapping:
-      node: '@node.node_route_context:node'

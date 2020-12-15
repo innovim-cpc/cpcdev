@@ -1,5 +1,6 @@
 module:
   a11y_paragraphs_tabs: 0
+  actions_permissions: 0
   admin_toolbar: 0
   admin_toolbar_links_access_filter: 0
   admin_toolbar_search: 0
@@ -13,16 +14,27 @@ module:
   ckeditor: 0
   ckeditor_accordion: 0
   color: 0
+  colorbox: 0
+  colorbox_field_formatter: 0
+  colorbox_inline: 0
   comment: 0
   config: 0
+  config_update: 0
+  config_update_ui: 0
   contact: 0
   contextual: 0
   ctools: 0
+  ctools_block: 0
+  ctools_views: 0
   datetime: 0
+  datetime_range: 0
   dblog: 0
+  devel: 0
+  devel_entity_updates: 0
   dynamic_page_cache: 0
   easy_breadcrumb: 0
   editor: 0
+  entity_browser: 0
   entity_print: 0
   entity_print_views: 0
   entity_reference_revisions: 0
@@ -38,11 +50,18 @@ module:
   help: 0
   history: 0
   image: 0
+  image_popup: 0
+  image_url_formatter: 0
+  insert: 0
+  insert_colorbox: 0
   interactive_outlooks: 0
+  kint: 0
   leaflet: 0
   leaflet_markercluster: 0
   leaflet_views: 0
   link: 0
+  media: 0
+  media_library: 0
   menu_ui: 0
   module_filter: 0
   node: 0
@@ -55,6 +74,8 @@ module:
   pathauto: 0
   quickedit: 0
   rdf: 0
+  remote_stream_wrapper: 0
+  remote_stream_wrapper_widget: 0
   responsive_image: 0
   search: 0
   shortcut: 0
@@ -64,12 +85,14 @@ module:
   text: 0
   token: 0
   toolbar: 0
-  tooltip_taxonomy: 0
   tour: 0
   twig_field_value: 0
   twig_tweak: 0
+  twig_vardumper: 0
   update: 0
   user: 0
+  viewfield: 0
+  views_bulk_operations: 0
   views_ui: 0
   menu_link_content: 1
   views: 10
@@ -81,6 +104,7 @@ theme:
   seven: 0
   cpc: 0
   uswds_base: 0
+  claro: 0
 profile: standard
 _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc

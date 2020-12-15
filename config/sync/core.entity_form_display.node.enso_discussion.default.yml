@@ -4,9 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.enso_discussion.body
+    - field.field.node.enso_discussion.field_about_enso_footnote
     - field.field.node.enso_discussion.field_date
-    - field.field.node.enso_discussion.field_discussion_footer
     - field.field.node.enso_discussion.field_enso_alert_status
+    - field.field.node.enso_discussion.field_image_links_text
     - field.field.node.enso_discussion.field_issued_by
     - field.field.node.enso_discussion.field_synopsis
     - node.type.enso_discussion
@@ -35,34 +36,38 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_date:
-    weight: 8
-    settings: {  }
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
-  field_discussion_footer:
-    weight: 13
+  field_about_enso_footnote:
+    weight: 26
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
     region: content
+  field_date:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   field_enso_alert_status:
     weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_image_links_text:
+    weight: 29
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: text_textarea
     region: content
   field_issued_by:
     weight: 7
     settings:
-      rows: 5
+      rows: 3
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
