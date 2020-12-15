@@ -61,12 +61,6 @@ i.e.
   .usa-nav__submenu {
     z-index: 9999 !important;
   }
-  .usa-layout-docs__sidenav {
-    width: 25%;
-  }
-  .usa-layout-docs__main {
-    width: 75%;
-  }
 }
 
 .usa-footer__contact-heading {
@@ -163,13 +157,7 @@ i.e.
 button:not([disabled]):focus, input:not([disabled]):focus, select:not([disabled]):focus, textarea:not([disabled]):focus {
     outline: none !important;
 }
-.usa-prose {
-  font-family: 'Public Sans', sans-serif;
-  font-weight: 400;
-}
-.usa-prose > h1 {
-  font-size: 2rem;
-}
+
 .node--type-outlooks img {
   width: 100%;
   height: auto;
@@ -305,7 +293,7 @@ button:not([disabled]):focus, input:not([disabled]):focus, select:not([disabled]
 @media (min-width: 40em) {
   #main-content {
     &.usa-layout-docs.usa-section {
-      padding-top: 2rem;
+      padding-top: 2.5rem;
     }
   }
 }
@@ -326,34 +314,102 @@ button:not([disabled]):focus, input:not([disabled]):focus, select:not([disabled]
     max-width: 80rem;
   }
 }
-body.page-node-178.page-node-type-enso_update article p {
+
+.usa-prose {
+  font-family: 'Public Sans', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.7;
 }
-body.page-node-178.page-node-type-enso_update article p a img {
-  height: auto !important;
-  width: 500px !important;
-  margin: 0 auto;
-}
-/*body.page-node-178.page-node-type-enso_update article p a[href$=".gif"],
-body.page-node-178.page-node-type-enso_update article p a[href$=".png"],
-body.page-node-178.page-node-type-enso_update article p a[href$=".jpg"] {
-  text-align: center;
-}*/
 .usa-prose > h1 {
-  font-family: Source Sans Pro Web,
-  Helvetica Neue,
-  Helvetica,
-  Roboto,
-  Arial,
-  sans-serif;
+  font-family: 'Merriweather', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
   font-size: 1.8rem;
+  font-weight: 400;
 }
 
-#block-cpc-breadcrumbs { margin-top: 1.2rem; }
+#block-cpc-breadcrumbs { margin-top: 1.6rem; }
 
-.field--name-field-synopsis .field__label {
+.usa-prose .field__label {
   font-weight: bold;
-  margin-top: 1rem;
 }
-.field--name-field-synopsis .field__item p {
+.usa-prose .field__item p {
+  margin-top:0;
+}
+.usa-prose .field--label-inline .field__label {
+  float: left; /* LTR */
+}
+.usa-prose .field--label-inline .field__items {
+  float: right; /* LTR */
+}
+.usa-prose .field--label-inline .field__label,
+.usa-prose .usa-prose .field--label-inline > .field__item,
+.usa-prose .field--label-inline .field__items {
+  padding-right: 0.5em;
+}
+.page-node-type-enso-discussion .field--name-field-issued-by {
+  padding-top: 0;
+}
+.page-node-type-enso-discussion .field--name-field-date,
+.page-node-type-enso-discussion .field--name-field-issued-by {
+  color: color('base');
+  font-size: .85rem;
+}
+.page-node-type-enso-discussion .field--name-field-issued-by .field__label::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-size: .8rem;
+  content: "\f4ff";
+  margin-right: .3rem;
+  padding-left: .25rem;
+  /*position: absolute;
+  right: 1.3rem;*/
+}
+.page-node-type-enso-discussion .field--name-field-issued-by .field__label {
+  font-weight: normal;
+  margin-bottom: 1.25rem;
+  padding-right: .25rem;
+}
+.page-node-type-enso-discussion .field--name-field-issued-by .field__item p {
+  display: inline;
+}
+.page-node-type-enso-discussion .field--name-field-date {
+  margin-top: -.5rem;
+  padding-bottom: 0;
+}
+.page-node-type-enso-discussion .field--name-field-date::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-size: .8rem;
+  content: "\f073";
+  margin-right: .3rem;
+  padding-left: .25rem;
+  /*position: absolute;
+  right: 1.3rem;*/
+}
+.page-node-type-enso-discussion .field--name-field-enso-alert-status.usa-alert {
+  margin-top: 0;
+}
+.page-node-type-enso-discussion .field--name-field-enso-alert-status .field__label {
+
+}
+.page-node-type-enso-discussion .field--name-field-synopsis {
+  border-bottom: 1px solid #dadada;
+  margin-bottom: 1.5rem;
+  padding-top: 1.5rem;
+}
+.page-node-type-enso-discussion .field--name-field-synopsis .field__label {
+  font-size: 1.5rem;
+}
+.page-node-type-enso-discussion .field--name-field-synopsis .field__item p {
+  font-size: 1.5rem;
+  font-weight: 200;
   margin-top: 0;
 }
