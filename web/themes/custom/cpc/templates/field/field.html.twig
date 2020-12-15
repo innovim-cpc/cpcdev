@@ -49,24 +49,24 @@
 {%
   set title_classes = [
     'field__label',
-    label_display == 'visually_hidden' ? 'visually-hidden',
+    label_display == 'visually_hidden' ? 'usa-sr-only',
   ]
 %}
 
 {% if label_hidden %}
   {% if multiple %}
-    <div{{ attributes.addClass(classes, 'field__items') }}>
+    <div{{ attributes.addClass(classes, 'field__items', 'padding-y-1') }}>
       {% for item in items %}
-        <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
+        <div{{ item.attributes.addClass('field__item', 'padding-y-1') }}>{{ item.content }}</div>
       {% endfor %}
     </div>
   {% else %}
     {% for item in items %}
-      <div{{ attributes.addClass(classes, 'field__item') }}>{{ item.content }}</div>
+      <div{{ attributes.addClass(classes, 'field__item', 'padding-y-1') }}>{{ item.content }}</div>
     {% endfor %}
   {% endif %}
 {% else %}
-  <div{{ attributes.addClass(classes) }}>
+  <div{{ attributes.addClass(classes, 'padding-y-1') }}>
     <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
     {% if multiple %}
       <div class="field__items">
