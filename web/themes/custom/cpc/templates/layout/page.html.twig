@@ -342,14 +342,14 @@
       {% endif %}
 
       {% if page.sidebar_second %}
-       <div class="usa-layout-docs__main desktop:col-6 usa-prose region-content {{ content_class }}">
+       <div class="usa-layout-docs__main desktop:grid-col-6 usa-prose region-content {{ content_class }}">
          {{ page.content }}
        </div>
        <aside class="desktop:grid-col-3">
          {{ page.sidebar_second }}
        </aside>
       {% else %}
-        <div class="usa-layout-docs__main desktop:col-9 usa-prose region-content {{ content_class }}">
+        <div class="usa-layout-docs__main desktop:grid-col-9 usa-prose region-content {{ content_class }}">
           {{ page.content }}
         </div>
       {% endif %}
