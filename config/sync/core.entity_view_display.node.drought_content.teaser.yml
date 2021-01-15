@@ -1,0 +1,43 @@
+uuid: 342cfe1d-18ff-4385-bfec-ab6240fd6821
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.drought_content.body
+    - field.field.node.drought_content.field_cpc_site_section
+    - field.field.node.drought_content.field_discussion_link
+    - field.field.node.drought_content.field_forecaster_name
+    - field.field.node.drought_content.field_map_image
+    - field.field.node.drought_content.field_tags
+    - node.type.drought_content
+  module:
+    - text
+    - user
+id: node.drought_content.teaser
+targetEntityType: node
+bundle: drought_content
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_cpc_site_section: true
+  field_discussion_link: true
+  field_forecaster_name: true
+  field_map_image: true
+  field_tags: true

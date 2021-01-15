@@ -1,0 +1,23 @@
+uuid: a1384196-19e2-4d42-a205-bd1c24f5ecfd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_product_title
+    - paragraphs.paragraphs_type.landing_page_product
+  module:
+    - link
+id: paragraph.landing_page_product.field_product_title
+field_name: field_product_title
+entity_type: paragraph
+bundle: landing_page_product
+label: 'Product Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

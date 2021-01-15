@@ -1,0 +1,22 @@
+uuid: 727e2b6b-cd7a-4f06-b949-529bc4d7fb96
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: enso_content
+label: 'ENSO Content'
+type: 'canonical_entities:node'
+pattern: 'climate-phenomena/enso/[node:title]'
+selection_criteria:
+  a7b5b0f4-7c1a-4825-b3e9-0d0d8f9d915f:
+    id: node_type
+    bundles:
+      enso_content: enso_content
+    negate: false
+    context_mapping:
+      node: node
+    uuid: a7b5b0f4-7c1a-4825-b3e9-0d0d8f9d915f
+selection_logic: and
+weight: -5
+relationships: {  }

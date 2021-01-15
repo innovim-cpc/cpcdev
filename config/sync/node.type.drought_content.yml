@@ -1,0 +1,17 @@
+uuid: 6853d0cb-3f2d-4aba-8477-a7248184ea2a
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Drought Content'
+type: drought_content
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

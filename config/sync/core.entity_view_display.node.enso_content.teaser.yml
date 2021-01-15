@@ -1,0 +1,33 @@
+uuid: b2d57225-97a6-4b71-8131-f58e5bd34986
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.enso_content.body
+    - node.type.enso_content
+  module:
+    - text
+    - user
+id: node.enso_content.teaser
+targetEntityType: node
+bundle: enso_content
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

@@ -1,0 +1,29 @@
+uuid: d8fd9169-e3e3-411b-b32d-8f3d2d916e9f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_forecaster_name
+    - node.type.drought_content
+    - taxonomy.vocabulary.forecasters
+id: node.drought_content.field_forecaster_name
+field_name: field_forecaster_name
+entity_type: node
+bundle: drought_content
+label: Forecaster
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      forecasters: forecasters
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
