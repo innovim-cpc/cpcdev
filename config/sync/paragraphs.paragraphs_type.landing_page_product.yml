@@ -1,0 +1,10 @@
+uuid: 4261cf0b-559d-4cfd-98a1-819ec83fcdc4
+langcode: en
+status: true
+dependencies: {  }
+id: landing_page_product
+label: 'Landing Page Product'
+icon_uuid: null
+icon_default: null
+description: 'Use to add products to each section''s landing page.'
+behavior_plugins: {  }

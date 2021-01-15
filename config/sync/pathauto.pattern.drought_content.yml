@@ -1,0 +1,22 @@
+uuid: 3fd8205d-0d0c-465e-bc68-051be2ab8442
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: drought_content
+label: 'Drought Content'
+type: 'canonical_entities:node'
+pattern: 'climate-phenomena/drought/[node:title]'
+selection_criteria:
+  ebdb8530-bab4-458c-a7f4-efd9b361f3cb:
+    id: node_type
+    bundles:
+      drought_content: drought_content
+    negate: false
+    context_mapping:
+      node: node
+    uuid: ebdb8530-bab4-458c-a7f4-efd9b361f3cb
+selection_logic: and
+weight: -5
+relationships: {  }

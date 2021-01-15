@@ -1,0 +1,29 @@
+uuid: 365dc047-4559-4187-9913-7a7f2390721a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cpc_site_section
+    - node.type.landing_page
+    - taxonomy.vocabulary.cpc_site_section
+id: node.landing_page.field_cpc_site_section
+field_name: field_cpc_site_section
+entity_type: node
+bundle: landing_page
+label: 'CPC Site Section'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      cpc_site_section: cpc_site_section
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
