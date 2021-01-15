@@ -329,6 +329,17 @@ button:not([disabled]):focus, input:not([disabled]):focus, select:not([disabled]
 
 #block-cpc-breadcrumbs { margin-top: 1.6rem; }
 
+.usa-prose .grid-row {
+  margin-bottom: 2rem;
+  .grid-col {
+    margin-right: 1rem;
+  }
+}
+
+.usa-prose img {
+  border: 1px solid #ccc;
+}
+
 .usa-prose .field__label {
   font-weight: bold;
 }
@@ -338,8 +349,8 @@ button:not([disabled]):focus, input:not([disabled]):focus, select:not([disabled]
 .usa-prose .field--label-inline .field__label {
   float: left; /* LTR */
 }
-.usa-prose .field--label-inline .field__items {
-  float: right; /* LTR */
+.usa-prose .field--label-inline .field__label::after {
+  content: ':';
 }
 .usa-prose .field--label-inline .field__label,
 .usa-prose .usa-prose .field--label-inline > .field__item,
