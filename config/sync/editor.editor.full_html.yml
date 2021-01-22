@@ -25,6 +25,7 @@ settings:
             - '-'
             - RemoveFormat
             - Accordion
+            - HorizontalRule
             - SpecialChar
             - '-'
             - Styles
@@ -44,7 +45,7 @@ settings:
             - Blockquote
             - DrupalImage
             - Table
-            - HorizontalRule
+            - ImagePopup
         -
           name: 'Block Formatting'
           items:

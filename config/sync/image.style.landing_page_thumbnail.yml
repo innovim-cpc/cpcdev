@@ -1,0 +1,15 @@
+uuid: bdfb6354-d85a-43ae-9459-d85683f717d5
+langcode: en
+status: true
+dependencies: {  }
+name: landing_page_thumbnail
+label: 'Landing Page Thumbnail'
+effects:
+  37be7df0-c8bf-45be-a1a8-3e176074731f:
+    uuid: 37be7df0-c8bf-45be-a1a8-3e176074731f
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 640
+      height: 480
+      anchor: center-center

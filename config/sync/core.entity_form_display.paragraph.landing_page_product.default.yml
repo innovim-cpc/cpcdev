@@ -1,0 +1,70 @@
+uuid: aca45881-4487-43b6-8f34-40cce1dc038e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.landing_page_product.field_product_image
+    - field.field.paragraph.landing_page_product.field_product_title
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.landing_page_product
+  module:
+    - image
+    - insert
+    - link
+id: paragraph.landing_page_product.default
+targetEntityType: paragraph
+bundle: landing_page_product
+mode: default
+content:
+  field_product_image:
+    weight: 1
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings:
+      insert:
+        styles:
+          link: link
+          image: image
+          landing_page_thumbnail: landing_page_thumbnail
+          insert__auto: 0
+          icon_link: 0
+          audio: 0
+          video: 0
+          colorbox__landing_page_thumbnail: 0
+          colorbox__large: 0
+          colorbox__max_1300x1300: 0
+          colorbox__max_2600x2600: 0
+          colorbox__max_325x325: 0
+          colorbox__max_650x650: 0
+          colorbox__media_library: 0
+          colorbox__medium: 0
+          colorbox__thumbnail: 0
+          large: 0
+          max_1300x1300: 0
+          max_2600x2600: 0
+          max_325x325: 0
+          max_650x650: 0
+          media_library: 0
+          medium: 0
+          thumbnail: 0
+        default: insert__auto
+        auto_image_style: image
+        link_image: ''
+        width: ''
+        caption: 0
+        align: 0
+        rotate: 0
+    type: image_image
+    region: content
+  field_product_title:
+    weight: 0
+    settings:
+      placeholder_url: 'Link to product page...'
+      placeholder_title: 'Product name...'
+    third_party_settings: {  }
+    type: link_default
+    region: content
+hidden:
+  created: true
+  status: true

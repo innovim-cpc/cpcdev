@@ -1,6 +1,9 @@
-text_formats: {  }
+text_formats:
+  - basic_html
+  - restricted_html
+  - full_html
 absolute: false
-file_field_images_enabled: false
+file_field_images_enabled: true
 widgets:
   file:
     - file_generic

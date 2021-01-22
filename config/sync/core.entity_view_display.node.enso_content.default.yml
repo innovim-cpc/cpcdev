@@ -1,0 +1,27 @@
+uuid: e348d8b0-b2fb-417e-8eaa-15f0f489bec0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.enso_content.body
+    - node.type.enso_content
+  module:
+    - text
+    - user
+id: node.enso_content.default
+targetEntityType: node
+bundle: enso_content
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  links: true

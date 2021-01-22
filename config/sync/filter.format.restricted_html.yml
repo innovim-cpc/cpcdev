@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - filter_tooltips
+    - media
 _core:
   default_config_hash: KUjJ8Ti_ZJSlhGM88E_mhJP-8mmQRNUB6RFof615Kt0
 name: 'Restricted HTML'
@@ -44,3 +45,12 @@ filters:
       filter_tooltips_occurrence_limit: '-1'
       filter_tooltips_exclude_tags: ''
       filter_tooltips_trigger_event: click
+  media_embed:
+    id: media_embed
+    provider: media
+    status: false
+    weight: 100
+    settings:
+      default_view_mode: default
+      allowed_media_types: {  }
+      allowed_view_modes: {  }

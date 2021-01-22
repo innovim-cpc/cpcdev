@@ -17,8 +17,12 @@ settings:
         -
           name: Formatting
           items:
+            - Undo
+            - Redo
             - Bold
             - Italic
+            - Superscript
+            - RemoveFormat
         -
           name: Linking
           items:
@@ -34,6 +38,7 @@ settings:
           items:
             - Blockquote
             - DrupalImage
+            - ImagePopup
         -
           name: 'Block Formatting'
           items:

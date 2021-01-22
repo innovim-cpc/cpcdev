@@ -1,0 +1,17 @@
+uuid: 8c7f0dc5-b1d8-4271-b878-58053d4e6ab5
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'ENSO Content'
+type: enso_content
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false
