@@ -12,6 +12,7 @@ permissions:
   - 'access contextual links'
   - 'access entity usage statistics'
   - 'access environment indicator'
+  - 'access geocoder api endpoints'
   - 'access in-place editing'
   - 'access media overview'
   - 'access site in maintenance mode'

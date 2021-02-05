@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.enso_discussion.field_date
     - field.field.node.enso_discussion.field_enso_alert_status
     - field.field.node.enso_discussion.field_image_links_text
+    - field.field.node.enso_discussion.field_images
     - field.field.node.enso_discussion.field_issued_by
     - field.field.node.enso_discussion.field_synopsis
     - node.type.enso_discussion
@@ -41,5 +42,6 @@ hidden:
   field_date: true
   field_enso_alert_status: true
   field_image_links_text: true
+  field_images: true
   field_issued_by: true
   field_synopsis: true

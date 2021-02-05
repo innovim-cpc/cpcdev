@@ -8,11 +8,14 @@ dependencies:
     - field.field.node.enso_discussion.field_date
     - field.field.node.enso_discussion.field_enso_alert_status
     - field.field.node.enso_discussion.field_image_links_text
+    - field.field.node.enso_discussion.field_images
     - field.field.node.enso_discussion.field_issued_by
     - field.field.node.enso_discussion.field_synopsis
+    - image.style.thumbnail
     - node.type.enso_discussion
   module:
     - datetime
+    - image
     - path
     - text
 id: node.enso_discussion.default
@@ -63,6 +66,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
+  field_images:
+    weight: 30
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
     region: content
   field_issued_by:
     weight: 7
