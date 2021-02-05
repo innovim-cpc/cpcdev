@@ -1,0 +1,23 @@
+uuid: d1f3b3ae-f61d-45e5-9cb5-bf5ad1a8e388
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.drought_map
+  module:
+    - text
+id: node.drought_map.body
+field_name: body
+entity_type: node
+bundle: drought_map
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

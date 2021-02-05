@@ -1,6 +1,7 @@
 module:
   a11y_paragraphs_tabs: 0
   actions_permissions: 0
+  address: 0
   admin_toolbar: 0
   admin_toolbar_links_access_filter: 0
   admin_toolbar_search: 0
@@ -46,6 +47,10 @@ module:
   file: 0
   filter: 0
   filter_tooltips: 0
+  geocoder: 0
+  geocoder_address: 0
+  geocoder_field: 0
+  geocoder_geofield: 0
   geofield: 0
   help: 0
   history: 0
@@ -58,8 +63,10 @@ module:
   kint: 0
   leaflet: 0
   leaflet_markercluster: 0
+  leaflet_more_maps: 0
   leaflet_views: 0
   link: 0
+  magnific_popup: 0
   media: 0
   media_library: 0
   menu_ui: 0
