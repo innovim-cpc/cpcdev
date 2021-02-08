@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1cc4d2f727a92fc4d6c9588cb9cefdf",
+    "content-hash": "391aa56b547eeafb719ef05e3876fd44",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3803,6 +3803,66 @@
             }
         },
         {
+            "name": "drupal/geocluster",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/geocluster.git",
+                "reference": "2.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/geocluster-2.0.1.zip",
+                "reference": "2.0.1",
+                "shasum": "1971f9f87572566b9ec27cf540c22b2dbd97b732"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9",
+                "drupal/geofield": "^1.7"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.1",
+                    "datestamp": "1595592667",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Peter Philipp",
+                    "homepage": "https://www.drupal.org/u/das-peter",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "dasjo",
+                    "homepage": "https://www.drupal.org/user/228295"
+                },
+                {
+                    "name": "dawehner",
+                    "homepage": "https://www.drupal.org/user/99340"
+                },
+                {
+                    "name": "vdsh",
+                    "homepage": "https://www.drupal.org/user/1270784"
+                }
+            ],
+            "description": "Server-side geo clustering for mapping/geofield.",
+            "homepage": "https://www.drupal.org/project/geocluster",
+            "support": {
+                "source": "https://git.drupalcode.org/project/geocluster",
+                "issues": "https://www.drupal.org/project/issues/geocluster",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
             "name": "drupal/geocoder",
             "version": "3.14.0",
             "source": {
@@ -4001,6 +4061,53 @@
                 "source": "https://git.drupalcode.org/project/geofield",
                 "issues": "https://www.drupal.org/project/issues/geofield",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
+            "name": "drupal/geofield_map",
+            "version": "2.67.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/geofield_map.git",
+                "reference": "8.x-2.67"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/geofield_map-8.x-2.67.zip",
+                "reference": "8.x-2.67",
+                "shasum": "6b98bbcaf1de0c38da8683b39aa9c43ccf226d82"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9",
+                "drupal/geofield": "^1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-2.67",
+                    "datestamp": "1597844476",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Italo Mairo",
+                    "homepage": "https://www.drupal.org/u/itamair",
+                    "role": "Creator/Maintainer"
+                }
+            ],
+            "description": "Geofield Map is an advanced, complete and easy-to-use Geo Mapping solution for Drupal 8, based on and fully compatible with the Geofield module.",
+            "homepage": "https://www.drupal.org/project/geofield_map",
+            "support": {
+                "source": "https://git.drupalcode.org/project/geofield_map",
+                "issues": "https://www.drupal.org/project/issues/geofield_map"
             }
         },
         {
