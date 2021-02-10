@@ -5,11 +5,11 @@ dependencies:
   config:
     - field.field.node.drought_map.body
     - field.field.node.drought_map.field_kml
+    - field.field.node.drought_map.field_kml_layers
     - field.field.node.drought_map.field_map_layer
     - node.type.drought_map
   module:
     - file
-    - geofield
     - text
     - user
 id: node.drought_map.default
@@ -20,33 +20,26 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 101
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     region: content
   field_kml:
-    weight: 102
-    label: above
+    weight: 2
+    label: hidden
     settings:
       use_description_as_link_text: true
     third_party_settings: {  }
     type: file_default
     region: content
-  field_map_layer:
-    weight: 103
-    label: above
-    settings:
-      output_format: wkt
-      output_escape: true
-    third_party_settings: {  }
-    type: geofield_default
-    region: content
   links:
-    weight: 100
+    weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
+  field_kml_layers: true
+  field_map_layer: true

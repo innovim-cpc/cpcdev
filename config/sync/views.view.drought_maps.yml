@@ -3,8 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.field_kml
+    - field.storage.node.field_kml_layers
     - node.type.drought_map
   module:
+    - geocoder_field
+    - leaflet
     - leaflet_views
     - node
     - user
@@ -67,6 +71,86 @@ display:
             next: ››
       style:
         type: leaflet_map
+        options:
+          grouping: {  }
+          data_source: field_kml_layers
+          entity_source: __base_table
+          name_field: ''
+          description_field: ''
+          view_mode: full
+          leaflet_map: esri-world_topo_map
+          height: '400'
+          height_unit: px
+          hide_empty_map: false
+          disable_wheel: false
+          fullscreen_control: true
+          gesture_handling: false
+          reset_map:
+            control: false
+            position: topright
+          map_position:
+            force: false
+            center:
+              lat: 39
+              lon: -99
+            zoom: 4
+            minZoom: 1
+            maxZoom: 18
+            zoomFiner: 0
+          weight: ''
+          icon:
+            iconType: marker
+            iconUrl: ''
+            shadowUrl: ''
+            className: ''
+            html: '<div></div>'
+            html_class: leaflet-map-divicon
+            circle_marker_options: '{"radius":100,"color":"red","fillColor":"#f03","fillOpacity":0.5}'
+            iconSize:
+              x: ''
+              'y': ''
+            iconAnchor:
+              x: ''
+              'y': ''
+            shadowSize:
+              x: ''
+              'y': ''
+            shadowAnchor:
+              x: ''
+              'y': ''
+            popupAnchor:
+              x: ''
+              'y': ''
+          leaflet_markercluster:
+            control: false
+            options: '{"spiderfyOnMaxZoom":true,"showCoverageOnHover":true,"removeOutsideVisibleBounds":false}'
+          path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2","radius":"6"}'
+          geocoder:
+            control: false
+            settings:
+              position: topright
+              input_size: 25
+              providers:
+                arcgisonline:
+                  weight: '0'
+                  checked: 0
+                file:
+                  weight: '0'
+                  checked: 0
+                geojson_file:
+                  weight: '0'
+                  checked: 0
+                kml_file:
+                  weight: '0'
+                  checked: 0
+                random:
+                  weight: '0'
+                  checked: 0
+              min_terms: 4
+              delay: 800
+              zoom: 16
+              popup: false
+              options: ''
       row:
         type: fields
       fields:
@@ -117,6 +201,211 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        field_kml:
+          id: field_kml
+          table: node__field_kml
+          field: field_kml
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: geocoder_geocode_formatter_file
+          settings:
+            providers:
+              file:
+                checked: '1'
+                weight: '0'
+            dumper: geometry
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_kml_layers:
+          id: field_kml_layers
+          table: node__field_kml_layers
+          field: field_kml_layers
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: leaflet_formatter_default
+          settings:
+            multiple_map: false
+            popup: false
+            popup_content: ''
+            leaflet_map: esri-world_topo_map
+            height: 400
+            height_unit: px
+            hide_empty_map: false
+            disable_wheel: false
+            fullscreen_control: false
+            gesture_handling: false
+            reset_map:
+              control: false
+              position: topright
+            map_position:
+              force: false
+              center:
+                lat: 39.368279
+                lon: -99.191603
+              zoom: 6
+              minZoom: 1
+              maxZoom: 18
+              zoomFiner: 0
+            weight: ''
+            icon:
+              iconType: marker
+              iconUrl: ''
+              shadowUrl: ''
+              className: ''
+              html: '<div></div>'
+              html_class: leaflet-map-divicon
+              circle_marker_options: '{"radius":100,"color":"red","fillColor":"#f03","fillOpacity":0.5}'
+              iconSize:
+                x: ''
+                'y': ''
+              iconAnchor:
+                x: ''
+                'y': ''
+              shadowSize:
+                x: ''
+                'y': ''
+              shadowAnchor:
+                x: ''
+                'y': ''
+              popupAnchor:
+                x: ''
+                'y': ''
+            leaflet_markercluster:
+              control: false
+              options: '{"spiderfyOnMaxZoom":true,"showCoverageOnHover":true,"removeOutsideVisibleBounds":false}'
+            path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2","radius":"6"}'
+            geocoder:
+              control: false
+              settings:
+                position: topright
+                input_size: 25
+                providers:
+                  arcgisonline:
+                    weight: 0
+                    checked: false
+                  file:
+                    weight: 0
+                    checked: false
+                  geojson_file:
+                    weight: 0
+                    checked: false
+                  kml_file:
+                    weight: 0
+                    checked: false
+                  random:
+                    weight: 0
+                    checked: false
+                min_terms: 4
+                delay: 800
+                zoom: 16
+                popup: false
+                options: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
       filters:
         status:
           value: '1'
@@ -159,12 +448,13 @@ display:
           expose:
             label: ''
           granularity: second
-      title: 'Drought Maps'
+      title: 'Total Soil Moisture Anomaly'
       header: {  }
       footer: {  }
       empty: {  }
       relationships: {  }
       arguments: {  }
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -173,7 +463,9 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.field_kml'
+        - 'config:field.storage.node.field_kml_layers'
   block_1:
     display_plugin: block
     id: block_1
@@ -195,15 +487,30 @@ display:
         - 'languages:language_interface'
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.field_kml'
+        - 'config:field.storage.node.field_kml_layers'
   page_1:
     display_plugin: page
     id: page_1
     display_title: Page
     position: 1
     display_options:
-      display_extenders: {  }
-      path: drought-maps
+      display_extenders:
+        geocluster_views_display_extender:
+          geocluster_enabled: false
+          geocluster_options:
+            algorithm: mysql_algorithm
+            cluster_field: ''
+            cluster_distance: '65'
+            enable_bbox_support: 0
+            advanced:
+              accept_parameter:
+                cluster_distance: 1
+                zoom: 1
+              cluster_distance_per_zoom_level:
+                '|': '|'
+      path: climate-phenomena/drought/maps/total-soil-moisture-anomaly
     cache_metadata:
       max-age: -1
       contexts:
@@ -212,4 +519,6 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.field_kml'
+        - 'config:field.storage.node.field_kml_layers'

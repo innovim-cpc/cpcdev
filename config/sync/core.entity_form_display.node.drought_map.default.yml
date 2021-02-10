@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.drought_map.body
     - field.field.node.drought_map.field_kml
+    - field.field.node.drought_map.field_kml_layers
     - field.field.node.drought_map.field_map_layer
     - node.type.drought_map
   module:
@@ -39,6 +40,13 @@ content:
       progress_indicator: throbber
     third_party_settings: {  }
     type: file_generic
+    region: content
+  field_kml_layers:
+    weight: 124
+    settings:
+      html5_geolocation: false
+    third_party_settings: {  }
+    type: geofield_latlon
     region: content
   field_map_layer:
     weight: 123
