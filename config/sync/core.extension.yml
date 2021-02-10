@@ -60,7 +60,6 @@ module:
   insert: 0
   insert_colorbox: 0
   interactive_outlooks: 0
-  kint: 0
   leaflet: 0
   leaflet_markercluster: 0
   leaflet_more_maps: 0
