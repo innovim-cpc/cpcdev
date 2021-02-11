@@ -1,0 +1,8 @@
+leaflet-kmz:
+  remote: https://github.com/Raruto/leaflet-kmz
+  version: 1.0.6
+  license:
+    name: GNU General Public License v3.0
+    url: https://github.com/Raruto/leaflet-kmz/blob/master/LICENSE
+  js:
+    '//unpkg.com/leaflet-kmz@latest/dist/leaflet-kmz.js': {type: external, minified: true}
