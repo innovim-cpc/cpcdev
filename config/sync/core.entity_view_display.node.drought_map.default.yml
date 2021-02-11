@@ -1,0 +1,45 @@
+uuid: 1ed0d01f-80d8-42bb-af5f-321dd454457c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.drought_map.body
+    - field.field.node.drought_map.field_kml
+    - field.field.node.drought_map.field_kml_layers
+    - field.field.node.drought_map.field_map_layer
+    - node.type.drought_map
+  module:
+    - file
+    - text
+    - user
+id: node.drought_map.default
+targetEntityType: node
+bundle: drought_map
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_kml:
+    weight: 2
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_kml_layers: true
+  field_map_layer: true

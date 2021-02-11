@@ -8,12 +8,14 @@ dependencies:
     - field.field.node.enso_discussion.field_date
     - field.field.node.enso_discussion.field_enso_alert_status
     - field.field.node.enso_discussion.field_image_links_text
+    - field.field.node.enso_discussion.field_images
     - field.field.node.enso_discussion.field_issued_by
     - field.field.node.enso_discussion.field_synopsis
     - node.type.enso_discussion
   module:
     - datetime
     - entity_print
+    - image
     - text
     - user
 third_party_settings:
@@ -56,10 +58,9 @@ content:
     weight: 3
     label: inline
     settings:
-      view_mode: default
       link: false
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    type: entity_reference_label
     region: content
   field_image_links_text:
     weight: 10
@@ -67,6 +68,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_images:
+    weight: 11
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
     region: content
   field_issued_by:
     weight: 2

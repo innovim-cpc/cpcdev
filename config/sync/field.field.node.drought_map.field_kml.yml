@@ -1,0 +1,27 @@
+uuid: 46ed477c-5686-449d-91f2-1d37df37204b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_kml
+    - node.type.drought_map
+  module:
+    - file
+id: node.drought_map.field_kml
+field_name: field_kml
+entity_type: node
+bundle: drought_map
+label: KML
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'kml kmz'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file
