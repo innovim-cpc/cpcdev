@@ -13,12 +13,11 @@ third_party_settings:
     method: geocode
     weight: 0
     reverse_geocode:
-      field: ''
+      field: field_map_layer
     skip_not_empty_value: false
     disabled: false
     hidden: false
     providers:
-      - arcgisonline
       - kml_file
     dumper: wkt
     failure:

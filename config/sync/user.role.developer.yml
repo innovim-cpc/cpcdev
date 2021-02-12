@@ -63,6 +63,7 @@ permissions:
   - 'administer pathauto'
   - 'administer permissions'
   - 'administer responsive images'
+  - 'administer rest resources'
   - 'administer search'
   - 'administer shortcuts'
   - 'administer site configuration'

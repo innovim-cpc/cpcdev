@@ -1,0 +1,9 @@
+name: Drought Maps
+type: module
+description: Custom Drought maps based on Leaflet
+core: 8.x
+core_version_requirement: ^8 || ^9
+package: CPC Custom
+dependencies:
+  - geocoder:geocoder
+  - leaflet:leaflet
