@@ -10,6 +10,7 @@ dependencies:
     - node.type.drought_map
   module:
     - file
+    - leaflet
     - text
     - user
 id: node.drought_map.default
@@ -32,6 +33,172 @@ content:
     third_party_settings: {  }
     type: file_default
     region: content
+  field_kml_layers:
+    type: leaflet_formatter_default
+    weight: 4
+    region: content
+    label: above
+    settings:
+      multiple_map: false
+      popup_content: ''
+      leaflet_map: esri-world_topo_map
+      height: 400
+      height_unit: px
+      fullscreen_control: true
+      reset_map:
+        position: topright
+        control: false
+      map_position:
+        center:
+          lat: 23.73058
+          lon: -99.15136
+        zoom: 4
+        minZoom: 1
+        maxZoom: 18
+        zoomFiner: 0
+        force: false
+      weight: ''
+      icon:
+        iconType: marker
+        iconUrl: ''
+        shadowUrl: ''
+        className: ''
+        html: '<div></div>'
+        html_class: leaflet-map-divicon
+        circle_marker_options: '{"radius":100,"color":"red","fillColor":"#f03","fillOpacity":0.5}'
+        iconSize:
+          x: ''
+          'y': ''
+        iconAnchor:
+          x: ''
+          'y': ''
+        shadowSize:
+          x: ''
+          'y': ''
+        shadowAnchor:
+          x: ''
+          'y': ''
+        popupAnchor:
+          x: ''
+          'y': ''
+      leaflet_markercluster:
+        options: '{"spiderfyOnMaxZoom":true,"showCoverageOnHover":true,"removeOutsideVisibleBounds":false}'
+        control: false
+      path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2","radius":"6"}'
+      geocoder:
+        settings:
+          position: topright
+          input_size: 25
+          providers:
+            arcgisonline:
+              weight: 0
+              checked: false
+            file:
+              weight: 0
+              checked: false
+            geojson_file:
+              weight: 0
+              checked: false
+            kml_file:
+              weight: 0
+              checked: false
+            random:
+              weight: 0
+              checked: false
+          min_terms: 4
+          delay: 800
+          zoom: 16
+          options: ''
+          popup: false
+        control: false
+      popup: false
+      hide_empty_map: false
+      disable_wheel: false
+      gesture_handling: false
+    third_party_settings: {  }
+  field_map_layer:
+    type: leaflet_formatter_default
+    weight: 3
+    region: content
+    label: above
+    settings:
+      multiple_map: false
+      popup_content: ''
+      leaflet_map: esri-world_topo_map
+      height: 500
+      height_unit: px
+      reset_map:
+        position: topright
+        control: false
+      map_position:
+        center:
+          lat: !!float -9915136
+          lon: 23.73058
+        zoom: 4
+        minZoom: 1
+        maxZoom: 18
+        zoomFiner: 0
+        force: false
+      weight: ''
+      icon:
+        iconType: marker
+        iconUrl: ''
+        shadowUrl: ''
+        className: ''
+        html: '<div></div>'
+        html_class: leaflet-map-divicon
+        circle_marker_options: '{"radius":100,"color":"red","fillColor":"#f03","fillOpacity":0.5}'
+        iconSize:
+          x: ''
+          'y': ''
+        iconAnchor:
+          x: ''
+          'y': ''
+        shadowSize:
+          x: ''
+          'y': ''
+        shadowAnchor:
+          x: ''
+          'y': ''
+        popupAnchor:
+          x: ''
+          'y': ''
+      leaflet_markercluster:
+        options: '{"spiderfyOnMaxZoom":true,"showCoverageOnHover":true,"removeOutsideVisibleBounds":false}'
+        control: false
+      path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2","radius":"6"}'
+      geocoder:
+        control: true
+        settings:
+          position: topright
+          input_size: 25
+          providers:
+            kml_file:
+              checked: true
+              weight: -20
+            arcgisonline:
+              checked: true
+              weight: -19
+            geojson_file:
+              weight: -18
+              checked: false
+            file:
+              weight: -17
+              checked: false
+            random:
+              weight: -16
+              checked: false
+          min_terms: 4
+          delay: 800
+          zoom: 16
+          options: ''
+          popup: false
+      popup: false
+      hide_empty_map: false
+      disable_wheel: false
+      fullscreen_control: false
+      gesture_handling: false
+    third_party_settings: {  }
   links:
     weight: 0
     region: content
@@ -41,5 +208,3 @@ hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
-  field_kml_layers: true
-  field_map_layer: true
