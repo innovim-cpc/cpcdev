@@ -50,6 +50,7 @@
         "drupal/geolocation": "^3.2",
         "drupal/image_popup": "^2.0",
         "drupal/image_url_formatter": "^1.0",
+        "drupal/inline_entity_form": "^1.0@RC",
         "drupal/insert": "^2.0@beta",
         "drupal/leaflet": "^2.1",
         "drupal/leaflet_more_maps": "^2.1",
