@@ -9,49 +9,78 @@
 /**
  * Implements hook_leaflet_map_info().
  */
- 
-// Placeholder for now
- function drought_maps_leaflet_map_info() {
-   return array(
-     'Custom Maps' => array(
-       'label' => 'Custom Map',
-       'description' => t('Custom Map from Module'),
-       'settings' => array(
-         'dragging' => TRUE,
-         'touchZoom' => TRUE,
-         'scrollWheelZoom' => TRUE,
-         'doubleClickZoom' => TRUE,
-         'zoomControl' => TRUE,
-         'attributionControl' => TRUE,
-         'trackResize' => TRUE,
-         'fadeAnimation' => TRUE,
-         'zoomAnimation' => TRUE,
-         'closePopupOnClick' => TRUE,
-         'layerControl' => TRUE,
-       ),
+function drought_maps_leaflet_map_info() {
 
-// Placeholder for now
-     'layers' => array(
-         'Open Street Map' => array(
-           'urlTemplate' => 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-           'options' => array(
-             'attribution' => '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-           ),
-         ),
-         'Open Topo Map' => array(
-           'urlTemplate' => 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
-           'options' => array(
-             'attribution' => '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-           ),
-         ),
-         'Hillshade' => array(
-           'urlTemplate' => 'https://maps.heigit.org/openmapsurfer/tiles/asterh/webmercator/{z}/{x}/{y}.png',
-           'layer_type' => 'overlay', //this gives you the ability to overlay transparent maps
-           'options' => array(
-             'attribution' => 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> | Map data  <a href="https://lpdaac.usgs.gov/products/aster_policies">ASTER GDEM</a>, <a href="http://srtm.csi.cgiar.org/">SRTM</a>',
-           ),
-         ),
-       ),
-     ),
-   );
- }
+  $default_settings = [
+    'attributionControl' => TRUE,
+    'closePopupOnClick'  => TRUE,
+    'doubleClickZoom'    => TRUE,
+    'dragging'           => TRUE,
+    'fadeAnimation'      => TRUE,
+    'layerControl'       => FALSE,
+    'maxZoom'            => 18,
+    'minZoom'            => 0,
+    'scrollWheelZoom'    => TRUE,
+    'touchZoom'          => TRUE,
+    'trackResize'        => TRUE,
+    // Don't specify zoom, if you want to use Auto-box.
+    // 'zoom'            =>  2,
+    'zoomAnimation'      => TRUE,
+    'zoomControl'        => TRUE,
+  ];
+
+  return [
+    'Esri Dark Gray' =>
+      [
+        'label' => 'Esri Dark Gray',
+        'description' => t('Esri dark gray basemap'),
+        'settings' => $default_settings,
+        'layers' => [
+          'base' => [
+            'urlTemplate' => '//{s}.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}.png',
+            'options' => [
+              'attribution' => 'Esri, HERE, Garmin, &copy; OpenStreetMap contributors, and the GIS User Community',
+            ],
+          ],
+          'labels' => [
+            'urlTemplate' => '//{s}.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}.png',
+            'layer_type' => 'overlay',
+            'options' => [
+              'pane' => 'tilePane',
+              'attribution' => '',
+            ],
+          ],
+        ],
+      ],
+    'Esri Light Gray' =>
+      [
+        'label' => 'Esri Light Gray',
+        'description' => t('Esri light gray basemap'),
+        'settings' => $default_settings,
+        'layers' => [
+          'base' => [
+            'urlTemplate' => '//{s}.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}.png',
+            'options' => [
+              'attribution' => 'Esri, HERE, Garmin, &copy; OpenStreetMap contributors, and the GIS User Community',
+            ],
+          ],
+          'labels' => [
+            'urlTemplate' => '//{s}.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}.png',
+            'layer_type' => 'overlay',
+            'options' => [
+              'pane' => 'tilePane',
+              'attribution' => '',
+            ],
+          ],
+        ],
+      ],
+  ];
+
+}
+
+/**
+ * Implements hook_leaflet_views_feature_group_alter().
+ */
+function drought_maps_leaflet_views_feature_group_alter(array &$group, MarkerDefault $stylePlugin) {
+  //ksm();
+}

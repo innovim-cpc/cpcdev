@@ -1,8 +1,43 @@
+leaflet:
+  remote: https://leaflet.js.com
+  version: 1.x
+  license:
+    name: BSD-2-Clause
+    url: https://github.com/Leaflet/Leaflet/blob/master/LICENSE
+  css:
+    theme:
+      '//unpkg.com/leaflet@1.6.0/dist/leaflet.css': {}
+  js:
+    '//unpkg.com/leaflet@1.6.0/dist/leaflet.js': { type: external, minified: true }
+
+esri-leaflet:
+  remote: https://esri.github.io/esri-leaflet/
+  version: 3.x
+  license:
+    name: Apache-2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  js:
+    '//unpkg.com/esri-leaflet@latest/dist/esri-leaflet.js': { type: external, minified: true }
+
 leaflet-kmz:
   remote: https://github.com/Raruto/leaflet-kmz
-  version: 1.0.6
+  version: 1.x
   license:
     name: GNU General Public License v3.0
     url: https://github.com/Raruto/leaflet-kmz/blob/master/LICENSE
   js:
     '//unpkg.com/leaflet-kmz@latest/dist/leaflet-kmz.js': {type: external, minified: true}
+
+drought-maps:
+  version: 1.x
+  css:
+    theme:
+      css/drought-maps.css: {}
+  js:
+    js/drought-maps.drupal.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    #- drought_maps/leaflet
+    - drought_maps/esri-leaflet
+    - drought_maps/leaflet-kmz
