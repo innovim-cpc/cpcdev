@@ -8,7 +8,7 @@ dependencies:
     - field.storage.node.field_map_layer
     - node.type.drought_map
   module:
-    - geocoder_field
+    - geocoder_geofield
     - geofield
     - leaflet
     - leaflet_views
@@ -80,7 +80,7 @@ display:
           name_field: ''
           description_field: ''
           view_mode: full
-          leaflet_map: esri-world_topo_map
+          leaflet_map: 'Esri Light Gray'
           height: '400'
           height_unit: px
           hide_empty_map: false
@@ -155,6 +155,11 @@ display:
               options: ''
       row:
         type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
       fields:
         title:
           id: title
@@ -252,13 +257,13 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: geocoder_geocode_formatter_file
+          type: geocoder_geocode_formatter_kmlfile
           settings:
             providers:
-              file:
+              kml_file:
                 checked: '1'
                 weight: '0'
-            dumper: geometry
+            adapter: wkt
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -324,7 +329,7 @@ display:
             multiple_map: false
             popup: false
             popup_content: ''
-            leaflet_map: esri-world_topo_map
+            leaflet_map: 'Esri Light Gray'
             height: 400
             height_unit: px
             hide_empty_map: false
@@ -577,7 +582,7 @@ display:
                 cluster_distance: 1
                 zoom: 1
               cluster_distance_per_zoom_level:
-                '|': '|'
+                '': '|'
       path: climate-phenomena/drought/maps/total-soil-moisture-anomaly
     cache_metadata:
       max-age: -1
