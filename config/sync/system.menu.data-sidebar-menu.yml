@@ -1,0 +1,8 @@
+uuid: a7ea96cb-64e8-4a53-b877-b30905569157
+langcode: en
+status: true
+dependencies: {  }
+id: data-sidebar-menu
+label: 'Data Sidebar Menu'
+description: ''
+locked: false

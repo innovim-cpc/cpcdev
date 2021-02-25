@@ -1,0 +1,8 @@
+uuid: 9efd8b00-71ce-4704-90cc-919e777bef2c
+langcode: en
+status: true
+dependencies: {  }
+id: climate-news-sidebar-menu
+label: 'Climate News Sidebar Menu'
+description: ''
+locked: false

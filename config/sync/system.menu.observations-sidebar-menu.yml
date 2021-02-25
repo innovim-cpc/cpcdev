@@ -1,0 +1,8 @@
+uuid: 45fb5ebb-fc08-4af9-8bcf-550aa690f4b2
+langcode: en
+status: true
+dependencies: {  }
+id: observations-sidebar-menu
+label: 'Observations Sidebar Menu'
+description: ''
+locked: false
