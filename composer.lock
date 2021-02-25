@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "af73daba781709e70de5df7ac6c26948",
+    "content-hash": "90e2fd2d9c51c2bbbb4f4c8a88772ab8",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3777,6 +3777,62 @@
             }
         },
         {
+            "name": "drupal/entityqueue",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/entityqueue.git",
+                "reference": "8.x-1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/entityqueue-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "ef579fde4fbed75be2b9728ee3167d6a32beb527"
+            },
+            "require": {
+                "drupal/core": "^8.7.7 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.2",
+                    "datestamp": "1606297907",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andrei Mateescu",
+                    "homepage": "https://www.drupal.org/u/amateescu",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Jonathan Jordan",
+                    "homepage": "https://www.drupal.org/u/jojonaloha",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "quicksketch",
+                    "homepage": "https://www.drupal.org/user/35821"
+                }
+            ],
+            "description": "The Entityqueue module allows users to create queues of any entity type.",
+            "homepage": "https://www.drupal.org/project/entityqueue",
+            "support": {
+                "source": "http://cgit.drupalcode.org/entityqueue",
+                "issues": "https://www.drupal.org/project/issues/entityqueue",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
             "name": "drupal/environment_indicator",
             "version": "4.0.2",
             "source": {
@@ -4002,17 +4058,17 @@
         },
         {
             "name": "drupal/geocoder",
-            "version": "3.14.0",
+            "version": "3.15.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/geocoder.git",
-                "reference": "8.x-3.14"
+                "reference": "8.x-3.15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/geocoder-8.x-3.14.zip",
-                "reference": "8.x-3.14",
-                "shasum": "8b69279f6da536c84af94557b7dd65f15fed6020"
+                "url": "https://ftp.drupal.org/files/projects/geocoder-8.x-3.15.zip",
+                "reference": "8.x-3.15",
+                "shasum": "0c7994e98018db1baa37a3648f58f184ed8e173f"
             },
             "require": {
                 "davedevelopment/stiphle": "^0.9.2",
@@ -4055,8 +4111,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.14",
-                    "datestamp": "1605985806",
+                    "version": "8.x-3.15",
+                    "datestamp": "1613591713",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4125,17 +4181,17 @@
         },
         {
             "name": "drupal/geofield",
-            "version": "1.18.0",
+            "version": "1.20.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/geofield.git",
-                "reference": "8.x-1.18"
+                "reference": "8.x-1.20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/geofield-8.x-1.18.zip",
-                "reference": "8.x-1.18",
-                "shasum": "d1f20ecb66c262f8fd55fea517e4e696b91f2c10"
+                "url": "https://ftp.drupal.org/files/projects/geofield-8.x-1.20.zip",
+                "reference": "8.x-1.20",
+                "shasum": "cff7baf2e5e98325c7fbbe1be170538a76dfacc9"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9",
@@ -4144,8 +4200,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.18",
-                    "datestamp": "1608852700",
+                    "version": "8.x-1.20",
+                    "datestamp": "1613156933",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4416,6 +4472,89 @@
             "homepage": "https://www.drupal.org/project/image_url_formatter",
             "support": {
                 "source": "https://git.drupalcode.org/project/image_url_formatter"
+            }
+        },
+        {
+            "name": "drupal/inline_entity_form",
+            "version": "1.0.0-rc8",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/inline_entity_form.git",
+                "reference": "8.x-1.0-rc8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/inline_entity_form-8.x-1.0-rc8.zip",
+                "reference": "8.x-1.0-rc8",
+                "shasum": "103de382dd07b4acdd6bacd5ad76628fdf0eefda"
+            },
+            "require": {
+                "drupal/core": "^8.7.7 || ^9"
+            },
+            "require-dev": {
+                "drupal/entity_reference_revisions": "^1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-rc8",
+                    "datestamp": "1602172716",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "RC releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "bojanz",
+                    "homepage": "https://www.drupal.org/user/86106"
+                },
+                {
+                    "name": "dawehner",
+                    "homepage": "https://www.drupal.org/user/99340"
+                },
+                {
+                    "name": "geek-merlin",
+                    "homepage": "https://www.drupal.org/user/229048"
+                },
+                {
+                    "name": "joachim",
+                    "homepage": "https://www.drupal.org/user/107701"
+                },
+                {
+                    "name": "jsacksick",
+                    "homepage": "https://www.drupal.org/user/972218"
+                },
+                {
+                    "name": "kaythay",
+                    "homepage": "https://www.drupal.org/user/2182186"
+                },
+                {
+                    "name": "oknate",
+                    "homepage": "https://www.drupal.org/user/471638"
+                },
+                {
+                    "name": "rszrama",
+                    "homepage": "https://www.drupal.org/user/49344"
+                },
+                {
+                    "name": "slashrsm",
+                    "homepage": "https://www.drupal.org/user/744628"
+                },
+                {
+                    "name": "webflo",
+                    "homepage": "https://www.drupal.org/user/254778"
+                }
+            ],
+            "description": "Provides a widget for inline management (creation, modification, removal) of referenced entities.",
+            "homepage": "https://www.drupal.org/project/inline_entity_form",
+            "support": {
+                "source": "https://git.drupalcode.org/project/inline_entity_form"
             }
         },
         {
@@ -7977,16 +8116,16 @@
         },
         {
             "name": "php-http/message",
-            "version": "1.10.0",
+            "version": "1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/message.git",
-                "reference": "39db36d5972e9e6d00ea852b650953f928d8f10d"
+                "reference": "fb0dbce7355cad4f4f6a225f537c34d013571f29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/message/zipball/39db36d5972e9e6d00ea852b650953f928d8f10d",
-                "reference": "39db36d5972e9e6d00ea852b650953f928d8f10d",
+                "url": "https://api.github.com/repos/php-http/message/zipball/fb0dbce7355cad4f4f6a225f537c34d013571f29",
+                "reference": "fb0dbce7355cad4f4f6a225f537c34d013571f29",
                 "shasum": ""
             },
             "require": {
@@ -8002,15 +8141,15 @@
                 "ergebnis/composer-normalize": "^2.6",
                 "ext-zlib": "*",
                 "guzzlehttp/psr7": "^1.0",
+                "laminas/laminas-diactoros": "^2.0",
                 "phpspec/phpspec": "^5.1 || ^6.3",
-                "slim/slim": "^3.0",
-                "zendframework/zend-diactoros": "^1.0"
+                "slim/slim": "^3.0"
             },
             "suggest": {
                 "ext-zlib": "Used with compressor/decompressor streams",
                 "guzzlehttp/psr7": "Used with Guzzle PSR-7 Factories",
-                "slim/slim": "Used with Slim Framework PSR-7 implementation",
-                "zendframework/zend-diactoros": "Used with Diactoros Factories"
+                "laminas/laminas-diactoros": "Used with Diactoros Factories",
+                "slim/slim": "Used with Slim Framework PSR-7 implementation"
             },
             "type": "library",
             "extra": {
@@ -8043,7 +8182,7 @@
                 "message",
                 "psr-7"
             ],
-            "time": "2020-11-11T10:19:56+00:00"
+            "time": "2021-02-01T08:54:58+00:00"
         },
         {
             "name": "php-http/message-factory",
@@ -14569,6 +14708,7 @@
         "drupal/backup_migrate": 5,
         "drupal/better_exposed_filters": 10,
         "drupal/entity_usage": 10,
+        "drupal/inline_entity_form": 5,
         "drupal/insert": 10,
         "drupal/viewfield": 10
     },

@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.drought_map.body
     - field.field.node.drought_map.field_kml
+    - field.field.node.drought_map.field_kml2
     - field.field.node.drought_map.field_kml_layers
     - field.field.node.drought_map.field_map_layer
     - node.type.drought_map
@@ -35,5 +36,6 @@ hidden:
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
   field_kml: true
+  field_kml2: true
   field_kml_layers: true
   field_map_layer: true

@@ -19,6 +19,7 @@ third_party_settings:
     hidden: false
     providers:
       - kml_file
+      - arcgisonline
     dumper: wkt
     failure:
       handling: preserve
