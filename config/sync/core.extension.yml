@@ -65,6 +65,7 @@ module:
   image: 0
   image_popup: 0
   image_url_formatter: 0
+  inline_entity_form: 0
   insert: 0
   insert_colorbox: 0
   interactive_outlooks: 0

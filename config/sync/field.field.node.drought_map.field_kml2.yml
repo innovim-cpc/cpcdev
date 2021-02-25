@@ -1,0 +1,22 @@
+uuid: db5b811b-0b6e-4b03-b731-29243f477907
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_kml2
+    - node.type.drought_map
+  module:
+    - geofield
+id: node.drought_map.field_kml2
+field_name: field_kml2
+entity_type: node
+bundle: drought_map
+label: KML2
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  backend: geofield_backend_default
+field_type: geofield

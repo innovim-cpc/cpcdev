@@ -5,11 +5,13 @@ dependencies:
   config:
     - field.field.node.drought_map.body
     - field.field.node.drought_map.field_kml
+    - field.field.node.drought_map.field_kml2
     - field.field.node.drought_map.field_kml_layers
     - field.field.node.drought_map.field_map_layer
     - node.type.drought_map
   module:
     - file
+    - geofield
     - leaflet
     - text
     - user
@@ -32,6 +34,15 @@ content:
       use_description_as_link_text: true
     third_party_settings: {  }
     type: file_default
+    region: content
+  field_kml2:
+    weight: 5
+    label: above
+    settings:
+      output_format: wkt
+      output_escape: true
+    third_party_settings: {  }
+    type: geofield_default
     region: content
   field_kml_layers:
     type: leaflet_formatter_default
