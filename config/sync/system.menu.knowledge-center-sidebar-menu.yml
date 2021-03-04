@@ -1,0 +1,8 @@
+uuid: 2fcca138-986c-4b6d-ae10-9fe4dc4add81
+langcode: en
+status: true
+dependencies: {  }
+id: knowledge-center-sidebar-menu
+label: 'Knowledge Center Sidebar Menu'
+description: ''
+locked: false

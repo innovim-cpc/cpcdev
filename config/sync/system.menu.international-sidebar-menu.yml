@@ -1,0 +1,8 @@
+uuid: 7912b2fb-3356-4b54-b0ad-368e07d70c51
+langcode: en
+status: true
+dependencies: {  }
+id: international-sidebar-menu
+label: 'International Sidebar Menu'
+description: ''
+locked: false
