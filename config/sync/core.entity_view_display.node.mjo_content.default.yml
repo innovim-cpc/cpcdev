@@ -1,0 +1,52 @@
+uuid: 744e013c-5207-44df-90fd-356346fc0bf8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.mjo_content.body
+    - field.field.node.mjo_content.field_image
+    - field.field.node.mjo_content.field_image_url_
+    - node.type.mjo_content
+  module:
+    - image
+    - text
+    - user
+id: node.mjo_content.default
+targetEntityType: node
+bundle: mjo_content
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_image:
+    weight: 102
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_image_url_:
+    weight: 103
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

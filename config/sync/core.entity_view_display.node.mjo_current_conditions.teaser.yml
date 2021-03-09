@@ -1,0 +1,39 @@
+uuid: 155046ae-a77f-4765-b107-e75c1ebba240
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.mjo_current_conditions.body
+    - field.field.node.mjo_current_conditions.field_image
+    - field.field.node.mjo_current_conditions.field_image_url_
+    - field.field.node.mjo_current_conditions.field_mjo_current_conditions_cat
+    - node.type.mjo_current_conditions
+  module:
+    - text
+    - user
+id: node.mjo_current_conditions.teaser
+targetEntityType: node
+bundle: mjo_current_conditions
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_image: true
+  field_image_url_: true
+  field_mjo_current_conditions_cat: true

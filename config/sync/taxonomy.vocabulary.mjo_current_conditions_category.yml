@@ -1,0 +1,8 @@
+uuid: 56f09670-eef8-4e68-9856-ddb9989ad502
+langcode: en
+status: true
+dependencies: {  }
+name: 'MJO Current Conditions Category'
+vid: mjo_current_conditions_category
+description: ''
+weight: 0

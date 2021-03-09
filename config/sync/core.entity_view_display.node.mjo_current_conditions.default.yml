@@ -1,0 +1,61 @@
+uuid: f5af9621-2795-4b95-93eb-57058613d1f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.mjo_current_conditions.body
+    - field.field.node.mjo_current_conditions.field_image
+    - field.field.node.mjo_current_conditions.field_image_url_
+    - field.field.node.mjo_current_conditions.field_mjo_current_conditions_cat
+    - node.type.mjo_current_conditions
+  module:
+    - image
+    - text
+    - user
+id: node.mjo_current_conditions.default
+targetEntityType: node
+bundle: mjo_current_conditions
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_image:
+    weight: 103
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_image_url_:
+    weight: 105
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_mjo_current_conditions_cat:
+    weight: 102
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
