@@ -63,6 +63,7 @@
         "drupal/remote_stream_wrapper": "^1.5",
         "drupal/remote_stream_wrapper_widget": "^1.2",
         "drupal/select2": "^1.12",
+        "drupal/shs": "^1.0@alpha",
         "drupal/token_filter": "^1.2",
         "drupal/twig_field_value": "^2.0",
         "drupal/twig_tweak": "^2.1",
@@ -102,7 +103,7 @@
     "prefer-stable": true,
     "config": {
         "platform": {
-          "php": "7.3.24"
+          "php": "7.4"
         },
         "sort-packages": true
     },
@@ -127,6 +128,11 @@
         ]
     },
     "extra": {
+        "patches": {
+            "drupal/shs": {
+              "#3168295 - Fixes 'Too few arguments to function' error": "https://www.drupal.org/files/issues/2020-10-06/shs-too-few-arguments-function-error-3168295-7.patch"
+            }
+        },
         "patchLevel": {
             "drupal/core": "-p2"
         },
