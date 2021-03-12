@@ -424,3 +424,16 @@ button:not([disabled]):focus, input:not([disabled]):focus, select:not([disabled]
   font-weight: 200;
   margin-top: 0;
 }
+
+#views-exposed-form-mjo-maps-current-conditions,
+#views-exposed-form-mjo-maps-forecasts {
+  margin-bottom: 2em;
+}
+
+#views-exposed-form-mjo-maps-current-conditions div.chosen-container,
+#views-exposed-form-mjo-maps-forecasts div.chosen-container,
+#views-exposed-form-mjo-maps-forecasts #edit-mjo-forecast-category,
+[data-drupal-selector="edit-mjo-forecast-category"] {
+  display: none !important;
+}
+#main-content .usa-button.read-more a { color: #fff; }
