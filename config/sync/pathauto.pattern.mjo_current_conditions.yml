@@ -1,0 +1,22 @@
+uuid: 474909d9-fa81-4ff1-b0e4-61e6f892eb92
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: mjo_current_conditions
+label: 'MJO Current Conditions'
+type: 'canonical_entities:node'
+pattern: 'climate-phenomena/mjo/current-conditions/[node:title]'
+selection_criteria:
+  18897177-b266-4217-83f3-9cf8a632ff43:
+    id: node_type
+    bundles:
+      mjo_current_conditions: mjo_current_conditions
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 18897177-b266-4217-83f3-9cf8a632ff43
+selection_logic: and
+weight: -5
+relationships: {  }

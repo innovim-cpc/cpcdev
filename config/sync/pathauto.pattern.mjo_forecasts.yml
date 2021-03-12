@@ -1,0 +1,22 @@
+uuid: f74dc786-5b57-482e-a86f-bb0540014282
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: mjo_forecasts
+label: 'MJO Forecasts'
+type: 'canonical_entities:node'
+pattern: 'climate-phenomena/mjo/forecasts/[node:title]'
+selection_criteria:
+  6b7b7cf6-97d3-4637-bd4e-26f5f0d0f994:
+    id: node_type
+    bundles:
+      mjo_forecasts: mjo_forecasts
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 6b7b7cf6-97d3-4637-bd4e-26f5f0d0f994
+selection_logic: and
+weight: -5
+relationships: {  }

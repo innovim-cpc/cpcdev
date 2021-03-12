@@ -7,12 +7,12 @@ dependencies:
 third_party_settings:
   menu_ui:
     available_menus:
-      - main
-    parent: 'main:'
+      - climate-phenom-sidebar-menu
+    parent: 'climate-phenom-sidebar-menu:menu_link_content:b81a4ae2-e429-4a12-a735-794e5f408832'
 name: 'MJO Current Conditions'
 type: mjo_current_conditions
 description: ''
 help: ''
 new_revision: true
 preview_mode: 1
-display_submitted: true
+display_submitted: false

@@ -1,9 +1,9 @@
 custom:
-  style: plain
-  activate: 0
+  style: stockholmsyndrome
+  activate: 1
   transition_type: elastic
   transition_speed: 350
-  opacity: 0.85
+  opacity: 0.65
   text_current: '{current} of {total}'
   text_previous: '« Prev'
   text_next: 'Next »'

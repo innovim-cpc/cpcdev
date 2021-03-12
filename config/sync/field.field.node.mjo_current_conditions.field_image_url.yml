@@ -1,20 +1,20 @@
-uuid: 8168d417-c6cc-45f2-a303-201d3bf40318
+uuid: 2f286aec-6c1a-4a4c-a789-ee72e1125c6e
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_image_url_
-    - node.type.mjo_forecasts
+    - field.storage.node.field_image_url
+    - node.type.mjo_current_conditions
   module:
     - image
-id: node.mjo_forecasts.field_image_url_
-field_name: field_image_url_
+id: node.mjo_current_conditions.field_image_url
+field_name: field_image_url
 entity_type: node
-bundle: mjo_forecasts
-label: 'Image (URL)'
+bundle: mjo_current_conditions
+label: 'Image URL'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
