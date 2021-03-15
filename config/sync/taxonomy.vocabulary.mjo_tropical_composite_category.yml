@@ -1,0 +1,8 @@
+uuid: b54140e6-dd18-454e-a201-994af798b3b8
+langcode: en
+status: true
+dependencies: {  }
+name: 'MJO Tropical Composite Category'
+vid: mjo_tropical_composite_category
+description: ''
+weight: 0

@@ -1,0 +1,8 @@
+uuid: bbfddc6f-4f54-451c-8d43-46445075789b
+langcode: en
+status: true
+dependencies: {  }
+name: 'MJO Forecast Category'
+vid: _mjo_forecast_category
+description: ''
+weight: 0

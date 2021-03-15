@@ -1,0 +1,8 @@
+uuid: 4d8597c1-78d8-4618-804a-5c3285e3b26d
+langcode: en
+status: true
+dependencies: {  }
+name: 'MJO U.S. Temperature Composite Category'
+vid: mjo_u_s_temperature_composite_ca
+description: ''
+weight: 0

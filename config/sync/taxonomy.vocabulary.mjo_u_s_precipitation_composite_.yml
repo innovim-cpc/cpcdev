@@ -1,0 +1,8 @@
+uuid: 5adc9b2d-8dca-4dea-a56f-086d4b9049b9
+langcode: en
+status: true
+dependencies: {  }
+name: 'MJO U.S. Precipitation Composite Category'
+vid: mjo_u_s_precipitation_composite_
+description: ''
+weight: 0

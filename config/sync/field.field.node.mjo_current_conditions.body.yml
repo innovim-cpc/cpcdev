@@ -1,0 +1,23 @@
+uuid: bc6c5a9b-3c56-4784-a348-95bf174b1fef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.mjo_current_conditions
+  module:
+    - text
+id: node.mjo_current_conditions.body
+field_name: body
+entity_type: node
+bundle: mjo_current_conditions
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary
