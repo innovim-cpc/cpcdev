@@ -1,0 +1,29 @@
+uuid: 8c1595f6-17ed-4c4f-ac15-184f8f518fc8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mjo_forecast_category
+    - node.type.mjo_forecasts
+    - taxonomy.vocabulary._mjo_forecast_category
+id: node.mjo_forecasts.field_mjo_forecast_category
+field_name: field_mjo_forecast_category
+entity_type: node
+bundle: mjo_forecasts
+label: 'MJO Forecast Category'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      _mjo_forecast_category: _mjo_forecast_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

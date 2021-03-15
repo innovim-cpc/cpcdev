@@ -1,0 +1,29 @@
+uuid: 78547748-7798-46ce-9ee8-3776346bcb7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mjo_current_conditions_cat
+    - node.type.mjo_current_conditions
+    - taxonomy.vocabulary.mjo_current_conditions_category
+id: node.mjo_current_conditions.field_mjo_current_conditions_cat
+field_name: field_mjo_current_conditions_cat
+entity_type: node
+bundle: mjo_current_conditions
+label: 'MJO Current Conditions Category'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      mjo_current_conditions_category: mjo_current_conditions_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

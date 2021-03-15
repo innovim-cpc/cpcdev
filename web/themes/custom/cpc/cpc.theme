@@ -7,9 +7,16 @@
 
 //require_once __DIR__ . '/includes/menus.inc';
 
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ *
+ * Create template suggestions
+ */
 function cpc_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
   //var_dump($suggestions);
 }
+
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
@@ -21,4 +28,42 @@ function cpc_theme_suggestions_page_alter(array &$suggestions, array $variables)
     $content_type = $node->bundle();
     $suggestions[] = 'page__'.$content_type;
   }
+}
+
+
+/**
+ * Implements hook_entity_access().
+ *
+ * Control entity operation access.
+ */
+/*function cpc_entity_access(\Drupal\Core\Entity\EntityInterface $entity, $operation, \Drupal\Core\Session\AccountInterface $account) {
+kint($entity);
+  // No opinion.
+  //return AccessResult::neutral();
+}*/
+
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Perform alterations before a form is rendered.
+ */
+function cpc_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  //kint($form);
+  /*if (isset($form['type']) && $form['type']['#value'] . '_node_settings' == $form_id) {
+    $upload_enabled_types = \Drupal::config('mymodule.settings')
+      ->get('upload_enabled_types');
+    $form['workflow']['upload_' . $form['type']['#value']] = [
+      '#type' => 'radios',
+      '#title' => t('Attachments'),
+      '#default_value' => in_array($form['type']['#value'], $upload_enabled_types) ? 1 : 0,
+      '#options' => [
+        t('Disabled'),
+        t('Enabled'),
+      ],
+    ];
+
+    // Add a custom submit handler to save the array of types back to the config file.
+    $form['actions']['submit']['#submit'][] = 'mymodule_upload_enabled_types_submit';
+  }*/
 }

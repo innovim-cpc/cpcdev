@@ -23,13 +23,14 @@ capitalizator_ignored_words:
   - a
 capitalizator_forced_words_first_letter: false
 capitalizator_forced_words_case_sensitivity: true
-add_structured_data_jsonld: false
 use_site_title: false
-dependencies:
-  module:
-    - easy_breadcrumb
-  enforced:
-    module:
-      - easy_breadcrumb
 _core:
   default_config_hash: ey8bRwK17YbAVEX7GEm09YR5UneOQ_Nqzh6a3V-rIP0
+add_structured_data_json_ld: false
+capitalizator_forced_words: {  }
+include_invalid_paths: false
+excluded_paths: ''
+replaced_titles: ''
+custom_paths: ''
+title_segment_as_link: false
+follow_redirects: true

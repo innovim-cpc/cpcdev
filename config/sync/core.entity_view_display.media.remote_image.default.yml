@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.media.remote_image.field_media_image_1
-    - image.style.large
     - media.type.remote_image
   module:
     - image
@@ -14,10 +13,10 @@ bundle: remote_image
 mode: default
 content:
   field_media_image_1:
-    label: visually_hidden
+    label: hidden
     weight: 0
     settings:
-      image_style: large
+      image_style: ''
       image_link: ''
     third_party_settings: {  }
     type: image
