@@ -1,0 +1,23 @@
+uuid: af1f5482-c807-492b-b0e7-535de1390b14
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.mjo_composite_map
+  module:
+    - text
+id: node.mjo_composite_map.body
+field_name: body
+entity_type: node
+bundle: mjo_composite_map
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary
