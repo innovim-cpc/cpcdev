@@ -23,6 +23,7 @@ module:
   colorbox_field_formatter: 0
   colorbox_inline: 0
   comment: 0
+  conditional_fields: 0
   config: 0
   config_update: 0
   config_update_ui: 0

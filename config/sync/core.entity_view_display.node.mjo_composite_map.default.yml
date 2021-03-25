@@ -6,6 +6,10 @@ dependencies:
     - field.field.node.mjo_composite_map.body
     - field.field.node.mjo_composite_map.field_image_url
     - field.field.node.mjo_composite_map.field_mjo_composite_type
+    - field.field.node.mjo_composite_map.field_mjo_lagged_composite_mask
+    - field.field.node.mjo_composite_map.field_mjo_precip_composite
+    - field.field.node.mjo_composite_map.field_mjo_temp_composite
+    - field.field.node.mjo_composite_map.field_mjo_tropical_composite
     - node.type.mjo_composite_map
   module:
     - image
@@ -19,12 +23,12 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 101
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     region: content
   field_image_url:
-    weight: 103
+    weight: 6
     label: above
     settings:
       image_style: ''
@@ -33,7 +37,41 @@ content:
     type: image
     region: content
   field_mjo_composite_type:
-    weight: 102
+    type: entity_reference_label
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+  field_mjo_lagged_composite_mask:
+    weight: 7
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_mjo_precip_composite:
+    weight: 4
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_mjo_temp_composite:
+    weight: 3
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_mjo_tropical_composite:
+    weight: 5
     label: above
     settings:
       link: true
@@ -41,10 +79,10 @@ content:
     type: entity_reference_label
     region: content
   links:
-    weight: 100
+    weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true
