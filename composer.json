@@ -33,6 +33,7 @@
         "drupal/colorbox_field_formatter": "^2.0",
         "drupal/colorbox_inline": "^1.2",
         "drupal/components": "^1.1",
+        "drupal/conditional_fields": "^1.0@alpha",
         "drupal/config_update": "^1.6",
         "drupal/console": "^1.0.2",
         "drupal/core-composer-scaffold": "^8.8",
@@ -132,6 +133,9 @@
     },
     "extra": {
         "patches": {
+            "drupal/conditional_fields": {
+              "#3191984 - Fixes 'Notice: Trying to access array offset on value of type null' error": "https://www.drupal.org/files/issues/2021-01-21/3191984-3-notice-trying-to-access-offset-on-value-of-type-null.patch"
+            },
             "drupal/shs": {
               "#3168295 - Fixes 'Too few arguments to function' error": "https://www.drupal.org/files/issues/2020-10-06/shs-too-few-arguments-function-error-3168295-7.patch",
               "#3003375 - Adds default value for all selected items": "https://www.drupal.org/files/issues/2018-10-01/fixed-default-value-for-all-select-items-3003375-5.patch"

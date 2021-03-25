@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9d05ddc1ebdcdb7a584fa7b9bc275d81",
+    "content-hash": "82cfc185c4c2149b094b10bb0e193245",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2809,6 +2809,85 @@
             }
         },
         {
+            "name": "drupal/conditional_fields",
+            "version": "1.0.0-alpha10",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/conditional_fields.git",
+                "reference": "8.x-1.0-alpha10"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/conditional_fields-8.x-1.0-alpha10.zip",
+                "reference": "8.x-1.0-alpha10",
+                "shasum": "ac11881a07eaf3ce796dea1cb0e537434d1fbd3d"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-alpha10",
+                    "datestamp": "1610130227",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                },
+                "patches_applied": {
+                    "#3191984 - Fixes 'Notice: Trying to access array offset on value of type null' error": "https://www.drupal.org/files/issues/2021-01-21/3191984-3-notice-trying-to-access-offset-on-value-of-type-null.patch"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Adyax",
+                    "homepage": "https://www.adyax.com/"
+                },
+                {
+                    "name": "OlgaRabodzei",
+                    "homepage": "https://www.drupal.org/user/3389198"
+                },
+                {
+                    "name": "colan",
+                    "homepage": "https://www.drupal.org/user/58704"
+                },
+                {
+                    "name": "ergonlogic",
+                    "homepage": "https://www.drupal.org/user/368613"
+                },
+                {
+                    "name": "geek-merlin",
+                    "homepage": "https://www.drupal.org/user/229048"
+                },
+                {
+                    "name": "itsekhmistro",
+                    "homepage": "https://www.drupal.org/user/928152"
+                },
+                {
+                    "name": "mparker17",
+                    "homepage": "https://www.drupal.org/user/536298"
+                },
+                {
+                    "name": "peterpoe",
+                    "homepage": "https://www.drupal.org/user/55674"
+                },
+                {
+                    "name": "thalles",
+                    "homepage": "https://www.drupal.org/user/3589086"
+                }
+            ],
+            "description": "Conditional fields",
+            "homepage": "https://www.drupal.org/project/conditional_fields",
+            "support": {
+                "source": "https://git.drupalcode.org/project/conditional_fields"
+            }
+        },
+        {
             "name": "drupal/config_update",
             "version": "1.7.0",
             "source": {
@@ -4845,17 +4924,17 @@
         },
         {
             "name": "drupal/jquery_ui_datepicker",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/jquery_ui_datepicker.git",
-                "reference": "8.x-1.0"
+                "reference": "8.x-1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/jquery_ui_datepicker-8.x-1.0.zip",
-                "reference": "8.x-1.0",
-                "shasum": "954f12f93e82b6c93e6797fe2e6e66604ad1d2b2"
+                "url": "https://ftp.drupal.org/files/projects/jquery_ui_datepicker-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "69f62467f846bb514a10fa93f4c3b34c6275353f"
             },
             "require": {
                 "drupal/core": "^8 || ^9",
@@ -4864,8 +4943,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0",
-                    "datestamp": "1589684301",
+                    "version": "8.x-1.1",
+                    "datestamp": "1615962535",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4878,8 +4957,20 @@
             ],
             "authors": [
                 {
+                    "name": "bnjmnm",
+                    "homepage": "https://www.drupal.org/user/2369194"
+                },
+                {
+                    "name": "ivnish",
+                    "homepage": "https://www.drupal.org/user/3547706"
+                },
+                {
                     "name": "jrockowitz",
                     "homepage": "https://www.drupal.org/user/371407"
+                },
+                {
+                    "name": "lauriii",
+                    "homepage": "https://www.drupal.org/user/1078742"
                 },
                 {
                     "name": "zrpnr",
@@ -5630,7 +5721,8 @@
                     }
                 },
                 "patches_applied": {
-                    "#3168295 - Fixes 'Too few arguments to function' error": "https://www.drupal.org/files/issues/2020-10-06/shs-too-few-arguments-function-error-3168295-7.patch"
+                    "#3168295 - Fixes 'Too few arguments to function' error": "https://www.drupal.org/files/issues/2020-10-06/shs-too-few-arguments-function-error-3168295-7.patch",
+                    "#3003375 - Adds default value for all selected items": "https://www.drupal.org/files/issues/2018-10-01/fixed-default-value-for-all-select-items-3003375-5.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -5987,17 +6079,17 @@
         },
         {
             "name": "drupal/views_bulk_operations",
-            "version": "3.10.0",
+            "version": "3.12.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/views_bulk_operations.git",
-                "reference": "8.x-3.10"
+                "reference": "8.x-3.12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/views_bulk_operations-8.x-3.10.zip",
-                "reference": "8.x-3.10",
-                "shasum": "e346c2a72fc9a1ae8af418e6a02076f52c0fcc7b"
+                "url": "https://ftp.drupal.org/files/projects/views_bulk_operations-8.x-3.12.zip",
+                "reference": "8.x-3.12",
+                "shasum": "88a545c54680362162bfbfdb0639ce923a1a60a9"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9"
@@ -6011,8 +6103,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.10",
-                    "datestamp": "1608795018",
+                    "version": "8.x-3.12",
+                    "datestamp": "1616148482",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -15038,6 +15130,7 @@
     "stability-flags": {
         "drupal/backup_migrate": 5,
         "drupal/better_exposed_filters": 10,
+        "drupal/conditional_fields": 15,
         "drupal/entity_usage": 10,
         "drupal/inline_entity_form": 5,
         "drupal/insert": 10,
