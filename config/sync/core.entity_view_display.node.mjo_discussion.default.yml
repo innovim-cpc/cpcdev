@@ -1,0 +1,41 @@
+uuid: 920d538f-5467-4c7b-a647-94bf40ae87a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.mjo_discussion.body
+    - field.field.node.mjo_discussion.field_downloads
+    - node.type.mjo_discussion
+  module:
+    - file
+    - text
+    - user
+id: node.mjo_discussion.default
+targetEntityType: node
+bundle: mjo_discussion
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_downloads:
+    weight: 102
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

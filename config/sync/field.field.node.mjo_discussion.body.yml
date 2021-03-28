@@ -1,0 +1,23 @@
+uuid: 77315f57-35cf-4d70-80f9-368dd5a1c5e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.mjo_discussion
+  module:
+    - text
+id: node.mjo_discussion.body
+field_name: body
+entity_type: node
+bundle: mjo_discussion
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

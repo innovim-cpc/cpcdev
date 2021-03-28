@@ -1,0 +1,8 @@
+uuid: 1d2cc621-9517-4e3c-b291-503865d43d26
+langcode: en
+status: true
+dependencies: {  }
+name: 'MJO Lagged Composites'
+vid: mjo_lagged_composites
+description: ''
+weight: 0
