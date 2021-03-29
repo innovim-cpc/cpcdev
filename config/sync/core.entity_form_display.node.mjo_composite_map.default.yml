@@ -1,0 +1,218 @@
+uuid: ae1df549-315b-407c-bc95-c7474741cb70
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.mjo_composite_map.body
+    - field.field.node.mjo_composite_map.field_image_url
+    - field.field.node.mjo_composite_map.field_mjo_composite_type
+    - field.field.node.mjo_composite_map.field_mjo_lagged_composite
+    - field.field.node.mjo_composite_map.field_mjo_lagged_composite_mask
+    - field.field.node.mjo_composite_map.field_mjo_precip_composite
+    - field.field.node.mjo_composite_map.field_mjo_temp_composite
+    - field.field.node.mjo_composite_map.field_mjo_tropical_composite
+    - node.type.mjo_composite_map
+  module:
+    - conditional_fields
+    - path
+    - remote_stream_wrapper_widget
+    - shs
+    - text
+id: node.mjo_composite_map.default
+targetEntityType: node
+bundle: mjo_composite_map
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 7
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_image_url:
+    weight: 14
+    settings: {  }
+    third_party_settings: {  }
+    type: remote_stream_wrapper
+    region: content
+  field_mjo_composite_type:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_mjo_lagged_composite:
+    weight: 12
+    settings:
+      display_node_count: false
+      create_new_items: false
+      create_new_levels: false
+      force_deepest: false
+    third_party_settings:
+      conditional_fields:
+        3204a387-cf47-47f4-8b40-1b61d2dd448d:
+          dependee: field_mjo_composite_type
+          settings:
+            state: visible
+            condition: value
+            grouping: OR
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                target_id: '243'
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mjo_composite_map
+    type: options_shs
+    region: content
+  field_mjo_lagged_composite_mask:
+    weight: 13
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_mjo_precip_composite:
+    weight: 10
+    settings:
+      display_node_count: false
+      create_new_items: false
+      create_new_levels: false
+      force_deepest: false
+    third_party_settings:
+      conditional_fields:
+        4432d25a-4346-4edc-b2f1-e35bee962fa8:
+          dependee: field_mjo_composite_type
+          settings:
+            state: visible
+            condition: value
+            grouping: OR
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                target_id: '245'
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mjo_composite_map
+    type: options_shs
+    region: content
+  field_mjo_temp_composite:
+    weight: 9
+    settings:
+      create_new_items: false
+      create_new_levels: false
+      force_deepest: false
+      display_node_count: false
+    third_party_settings:
+      conditional_fields:
+        0a25e68b-677c-44da-917d-b036dfcc298d:
+          dependee: field_mjo_composite_type
+          settings:
+            state: visible
+            condition: value
+            grouping: OR
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                target_id: '244'
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mjo_composite_map
+    type: options_shs
+    region: content
+  field_mjo_tropical_composite:
+    weight: 11
+    settings:
+      display_node_count: false
+      create_new_items: false
+      create_new_levels: false
+      force_deepest: false
+    third_party_settings:
+      conditional_fields:
+        f48d1405-572d-4a39-af6c-3bc908258d9a:
+          dependee: field_mjo_composite_type
+          settings:
+            state: visible
+            condition: value
+            grouping: OR
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                target_id: '246'
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mjo_composite_map
+    type: options_shs
+    region: content
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 3
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 6
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

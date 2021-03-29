@@ -1,24 +1,24 @@
-uuid: 2f286aec-6c1a-4a4c-a789-ee72e1125c6e
+uuid: efd87b9c-2775-422e-978c-64d76c3fbb14
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_image_url
-    - node.type.mjo_current_conditions
+    - node.type.mjo_composite_map
   module:
     - image
-id: node.mjo_current_conditions.field_image_url
+id: node.mjo_composite_map.field_image_url
 field_name: field_image_url
 entity_type: node
-bundle: mjo_current_conditions
+bundle: mjo_composite_map
 label: 'Image URL'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: '[date:custom:Y]-[date:custom:m]-[current-date:raw]'
+  file_directory: '[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
   max_filesize: ''
   max_resolution: ''

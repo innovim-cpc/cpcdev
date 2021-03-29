@@ -1,0 +1,47 @@
+uuid: 3b0257b4-6e37-4163-b36c-f28191cce775
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.mjo_composite_map.body
+    - field.field.node.mjo_composite_map.field_image_url
+    - field.field.node.mjo_composite_map.field_mjo_composite_type
+    - field.field.node.mjo_composite_map.field_mjo_lagged_composite
+    - field.field.node.mjo_composite_map.field_mjo_lagged_composite_mask
+    - field.field.node.mjo_composite_map.field_mjo_precip_composite
+    - field.field.node.mjo_composite_map.field_mjo_temp_composite
+    - field.field.node.mjo_composite_map.field_mjo_tropical_composite
+    - node.type.mjo_composite_map
+  module:
+    - text
+    - user
+id: node.mjo_composite_map.teaser
+targetEntityType: node
+bundle: mjo_composite_map
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_image_url: true
+  field_mjo_composite_type: true
+  field_mjo_lagged_composite: true
+  field_mjo_lagged_composite_mask: true
+  field_mjo_precip_composite: true
+  field_mjo_temp_composite: true
+  field_mjo_tropical_composite: true

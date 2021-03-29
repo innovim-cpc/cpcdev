@@ -1,0 +1,27 @@
+uuid: cbbac56e-ffbe-425b-aa15-8a7597c5bbbc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_downloads
+    - node.type.mjo_discussion
+  module:
+    - file
+id: node.mjo_discussion.field_downloads
+field_name: field_downloads
+entity_type: node
+bundle: mjo_discussion
+label: Downloads
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'pdf jpg gif png'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

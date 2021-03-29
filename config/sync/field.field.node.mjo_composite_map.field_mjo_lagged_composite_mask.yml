@@ -1,0 +1,23 @@
+uuid: 6b1cad18-9030-4faa-a87c-470a75a4308a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mjo_lagged_composite_mask
+    - node.type.mjo_composite_map
+id: node.mjo_composite_map.field_mjo_lagged_composite_mask
+field_name: field_mjo_lagged_composite_mask
+entity_type: node
+bundle: mjo_composite_map
+label: Mask
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,35 @@
+uuid: 1be23ac1-0068-45fd-813e-9a93ae82f71e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.mjo_discussion.body
+    - field.field.node.mjo_discussion.field_downloads
+    - node.type.mjo_discussion
+  module:
+    - text
+    - user
+id: node.mjo_discussion.teaser
+targetEntityType: node
+bundle: mjo_discussion
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_downloads: true

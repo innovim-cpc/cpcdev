@@ -1,0 +1,8 @@
+uuid: 1bfa2fab-573e-4bd0-878d-d993a2f91cfb
+langcode: en
+status: true
+dependencies: {  }
+name: 'MJO Composite Type'
+vid: mjo_composite_type
+description: ''
+weight: 0
