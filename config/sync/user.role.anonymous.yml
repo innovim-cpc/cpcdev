@@ -46,3 +46,4 @@ permissions:
   - 'view paragraph content a11y_paragraphs_tab_content'
   - 'view paragraph content a11y_paragraphs_tabs_panel'
   - 'view paragraph content a11y_paragraphs_tabs_wrapper'
+  - 'view paragraph content landing_page_product'

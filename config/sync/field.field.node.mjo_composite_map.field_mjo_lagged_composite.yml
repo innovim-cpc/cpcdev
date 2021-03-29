@@ -1,0 +1,29 @@
+uuid: b1c6ee0a-e503-4860-a130-8f8ebd3337ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mjo_lagged_composite
+    - node.type.mjo_composite_map
+    - taxonomy.vocabulary.mjo_lagged_composites
+id: node.mjo_composite_map.field_mjo_lagged_composite
+field_name: field_mjo_lagged_composite
+entity_type: node
+bundle: mjo_composite_map
+label: 'Lagged Composite Map & Time Period'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      mjo_lagged_composites: mjo_lagged_composites
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.mjo_composite_map.body
     - field.field.node.mjo_composite_map.field_image_url
     - field.field.node.mjo_composite_map.field_mjo_composite_type
+    - field.field.node.mjo_composite_map.field_mjo_lagged_composite
     - field.field.node.mjo_composite_map.field_mjo_lagged_composite_mask
     - field.field.node.mjo_composite_map.field_mjo_precip_composite
     - field.field.node.mjo_composite_map.field_mjo_temp_composite
@@ -39,7 +40,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_image_url:
-    weight: 13
+    weight: 14
     settings: {  }
     third_party_settings: {  }
     type: remote_stream_wrapper
@@ -50,8 +51,36 @@ content:
     third_party_settings: {  }
     type: options_select
     region: content
-  field_mjo_lagged_composite_mask:
+  field_mjo_lagged_composite:
     weight: 12
+    settings:
+      display_node_count: false
+      create_new_items: false
+      create_new_levels: false
+      force_deepest: false
+    third_party_settings:
+      conditional_fields:
+        3204a387-cf47-47f4-8b40-1b61d2dd448d:
+          dependee: field_mjo_composite_type
+          settings:
+            state: visible
+            condition: value
+            grouping: OR
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                target_id: '243'
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mjo_composite_map
+    type: options_shs
+    region: content
+  field_mjo_lagged_composite_mask:
+    weight: 13
     settings:
       display_label: true
     third_party_settings: {  }
