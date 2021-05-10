@@ -6,11 +6,11 @@ dependencies:
     - field.field.node.storm_tracks.body
     - field.field.node.storm_tracks.field_image_url
     - field.field.node.storm_tracks.field_storm_track_type
-    - image.style.thumbnail
     - node.type.storm_tracks
   module:
-    - image
     - path
+    - remote_stream_wrapper_widget
+    - shs
     - text
 id: node.storm_tracks.default
 targetEntityType: node
@@ -35,21 +35,19 @@ content:
     third_party_settings: {  }
   field_image_url:
     weight: 123
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+    settings: {  }
     third_party_settings: {  }
-    type: image_image
+    type: remote_stream_wrapper
     region: content
   field_storm_track_type:
     weight: 122
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+      display_node_count: false
+      create_new_items: false
+      create_new_levels: false
+      force_deepest: false
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_shs
     region: content
   path:
     type: path
