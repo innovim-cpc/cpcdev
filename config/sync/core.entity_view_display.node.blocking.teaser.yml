@@ -1,0 +1,37 @@
+uuid: f4ae8202-8357-4a28-ad78-45d1dcde3312
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.blocking.body
+    - field.field.node.blocking.field_blocking_type
+    - field.field.node.blocking.field_image_url
+    - node.type.blocking
+  module:
+    - text
+    - user
+id: node.blocking.teaser
+targetEntityType: node
+bundle: blocking
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_blocking_type: true
+  field_image_url: true
