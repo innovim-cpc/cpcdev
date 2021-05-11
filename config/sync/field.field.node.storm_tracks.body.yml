@@ -1,0 +1,23 @@
+uuid: 73dba8c9-7fb0-43bc-9d1d-a4d3db270b6f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.storm_tracks
+  module:
+    - text
+id: node.storm_tracks.body
+field_name: body
+entity_type: node
+bundle: storm_tracks
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

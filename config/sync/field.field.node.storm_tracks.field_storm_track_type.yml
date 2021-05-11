@@ -1,0 +1,29 @@
+uuid: 388232c3-1705-476d-b884-ffda98da2360
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_storm_track_type
+    - node.type.storm_tracks
+    - taxonomy.vocabulary.storm_tracks
+id: node.storm_tracks.field_storm_track_type
+field_name: field_storm_track_type
+entity_type: node
+bundle: storm_tracks
+label: 'Storm Track Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      storm_tracks: storm_tracks
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

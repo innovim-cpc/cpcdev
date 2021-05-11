@@ -1,0 +1,18 @@
+uuid: 580756d3-7362-404b-895f-db0cce2dc9bd
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Blocking
+type: blocking
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true
