@@ -1,0 +1,20 @@
+uuid: 19b3d4b0-bd3b-4bba-af05-c82361bdca19
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_storm_track_type
+field_name: field_storm_track_type
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

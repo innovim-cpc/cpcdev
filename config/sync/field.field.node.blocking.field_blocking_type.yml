@@ -1,0 +1,29 @@
+uuid: 2124c87a-42fe-4f8b-bc6c-3af940cf055d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_blocking_type
+    - node.type.blocking
+    - taxonomy.vocabulary.blocking
+id: node.blocking.field_blocking_type
+field_name: field_blocking_type
+entity_type: node
+bundle: blocking
+label: 'Blocking Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      blocking: blocking
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,37 @@
+uuid: cdb84d80-6d4a-41a1-9f00-2d3d390fddb9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.storm_tracks.body
+    - field.field.node.storm_tracks.field_image_url
+    - field.field.node.storm_tracks.field_storm_track_type
+    - node.type.storm_tracks
+  module:
+    - text
+    - user
+id: node.storm_tracks.teaser
+targetEntityType: node
+bundle: storm_tracks
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_image_url: true
+  field_storm_track_type: true
