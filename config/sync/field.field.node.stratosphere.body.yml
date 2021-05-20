@@ -1,0 +1,23 @@
+uuid: 8532de15-febe-49dc-95d4-db8cbdda4a69
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.stratosphere
+  module:
+    - text
+id: node.stratosphere.body
+field_name: body
+entity_type: node
+bundle: stratosphere
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary
