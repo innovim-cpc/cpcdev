@@ -75,7 +75,7 @@
         "drupal/views_conditional": "^1.2",
         "drupal/views_templates": "^1.1",
         "drupal/webform": "^5.4",
-        "drush/drush": "^9.0.0",
+        "drush/drush": "^10.0.0",
         "geocoder-php/arcgis-online-provider": "^4.3",
         "mikehaertl/phpwkhtmltopdf": "~2.1",
         "npm-asset/a11y-accordion-tabs": "^0.5.0",
