@@ -35,8 +35,6 @@ module:
   datetime: 0
   datetime_range: 0
   dblog: 0
-  devel: 0
-  devel_kint_extras: 0
   drought_maps: 0
   dynamic_page_cache: 0
   easy_breadcrumb: 0
@@ -48,9 +46,7 @@ module:
   entity_usage: 0
   environment_indicator: 0
   environment_indicator_ui: 0
-  examples: 0
   field: 0
-  field_example: 0
   field_group: 0
   field_ui: 0
   file: 0
@@ -107,7 +103,6 @@ module:
   shortcut: 0
   shs: 0
   shs_chosen: 0
-  stream_wrapper_example: 0
   system: 0
   taxonomy: 0
   telephone: 0
@@ -117,7 +112,6 @@ module:
   tour: 0
   twig_field_value: 0
   twig_tweak: 0
-  twig_vardumper: 0
   update: 0
   user: 0
   viewfield: 0
