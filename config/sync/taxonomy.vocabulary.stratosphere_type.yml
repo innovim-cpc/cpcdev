@@ -1,0 +1,8 @@
+uuid: e719f6e1-cbb9-4d54-9deb-d2fa4f136640
+langcode: en
+status: true
+dependencies: {  }
+name: 'Stratosphere Type'
+vid: stratosphere_type
+description: ''
+weight: 0
