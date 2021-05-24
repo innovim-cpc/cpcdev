@@ -1,0 +1,51 @@
+uuid: 7b7ce783-d32d-4c51-9e21-9f96f13e6f61
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.stratosphere.body
+    - field.field.node.stratosphere.field_image_url
+    - field.field.node.stratosphere.field_stratosphere_type
+    - node.type.stratosphere
+  module:
+    - image
+    - text
+    - user
+id: node.stratosphere.default
+targetEntityType: node
+bundle: stratosphere
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_image_url:
+    weight: 102
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_stratosphere_type:
+    weight: 103
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
