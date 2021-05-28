@@ -1,0 +1,93 @@
+uuid: e9705aca-36ad-493b-8e29-37c5bb4a770a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.time_vs_pressure.body
+    - field.field.node.time_vs_pressure.field_image_url
+    - field.field.node.time_vs_pressure.field_year
+    - node.type.time_vs_pressure
+  module:
+    - path
+    - remote_stream_wrapper_widget
+    - text
+    - yearonly
+id: node.time_vs_pressure.default
+targetEntityType: node
+bundle: time_vs_pressure
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 121
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_image_url:
+    weight: 123
+    settings: {  }
+    third_party_settings: {  }
+    type: remote_stream_wrapper
+    region: content
+  field_year:
+    weight: 122
+    settings: {  }
+    third_party_settings: {  }
+    type: yearonly_default
+    region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 15
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 120
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 16
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

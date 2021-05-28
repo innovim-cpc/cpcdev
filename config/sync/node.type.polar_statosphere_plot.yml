@@ -1,0 +1,18 @@
+uuid: 8e1260a1-0886-43b0-b3b8-c2881985af7e
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Polar Statosphere Plot'
+type: polar_statosphere_plot
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

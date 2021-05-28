@@ -1,0 +1,23 @@
+uuid: 33aff501-4622-458b-95b6-b4bb783763ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_year
+    - node.type.polar_statosphere_plot
+  module:
+    - yearonly
+id: node.polar_statosphere_plot.field_year
+field_name: field_year
+entity_type: node
+bundle: polar_statosphere_plot
+label: Year
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  yearonly_from: ''
+  yearonly_to: ''
+field_type: yearonly
