@@ -1,0 +1,23 @@
+uuid: e243a9f4-81d7-4394-a5b9-a724c62a543c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.time_vs_pressure
+  module:
+    - text
+id: node.time_vs_pressure.body
+field_name: body
+entity_type: node
+bundle: time_vs_pressure
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

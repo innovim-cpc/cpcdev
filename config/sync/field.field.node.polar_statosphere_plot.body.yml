@@ -1,0 +1,23 @@
+uuid: a8bd4cb6-5e4a-4989-be60-6c78e044d8db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.polar_statosphere_plot
+  module:
+    - text
+id: node.polar_statosphere_plot.body
+field_name: body
+entity_type: node
+bundle: polar_statosphere_plot
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

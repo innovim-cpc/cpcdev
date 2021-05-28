@@ -1,0 +1,39 @@
+uuid: 3d985d78-63dd-43df-9711-1d95b32c92e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.polar_statosphere_plot.body
+    - field.field.node.polar_statosphere_plot.field_atmospheric_pressure
+    - field.field.node.polar_statosphere_plot.field_image_url
+    - field.field.node.polar_statosphere_plot.field_year
+    - node.type.polar_statosphere_plot
+  module:
+    - text
+    - user
+id: node.polar_statosphere_plot.teaser
+targetEntityType: node
+bundle: polar_statosphere_plot
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_atmospheric_pressure: true
+  field_image_url: true
+  field_year: true

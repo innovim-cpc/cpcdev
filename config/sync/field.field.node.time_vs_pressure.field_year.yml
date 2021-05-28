@@ -1,0 +1,23 @@
+uuid: fe0336bb-f14f-4999-b057-78990474d972
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_year
+    - node.type.time_vs_pressure
+  module:
+    - yearonly
+id: node.time_vs_pressure.field_year
+field_name: field_year
+entity_type: node
+bundle: time_vs_pressure
+label: Year
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  yearonly_from: '1979'
+  yearonly_to: now
+field_type: yearonly
