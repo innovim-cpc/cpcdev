@@ -1,0 +1,37 @@
+uuid: 8c908c19-139d-4cb8-9b38-ab9c5d2a3c02
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.polar_statrosphere_time_series.body
+    - field.field.node.polar_statrosphere_time_series.field_image_url
+    - field.field.node.polar_statrosphere_time_series.field_year
+    - node.type.polar_statrosphere_time_series
+  module:
+    - text
+    - user
+id: node.polar_statrosphere_time_series.teaser
+targetEntityType: node
+bundle: polar_statrosphere_time_series
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_image_url: true
+  field_year: true

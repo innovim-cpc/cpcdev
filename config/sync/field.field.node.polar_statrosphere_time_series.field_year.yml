@@ -1,0 +1,23 @@
+uuid: 5bee86b6-5bfe-43c5-bf6e-8b6ce94821b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_year
+    - node.type.polar_statrosphere_time_series
+  module:
+    - yearonly
+id: node.polar_statrosphere_time_series.field_year
+field_name: field_year
+entity_type: node
+bundle: polar_statrosphere_time_series
+label: Year
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  yearonly_from: '1979'
+  yearonly_to: now
+field_type: yearonly

@@ -1,0 +1,51 @@
+uuid: 29935a1a-2217-47cc-a7a0-7ac020596a9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.ozone_hole_size.body
+    - field.field.node.ozone_hole_size.field_image_url
+    - field.field.node.ozone_hole_size.field_year
+    - node.type.ozone_hole_size
+  module:
+    - image
+    - text
+    - user
+    - yearonly
+id: node.ozone_hole_size.default
+targetEntityType: node
+bundle: ozone_hole_size
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_image_url:
+    weight: 103
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_year:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: yearonly_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

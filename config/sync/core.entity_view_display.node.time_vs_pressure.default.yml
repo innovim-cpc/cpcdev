@@ -1,0 +1,51 @@
+uuid: cb7ee658-7377-4f50-b256-2394635d582e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.time_vs_pressure.body
+    - field.field.node.time_vs_pressure.field_image_url
+    - field.field.node.time_vs_pressure.field_year
+    - node.type.time_vs_pressure
+  module:
+    - image
+    - text
+    - user
+    - yearonly
+id: node.time_vs_pressure.default
+targetEntityType: node
+bundle: time_vs_pressure
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_image_url:
+    weight: 103
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_year:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: yearonly_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
