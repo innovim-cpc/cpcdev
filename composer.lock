@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ac0f0f8d9b21c9cf28fef06db2d5dcc0",
+    "content-hash": "f96ebdf0d4cde8d9e4cd4121aca972f2",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2122,17 +2122,17 @@
         },
         {
             "name": "drupal/admin_toolbar",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/admin_toolbar.git",
-                "reference": "3.0.0"
+                "reference": "3.0.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/admin_toolbar-3.0.0.zip",
-                "reference": "3.0.0",
-                "shasum": "204f7a0e8b62a8a54256142cf38ca139739fb65c"
+                "url": "https://ftp.drupal.org/files/projects/admin_toolbar-3.0.1.zip",
+                "reference": "3.0.1",
+                "shasum": "e25ca22db1317174a7fba4734c0412293b573f43"
             },
             "require": {
                 "drupal/core": "^8.8.0 || ^9.0"
@@ -2143,8 +2143,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.0",
-                    "datestamp": "1611311186",
+                    "version": "3.0.1",
+                    "datestamp": "1622644077",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2763,44 +2763,41 @@
         },
         {
             "name": "drupal/conditional_fields",
-            "version": "1.0.0-alpha10",
+            "version": "4.0.0-alpha1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/conditional_fields.git",
-                "reference": "8.x-1.0-alpha10"
+                "reference": "4.0.0-alpha1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/conditional_fields-8.x-1.0-alpha10.zip",
-                "reference": "8.x-1.0-alpha10",
-                "shasum": "ac11881a07eaf3ce796dea1cb0e537434d1fbd3d"
+                "url": "https://ftp.drupal.org/files/projects/conditional_fields-4.0.0-alpha1.zip",
+                "reference": "4.0.0-alpha1",
+                "shasum": "2e5f493f1ae09494857f58fde97715cdb7e21553"
             },
             "require": {
                 "drupal/core": "^8 || ^9"
             },
+            "require-dev": {
+                "drupal/paragraphs": "*"
+            },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-alpha10",
-                    "datestamp": "1610130227",
+                    "version": "4.0.0-alpha1",
+                    "datestamp": "1621481938",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
                     }
                 },
-                "patches_applied": {
-                    "#3191984 - Fixes 'Notice: Trying to access array offset on value of type null' error": "https://www.drupal.org/files/issues/2021-01-21/3191984-3-notice-trying-to-access-offset-on-value-of-type-null.patch"
-                }
+                "patches_applied": []
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
                 "GPL-2.0-or-later"
             ],
             "authors": [
-                {
-                    "name": "Adyax",
-                    "homepage": "https://www.adyax.com/"
-                },
                 {
                     "name": "OlgaRabodzei",
                     "homepage": "https://www.drupal.org/user/3389198"
@@ -2834,7 +2831,7 @@
                     "homepage": "https://www.drupal.org/user/3589086"
                 }
             ],
-            "description": "Conditional fields",
+            "description": "Define dependencies between fields based on their states and values.",
             "homepage": "https://www.drupal.org/project/conditional_fields",
             "support": {
                 "source": "https://git.drupalcode.org/project/conditional_fields"
@@ -4429,17 +4426,17 @@
         },
         {
             "name": "drupal/geofield",
-            "version": "1.22.0",
+            "version": "1.31.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/geofield.git",
-                "reference": "8.x-1.22"
+                "reference": "8.x-1.31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/geofield-8.x-1.22.zip",
-                "reference": "8.x-1.22",
-                "shasum": "6fd9299863cf1bbda8747772febf4b90399f6580"
+                "url": "https://ftp.drupal.org/files/projects/geofield-8.x-1.31.zip",
+                "reference": "8.x-1.31",
+                "shasum": "5eb185044e6686a498b686be6a2793f4a3d57fa4"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9",
@@ -4448,8 +4445,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.22",
-                    "datestamp": "1617652199",
+                    "version": "8.x-1.31",
+                    "datestamp": "1622755130",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
