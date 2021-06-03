@@ -22,6 +22,7 @@
     "require": {
         "composer/installers": "^1.7",
         "cweagans/composer-patches": "^1.7",
+        "defuse/php-encryption": "^2.3",
         "drupal/a11y_paragraphs_tabs": "^1.8",
         "drupal/address": "^1.9",
         "drupal/admin_toolbar": "^3.0",
