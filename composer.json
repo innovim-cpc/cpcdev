@@ -22,6 +22,7 @@
     "require": {
         "composer/installers": "^1.7",
         "cweagans/composer-patches": "^1.7",
+        "defuse/php-encryption": "^2.3",
         "drupal/a11y_paragraphs_tabs": "^1.8",
         "drupal/address": "^1.9",
         "drupal/admin_toolbar": "^3.0",
@@ -32,12 +33,12 @@
         "drupal/colorbox": "^1.6",
         "drupal/colorbox_field_formatter": "^2.0",
         "drupal/colorbox_inline": "^1.2",
-        "drupal/components": "^1.1",
-        "drupal/conditional_fields": "^1.0@alpha",
+        "drupal/conditional_fields": "^4.0@alpha",
         "drupal/config_update": "^1.6",
         "drupal/console": "^1.0.2",
-        "drupal/core-composer-scaffold": "^8.8",
-        "drupal/core-recommended": "^8.8",
+        "drupal/core-composer-scaffold": "^9.0.0",
+        "drupal/core-project-message": "^9.0.0",
+        "drupal/core-recommended": "^9.0.0",
         "drupal/csv_importer": "^1.11",
         "drupal/easy_breadcrumb": "^1.13",
         "drupal/entity_browser": "^2.1",
@@ -59,23 +60,27 @@
         "drupal/leaflet": "^2.1",
         "drupal/leaflet_more_maps": "^2.1",
         "drupal/magnific_popup": "^1.5",
+        "drupal/migrate_plus": "^5.1",
+        "drupal/migrate_source_csv": "^3.4",
+        "drupal/migrate_tools": "^5.0",
         "drupal/module_filter": "^3.1",
         "drupal/paragraphs": "^1.12",
         "drupal/paragraphs_grid": "^1.3",
         "drupal/pathauto": "^1.4",
         "drupal/remote_stream_wrapper": "^1.5",
-        "drupal/remote_stream_wrapper_widget": "^1.2",
+        "drupal/remote_stream_wrapper_widget": "1.x-dev@dev",
         "drupal/select2": "^1.12",
         "drupal/shs": "^1.0@alpha",
         "drupal/token_filter": "^1.2",
         "drupal/twig_field_value": "^2.0",
-        "drupal/twig_tweak": "^2.1",
+        "drupal/twig_tweak": "^3.1",
+        "drupal/upgrade_status": "^3.5",
         "drupal/uswds_base": "^2.2",
         "drupal/viewfield": "^3.0@beta",
         "drupal/views_bulk_operations": "^3.2",
         "drupal/views_conditional": "^1.2",
         "drupal/views_templates": "^1.1",
-        "drupal/webform": "^5.4",
+        "drupal/webform": "^6.0",
         "drupal/yearonly": "^9.0",
         "drush/drush": "^10.0.0",
         "geocoder-php/arcgis-online-provider": "^4.3",
@@ -94,12 +99,12 @@
         "webmozart/path-util": "^2.3"
     },
     "require-dev": {
-        "drupal/core-dev": "^8.8",
+        "drupal/core-dev": "^9.0.0",
         "drupal/devel": "^4.1",
         "drupal/devel_entity_updates": "^3.0",
         "drupal/devel_kint_extras": "^1.0",
-        "drupal/examples": "^1.1",
-        "drupal/module_missing_message_fixer": "^1.1",
+        "drupal/examples": "^3.0",
+        "drupal/module_missing_message_fixer": "^2.0",
         "drupal/twig_vardumper": "^2.2"
     },
     "conflict": {
@@ -135,9 +140,6 @@
     },
     "extra": {
         "patches": {
-            "drupal/conditional_fields": {
-              "#3191984 - Fixes 'Notice: Trying to access array offset on value of type null' error": "https://www.drupal.org/files/issues/2021-01-21/3191984-3-notice-trying-to-access-offset-on-value-of-type-null.patch"
-            },
             "drupal/shs": {
               "#3168295 - Fixes 'Too few arguments to function' error": "https://www.drupal.org/files/issues/2020-10-06/shs-too-few-arguments-function-error-3168295-7.patch",
               "#3003375 - Adds default value for all selected items": "https://www.drupal.org/files/issues/2018-10-01/fixed-default-value-for-all-select-items-3003375-5.patch"
