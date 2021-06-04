@@ -71,6 +71,7 @@
         "drupal/token_filter": "^1.2",
         "drupal/twig_field_value": "^2.0",
         "drupal/twig_tweak": "^2.1",
+        "drupal/upgrade_status": "^3.5",
         "drupal/uswds_base": "^2.2",
         "drupal/viewfield": "^3.0@beta",
         "drupal/views_bulk_operations": "^3.2",
