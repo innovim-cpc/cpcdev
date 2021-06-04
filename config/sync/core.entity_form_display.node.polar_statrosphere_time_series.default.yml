@@ -6,11 +6,10 @@ dependencies:
     - field.field.node.polar_statrosphere_time_series.body
     - field.field.node.polar_statrosphere_time_series.field_image_url
     - field.field.node.polar_statrosphere_time_series.field_year
-    - image.style.thumbnail
     - node.type.polar_statrosphere_time_series
   module:
-    - image
     - path
+    - remote_stream_wrapper_widget
     - text
     - yearonly
 id: node.polar_statrosphere_time_series.default
@@ -36,11 +35,9 @@ content:
     third_party_settings: {  }
   field_image_url:
     weight: 123
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+    settings: {  }
     third_party_settings: {  }
-    type: image_image
+    type: remote_stream_wrapper
     region: content
   field_year:
     weight: 122

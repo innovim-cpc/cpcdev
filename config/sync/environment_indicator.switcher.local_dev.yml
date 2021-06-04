@@ -1,0 +1,10 @@
+uuid: bdaef25e-2d2d-4593-aea8-9e639a8936c9
+langcode: en
+status: true
+dependencies: {  }
+machine: local_dev
+description: null
+name: 'Local Dev'
+url: 'http://cpcdev.test'
+fg_color: '#ffffff'
+bg_color: '#dd2727'
