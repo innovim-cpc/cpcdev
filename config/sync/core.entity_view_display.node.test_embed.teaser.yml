@@ -1,0 +1,39 @@
+uuid: de89c174-8d9d-4e48-9194-9fa3b097aa02
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.test_embed.body
+    - field.field.node.test_embed.feeds_item
+    - field.field.node.test_embed.field_image_url
+    - field.field.node.test_embed.field_yearonly
+    - node.type.test_embed
+  module:
+    - text
+    - user
+id: node.test_embed.teaser
+targetEntityType: node
+bundle: test_embed
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  feeds_item: true
+  field_image_url: true
+  field_yearonly: true
