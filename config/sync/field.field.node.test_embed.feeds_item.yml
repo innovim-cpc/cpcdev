@@ -1,0 +1,23 @@
+uuid: 225cada1-5c06-4625-8989-34702a2f9719
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.feeds_item
+    - node.type.test_embed
+  module:
+    - feeds
+id: node.test_embed.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: test_embed
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item
