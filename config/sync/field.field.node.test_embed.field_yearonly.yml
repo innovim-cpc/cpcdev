@@ -1,0 +1,29 @@
+uuid: 79b47cc2-a3f5-4103-a3c9-2f4d08296c8d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_yearonly
+    - node.type.test_embed
+    - taxonomy.vocabulary.year
+id: node.test_embed.field_yearonly
+field_name: field_yearonly
+entity_type: node
+bundle: test_embed
+label: Year
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      year: year
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
