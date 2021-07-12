@@ -1,0 +1,15 @@
+<?php
+
+
+
+function poe_calculator_theme($existing, $type, $theme, $path) {
+  return [
+    'poe_map' => [
+      'variables' => ['map' => NULL],
+    ]
+  ];
+}
+
+
+
+

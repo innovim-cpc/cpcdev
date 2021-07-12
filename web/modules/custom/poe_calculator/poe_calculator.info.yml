@@ -1,0 +1,10 @@
+name: POE Calculator
+type: module
+description: Probability of Exceedance calculator
+core: 8.x
+core_version_requirement: ^8 || ^9
+package: CPC Custom
+component-libraries:
+  templates:
+    paths:
+      - templates
